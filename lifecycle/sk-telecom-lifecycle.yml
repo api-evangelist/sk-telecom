@@ -1,0 +1,66 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  https://openapi.sk.com/support/notice/listView (dated notice board), plus deprecated flags
+  and path versions read from openapi/*.json.
+versioning:
+  scheme: uri-path, per product — there is no portal-wide API version
+  docs: https://openapi.sk.com/products/detail?linkMenuSeq=61
+  per_api:
+  - {api: SK Telecom A.X TTS API, base: https://apis.openapi.sk.com/axtts, version_segment: none}
+  - {api: SK Telecom A. facecan API, base: https://apis.openapi.sk.com/nugufacecan, version_segment: /v1}
+  - {api: SK Telecom META API, base: https://apis.openapi.sk.com/sigmeta, version_segment: /golf/v1, /pose/v1, /lpr/v1}
+  - {api: SK Telecom OVS API, base: https://apis.openapi.sk.com/api/ovs, version_segment: /v20}
+  - {api: SK Telecom Puzzle Place Congestion API, base: https://apis.openapi.sk.com/puzzle/place, version_segment: none}
+  - {api: SK Telecom Puzzle Residence API, base: https://apis.openapi.sk.com/puzzle/residence, version_segment: none}
+deprecation:
+  policy_published: false
+  policy_url: null
+  announcement_channel: https://openapi.sk.com/support/notice/listView
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    SK open API publishes no written deprecation policy, no notice period commitment and no
+    RFC 8594 Sunset/Deprecation headers. Deprecation happens as a dated 공지사항 (notice) on the
+    portal notice board, and the observed notice period is extremely short: the OVS and LITMUS
+    APIs were announced terminated on 2026-04-06 with an effective time of 2026-04-07 13:00
+    KST — roughly one day. Plans attached to consuming apps are deleted at termination.
+  sunset_events:
+  - api: SK Telecom OVS API
+    spec: openapi/sk-telecom-ovs-openapi.json
+    announced: '2026-04-06'
+    effective: '2026-04-07T13:00+09:00'
+    notice_period_days: 1
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+    reason: Terminated at the provider's discretion (제공사의 사정)
+    consumer_impact: Plans removed from consuming apps; calls stop returning valid results.
+  - api: LITMUS API
+    announced: '2026-04-06'
+    effective: '2026-04-07T13:00+09:00'
+    notice_period_days: 1
+    reason: Open API distribution discontinued; the LITMUS data product continues off-API.
+    note: Not catalogued as an SK Telecom API in apis.yml (no spec was published).
+  breaking_changes:
+  - {date: '2026-07-01', change: HTTP (port 80) calls blocked; HTTPS-only enforced with no redirect, url: 'https://openapi.sk.com/support/notice/detailView?ntiSeq=359'}
+  - {date: '2023-03-27', change: Geovision Puzzle free-tier daily quotas cut (1000/day to 100/day on several API groups), url: 'https://openapi.sk.com/support/notice/detailView?ntiSeq=311'}
+  - {date: '2023-02-02', change: Gateway common error codes changed from numeric to symbolic, url: 'https://openapi.sk.com/support/notice/detailView?ntiSeq=309'}
+deprecated_operations: []
+deprecated_operations_note: >-
+  Every operation in all six OpenAPI documents carries deprecated:false. The OVS API was
+  terminated wholesale on 2026-04-07 without the spec ever being marked deprecated — the
+  machine-readable contract never reflected the sunset.
+sla:
+  url: null
+  uptime_target: null
+  note: No SLA or uptime commitment is published on the SK open API portal. The gateway does
+    return a QUOTA_EXCEEDED error whose documented reason is "SLA 초과" (SLA exceeded), so an
+    internal per-plan SLA exists, but its terms are not public.
+status_page:
+  url: null
+  note: >-
+    No status page. status.sk.com and status.openapi.sk.com do not resolve in DNS
+    (probed 2026-07-25). Planned maintenance is announced on the notice board instead.
+dead_hosts:
+  note: Legacy developer hostnames left dangling — see review.yml deadDeveloperHosts.
+  hosts: [developer.sktelecom.com, developers.sktelecom.com, api.sktelecom.com,
+    opengateway.sktelecom.com, openapi.sktelecom.com, tmapapi.sktelecom.com, litmus.sktelecom.com]

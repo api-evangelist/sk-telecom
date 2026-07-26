@@ -1,0 +1,103 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  SK open API portal notices and product docs (openapi.sk.com), the five *-skopenapi.readme.io
+  reference hubs, and the six OpenAPI 3.1.0 documents in openapi/.
+summary: >-
+  SK open API is a single AWS API Gateway (apis.openapi.sk.com) fronting a set of otherwise
+  unrelated SK Group product APIs. What is genuinely cross-cutting is thin: one auth header,
+  one gateway error envelope, one throttle/quota model, HTTPS-only transport. Everything else —
+  pagination, versioning, request tracing, response shapes — is decided per product, and the
+  products do not agree with each other.
+authentication:
+  style: api-key-header
+  header: appKey
+  header_variants:
+  - {header: appKey, apis: [A.X TTS, A. facecan, META, OVS]}
+  - {header: appkey, apis: [Puzzle Place Congestion, Puzzle Residence], note: lowercase in the Puzzle specs}
+  issued_from: https://openapi.sk.com/mypage/project/ (마이페이지 > 앱 > 앱키 tab, requires sign-in)
+  oauth2: false
+  mtls: false
+  additional_headers:
+  - {header: app-id, apis: [A. facecan], note: per-application identifier, required alongside appKey}
+  - {header: X-Authorization, apis: [OVS], note: per-company auth token in addition to appKey}
+  ip_allowlist: >-
+    Apps can be bound to an IP whitelist; calls from other addresses fail 403 ACCESS_DENIED.
+  detail: authentication/sk-telecom-authentication.yml
+transport:
+  https_only: true
+  enforced_from: '2026-07-01'
+  note: >-
+    Port 80 was closed on 2026-07-01 and no 80 to 443 redirect is provided; plain-HTTP callers
+    break rather than upgrade. Source: notice ntiSeq=359.
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    No idempotency key, no request-deduplication contract and no retry-safety guidance appears
+    anywhere in SK Telecom's public developer surface. No Idempotency-Key parameter exists in
+    any of the six OpenAPI documents. Non-idempotent writes (face enrolment, device
+    registration, broadcast message delivery) have no replay protection.
+pagination:
+  cross_cutting: false
+  styles:
+  - api: SK Telecom OVS API
+    style: link-cursor
+    response_fields: [data, nextPageLink, hasNext]
+    note: The only paginated surface found. Terminated 2026-04-07.
+  - api: SK Telecom Puzzle Place Congestion API
+    style: none
+    note: Collection endpoints return the whole set; range is controlled by date/time query parameters instead.
+  - api: SK Telecom A. facecan API
+    style: none
+    note: Group/subject/face list operations return unbounded arrays.
+field_expansion:
+  supported: false
+metadata:
+  supported: false
+request_tracing:
+  cross_cutting: false
+  per_api:
+  - api: SK Telecom A. facecan API
+    header: request-id
+    direction: request and response
+    note: Caller-set transaction id echoed back on /v1/recognize (face-recognize-1).
+  note: No gateway-issued correlation id is documented.
+versioning:
+  style: uri-path, per product
+  detail: lifecycle/sk-telecom-lifecycle.yml
+error_envelope:
+  gateway: '{"error": {"id": "<http status>", "category": "gw", "code": "<SYMBOL>", "message": "<text>"}}'
+  product: '{"message": "<text>", "code": <int>}'
+  rfc9457: false
+  detail: errors/sk-telecom-error-codes.yml
+rate_limit_signalling:
+  headers: none
+  status: 429
+  codes: [THROTTLED, QUOTA_EXCEEDED]
+  detail: rate-limits/sk-telecom-rate-limits.yml
+content_negotiation:
+  note: >-
+    A.X TTS selects the response media type with a caller-supplied `accept` header matched to
+    the `sformat` body field (audio/wav, application/octet-stream, audio/ogg, audio/mpeg).
+    Binary uploads (facecan, META) are multipart form fields even where the spec models them
+    as application/json with format:binary.
+payload_encryption:
+  api: SK Telecom A. facecan API
+  scheme: >-
+    Optional per-image AES-128 encryption. The caller generates an AES-128 key, encrypts it
+    with a public key fetched from the service's /v1/key endpoint, and passes it in the `key`
+    header.
+localisation:
+  primary_language: Korean
+  note: >-
+    Portal, notices, error descriptions and most operation summaries are Korean-only. Two of
+    the six specs (OVS, Puzzle) use Korean-language operationIds, which is hostile to code
+    generation and to agent tool naming.
+cross_links:
+  authentication: authentication/sk-telecom-authentication.yml
+  errors: errors/sk-telecom-error-codes.yml
+  problem_types: errors/sk-telecom-problem-types.yml
+  lifecycle: lifecycle/sk-telecom-lifecycle.yml
+  rate_limits: rate-limits/sk-telecom-rate-limits.yml
+  changelog: changelog/sk-telecom-changelog.yml

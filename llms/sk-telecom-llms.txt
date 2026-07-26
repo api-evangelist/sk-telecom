@@ -1,0 +1,80 @@
+# SK Telecom
+
+> SK Telecom Co., Ltd. is South Korea's largest mobile network operator and the telecom arm of SK Group. Its public developer surface is SK open API (openapi.sk.com) — a self-serve portal for AI, big-data and mobility product APIs, not for network APIs. Every API is fronted by one AWS API Gateway at apis.openapi.sk.com and authenticated with a portal-issued `appKey` request header over HTTPS. SK Telecom is a CAMARA participant and GSMA Open Gateway signatory, but no CAMARA endpoint (Number Verification, SIM Swap, KYC Match, Quality on Demand) is callable from any host SK Telecom operates; those reach developers only through aggregators.
+
+## APIs with machine-readable contracts
+
+- [SK Telecom A.X TTS API](https://openapi.sk.com/products/detail?svcSeq=67): Korean text-to-speech on SKT's own DNN models. Base https://apis.openapi.sk.com/axtts. 3 operations.
+- [SK Telecom A. facecan API](https://openapi.sk.com/products/detail?svcSeq=50): Face database, detection, recognition and landmarks. Base https://apis.openapi.sk.com/nugufacecan. 12 operations.
+- [SK Telecom Puzzle Place Congestion API](https://openapi.sk.com/products/detail?svcSeq=56): Real-time and historical place/commercial-area congestion and visitor analytics from mobile network signalling. Base https://apis.openapi.sk.com/puzzle/place. 16 operations.
+- [SK Telecom Puzzle Residence API](https://openapi.sk.com/products/detail?svcSeq=66): Apartment-complex resident analytics keyed on kaptCode. Base https://apis.openapi.sk.com/puzzle/residence. 5 operations.
+- [SK Telecom META API](https://meta-skopenapi.readme.io/reference/lpr-1): Video/image analysis — golf swing, pose estimation, licence plate recognition. Base https://apis.openapi.sk.com/sigmeta. 7 operations.
+- [SK Telecom OVS API](https://ovs-skopenapi.readme.io/): Road-event alerting to registered devices. Base https://apis.openapi.sk.com/api/ovs. 12 operations. SERVICE TERMINATED 2026-04-07 13:00 KST.
+
+## Documented without a machine-readable contract
+
+- [SK Telecom Geovision Floating Population API](https://openapi.sk.com/products/detail?svcSeq=2)
+- [SK Telecom Puzzle Subway Congestion API](https://openapi.sk.com/products/detail?svcSeq=54)
+- [SK Telecom Puzzle Domestic Travel API](https://openapi.sk.com/products/detail?svcSeq=57)
+- [SK Telecom Puzzle Restaurant API](https://openapi.sk.com/products/detail?svcSeq=69)
+- [SK Telecom Puzzle Academy API](https://openapi.sk.com/products/detail?svcSeq=70)
+- [Passkey by SK Telecom](https://openapi.sk.com/products/detail?svcSeq=73)
+- [SK Telecom T ID Login](https://developers.t-id.co.kr/)
+- [NUGU Developers](https://developers.nugu.co.kr/)
+- [SK Telecom QRNG](https://openapi.sk.com/products/detail?svcSeq=29)
+
+## Specs
+
+- [A.X TTS OpenAPI 3.1.0](openapi/sk-telecom-ax-tts-openapi.json)
+- [A. facecan OpenAPI 3.1.0](openapi/sk-telecom-facecan-openapi.json)
+- [Puzzle Place Congestion OpenAPI 3.1.0](openapi/sk-telecom-puzzle-place-congestion-openapi.json)
+- [Puzzle Residence OpenAPI 3.1.0](openapi/sk-telecom-puzzle-residence-openapi.json)
+- [META OpenAPI 3.1.0](openapi/sk-telecom-meta-openapi.json)
+- [OVS OpenAPI 3.1.0](openapi/sk-telecom-ovs-openapi.json)
+
+## Provider-published llms.txt (verbatim)
+
+- [A.X TTS](llms/sk-telecom-ax-tts-llms.txt) — https://ax-tts-skopenapi.readme.io/llms.txt
+- [A. facecan](llms/sk-telecom-nugufacecan-llms.txt) — https://nugufacecan-skopenapi.readme.io/llms.txt
+- [Geovision Puzzle](llms/sk-telecom-puzzle-llms.txt) — https://puzzle-skopenapi.readme.io/llms.txt
+- [META](llms/sk-telecom-meta-llms.txt) — https://meta-skopenapi.readme.io/llms.txt
+- [OVS](llms/sk-telecom-ovs-llms.txt) — https://ovs-skopenapi.readme.io/llms.txt
+
+## How to call these APIs
+
+- Authentication: `appKey` request header (lowercase `appkey` on the Puzzle APIs), issued from https://openapi.sk.com/mypage/project/. No OAuth, no OIDC, no mTLS. A. facecan additionally requires `app-id`; OVS additionally requires `X-Authorization`.
+- Transport: HTTPS only. Port 80 was closed on 2026-07-01 with no redirect.
+- Errors: proprietary envelope `{"error":{"id","category","code","message"}}` at the gateway; `{"message","code"}` inside products. Not RFC 9457. See [errors](errors/sk-telecom-error-codes.yml).
+- Rate limits: HTTP 429 `THROTTLED` (call rate) and `QUOTA_EXCEEDED` (plan quota). No rate-limit headers. See [rate limits](rate-limits/sk-telecom-rate-limits.yml).
+- Idempotency: not supported and not documented anywhere.
+- Events: no webhooks, no AsyncAPI, no streaming surface.
+
+## Artifacts
+
+- [Authentication profile](authentication/sk-telecom-authentication.yml)
+- [API conventions](conventions/sk-telecom-conventions.yml)
+- [Error codes](errors/sk-telecom-error-codes.yml) and [problem types](errors/sk-telecom-problem-types.yml)
+- [Lifecycle and deprecation](lifecycle/sk-telecom-lifecycle.yml)
+- [Changelog (portal notice board)](changelog/sk-telecom-changelog.yml)
+- [Rate limits](rate-limits/sk-telecom-rate-limits.yml)
+- [Data model](data-model/sk-telecom-data-model.yml)
+- [Conformance](conformance/sk-telecom-conformance.yml)
+- [Sandbox and consoles](sandbox/sk-telecom-sandbox.yml)
+- [Packages (none published)](packages/sk-telecom-packages.yml)
+- [MCP](mcp/sk-telecom-mcp.yml) and [tool crosswalk](mcp/sk-telecom-tool-crosswalk.yml)
+- [Well-known discovery](well-known/sk-telecom-well-known.yml)
+- [Domain security](security/sk-telecom-domain-security.yml)
+- [Agentic access](agentic-access/sk-telecom-agentic-access.yml)
+- [Agent skills](skills/_index.yml)
+
+## Docs
+
+- [SK open API portal](https://openapi.sk.com/)
+- [Product catalog](https://openapi.sk.com/products/detail?linkMenuSeq=61)
+- [Notice board — changes, quotas, terminations](https://openapi.sk.com/support/notice/listView)
+- [FAQ](https://openapi.sk.com/faq)
+- [Q&A](https://openapi.sk.com/support/qna/qnaListView)
+- [Terms of service](https://openapi.sk.com/stplat/usage/indexView)
+- [Privacy policy](https://privacy.sktelecom.com/view.do?ctg=policy&name=policy)
+- [SK Telecom newsroom](https://news.sktelecom.com/)
+- [GitHub organisation](https://github.com/sktelecom)

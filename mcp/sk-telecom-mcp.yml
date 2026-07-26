@@ -1,0 +1,75 @@
+generated: '2026-07-25'
+method: searched
+status: published
+source: >-
+  Live probe of https://<project>-skopenapi.readme.io/mcp on 2026-07-25 plus the RFC 9728
+  protected-resource metadata at /.well-known/oauth-protected-resource/mcp on each host.
+summary: >-
+  SK Telecom does not author or operate an MCP server for its APIs. It does, however, publish
+  every API reference on the ReadMe documentation platform, and each of the five SK open API
+  documentation hubs exposes a live MCP endpoint at /mcp on the SK Telecom-branded hostname.
+  Those endpoints are real — a JSON-RPC POST returns a well-formed JSON-RPC envelope — but
+  tools/list and initialize both answer HTTP 401 {"code":-32001,"message":"Authorization
+  required"}, and the RFC 9728 descriptor names ReadMe's own authorization server
+  (https://dash.readme.com/oidc) as the issuer. The tool set therefore cannot be introspected
+  anonymously, and the tools are documentation-platform tools rather than tools generated per
+  SK Telecom API operation. No MCP server for the SK open API gateway itself
+  (apis.openapi.sk.com) was found on the portal, in the SK Telecom GitHub organisation, or in
+  any public MCP registry.
+authored_by: ReadMe (documentation platform), on SK Telecom-branded documentation hostnames
+servers:
+- name: sk-telecom-ax-tts-docs
+  api: SK Telecom A.X TTS API
+  transport: http
+  url: https://ax-tts-skopenapi.readme.io/mcp
+  status: live
+  auth: required
+  probe:
+    method: tools/list
+    http_status: 401
+    response: '{"jsonrpc":"2.0","error":{"code":-32001,"message":"Authorization required"},"id":null}'
+  authorization_servers: [https://dash.readme.com/oidc]
+- name: sk-telecom-facecan-docs
+  api: SK Telecom A. facecan API
+  transport: http
+  url: https://nugufacecan-skopenapi.readme.io/mcp
+  status: live
+  auth: required
+  probe: {method: tools/list, http_status: 401}
+  authorization_servers: [https://dash.readme.com/oidc]
+- name: sk-telecom-puzzle-docs
+  api: SK Telecom Geovision Puzzle APIs (place congestion, residence)
+  transport: http
+  url: https://puzzle-skopenapi.readme.io/mcp
+  status: live
+  auth: required
+  probe: {method: tools/list, http_status: 401}
+  authorization_servers: [https://dash.readme.com/oidc]
+- name: sk-telecom-meta-docs
+  api: SK Telecom META API
+  transport: http
+  url: https://meta-skopenapi.readme.io/mcp
+  status: live
+  auth: required
+  probe: {method: tools/list, http_status: 401}
+  authorization_servers: [https://dash.readme.com/oidc]
+- name: sk-telecom-ovs-docs
+  api: SK Telecom OVS API
+  transport: http
+  url: https://ovs-skopenapi.readme.io/mcp
+  status: live
+  auth: required
+  note: >-
+    The underlying OVS API was terminated by SK Telecom on 2026-04-07 13:00 KST; the
+    documentation hub and its MCP endpoint were still answering on 2026-07-25.
+  probe: {method: tools/list, http_status: 401}
+  authorization_servers: [https://dash.readme.com/oidc]
+tools:
+  discovered: []
+  note: >-
+    Not fabricated. tools/list is auth-gated on all five endpoints and no llms.txt or docs page
+    publishes the tool names, so no tool inventory could be recorded. The llms.txt files under
+    llms/ carry the documentation-page inventory that a ReadMe MCP client would search.
+gaps:
+- No MCP server binds the SK open API gateway operations (47 OpenAPI operations across six specs).
+- No MCP server is published for T ID, NUGU, Passkey or any CAMARA network capability.

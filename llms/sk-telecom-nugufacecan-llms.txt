@@ -1,0 +1,25 @@
+# NUGU facecan Documentation
+
+> Documentation for NUGU facecan
+
+## API Reference
+- [NUGU facecan 소개](https://nugufacecan-skopenapi.readme.io/reference/nugu-facecan-소개.md): 테스트. 사용자가 전송한 사진에 있는 얼굴 데이터를 분석하는 기능과 사전에 저장한 DB로부터 신원을 확인하는 기능
+- [Group List](https://nugufacecan-skopenapi.readme.io/reference/group-list.md)
+- [Group Create](https://nugufacecan-skopenapi.readme.io/reference/group-create.md)
+- [Group Delete](https://nugufacecan-skopenapi.readme.io/reference/group-delete.md)
+- [Group 샘플 예제](https://nugufacecan-skopenapi.readme.io/reference/group-샘플-예제.md)
+- [Subject List](https://nugufacecan-skopenapi.readme.io/reference/subject-list.md)
+- [Subject Create](https://nugufacecan-skopenapi.readme.io/reference/subject-create.md)
+- [Subject Delete](https://nugufacecan-skopenapi.readme.io/reference/subject-delete.md)
+- [Subject 샘플 예제](https://nugufacecan-skopenapi.readme.io/reference/subject-샘플-예제.md)
+- [Face List](https://nugufacecan-skopenapi.readme.io/reference/subject-list-1.md)
+- [Face Create](https://nugufacecan-skopenapi.readme.io/reference/face-create.md)
+- [Face Delete](https://nugufacecan-skopenapi.readme.io/reference/face-delete.md)
+- [Face 샘플 예제](https://nugufacecan-skopenapi.readme.io/reference/face-샘플-예제.md)
+- [Face Recognize](https://nugufacecan-skopenapi.readme.io/reference/face-recognize-1.md)
+- [Face Recongnize 샘플 예제](https://nugufacecan-skopenapi.readme.io/reference/face-recongnize-샘플-예제.md)
+- [Face Detect](https://nugufacecan-skopenapi.readme.io/reference/face-detect-1.md)
+- [Face Detect 샘플 예제](https://nugufacecan-skopenapi.readme.io/reference/face-detect-샘플-예제.md)
+- [Face Landmark](https://nugufacecan-skopenapi.readme.io/reference/face-landmark-1.md)
+- [Face Landmark 샘플 예제](https://nugufacecan-skopenapi.readme.io/reference/face-landmark-샘플-예제.md)
+- [Error Codes](https://nugufacecan-skopenapi.readme.io/reference/error-codes.md)

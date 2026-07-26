@@ -1,0 +1,117 @@
+generated: '2026-07-25'
+method: searched
+source: https://openapi.sk.com/support/notice/detailView?ntiSeq=309
+docs:
+- url: https://openapi.sk.com/support/notice/detailView?ntiSeq=309
+  name: Gateway 공통 에러코드 변경 안내 (gateway common error codes, effective 2023-02-02)
+  http_status: 200
+- url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  name: A. facecan Error Codes
+  http_status: 200
+- url: https://meta-skopenapi.readme.io/reference/error-code-2
+  name: META Error Code
+  http_status: 200
+format: proprietary
+envelope:
+  shape: '{"error": {"id": "<http status>", "category": "<gw|...>", "code": "<ERROR_CODE>", "message": "<message>"}}'
+  example: '{"error":{"id":"401","category":"gw","code":"UNAUTHORIZED","message":"Unauthorized"}}'
+  note: >-
+    Not RFC 9457. SK open API uses a proprietary envelope with a nested error object. The
+    scheme changed on 2023-02-02 from numeric codes (8001, 8101, 8102, 8104, 8105, 7104,
+    9999, 8901) to symbolic codes (UNAUTHORIZED, INVALID_API_KEY, THROTTLED, ...). Product
+    APIs behind the gateway use their own flat {"message": ..., "code": <int>} envelope.
+gateway_errors:
+  scope: All APIs behind https://apis.openapi.sk.com/
+  effective: '2023-02-02'
+  category: gw
+  codes:
+  - {status: 401, code: UNAUTHORIZED, message: Unauthorized, reason: Call made without an appKey}
+  - {status: 403, code: INVALID_API_KEY, message: Forbidden, reason: Call made with an invalid appKey}
+  - {status: 403, code: ACCESS_DENIED, message: Authorized IP Address only, reason: Blocked by IP whitelist}
+  - {status: 403, code: MISSING_AUTHENTICATION_TOKEN, message: Missing Authentication Token, reason: Call to a non-existent API or HTTP method}
+  - {status: 429, code: THROTTLED, message: Too Many Requests, reason: Per-second call rate exceeded}
+  - {status: 429, code: QUOTA_EXCEEDED, message: Limit Exceeded, reason: SLA / plan call quota exceeded}
+  - {status: 500, code: API_CONFIGURATION_ERROR, message: Internal server error, reason: Gateway internal error}
+  - {status: 504, code: INTEGRATION_FAILURE, message: Network error communicating with endpoint, reason: Backend routing error}
+  retired_codes:
+    note: Numeric scheme in force before 2023-02-02, retained for archaeology.
+    codes:
+    - {status: 400, code: E.GW.METHOD_NOT_ALLOWED, message: '{Method} not permited'}
+    - {status: 400, code: E.GW.INVALID_APIKEY, message: Invalid API Key}
+    - {status: 400, code: '-1', message: The host does not exist or the host is down when routing}
+    - {status: 400, code: '-2', message: The Routing URL is incorrect}
+    - {status: 400, code: '-3', message: Connection Timeout occured when routing}
+    - {status: 400, code: '-5', message: An unknown type of error has occurred when routing}
+    - {status: 401, code: '8001', message: 유효하지 않은 API Key입니다.}
+    - {status: 403, code: '8101', message: 초당/분당/시간당 처리 건수를 초과했습니다.}
+    - {status: 403, code: '8102', message: 최대 호출 허용 건수를 초과했습니다.}
+    - {status: 403, code: '8104', message: 접근권한이 없는 IP주소입니다.}
+    - {status: 403, code: '8105', message: 서비스 제한 시간입니다.}
+    - {status: 404, code: '404', message: Gateway service not found}
+    - {status: 405, code: '7104', message: 허용하지 않는 HTTP Method입니다.}
+    - {status: 408, code: '-4', message: Read Timeout occured when routing}
+    - {status: 500, code: GW000, message: The request failed due to some unknown reason}
+    - {status: 500, code: '9999', message: Gateway 내부 오류가 발생하였습니다.}
+    - {status: 503, code: '8901', message: 라우팅에 실패했습니다.}
+product_errors:
+- api: SK Telecom A. facecan API
+  spec: openapi/sk-telecom-facecan-openapi.json
+  envelope: '{"message": "<text>", "code": <int>}'
+  docs: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  families:
+    1xxx: application / group errors
+    2xxx: subject errors
+    3xxx: face, recognition, spoofing and GPU-engine errors
+    4xxx: image payload errors
+  codes:
+  - {code: 1000, status: 400, message: apps do not exist}
+  - {code: 1001, status: 400, message: group-name error}
+  - {code: 1002, status: 400, message: group-id error}
+  - {code: 1003, status: 400, message: groups do not exist}
+  - {code: 1004, status: 400, message: image keys do not exist}
+  - {code: 1011, status: 400, message: group already exists}
+  - {code: 1012, status: 500, message: group creation failed}
+  - {code: 2000, status: 400, message: subject-name error}
+  - {code: 2001, status: 400, message: subject-id error}
+  - {code: 2002, status: 400, message: subjects do not exist}
+  - {code: 2003, status: 400, message: There is a duplicate subject}
+  - {code: 2004, status: 400, message: subject-name must be unique}
+  - {code: 2005, status: 400, message: subject update data is invalid}
+  - {code: 3000, status: 400, message: face-name error}
+  - {code: 3001, status: 500, message: face-feature error}
+  - {code: 3002, status: 400, message: face-id error}
+  - {code: 3003, status: 400, message: faces do not exist}
+  - {code: 3004, status: 400, message: no faces in image}
+  - {code: 3005, status: 400, message: matching faces do not exist}
+  - {code: 3006, status: 400, message: subject not found error}
+  - {code: 3007, status: 400, message: inappropriate face in image}
+  - {code: 3009, status: 500, message: face detection error in image}
+  - {code: 3010, status: 400, message: mask in face}
+  - {code: 3020, status: 500, message: multi face matching error}
+  - {code: 3021, status: 400, message: gallery features do not exist}
+  - {code: 3030, status: 400, message: blur in face}
+  - {code: 3040, status: 400, message: face spoofing attack detected}
+  - {code: 3041, status: 400, message: small face detected}
+  - {code: 3050, status: 503, message: face detection queue is full}
+  - {code: 3051, status: 503, message: face detection input batch size is larger than maximum batch size}
+  - {code: 3052, status: 503, message: face detection request timeout}
+  - {code: 3060, status: 503, message: face recognition queue is full}
+  - {code: 3061, status: 503, message: face recognition input batch size is larger than maximum batch size}
+  - {code: 3062, status: 503, message: face recognition request timeout}
+  - {code: 4000, status: 400, message: images do not exist}
+  - {code: 4001, status: 400, message: exif error}
+  - {code: 4002, status: 400, message: unsupported images}
+  - {code: 4003, status: 500, message: Disk IO Error}
+  - {code: 4004, status: 500, message: Encrypt Error}
+  - {code: 4005, status: 400, message: unsupported IR images}
+  - {code: 4006, status: 400, message: unsupported depth images}
+- api: SK Telecom META API
+  spec: openapi/sk-telecom-meta-openapi.json
+  docs: https://meta-skopenapi.readme.io/reference/error-code-2
+  http_statuses:
+  - {status: 204, message: No Content, cause: File missing / file upload success (multipart form), operations: [create_analyzer, get_result]}
+  - {status: 400, message: Bad Request, cause: missing key parameter, bad x-amz-security-token, other missing/invalid parameters}
+  - {status: 403, message: Forbidden, cause: missing/invalid file parameter, key, x-amz-security-token, policy or x-amz-signature}
+  - {status: 413, message: Request Entity Too Large, cause: upload exceeds 3 MB, operations: [e2e, e2e-1]}
+  - {status: 500, message: Internal Server Error, cause: missing file parameter, unsupported video extension, clip shorter than 4 seconds}
+  - {status: 503, message: Service Unavailable, cause: unsupported video extension, user test load, internal server error}

@@ -1,0 +1,10 @@
+# A.X tts Documentation
+
+> Documentation for A.X tts
+
+## API Reference
+- [Getting Started With A.X TTS API](https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api.md): This page will help you get started with A.X TTS.
+- [TTS Model List](https://ax-tts-skopenapi.readme.io/reference/tts-model-list-1.md)
+- [Get Voices](https://ax-tts-skopenapi.readme.io/reference/get-voices.md): 해당 모델에서 지원하고 있는 화자 정보를 확인할 수 있고, 모델 Name은 <a href="https://ax-tts-skopenapi.readme.io/reference/tts-model-list-1">모델 List</a>에서 확인 가능합니다.
+- [Text-to-Speech (TTS)](https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts.md)
+- [Text-to-Speech with Timestamp](https://ax-tts-skopenapi.readme.io/reference/text-to-speech-with-timestamp.md): 음성합성 + Timestamp API

@@ -1,0 +1,33 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for SK Telecom OVS API
+  version: 1.0.0
+extends: openapi/sk-telecom-ovs-openapi.json
+generated: '2026-07-25'
+method: generated
+source: >-
+  API Evangelist enrichment round 2026-07-25 — annotations derived from the SK open API
+  portal notices, the *-skopenapi.readme.io reference hubs and this repository's artifacts.
+actions:
+  - target: $.info
+    update:
+      description: "Road-event alerting to registered devices. Service terminated 2026-04-07."
+      x-apievangelist-provider: SK Telecom Co., Ltd.
+      x-apievangelist-portal: https://openapi.sk.com/
+      x-apievangelist-error-catalog: errors/sk-telecom-error-codes.yml
+      x-apievangelist-conventions: conventions/sk-telecom-conventions.yml
+      x-apievangelist-rate-limits: rate-limits/sk-telecom-rate-limits.yml
+      x-apievangelist-lifecycle: lifecycle/sk-telecom-lifecycle.yml
+      x-apievangelist-authentication: authentication/sk-telecom-authentication.yml
+      x-apievangelist-agentic-access: agentic-access/sk-telecom-agentic-access.yml
+  - target: $.components.securitySchemes.sec0
+    update:
+      description: >-
+        Portal-issued application key, sent as a request header on every call. Issued from
+        https://openapi.sk.com/mypage/project/ (마이페이지 > 앱 > 앱키). HTTPS only since
+        2026-07-01 — plain HTTP on port 80 is refused with no redirect.
+  - target: $.info
+    update:
+      x-apievangelist-lifecycle-status: terminated
+      x-apievangelist-sunset: '2026-04-07T13:00+09:00'
+      x-apievangelist-sunset-notice: https://openapi.sk.com/support/notice/detailView?ntiSeq=357

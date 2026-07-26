@@ -1,0 +1,121 @@
+generated: '2026-07-25'
+method: searched
+source: https://openapi.sk.com/support/notice/listView
+docs: https://openapi.sk.com/support/notice/listView
+summary: >-
+  SK open API has no developer changelog in the modern sense — no release notes page, no
+  versioned CHANGELOG, no RSS. What it has is a dated Korean-language notice board (공지사항)
+  at /support/notice/listView where gateway changes, error-code changes, quota reductions,
+  maintenance windows and service terminations are announced. Notices are addressed by
+  ntiSeq and are readable anonymously; the list view itself only renders the two pinned
+  notices to an anonymous visitor, so the entries below were read by walking ntiSeq. Recent
+  window only — this is not the full history.
+scheme: dated notice board (공지사항), no version numbers
+current_version: null
+version_note: >-
+  Each API carries its own path version segment (axtts has none, facecan /v1, META /golf/v1
+  and /pose/v1, OVS /v20, Puzzle unversioned). There is no portal-wide API version.
+entries:
+- date: '2026-07-02'
+  seq: 362
+  title: 행정구역 변경으로 인한 TMAP API 작업 일정 시간 변경 안내
+  title_en: TMAP API maintenance rescheduled again for administrative-district changes
+  kind: maintenance
+  breaking: false
+  note: TMAP is operated by TMAP Mobility Co., Ltd., not SK Telecom; listed for portal completeness.
+- date: '2026-06-30'
+  seq: 361
+  title: 행정구역 변경으로 인한 TMAP API 작업 일정 변경 안내
+  title_en: TMAP API maintenance rescheduled for administrative-district changes
+  kind: maintenance
+  breaking: false
+- date: '2026-06-24'
+  seq: 360
+  title: 행정구역 변경으로 인한 TMAP API 작업 안내
+  title_en: TMAP API maintenance for administrative-district changes
+  kind: maintenance
+  breaking: false
+- date: '2026-04-23'
+  seq: 359
+  url: https://openapi.sk.com/support/notice/detailView?ntiSeq=359
+  title: SK open API 보안 강화에 따른 불필요 포트 폐쇄 및 HTTP 접속 제한 일정 변경
+  title_en: Revised schedule — unnecessary ports closed and HTTP access restricted
+  kind: breaking
+  breaking: true
+  effective: '2026-07-01'
+  scope: SK open API Gateway (apis.openapi.sk.com) and every API behind it
+  highlights:
+  - Port 80 (HTTP) closed; all API calls forced to HTTPS on port 443.
+  - No automatic 80 to 443 redirect is provided — callers must edit their source.
+- date: '2026-04-16'
+  seq: 358
+  title: SK open API 보안 강화에 따른 불필요 포트 폐쇄 및 HTTP 접속 제한 안내
+  title_en: Original announcement — unnecessary ports closed and HTTP access restricted
+  kind: breaking
+  breaking: true
+- date: '2026-04-06'
+  seq: 357
+  url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+  title: OVS API 서비스 종료 안내
+  title_en: OVS API end of service
+  kind: sunset
+  breaking: true
+  effective: '2026-04-07T13:00+09:00'
+  highlights:
+  - OVS API terminated at the provider's discretion; one day of notice.
+  - Plans attached to apps using OVS were deleted; calls no longer return valid results.
+- date: '2026-04-06'
+  seq: 356
+  title: LITMUS API 서비스 종료 안내
+  title_en: LITMUS API end of service (Open API form only; the LITMUS data product continues)
+  kind: sunset
+  breaking: true
+  effective: '2026-04-07T13:00+09:00'
+- date: '2026-03-24'
+  seq: 355
+  title: Amazon RDS 및 Lambda 버전 업그레이드 작업 진행 (3/25)
+  title_en: Amazon RDS and Lambda version upgrade maintenance
+  kind: maintenance
+  breaking: false
+- date: '2023-05-15'
+  seq: 312
+  title: 실시간 장소 혼잡도 API 개선에 따른 공지
+  title_en: Improvements to the real-time place congestion API
+  kind: change
+  breaking: false
+  api: SK Telecom Puzzle Place Congestion API
+- date: '2023-03-17'
+  seq: 311
+  url: https://openapi.sk.com/support/notice/detailView?ntiSeq=311
+  title: 지오비전 퍼즐 API(지하철 혼잡도, 장소 혼잡도, 국내 여행) 무료 상품 한도 축소 안내
+  title_en: Geovision Puzzle free-tier daily quotas reduced (subway congestion, place congestion, domestic travel)
+  kind: quota
+  breaking: true
+  effective: '2023-03-27'
+  note: See rate-limits/sk-telecom-rate-limits.yml for the published before/after quota table.
+- date: '2023-02-02'
+  seq: 309
+  url: https://openapi.sk.com/support/notice/detailView?ntiSeq=309
+  title: Gateway 공통 에러코드 변경 안내
+  title_en: Gateway common error codes changed
+  kind: breaking
+  breaking: true
+  effective: '2023-02-02'
+  highlights:
+  - Numeric gateway error codes (8001, 8101, 8102, 8104, 8105, 7104, 9999, 8901) replaced by
+    symbolic codes (UNAUTHORIZED, INVALID_API_KEY, ACCESS_DENIED, MISSING_AUTHENTICATION_TOKEN,
+    THROTTLED, QUOTA_EXCEEDED, API_CONFIGURATION_ERROR, INTEGRATION_FAILURE).
+  - Error envelope retained as {"error":{"id","category","code","message"}}.
+  - Full table captured in errors/sk-telecom-error-codes.yml.
+- date: '2023-01-30'
+  seq: 307
+  title: '*재공지* SK open API 개편에 따른 홈페이지 접속 중단 안내 (2/1~2)'
+  title_en: Re-announcement — portal downtime for the SK open API relaunch
+  kind: maintenance
+  breaking: false
+- date: '2023-01-27'
+  seq: 305
+  title: SK open API 개편에 따른 서비스 일시 중단 안내(2/1~2)
+  title_en: Service suspension for the SK open API relaunch
+  kind: maintenance
+  breaking: false

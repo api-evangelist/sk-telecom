@@ -64,6 +64,17 @@ apis:
     url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
   - type: OpenAPI
     url: openapi/sk-telecom-ax-tts-openapi.json
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+    name: Getting Started With A.X TTS API
+  - type: Overlay
+    url: overlays/sk-telecom-ax-tts-overlay.yaml
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+    name: llms.txt published at https://ax-tts-skopenapi.readme.io/llms.txt
+  - type: AgentSkill
+    url: skills/sk-telecom-synthesize-korean-speech.md
+    name: Synthesize Korean speech with SK Telecom A.X TTS
 - aid: sk-telecom:sk-telecom-facecan-api
   name: SK Telecom A. facecan API
   description: >-
@@ -85,6 +96,17 @@ apis:
     url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
   - type: OpenAPI
     url: openapi/sk-telecom-facecan-openapi.json
+  - type: Overlay
+    url: overlays/sk-telecom-facecan-overlay.yaml
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+    name: llms.txt published at https://nugufacecan-skopenapi.readme.io/llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+    name: A. facecan Error Codes (41 codes, captured in errors/sk-telecom-error-codes.yml)
+  - type: AgentSkill
+    url: skills/sk-telecom-enroll-and-recognize-a-face.md
+    name: Enroll and recognize a face with SK Telecom A. facecan
 - aid: sk-telecom:sk-telecom-puzzle-place-congestion-api
   name: SK Telecom Puzzle Place Congestion API
   description: >-
@@ -106,6 +128,17 @@ apis:
     url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
   - type: OpenAPI
     url: openapi/sk-telecom-puzzle-place-congestion-openapi.json
+  - type: Overlay
+    url: overlays/sk-telecom-puzzle-place-congestion-overlay.yaml
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+    name: llms.txt published at https://puzzle-skopenapi.readme.io/llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+    name: Published Free-plan daily quotas (100/day and 1,000/day by API group)
+  - type: AgentSkill
+    url: skills/sk-telecom-read-place-congestion.md
+    name: Read place and commercial-area congestion from SK Telecom Geovision Puzzle
 - aid: sk-telecom:sk-telecom-puzzle-residence-api
   name: SK Telecom Puzzle Residence API
   description: >-
@@ -127,6 +160,8 @@ apis:
     url: https://puzzle-skopenapi.readme.io/reference/apts
   - type: OpenAPI
     url: openapi/sk-telecom-puzzle-residence-openapi.json
+  - type: Overlay
+    url: overlays/sk-telecom-puzzle-residence-overlay.yaml
 - aid: sk-telecom:sk-telecom-meta-api
   name: SK Telecom META API
   description: >-
@@ -147,13 +182,27 @@ apis:
     url: https://meta-skopenapi.readme.io/reference/lpr-1
   - type: OpenAPI
     url: openapi/sk-telecom-meta-openapi.json
+  - type: Overlay
+    url: overlays/sk-telecom-meta-overlay.yaml
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+    name: llms.txt published at https://meta-skopenapi.readme.io/llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+    name: META Error Code reference
+  - type: AgentSkill
+    url: skills/sk-telecom-analyze-video-with-meta.md
+    name: Analyze video and images with SK Telecom META
 - aid: sk-telecom:sk-telecom-ovs-api
   name: SK Telecom OVS API
   description: >-
-    OVS is SK Telecom's road-event alerting service. Ten documented operations covering customer
-    company lookup, registration/lookup/deletion of target devices, broadcast of alert messages to
-    devices when a road incident occurs, and per-company event statistics and raw event data
-    retrieval.
+    OVS is SK Telecom's road-event alerting service. Twelve documented operations covering
+    customer company lookup, registration/lookup/deletion of target devices, broadcast of alert
+    messages to devices when a road incident occurs, and per-company event statistics and raw
+    event data retrieval. TERMINATED: SK open API announced end of service on 2026-04-06 with
+    effect from 2026-04-07 13:00 KST — roughly one day of notice — deleting the plans of every
+    consuming app. The OpenAPI was never marked deprecated and the documentation hub is still
+    online; the definition is retained here as a record of a sunset contract.
   humanURL: https://openapi.sk.com/
   baseURL: https://apis.openapi.sk.com/api/ovs
   tags:
@@ -168,6 +217,14 @@ apis:
     url: https://ovs-skopenapi.readme.io/
   - type: OpenAPI
     url: openapi/sk-telecom-ovs-openapi.json
+  - type: Overlay
+    url: overlays/sk-telecom-ovs-overlay.yaml
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+    name: llms.txt published at https://ovs-skopenapi.readme.io/llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+    name: OVS API 서비스 종료 안내 — end of service 2026-04-07 13:00 KST
 - aid: sk-telecom:sk-telecom-geovision-api
   name: SK Telecom Geovision Floating Population API
   description: >-
@@ -199,6 +256,9 @@ apis:
   properties:
   - type: Documentation
     url: https://openapi.sk.com/products/detail?svcSeq=54
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+    name: Free-plan daily quotas — station list 100/day, real-time train congestion 1,000/day
 - aid: sk-telecom:sk-telecom-puzzle-travel-api
   name: SK Telecom Puzzle Domestic Travel API
   description: >-
@@ -214,6 +274,9 @@ apis:
   properties:
   - type: Documentation
     url: https://openapi.sk.com/products/detail?svcSeq=57
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+    name: Free-plan daily quotas — 100/day on destination list, traveller count and dwell time
 - aid: sk-telecom:sk-telecom-puzzle-restaurant-api
   name: SK Telecom Puzzle Restaurant API
   description: >-
@@ -310,6 +373,12 @@ apis:
   - type: Documentation
     url: https://openapi.sk.com/products/detail?svcSeq=29
 common:
+- type: AgenticAccess
+  url: agentic-access/sk-telecom-agentic-access.yml
+- type: DomainSecurity
+  url: security/sk-telecom-domain-security.yml
+- type: Authentication
+  url: authentication/sk-telecom-authentication.yml
 - type: Website
   url: https://www.sktelecom.com/
 - type: DeveloperPortal
@@ -354,6 +423,55 @@ common:
 - type: Aggregator
   url: https://adunaglobal.com/resources/news-aduna-and-sk-telink-announce-collaboration-to-bring-korea-into-the-global-network-api-ecosystem/
   name: Aduna / SK telink MoU, 8 September 2025
+- type: Documentation
+  url: https://openapi.sk.com/products/detail?linkMenuSeq=61
+  name: SK open API product catalog and documentation
+- type: ChangeLog
+  url: https://openapi.sk.com/support/notice/listView
+  name: SK open API 공지사항 — dated notice board where API changes are announced
+- type: ChangeLog
+  url: changelog/sk-telecom-changelog.yml
+- type: Lifecycle
+  url: lifecycle/sk-telecom-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/sk-telecom-lifecycle.yml
+  name: >-
+    Deprecations are announced on the portal notice board with no written policy and, on the
+    2026 evidence, roughly one day of notice; captured with the sunset events.
+- type: Conventions
+  url: conventions/sk-telecom-conventions.yml
+- type: ErrorCatalog
+  url: errors/sk-telecom-error-codes.yml
+  name: SK open API gateway common error codes plus per-product error registries
+- type: ErrorCatalog
+  url: errors/sk-telecom-problem-types.yml
+  name: Error responses derived from the six OpenAPI documents
+- type: RateLimits
+  url: rate-limits/sk-telecom-rate-limits.yml
+- type: Conformance
+  url: conformance/sk-telecom-conformance.yml
+- type: DataModel
+  url: data-model/sk-telecom-data-model.yml
+- type: Packages
+  url: packages/sk-telecom-packages.yml
+  name: No first-party SDK is published for any SK Telecom API (registries probed 2026-07-25)
+- type: Sandbox
+  url: sandbox/sk-telecom-sandbox.yml
+  name: Try-it consoles only — no sandbox environment and no test credentials
+- type: WellKnown
+  url: well-known/sk-telecom-well-known.yml
+- type: MCPServer
+  url: mcp/sk-telecom-mcp.yml
+  name: >-
+    Five live MCP endpoints on the SK Telecom documentation hubs (ReadMe-provided, tools/list
+    auth-gated); no MCP server for the SK open API gateway itself
+- type: ToolCrosswalk
+  url: mcp/sk-telecom-tool-crosswalk.yml
+- type: LLMsTxt
+  url: llms/sk-telecom-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+  name: Four packaged Agent Skills grounded in verified operationIds
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

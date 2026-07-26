@@ -1,0 +1,124 @@
+generated: '2026-07-25'
+method: derived
+source: >-
+  mcp/sk-telecom-mcp.yml (five live but auth-gated MCP endpoints) crossed against every
+  operationId in openapi/*.json. No GraphQL surface exists.
+summary: >-
+  SK Telecom has both an MCP surface and OpenAPI, so a crosswalk is emitted — but the two do
+  not meet. The only MCP servers on SK Telecom hostnames are the documentation-platform MCP
+  endpoints ReadMe exposes on the five *-skopenapi.readme.io hubs, and tools/list is
+  auth-gated (HTTP 401, ReadMe's own OIDC issuer), so no tool name could be observed. Nothing
+  in the public record binds an MCP tool to an SK open API operation. The honest result is a
+  crosswalk with zero bound rows and 55 rest_only operations: every SK Telecom API operation
+  is reachable only over REST with an appKey header, and no agent-facing tool wraps any of them.
+surfaces:
+  openapi:
+    files: [openapi/sk-telecom-ax-tts-openapi.json, openapi/sk-telecom-facecan-openapi.json,
+      openapi/sk-telecom-meta-openapi.json, openapi/sk-telecom-ovs-openapi.json,
+      openapi/sk-telecom-puzzle-place-congestion-openapi.json,
+      openapi/sk-telecom-puzzle-residence-openapi.json]
+    gated: false
+    note: Six OpenAPI 3.1.0 documents harvested from the ReadMe API registry; 55 operations.
+  graphql:
+    endpoint: null
+    note: No GraphQL surface is published on any SK Telecom hostname.
+  mcp:
+    servers: [https://ax-tts-skopenapi.readme.io/mcp, https://nugufacecan-skopenapi.readme.io/mcp,
+      https://puzzle-skopenapi.readme.io/mcp, https://meta-skopenapi.readme.io/mcp,
+      https://ovs-skopenapi.readme.io/mcp]
+    gated: true
+    note: >-
+      tools/list and initialize return HTTP 401 -32001 "Authorization required"; the RFC 9728
+      descriptor names https://dash.readme.com/oidc. Documentation-platform tools, not
+      per-operation API tools.
+crosswalk: []
+mcp_only: []
+rest_only:
+- capability: "A.X TTS — Korean speech synthesis"
+  spec: openapi/sk-telecom-ax-tts-openapi.json
+  count: 3
+  operations:
+  - {operationId: "get-voices", method: GET, path: "/voice", summary: "Get Voices"}
+  - {operationId: "text-to-speech-tts", method: POST, path: "/tts", summary: "Text-to-Speech (TTS)"}
+  - {operationId: "text-to-speech-with-timestamp", method: POST, path: "/segmentation", summary: "Text-to-Speech with Timestamp"}
+- capability: "A. facecan — face database, detection and recognition"
+  spec: openapi/sk-telecom-facecan-openapi.json
+  count: 12
+  operations:
+  - {operationId: "subject-create", method: POST, path: "/v1/subject", summary: "Subject Create"}
+  - {operationId: "subject-list", method: GET, path: "/v1/subject", summary: "Subject List"}
+  - {operationId: "subject-delete", method: DELETE, path: "/v1/subject/{subject_id}", summary: "Subject Delete"}
+  - {operationId: "group-list", method: GET, path: "/v1/group", summary: "Group List"}
+  - {operationId: "group-create", method: POST, path: "/v1/group", summary: "Group Create"}
+  - {operationId: "group-delete", method: DELETE, path: "/v1/group/{group_id}", summary: "Group Delete"}
+  - {operationId: "subject-list-1", method: GET, path: "/v1/face", summary: "Face List"}
+  - {operationId: "face-create", method: POST, path: "/v1/face", summary: "Face Create"}
+  - {operationId: "face-delete", method: DELETE, path: "/v1/face/{face_id}", summary: "Face Delete"}
+  - {operationId: "face-recognize-1", method: POST, path: "/v1/recognize", summary: "Face Recognize"}
+  - {operationId: "face-detect-1", method: POST, path: "/v1/detect", summary: "Face Detect"}
+  - {operationId: "face-landmark-1", method: POST, path: "/v1/landmark", summary: "Face Landmark"}
+- capability: "META — video/image analysis (golf swing, pose, licence plate)"
+  spec: openapi/sk-telecom-meta-openapi.json
+  count: 7
+  operations:
+  - {operationId: "create_analyzer", method: POST, path: "/golf/v1/create_analyzer", summary: "create_analyzer"}
+  - {operationId: "get_result", method: GET, path: "/golf/v1/get_result/{JobID}", summary: "get_result"}
+  - {operationId: "e2e", method: POST, path: "/golf/v1/e2e", summary: "End to End"}
+  - {operationId: "lpr", method: POST, path: "/lpr/v1", summary: "lpr"}
+  - {operationId: "create-analyzer", method: POST, path: "/pose/v1/create_analyzer", summary: "create_analyzer"}
+  - {operationId: "start_analyzer", method: GET, path: "/pose/v1/get_result/{JobID}", summary: "get_result"}
+  - {operationId: "e2e-1", method: POST, path: "/pose/v1/e2e", summary: "End to End"}
+- capability: "OVS — road-event alerting (service terminated 2026-04-07)"
+  spec: openapi/sk-telecom-ovs-openapi.json
+  count: 12
+  operations:
+  - {operationId: "내-회사-정보-조회", method: GET, path: "/v20/company/info/me", summary: "내 회사 정보 조회"}
+  - {operationId: "회사-전체-단말-리스트-조회", method: GET, path: "/v20/company/info/devices/{companyId}", summary: "회사 전체 단말 리스트 조회"}
+  - {operationId: "회사-정보-조회", method: GET, path: "/v20/company/info/{companyId}", summary: "회사 정보 조회"}
+  - {operationId: "회사-전체-단말-수-조회", method: GET, path: "/v20/company/info/devices/cnt/{companyId}", summary: "회사 전체 단말 수 조회"}
+  - {operationId: "단말-등록", method: POST, path: "/v20/device", summary: "단말 등록"}
+  - {operationId: "단말-정보-조회", method: GET, path: "/v20/device/{serialNo}", summary: "단말 정보 조회"}
+  - {operationId: "단말-삭제", method: DELETE, path: "/v20/device/{serialNo}", summary: "단말 삭제"}
+  - {operationId: "단말별-메시지-전달", method: POST, path: "/v20/statistics/device/event/{serialNo}", summary: "단말별 메시지 전달"}
+  - {operationId: "단말별-이벤트-통계", method: GET, path: "/v20/statistics/device/event/{serialNo}", summary: "단말별 이벤트 통계"}
+  - {operationId: "회사별-이벤트-통계", method: GET, path: "/v20/statistics/company/event/{companyId}", summary: "회사별 이벤트 통계"}
+  - {operationId: "전체-단말-메시지-전달", method: POST, path: "/v20/message/company/{companyId}", summary: "전체 단말 메시지 전달"}
+  - {operationId: "이벤트-raw-data-정보-조회", method: GET, path: "/v20/statistics/event/raw", summary: "이벤트 Raw Data 정보 조회"}
+- capability: "Geovision Puzzle — place and commercial-area congestion and visits"
+  spec: openapi/sk-telecom-puzzle-place-congestion-openapi.json
+  count: 16
+  operations:
+  - {operationId: "pois", method: GET, path: "/meta/pois", summary: "데이터 제공 가능 장소"}
+  - {operationId: "areas", method: GET, path: "/meta/areas", summary: "데이터 제공 가능 상권"}
+  - {operationId: "poicongestionrltm", method: GET, path: "/congestion/rltm/pois/{poiId}", summary: "실시간 장소 혼잡도"}
+  - {operationId: "poicongestionraw", method: GET, path: "/congestion/stat/raw/hourly/pois/{poiId}", summary: "시간대별 장소 혼잡도"}
+  - {operationId: "poicongestionstat", method: GET, path: "/congestion/stat/hourly/pois/{poiId}", summary: "통계성 장소 혼잡도"}
+  - {operationId: "areacongestionrltm", method: GET, path: "/congestion/rltm/areas/{areaId}", summary: "실시간 상권 혼잡도"}
+  - {operationId: "areacongestionraw", method: GET, path: "/congestion/stat/raw/hourly/areas/{areaId}", summary: "시간대별 상권 혼잡도"}
+  - {operationId: "areacongestionstat", method: GET, path: "/congestion/stat/hourly/areas/{areaId}", summary: "통계성 상권 혼잡도"}
+  - {operationId: "poivisitcount", method: GET, path: "/visit/count/raw/daily/pois/{poiId}", summary: "일자별 장소 방문자 수"}
+  - {operationId: "poivisitdistance", method: GET, path: "/visit/distance/stat/daily/pois/{poiId}", summary: "장소 유입력"}
+  - {operationId: "poivisitseg", method: GET, path: "/visit/seg/stat/daily/pois/{poiId}", summary: "장소 방문자 연령 분포"}
+  - {operationId: "areavisitcount", method: GET, path: "/visit/count/raw/daily/areas/{areaId}", summary: "일자별 상권 방문자 수"}
+  - {operationId: "areavisitdistance", method: GET, path: "/visit/distance/stat/daily/areas/{areaId}", summary: "상권 유입력"}
+  - {operationId: "areavisitseg", method: GET, path: "/visit/seg/stat/daily/areas/{areaId}", summary: "상권 방문자 연령 분포"}
+  - {operationId: "areavisittype", method: GET, path: "/visit/type/stat/daily/areas/{areaId}", summary: "상권 방문자 유형 분포"}
+  - {operationId: "areabizcategory", method: GET, path: "/biz-category/stat/monthly/areas/{areaId}", summary: "상권 업종 분포"}
+- capability: "Geovision Puzzle — apartment resident analytics"
+  spec: openapi/sk-telecom-puzzle-residence-openapi.json
+  count: 5
+  operations:
+  - {operationId: "apts", method: GET, path: "/meta/apts", summary: "데이터 제공 가능 아파트"}
+  - {operationId: "aptcategories", method: GET, path: "/categories/{category}/stat/monthly/apts/{kaptCode}", summary: "주거생활 카테고리별 순위"}
+  - {operationId: "aptsubwayuserate", method: GET, path: "/resident/subway-use-rate/stat/monthly/apts/{kaptCode}", summary: "지하철 이용 비율"}
+  - {operationId: "aptresidentage", method: GET, path: "/resident/age/stat/monthly/apts/{kaptCode}", summary: "거주자 평균 나이"}
+  - {operationId: "aptresidentdemo", method: GET, path: "/resident/demo-feature/stat/monthly/apts/{kaptCode}", summary: "거주자 특징"}
+coverage:
+  tools_named: 0
+  tools_bound: 0
+  mcp_only: 0
+  rest_operations_total: 55
+  rest_operations_with_tool: 0
+  note: >-
+    tools_named is 0 because every MCP tools/list is auth-gated; it is not an assertion that the
+    servers expose no tools. Re-run with an authenticated ReadMe client to populate crosswalk[].

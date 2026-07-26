@@ -1,0 +1,146 @@
+generated: '2026-07-25'
+method: derived
+source: >-
+  openapi/*.json — path structure, path parameters, request/response schema properties and
+  id-reference fields across all six SK Telecom OpenAPI 3.1.0 documents.
+summary: >-
+  There is no shared SK Telecom data model. The six specs define six disjoint entity graphs
+  with no cross-references, no common identifier scheme and no components.schemas reuse (every
+  schema is inlined at the operation). The only recurring shape across products is the
+  application itself — the app and its appKey issued from the portal — which is not modelled
+  in any spec.
+domains:
+- domain: face
+  api: SK Telecom A. facecan API
+  spec: openapi/sk-telecom-facecan-openapi.json
+  entities:
+  - name: app
+    id_field: app-id
+    carried_in: header
+    note: Portal-issued application identifier; not returned by any operation.
+  - name: group
+    id_field: group_id
+    fields: [group_id, group_name]
+    operations: [group-list, group-create, group-delete]
+  - name: subject
+    id_field: subject_id
+    fields: [subject_id, subject_name, group_name]
+    operations: [subject-list, subject-create, subject-delete]
+  - name: face
+    id_field: face_id
+    fields: [face_id, face_name, box, face_score, expression, expression_score, age, gender,
+      attribute, image_width, image_height, engine_version]
+    operations: [subject-list-1, face-create, face-delete]
+  relationships:
+  - {from: app, to: group, kind: has_many, via: app-id}
+  - {from: group, to: subject, kind: has_many, via: group-id}
+  - {from: subject, to: face, kind: has_many, via: subject-id}
+  - {from: face, to: subject, kind: belongs_to, via: subject-id}
+  inference_operations:
+  - {operation: face-detect-1, input: image, output: face boxes, persists: false}
+  - {operation: face-landmark-1, input: image, output: landmark points, persists: false}
+  - {operation: face-recognize-1, input: image + group-id, output: matched subject, persists: false}
+  uniqueness: subject_name must be unique within an (app, group) pair (error 2004).
+- domain: road-event alerting
+  api: SK Telecom OVS API
+  spec: openapi/sk-telecom-ovs-openapi.json
+  status: terminated 2026-04-07
+  entities:
+  - name: company
+    id_field: id.id
+    fields: [id, createdTime, name, serviceType, master, masterId, picName, picEmail,
+      tokenPrefix, ovs, tokenExpr]
+    operations: [내-회사-정보-조회, 회사-정보-조회]
+  - name: device
+    id_field: serialNo
+    secondary_ids: [id.id, credentialsId]
+    fields: [id, createdTime, companyId, vendor, type, activationRequired, serialNo, credentialsId]
+    operations: [단말-등록, 단말-정보-조회, 단말-삭제, 회사-전체-단말-리스트-조회, 회사-전체-단말-수-조회]
+    note: serialNo and credentialsId are both prefixed with the company's 5-character tokenPrefix.
+  - name: message
+    fields: [type, timestamp, message]
+    operations: [전체-단말-메시지-전달, 단말별-메시지-전달]
+  - name: event_statistics
+    fields: [serialNo|companyId, requestDate, statistics.event.msgNotification]
+    operations: [회사별-이벤트-통계, 단말별-이벤트-통계, 이벤트-raw-data-정보-조회]
+  relationships:
+  - {from: company, to: device, kind: has_many, via: companyId}
+  - {from: device, to: company, kind: belongs_to, via: companyId}
+  - {from: company, to: message, kind: has_many, via: companyId}
+  - {from: device, to: message, kind: has_many, via: serialNo}
+  - {from: device, to: event_statistics, kind: has_many, via: serialNo}
+- domain: place and area analytics
+  api: SK Telecom Puzzle Place Congestion API
+  spec: openapi/sk-telecom-puzzle-place-congestion-openapi.json
+  entities:
+  - name: poi
+    id_field: poiId
+    source: TMAP point of interest identifier
+    discovery_operation: pois
+  - name: area
+    id_field: areaId
+    source: commercial-area (상권) identifier
+    discovery_operation: areas
+  measures:
+  - {measure: real-time congestion, keyed_on: poiId, operation: poicongestionrltm}
+  - {measure: real-time congestion, keyed_on: areaId, operation: areacongestionrltm}
+  - {measure: hourly congestion (raw), keyed_on: poiId, operation: poicongestionraw}
+  - {measure: hourly congestion (statistical), keyed_on: poiId, operation: poicongestionstat}
+  - {measure: hourly congestion (raw), keyed_on: areaId, operation: areacongestionraw}
+  - {measure: hourly congestion (statistical), keyed_on: areaId, operation: areacongestionstat}
+  - {measure: daily visitor count, keyed_on: poiId, operation: poivisitcount}
+  - {measure: daily visitor count, keyed_on: areaId, operation: areavisitcount}
+  - {measure: catchment distance, keyed_on: poiId, operation: poivisitdistance}
+  - {measure: catchment distance, keyed_on: areaId, operation: areavisitdistance}
+  - {measure: visitor age distribution, keyed_on: poiId, operation: poivisitseg}
+  - {measure: visitor age distribution, keyed_on: areaId, operation: areavisitseg}
+  - {measure: visitor type distribution, keyed_on: areaId, operation: areavisittype}
+  - {measure: business-category mix (monthly), keyed_on: areaId, operation: areabizcategory}
+  relationships:
+  - {from: poi, to: measure, kind: has_many, via: poiId}
+  - {from: area, to: measure, kind: has_many, via: areaId}
+- domain: residential analytics
+  api: SK Telecom Puzzle Residence API
+  spec: openapi/sk-telecom-puzzle-residence-openapi.json
+  entities:
+  - name: apartment_complex
+    id_field: kaptCode
+    source: Korean government apartment-complex code (kaptCode)
+    discovery_operation: apts
+  measures:
+  - {measure: category ranking (monthly), keyed_on: kaptCode + category, operation: aptcategories}
+  - {measure: subway usage rate (monthly), keyed_on: kaptCode, operation: aptsubwayuserate}
+  - {measure: resident average age (monthly), keyed_on: kaptCode, operation: aptresidentage}
+  - {measure: resident demographic features (monthly), keyed_on: kaptCode, operation: aptresidentdemo}
+  relationships:
+  - {from: apartment_complex, to: measure, kind: has_many, via: kaptCode}
+- domain: media analysis
+  api: SK Telecom META API
+  spec: openapi/sk-telecom-meta-openapi.json
+  entities:
+  - name: analyzer_job
+    id_field: JobID
+    lifecycle: create_analyzer returns a JobID plus a presigned upload URL; the caller uploads
+      the media; get_result polls for the JSON result.
+    operations: [create_analyzer, get_result, create-analyzer, start_analyzer]
+  relationships:
+  - {from: analyzer_job, to: upload, kind: has_one, via: presigned S3 URL returned by create_analyzer}
+  stateless_operations: [e2e, e2e-1, lpr]
+- domain: speech synthesis
+  api: SK Telecom A.X TTS API
+  spec: openapi/sk-telecom-ax-tts-openapi.json
+  entities:
+  - name: model
+    id_field: model
+    values: [axtts-2-6, axtts-2-6-ainews, axtts-2-1, axtts-2-1-dialect]
+  - name: voice
+    id_field: voice
+    discovery_operation: get-voices
+  relationships:
+  - {from: model, to: voice, kind: has_many, via: model}
+  stateless: true
+observations:
+- No components.schemas reuse in any spec — every request and response schema is inlined,
+  so there is nothing for a generator to name or share.
+- No entity crosses a product boundary; the only shared concept is the portal application.
+- Two specs use Korean-language operationIds, which blocks idiomatic client generation.

@@ -1,0 +1,38 @@
+generated: '2026-07-25'
+method: generated
+source: >-
+  Generated from the six OpenAPI 3.1.0 documents in openapi/ plus the searched conventions,
+  error and rate-limit artifacts in this repository. Every operationId referenced was verified
+  verbatim against the spec. SK Telecom publishes no AGENTS.md or skill files of its own —
+  searched on openapi.sk.com, the five *-skopenapi.readme.io hubs and github.com/sktelecom on
+  2026-07-25.
+skills:
+- file: sk-telecom-synthesize-korean-speech.md
+  name: Synthesize Korean speech with SK Telecom A.X TTS
+  api: openapi/sk-telecom-ax-tts-openapi.json
+  operations: [get-voices, text-to-speech-tts, text-to-speech-with-timestamp]
+- file: sk-telecom-enroll-and-recognize-a-face.md
+  name: Enroll and recognize a face with SK Telecom A. facecan
+  api: openapi/sk-telecom-facecan-openapi.json
+  operations: [group-create, group-list, subject-create, subject-list, face-create,
+    subject-list-1, face-recognize-1, face-detect-1, face-landmark-1, face-delete,
+    subject-delete, group-delete]
+- file: sk-telecom-read-place-congestion.md
+  name: Read place and commercial-area congestion from SK Telecom Geovision Puzzle
+  api: openapi/sk-telecom-puzzle-place-congestion-openapi.json
+  operations: [pois, areas, poicongestionrltm, poicongestionraw, poicongestionstat,
+    areacongestionrltm, areacongestionraw, areacongestionstat, poivisitcount, poivisitdistance,
+    poivisitseg, areavisitcount, areavisitdistance, areavisitseg, areavisittype, areabizcategory]
+- file: sk-telecom-analyze-video-with-meta.md
+  name: Analyze video and images with SK Telecom META
+  api: openapi/sk-telecom-meta-openapi.json
+  operations: [create_analyzer, get_result, e2e, create-analyzer, start_analyzer, e2e-1, lpr]
+not_covered:
+- api: SK Telecom OVS API
+  reason: >-
+    Service terminated by SK Telecom on 2026-04-07 13:00 KST. A skill would instruct an agent
+    to call a dead API.
+- api: SK Telecom Puzzle Residence API
+  reason: >-
+    Covered as the companion section of sk-telecom-read-place-congestion.md rather than as a
+    separate skill; five read-only operations on one identifier (kaptCode).

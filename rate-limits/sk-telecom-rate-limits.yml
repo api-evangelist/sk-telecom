@@ -1,0 +1,62 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  https://openapi.sk.com/support/notice/detailView?ntiSeq=309 (gateway throttle classes) and
+  https://openapi.sk.com/support/notice/detailView?ntiSeq=311 (published free-tier daily quota
+  table), cross-checked against the 429 responses declared in openapi/*.json.
+docs: https://openapi.sk.com/support/notice/detailView?ntiSeq=311
+summary: >-
+  The SK open API gateway enforces two distinct limits: a call-rate throttle (per second, per
+  minute and per hour) and a plan call quota. Both are signalled as HTTP 429 with symbolic
+  codes in the proprietary error envelope. SK Telecom publishes no rate-limit response headers
+  (no X-RateLimit-*, no Retry-After documented) and no general quota reference page — the only
+  concrete numbers in the public record are the free-tier daily quotas published in the
+  2023-03-17 Geovision Puzzle quota-reduction notice, reproduced verbatim below.
+signalling:
+  headers: none documented
+  status: 429
+  codes:
+  - {code: THROTTLED, status: 429, meaning: Too Many Requests — per-second call rate exceeded}
+  - {code: QUOTA_EXCEEDED, status: 429, meaning: Limit Exceeded — plan/SLA call quota exceeded}
+  - {code: ACCESS_DENIED, status: 403, meaning: Caller IP is not on the app's whitelist}
+  retired_codes:
+  - {code: '8101', status: 403, meaning: per-second / per-minute / per-hour call count exceeded (pre-2023-02-02)}
+  - {code: '8102', status: 403, meaning: maximum allowed call count exceeded (pre-2023-02-02)}
+throttle_classes: [per-second, per-minute, per-hour]
+throttle_note: >-
+  The pre-2023 error table names all three windows explicitly ("초당/분당/시간당 처리 건수를 초과했습니다"),
+  so the gateway throttles on all three. The concrete values are set per app plan in the
+  authenticated dashboard and are not published.
+rate_limits:
+- api: SK Telecom Puzzle Place Congestion API
+  spec: openapi/sk-telecom-puzzle-place-congestion-openapi.json
+  plan: Free
+  effective: '2023-03-27'
+  source: https://openapi.sk.com/support/notice/detailView?ntiSeq=311
+  limits:
+  - {api_group: 장소 목록 (place list), operations: [pois, areas], limit_count: 100, interval: day, previous_limit_count: 1000}
+  - {api_group: 실시간 혼잡도 (real-time congestion), operations: [poicongestionrltm, areacongestionrltm], limit_count: 1000, interval: day}
+  - {api_group: 추정 방문자 수 (estimated visitor count), operations: [poivisitcount, areavisitcount], limit_count: 1000, interval: day}
+- api: SK Telecom Puzzle Subway Congestion API
+  plan: Free
+  effective: '2023-03-27'
+  source: https://openapi.sk.com/support/notice/detailView?ntiSeq=311
+  limits:
+  - {api_group: 지하철역 목록 (station list), limit_count: 100, interval: day, previous_limit_count: 1000}
+  - {api_group: 실시간 열차 혼잡도 (real-time train congestion), limit_count: 1000, interval: day}
+- api: SK Telecom Puzzle Domestic Travel API
+  plan: Free
+  effective: '2023-03-27'
+  source: https://openapi.sk.com/support/notice/detailView?ntiSeq=311
+  limits:
+  - {api_group: 여행지 목록 (destination list), limit_count: 100, interval: day}
+  - {api_group: 추정 여행자수 (estimated traveller count), limit_count: 100, interval: day}
+  - {api_group: 체류시간 (dwell time), limit_count: 100, interval: day}
+caveats:
+- The quota table above is dated 2023-03-17 and effective 2023-03-27. It is the most recent
+  published quota data found on 2026-07-25; current values may differ and are only visible in
+  the authenticated dashboard.
+- No published quota figures exist for A.X TTS, A. facecan, META or the retired OVS API.
+- >-
+  Reason SK Telecom gave for cutting the free tier — repeated abusive calling of the Geovision
+  Puzzle APIs to bulk-copy content.

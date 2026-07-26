@@ -1,0 +1,3 @@
+# Puzzle Documentation
+
+> Documentation for Puzzle

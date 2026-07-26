@@ -1,0 +1,49 @@
+generated: '2026-07-25'
+method: searched
+source: >-
+  SK open API product pages (openapi.sk.com/products/detail?svcSeq=*, "API 테스트" tab), the
+  ReadMe API Explorer on the *-skopenapi.readme.io reference hubs, and the x-readme extension
+  block in openapi/sk-telecom-ax-tts-openapi.json.
+summary: >-
+  SK Telecom publishes an interactive try-it console but no sandbox environment. There is one
+  set of hosts, one gateway and one credential type: calls made from the console are live calls
+  against apis.openapi.sk.com metered against the app's plan. There is no test mode, no test
+  key prefix, no separate sandbox base URL, no fixture or trigger tooling and no time
+  simulation. Free-tier daily quotas are the only thing standing in for a sandbox.
+test_live_separation:
+  modes: [live]
+  key_prefixes: none
+  separate_host: false
+  note: >-
+    The appKey issued in 마이페이지 > 앱 > 앱키 is a production key. No test/live distinction is
+    documented anywhere on the portal.
+consoles:
+- name: API 테스트
+  kind: portal try-it console
+  url: https://openapi.sk.com/products/detail?svcSeq=56
+  scope: per product, on each product detail page
+  auth: requires sign-in and an issued appKey
+- name: ReadMe API Explorer
+  kind: docs try-it console
+  urls:
+  - https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - https://meta-skopenapi.readme.io/reference/lpr-1
+  evidence: >-
+    openapi/sk-telecom-ax-tts-openapi.json declares x-readme.explorer-enabled true and
+    x-readme.proxy-enabled true.
+  auth: requires the caller's own appKey
+test_values:
+  published: false
+  note: >-
+    No magic test identifiers, test images, test POI ids or test device serial numbers are
+    published. The specs carry ReadMe x-default placeholder values (demo app-id/group-id/
+    subject-id strings and a placeholder appKey) which are explorer defaults, not documented
+    test credentials, and are deliberately not reproduced here as usable test data.
+test_clock: false
+fixtures: false
+free_tier:
+  exists: true
+  shape: per-API-group daily call quotas on a Free 상품 (plan)
+  detail: rate-limits/sk-telecom-rate-limits.yml

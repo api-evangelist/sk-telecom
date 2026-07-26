@@ -1,0 +1,239 @@
+generated: '2026-07-25'
+method: derived
+source: >-
+  openapi/*.json 4xx/5xx responses across all six SK Telecom OpenAPI 3.1.0 documents,
+  cross-referenced with the searched error registries in errors/sk-telecom-error-codes.yml.
+format: proprietary
+format_note: >-
+  Not RFC 9457. No operation declares application/problem+json. The gateway returns
+  {"error":{"id","category","code","message"}}; product APIs return {"message","code"}.
+problems:
+- status: 400
+  title: "Bad Request \u2014 missing or invalid parameter"
+  occurrences: 50
+  source_operations:
+  - openapi/sk-telecom-ax-tts-openapi.json#get-voices
+  - openapi/sk-telecom-ax-tts-openapi.json#text-to-speech-tts
+  - openapi/sk-telecom-ax-tts-openapi.json#text-to-speech-with-timestamp
+  - openapi/sk-telecom-facecan-openapi.json#subject-create
+  - openapi/sk-telecom-facecan-openapi.json#subject-list
+  - openapi/sk-telecom-facecan-openapi.json#subject-delete
+  - openapi/sk-telecom-facecan-openapi.json#group-list
+  - openapi/sk-telecom-facecan-openapi.json#group-create
+  - openapi/sk-telecom-facecan-openapi.json#group-delete
+  - openapi/sk-telecom-facecan-openapi.json#subject-list-1
+  - openapi/sk-telecom-facecan-openapi.json#face-create
+  - openapi/sk-telecom-facecan-openapi.json#face-delete
+  - openapi/sk-telecom-facecan-openapi.json#face-recognize-1
+  - openapi/sk-telecom-facecan-openapi.json#face-landmark-1
+  - openapi/sk-telecom-meta-openapi.json#create_analyzer
+  - openapi/sk-telecom-meta-openapi.json#create-analyzer
+  - openapi/sk-telecom-meta-openapi.json#start_analyzer
+  - openapi/sk-telecom-ovs-openapi.json#내-회사-정보-조회
+  - openapi/sk-telecom-ovs-openapi.json#회사-전체-단말-리스트-조회
+  - openapi/sk-telecom-ovs-openapi.json#회사-정보-조회
+  - openapi/sk-telecom-ovs-openapi.json#회사-전체-단말-수-조회
+  - openapi/sk-telecom-ovs-openapi.json#단말-등록
+  - openapi/sk-telecom-ovs-openapi.json#단말-정보-조회
+  - openapi/sk-telecom-ovs-openapi.json#단말-삭제
+  - openapi/sk-telecom-ovs-openapi.json#단말별-메시지-전달
+  - openapi/sk-telecom-ovs-openapi.json#단말별-이벤트-통계
+  - openapi/sk-telecom-ovs-openapi.json#회사별-이벤트-통계
+  - openapi/sk-telecom-ovs-openapi.json#전체-단말-메시지-전달
+  - openapi/sk-telecom-ovs-openapi.json#이벤트-raw-data-정보-조회
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#pois
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areas
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisittype
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areabizcategory
+  - openapi/sk-telecom-puzzle-residence-openapi.json#apts
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptcategories
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptsubwayuserate
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentage
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentdemo
+- status: 401
+  title: "Unauthorized \u2014 appKey header absent"
+  gateway_code: "UNAUTHORIZED"
+  occurrences: 22
+  source_operations:
+  - openapi/sk-telecom-meta-openapi.json#create_analyzer
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#pois
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areas
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisittype
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areabizcategory
+  - openapi/sk-telecom-puzzle-residence-openapi.json#apts
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptcategories
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptsubwayuserate
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentage
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentdemo
+- status: 403
+  title: "Forbidden \u2014 invalid appKey, IP not whitelisted, or unknown route"
+  gateway_code: "INVALID_API_KEY / ACCESS_DENIED / MISSING_AUTHENTICATION_TOKEN"
+  occurrences: 22
+  source_operations:
+  - openapi/sk-telecom-meta-openapi.json#create_analyzer
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#pois
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areas
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisittype
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areabizcategory
+  - openapi/sk-telecom-puzzle-residence-openapi.json#apts
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptcategories
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptsubwayuserate
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentage
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentdemo
+- status: 404
+  title: "Not Found \u2014 resource or gateway service does not exist"
+  occurrences: 23
+  source_operations:
+  - openapi/sk-telecom-facecan-openapi.json#face-detect-1
+  - openapi/sk-telecom-meta-openapi.json#create_analyzer
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#pois
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areas
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisittype
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areabizcategory
+  - openapi/sk-telecom-puzzle-residence-openapi.json#apts
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptcategories
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptsubwayuserate
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentage
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentdemo
+- status: 405
+  title: "Method Not Allowed"
+  occurrences: 1
+  source_operations:
+  - openapi/sk-telecom-meta-openapi.json#create_analyzer
+- status: 408
+  title: "Request Timeout"
+  occurrences: 1
+  source_operations:
+  - openapi/sk-telecom-meta-openapi.json#create_analyzer
+- status: 429
+  title: "Too Many Requests \u2014 per-second rate or plan quota exceeded"
+  gateway_code: "THROTTLED / QUOTA_EXCEEDED"
+  occurrences: 21
+  source_operations:
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#pois
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areas
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisittype
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areabizcategory
+  - openapi/sk-telecom-puzzle-residence-openapi.json#apts
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptcategories
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptsubwayuserate
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentage
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentdemo
+- status: 500
+  title: "Internal Server Error"
+  gateway_code: "API_CONFIGURATION_ERROR"
+  occurrences: 22
+  source_operations:
+  - openapi/sk-telecom-meta-openapi.json#create_analyzer
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#pois
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areas
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisittype
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areabizcategory
+  - openapi/sk-telecom-puzzle-residence-openapi.json#apts
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptcategories
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptsubwayuserate
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentage
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentdemo
+- status: 503
+  title: "Service Unavailable"
+  occurrences: 1
+  source_operations:
+  - openapi/sk-telecom-meta-openapi.json#create_analyzer
+- status: 504
+  title: "Gateway Timeout \u2014 backend routing error"
+  gateway_code: "INTEGRATION_FAILURE"
+  occurrences: 21
+  source_operations:
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#pois
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areas
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poicongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionrltm
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionraw
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areacongestionstat
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#poivisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitcount
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitdistance
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisitseg
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areavisittype
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json#areabizcategory
+  - openapi/sk-telecom-puzzle-residence-openapi.json#apts
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptcategories
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptsubwayuserate
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentage
+  - openapi/sk-telecom-puzzle-residence-openapi.json#aptresidentdemo

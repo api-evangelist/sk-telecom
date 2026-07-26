@@ -1,0 +1,27 @@
+generated: '2026-07-25'
+method: derived
+source: openapi/sk-telecom-ax-tts-openapi.json, openapi/sk-telecom-facecan-openapi.json, openapi/sk-telecom-meta-openapi.json,
+  openapi/sk-telecom-ovs-openapi.json, openapi/sk-telecom-puzzle-place-congestion-openapi.json,
+  openapi/sk-telecom-puzzle-residence-openapi.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: sec0
+  type: apiKey
+  in: header
+  parameter: appKey
+  sources:
+  - openapi/sk-telecom-ax-tts-openapi.json
+  - openapi/sk-telecom-facecan-openapi.json
+  - openapi/sk-telecom-meta-openapi.json
+  - openapi/sk-telecom-ovs-openapi.json
+- name: sec0
+  type: apiKey
+  in: header
+  parameter: appkey
+  sources:
+  - openapi/sk-telecom-puzzle-place-congestion-openapi.json
+  - openapi/sk-telecom-puzzle-residence-openapi.json

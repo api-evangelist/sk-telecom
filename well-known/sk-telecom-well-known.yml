@@ -1,0 +1,84 @@
+generated: '2026-07-25'
+method: searched
+source: live probes of every apis.yml baseURL host, OpenAPI servers[] host and docs host
+summary: >-
+  SK Telecom serves no /.well-known/ discovery surface of its own. The developer portal
+  (openapi.sk.com), the API gateway (apis.openapi.sk.com) and the corporate site
+  (www.sktelecom.com) return 404/403 for security.txt, openid-configuration,
+  oauth-authorization-server, oauth-protected-resource, api-catalog and ai-plugin.json.
+  The only /.well-known/ documents that resolve anywhere in SK Telecom's developer surface
+  are RFC 9728 OAuth protected-resource descriptors for the MCP endpoints on the five
+  *-skopenapi.readme.io documentation hubs, which are provided by the ReadMe documentation
+  platform SK Telecom publishes its API reference on. They point at ReadMe's own
+  authorization server (https://dash.readme.com/oidc), not at an SK Telecom IdP.
+hosts:
+- host: https://openapi.sk.com
+  role: developer portal
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/oauth-protected-resource, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://apis.openapi.sk.com
+  role: API gateway (every OpenAPI servers[] host)
+  note: AWS API Gateway; all unauthenticated paths answer HTTP 403 application/json
+  documents:
+  - {path: /.well-known/security.txt, status: 403}
+  - {path: /.well-known/openid-configuration, status: 403}
+  - {path: /.well-known/oauth-authorization-server, status: 403}
+  - {path: /.well-known/oauth-protected-resource, status: 403}
+  - {path: /.well-known/api-catalog, status: 403}
+  - {path: /.well-known/ai-plugin.json, status: 403}
+- host: https://www.sktelecom.com
+  role: corporate website
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+- host: https://ax-tts-skopenapi.readme.io
+  role: API reference hub (A.X TTS)
+  documents:
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    spec: RFC 9728 OAuth 2.0 Protected Resource Metadata
+    file: sk-telecom-ax-tts-oauth-protected-resource-mcp.json
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/security.txt, status: 404}
+- host: https://nugufacecan-skopenapi.readme.io
+  role: API reference hub (A. facecan)
+  documents:
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    spec: RFC 9728 OAuth 2.0 Protected Resource Metadata
+    file: sk-telecom-nugufacecan-oauth-protected-resource-mcp.json
+- host: https://puzzle-skopenapi.readme.io
+  role: API reference hub (Geovision Puzzle)
+  documents:
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    spec: RFC 9728 OAuth 2.0 Protected Resource Metadata
+    file: sk-telecom-puzzle-oauth-protected-resource-mcp.json
+- host: https://meta-skopenapi.readme.io
+  role: API reference hub (META)
+  documents:
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    spec: RFC 9728 OAuth 2.0 Protected Resource Metadata
+    file: sk-telecom-meta-oauth-protected-resource-mcp.json
+- host: https://ovs-skopenapi.readme.io
+  role: API reference hub (OVS — service terminated 2026-04-07)
+  documents:
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    spec: RFC 9728 OAuth 2.0 Protected Resource Metadata
+    file: sk-telecom-ovs-oauth-protected-resource-mcp.json
+security_txt:
+  published: false
+  note: >-
+    No RFC 9116 security.txt is served on any SK Telecom or SK open API hostname probed on
+    2026-07-25.
