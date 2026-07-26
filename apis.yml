@@ -1,0 +1,359 @@
+aid: sk-telecom
+url: https://raw.githubusercontent.com/api-evangelist/sk-telecom/refs/heads/main/apis.yml
+name: SK Telecom
+kind: company
+description: >-
+  SK Telecom Co., Ltd. is South Korea's largest mobile network operator, headquartered at SK T-Tower
+  in Jung-gu, Seoul, and the telecom arm of SK Group. It runs the country's largest 5G and LTE
+  network, sells fixed broadband and IPTV through subsidiary SK Broadband, operates the T world
+  retail and care channel, and has repositioned itself as an "AI company" around its A.X sovereign
+  Korean LLM family, the NUGU voice assistant, and the A. (A dot) assistant. Its position in the
+  telecom value chain is that of a facilities-based incumbent carrier: it owns the radio access
+  network, spectrum, SIM base, and identity rails that the rest of the Korean digital economy
+  authenticates against. Its API posture is split in an unusual way. SK Telecom does run a genuine,
+  self-serve public developer portal — SK open API at openapi.sk.com, operated by SK Telecom Co., Ltd.
+  — but what it publishes there is AI, big-data and mobility product APIs (speech synthesis, face
+  recognition, congestion and floating-population analytics, video analysis), not network APIs. The
+  legacy T developers subdomains developer.sktelecom.com and developers.sktelecom.com both resolve in
+  DNS to 211.188.149.18 and refuse connections on port 443 — a dead developer programme with dangling
+  hostnames. On the network-API side SK Telecom is a named CAMARA participant and appears in the
+  CAMARA landscape as an operator, has an organisation page in GSMA's Open Gateway directory, signed
+  a domestic MoU with KT and LG Uplus in October 2024 to standardise six network APIs through Korea's
+  TTA, endorsed the Bridge Alliance API Exchange, and signed an MoU with Aduna through subsidiary
+  SK telink in September 2025 — but no CAMARA endpoint (Number Verification, SIM Swap, KYC Match,
+  Quality on Demand) is callable from any SK Telecom-operated developer portal. Developers who want
+  SK Telecom network capability reach it through aggregators — Bridge Alliance BAEx on Singtel's
+  Paragon platform, surfaced through Nokia's Network as Code developer portal, or Aduna — not from
+  SK Telecom directly.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Telecommunications
+- South Korea
+- Mobile Network Operator
+- Network APIs
+- CAMARA
+- Open Gateway
+- 5G
+- Identity Verification
+- SIM Swap
+- Artificial Intelligence
+- Location
+- Big Data
+created: '2026-07-25'
+modified: '2026-07-25'
+specificationVersion: '0.19'
+apis:
+- aid: sk-telecom:sk-telecom-ax-tts-api
+  name: SK Telecom A.X TTS API
+  description: >-
+    Korean text-to-speech built on SK Telecom's own DNN speech-synthesis models and voice database,
+    operated by SKT's speech synthesis technology team. Three documented operations — list TTS
+    models, list the voices a model supports, and synthesize speech (with an optional timestamped
+    variant). Authenticated with an appKey header issued from the SK open API dashboard.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Artificial Intelligence
+  - Speech
+  - Text to Speech
+  - Korean
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: OpenAPI
+    url: openapi/sk-telecom-ax-tts-openapi.json
+- aid: sk-telecom:sk-telecom-facecan-api
+  name: SK Telecom A. facecan API
+  description: >-
+    Face recognition and analysis API (published as "NUGU facecan"). Build a per-group, per-subject
+    face database and then detect, recognize and extract landmarks from submitted JPEG images.
+    Nine documented operations covering group, subject and face CRUD plus detect, recognize and
+    landmark inference. Supported input 320x240 to 3840x2160, JPG/JPEG under 2 MB.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=50
+  baseURL: https://apis.openapi.sk.com/nugufacecan
+  tags:
+  - Artificial Intelligence
+  - Computer Vision
+  - Face Recognition
+  - Biometrics
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: OpenAPI
+    url: openapi/sk-telecom-facecan-openapi.json
+- aid: sk-telecom:sk-telecom-puzzle-place-congestion-api
+  name: SK Telecom Puzzle Place Congestion API
+  description: >-
+    Place congestion and visitor analytics derived from SK Telecom mobile network data, keyed to
+    TMAP points of interest and to commercial AREA identifiers. Sixteen documented operations
+    covering POI/area metadata, real-time congestion, hourly congestion statistics, and daily
+    visitor counts, travel distance and segment statistics.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=56
+  baseURL: https://apis.openapi.sk.com/puzzle/place
+  tags:
+  - Big Data
+  - Location
+  - Congestion
+  - Analytics
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: OpenAPI
+    url: openapi/sk-telecom-puzzle-place-congestion-openapi.json
+- aid: sk-telecom:sk-telecom-puzzle-residence-api
+  name: SK Telecom Puzzle Residence API
+  description: >-
+    Apartment-complex resident profile analytics derived from SK Telecom network data. Five
+    documented operations returning the apartment complex list plus monthly statistics on resident
+    age distribution, demographic features, category behaviour and subway usage rate, keyed on the
+    Korean kaptCode apartment identifier.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=66
+  baseURL: https://apis.openapi.sk.com/puzzle/residence
+  tags:
+  - Big Data
+  - Demographics
+  - Housing
+  - Analytics
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: OpenAPI
+    url: openapi/sk-telecom-puzzle-residence-openapi.json
+- aid: sk-telecom:sk-telecom-meta-api
+  name: SK Telecom META API
+  description: >-
+    Video and image analysis AI served from SK Telecom's sigmeta service. Seven documented
+    operations covering an asynchronous analyzer lifecycle (create analyzer, upload file, start
+    analyzer, get result) for golf swing analysis and pose estimation, plus licence plate
+    recognition. Uploads go to a temporary presigned S3 URL returned by the create call.
+  humanURL: https://openapi.sk.com/
+  baseURL: https://apis.openapi.sk.com/sigmeta
+  tags:
+  - Artificial Intelligence
+  - Computer Vision
+  - Video Analysis
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: OpenAPI
+    url: openapi/sk-telecom-meta-openapi.json
+- aid: sk-telecom:sk-telecom-ovs-api
+  name: SK Telecom OVS API
+  description: >-
+    OVS is SK Telecom's road-event alerting service. Ten documented operations covering customer
+    company lookup, registration/lookup/deletion of target devices, broadcast of alert messages to
+    devices when a road incident occurs, and per-company event statistics and raw event data
+    retrieval.
+  humanURL: https://openapi.sk.com/
+  baseURL: https://apis.openapi.sk.com/api/ovs
+  tags:
+  - Mobility
+  - Safety
+  - Messaging
+  - Internet of Things
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: OpenAPI
+    url: openapi/sk-telecom-ovs-openapi.json
+- aid: sk-telecom:sk-telecom-geovision-api
+  name: SK Telecom Geovision Floating Population API
+  description: >-
+    Geovision is SK Telecom's flagship big-data API service, estimating floating population
+    (footfall) from mobile network signalling. Documented on the SK open API portal; no downloadable
+    OpenAPI was published for this product at the time of review.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=2
+  baseURL: https://apis.openapi.sk.com/tmap/puzzle
+  tags:
+  - Big Data
+  - Location
+  - Footfall
+  - Analytics
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=2
+- aid: sk-telecom:sk-telecom-puzzle-subway-congestion-api
+  name: SK Telecom Puzzle Subway Congestion API
+  description: >-
+    Congestion data for every station and train on Seoul metropolitan subway lines 1 through 9 and
+    the Shinbundang Line, including a station metadata/search operation. Documented on the SK open
+    API portal; no downloadable OpenAPI was published for this product at the time of review.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=54
+  baseURL: https://apis.openapi.sk.com/puzzle/subway
+  tags:
+  - Big Data
+  - Transit
+  - Congestion
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=54
+- aid: sk-telecom:sk-telecom-puzzle-travel-api
+  name: SK Telecom Puzzle Domestic Travel API
+  description: >-
+    Domestic travel analytics — traveller volume by destination, in-region dwell time, and traveller
+    characteristics (gender, age band, companion type). Documented on the SK open API portal; no
+    downloadable OpenAPI was published for this product at the time of review.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=57
+  baseURL: https://apis.openapi.sk.com/puzzle/travel
+  tags:
+  - Big Data
+  - Travel
+  - Analytics
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=57
+- aid: sk-telecom:sk-telecom-puzzle-restaurant-api
+  name: SK Telecom Puzzle Restaurant API
+  description: >-
+    Restaurant rankings and analysis derived from call-volume statistics on SK Telecom's network.
+    Documented on the SK open API portal; no downloadable OpenAPI was published for this product at
+    the time of review.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=69
+  baseURL: https://apis.openapi.sk.com/puzzle/restaurant
+  tags:
+  - Big Data
+  - Restaurants
+  - Analytics
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=69
+- aid: sk-telecom:sk-telecom-puzzle-academy-api
+  name: SK Telecom Puzzle Academy API
+  description: >-
+    Private academy (hagwon) rankings and analysis derived from call-volume statistics on SK
+    Telecom's network. Documented on the SK open API portal; no downloadable OpenAPI was published
+    for this product at the time of review.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=70
+  baseURL: https://apis.openapi.sk.com/puzzle/academy
+  tags:
+  - Big Data
+  - Education
+  - Analytics
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=70
+- aid: sk-telecom:sk-telecom-passkey-api
+  name: Passkey by SK Telecom API
+  description: >-
+    SK Telecom's passwordless passkey authentication system for third-party services. The product
+    page links an integration guide at api.passkey-sktelecom.com/docs/api.html; from outside Korea
+    that host answered HTTP 200 but served only a meta-refresh stub, so the guide content itself
+    could not be retrieved and no OpenAPI was recoverable.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=73
+  tags:
+  - Identity
+  - Authentication
+  - Passkey
+  - FIDO
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=73
+  - type: Documentation
+    url: https://api.passkey-sktelecom.com/docs/api.html
+- aid: sk-telecom:sk-telecom-t-id-api
+  name: SK Telecom T ID Login API
+  description: >-
+    T ID is SK Telecom's federated identity service, the single sign-on used across SK Telecom and
+    SK affiliate services with roughly 15 million registered users. Third parties integrate T ID
+    login through the T ID Developers channel portal. No .well-known/openid-configuration or
+    .well-known/oauth-authorization-server document is served — those paths return the SPA shell.
+  humanURL: https://developers.t-id.co.kr/
+  tags:
+  - Identity
+  - Authentication
+  - Single Sign On
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=63
+  - type: Documentation
+    url: https://developers.t-id.co.kr/
+- aid: sk-telecom:sk-telecom-nugu-developers
+  name: NUGU Developers
+  description: >-
+    Developer centre for NUGU, SK Telecom's Korean-language voice assistant platform, where third
+    parties build and publish NUGU "plays". The portal is a single-page application; no OpenAPI or
+    machine-readable descriptor was retrievable anonymously.
+  humanURL: https://developers.nugu.co.kr/
+  tags:
+  - Artificial Intelligence
+  - Voice
+  - Assistant
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=62
+  - type: Documentation
+    url: https://developers.nugu.co.kr/
+- aid: sk-telecom:sk-telecom-qrng-api
+  name: SK Telecom QRNG
+  description: >-
+    Quantum random number generation security chip and solution from SK Telecom, listed in the
+    Authentication/Security category of the SK open API portal. Listed as a product rather than a
+    documented REST API — no endpoints, base URL or OpenAPI were published at the time of review.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=29
+  tags:
+  - Security
+  - Quantum
+  - Random Number Generation
+  properties:
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=29
+common:
+- type: Website
+  url: https://www.sktelecom.com/
+- type: DeveloperPortal
+  url: https://openapi.sk.com/
+  name: SK open API — operated by SK Telecom Co., Ltd.
+- type: SignUp
+  url: https://openapi.sk.com/user/signUp
+- type: SignIn
+  url: https://openapi.sk.com/user/login
+- type: Support
+  url: https://openapi.sk.com/support/qna/qnaListView
+- type: FAQ
+  url: https://openapi.sk.com/faq
+- type: TermsOfService
+  url: https://openapi.sk.com/stplat/usage/indexView
+- type: PrivacyPolicy
+  url: https://privacy.sktelecom.com/view.do?ctg=policy&name=policy
+- type: Blog
+  url: https://news.sktelecom.com/
+- type: GitHubOrganization
+  url: https://github.com/sktelecom
+- type: OpenSource
+  url: https://sktelecom.github.io/en/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/sk-telecom
+- type: Email
+  url: mailto:skopenapi@sktelecom.com
+- type: PartnerProgram
+  url: https://open2u.sktelecom.com/web/WWO01N051X01.do
+  name: T Open API via SK Telecom Open2U partner programme
+- type: Enterprise
+  url: https://www.sktenterprise.com/
+- type: Standards
+  url: https://github.com/camaraproject/Governance/blob/main/PARTICIPANTS.MD
+  name: SK Telecom listed as a CAMARA Project participant
+- type: Standards
+  url: https://www.gsma.com/solutions-and-impact/gsma-open-gateway/gsma_orgs/sk-telecom/
+  name: GSMA Open Gateway organisation page for SK Telecom (HTTP 403 to anonymous probe)
+- type: Aggregator
+  url: https://www.bridgealliance.com/baex/
+  name: Bridge Alliance API Exchange — SK Telecom is an endorsing operator
+- type: Aggregator
+  url: https://adunaglobal.com/resources/news-aduna-and-sk-telink-announce-collaboration-to-bring-korea-into-the-global-network-api-ecosystem/
+  name: Aduna / SK telink MoU, 8 September 2025
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

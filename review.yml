@@ -1,0 +1,374 @@
+aid: sk-telecom
+name: SK Telecom
+review:
+  question: >-
+    Does SK Telecom publish a real, self-serve public developer portal with downloadable API
+    definitions, and does it expose callable CAMARA network APIs?
+  answer: partial
+  date: '2026-07-25'
+  reviewer: API Evangelist
+  homeMarket: South Korea
+  tier: mno-carrier
+findings:
+  summary: |
+    SK Telecom is one of the few mobile network operators in this study that runs a genuine,
+    self-serve public developer portal — but it is not a network-API portal. SK open API
+    (https://openapi.sk.com/, HTTP 200) is operated by SK Telecom Co., Ltd. (footer: SK-T Tower,
+    65 Eulji-ro, Jung-gu, Seoul; skopenapi@sktelecom.com). It has open self-serve registration at
+    /user/signUp, sign-in with T ID, a dashboard, usage/billing management, a public product
+    catalog served anonymously from /api/ajax/getCategoryList (26 products across six categories:
+    Transportation/Location, Geovision Puzzle, Telecommunications, AI, Authentication/Security,
+    Services), and a live AWS-fronted API gateway at https://apis.openapi.sk.com/ that answers
+    HTTP 401 UnauthorizedException without an appKey.
+
+    What is published there is AI, big-data and mobility product APIs — speech synthesis, face
+    recognition, congestion and floating-population analytics keyed to mobile-network signalling,
+    video analysis, road-event alerting. NOT network APIs. There is no Number Verification, no SIM
+    Swap, no Device Location, no QoD, no carrier billing, no messaging/SMS API and no IoT/M2M
+    connectivity-management API on SK Telecom's own portal.
+
+    The legacy "T developers" programme is dead. developer.sktelecom.com and
+    developers.sktelecom.com both resolve in DNS to 211.188.149.18 and refuse TCP connections on
+    port 443 (curl exit code 7 / ECONNREFUSED, HTTP 000). Search engines still index
+    developers.sktelecom.com as "SK open API"/"T developers" — the content moved to openapi.sk.com
+    and the old hostnames were left dangling. api.sktelecom.com and opengateway.sktelecom.com also
+    do not answer (HTTP 000). tmapapi.sktelecom.com and litmus.sktelecom.com, both referenced from
+    portal documentation, also do not answer.
+
+    Six real OpenAPI 3.1.0 documents were harvested. Each parses, declares servers on
+    https://apis.openapi.sk.com/, and declares the same auth scheme: apiKey in an `appKey` (or
+    `appkey`) request header. No OAuth2, no mTLS, and — decisively for this sector — no CIBA
+    anywhere. .well-known/openid-configuration and .well-known/oauth-authorization-server are not
+    served on openapi.sk.com (HTTP 404) and return the SPA shell on developers.t-id.co.kr.
+
+    CAMARA posture stated plainly: SK Telecom is a real CAMARA participant on paper and a real
+    Open Gateway signatory, and has three separate commercial arrangements to sell network APIs —
+    and not one CAMARA endpoint is callable from anything SK Telecom operates. The developer path
+    to SK Telecom network capability runs through aggregators, not through SK Telecom.
+  developerPortal:
+    url: https://openapi.sk.com/
+    httpStatus: 200
+    verdict: real self-serve portal
+    gated: false
+    selfServeSignup: https://openapi.sk.com/user/signUp
+    operatedBy: SK Telecom Co., Ltd.
+    language: Korean
+    productCount: 26
+    note: >-
+      Real portal, but it is an SK Group product-API marketplace (AI, big data, mobility), not a
+      network-API portal. The portal also fronts partner APIs owned by other companies — TMAP,
+      TMAP TMS and TMAP Transit (TMAP Mobility Co., Ltd.), Broadband Open API (SK Broadband),
+      11st, Ohlaband (SK planet), Urbanbase — which are NOT attributed to SK Telecom in apis.yml.
+  deadDeveloperHosts:
+  - url: https://developer.sktelecom.com/
+    httpStatus: 000
+    note: DNS resolves to 211.188.149.18; connection refused on 443. Dangling legacy hostname.
+  - url: https://developers.sktelecom.com/
+    httpStatus: 000
+    note: DNS resolves to 211.188.149.18; connection refused on 443. Still indexed as "T developers".
+  - url: https://api.sktelecom.com/
+    httpStatus: 000
+  - url: https://opengateway.sktelecom.com/
+    httpStatus: 000
+    note: No Open Gateway hostname exists under sktelecom.com.
+  - url: https://openapi.sktelecom.com/
+    httpStatus: 000
+  - url: https://tmapapi.sktelecom.com/main
+    httpStatus: 000
+  - url: https://litmus.sktelecom.com/
+    httpStatus: 000
+  downloadableSpecs:
+    count: 6
+    format: OpenAPI 3.1.0 (JSON)
+    discovery: >-
+      SK Telecom hosts its API reference documentation on ReadMe (*-skopenapi.readme.io). Each
+      reference page embeds an `ssr-props` payload containing `oasDefinition` and an
+      `oasPublicUrl` registry identifier; the complete definition is downloadable anonymously from
+      https://dash.readme.com/api/v1/api-registry/{uid} and, for one project, from
+      https://{project}.readme.io/openapi/{id}. There is no "Download OpenAPI" button on the SK
+      open API portal itself, and /openapi.json, /swagger.json and /api-docs return HTTP 404 on
+      both openapi.sk.com and apis.openapi.sk.com (the latter HTTP 403).
+    specs:
+    - file: openapi/sk-telecom-ax-tts-openapi.json
+      title: A.X tts
+      openapi: 3.1.0
+      paths: 3
+      server: https://apis.openapi.sk.com/axtts
+      sourceURL: https://ax-tts-skopenapi.readme.io/openapi/66f3cc4cbf2e7d0036b3e1ed
+      httpStatus: 200
+      fetched: '2026-07-25'
+    - file: openapi/sk-telecom-facecan-openapi.json
+      title: NUGU facecan
+      openapi: 3.1.0
+      paths: 9
+      server: https://apis.openapi.sk.com/nugufacecan
+      sourceURL: https://dash.readme.com/api/v1/api-registry/jk0chlx8cddoj
+      httpStatus: 200
+      fetched: '2026-07-25'
+    - file: openapi/sk-telecom-puzzle-place-congestion-openapi.json
+      title: 장소 혼잡도 (Place Congestion)
+      openapi: 3.1.0
+      paths: 16
+      server: https://apis.openapi.sk.com/puzzle/place
+      sourceURL: https://dash.readme.com/api/v1/api-registry/5fxm0b5liu8cn8r
+      httpStatus: 200
+      fetched: '2026-07-25'
+    - file: openapi/sk-telecom-puzzle-residence-openapi.json
+      title: 주거 생활 (Residence)
+      openapi: 3.1.0
+      paths: 5
+      server: https://apis.openapi.sk.com/puzzle/residence
+      sourceURL: https://dash.readme.com/api/v1/api-registry/bz6fbgs1liu7wtu8
+      httpStatus: 200
+      fetched: '2026-07-25'
+    - file: openapi/sk-telecom-meta-openapi.json
+      title: META
+      openapi: 3.1.0
+      paths: 7
+      server: https://apis.openapi.sk.com/sigmeta
+      sourceURL: https://dash.readme.com/api/v1/api-registry/gj9v16l88p3zm5
+      httpStatus: 200
+      fetched: '2026-07-25'
+    - file: openapi/sk-telecom-ovs-openapi.json
+      title: OVS
+      openapi: 3.1.0
+      paths: 10
+      server: https://apis.openapi.sk.com/api/ovs
+      sourceURL: https://dash.readme.com/api/v1/api-registry/jk0c2flx8cn599
+      httpStatus: 200
+      fetched: '2026-07-25'
+    notHarvested:
+    - title: TMAP API
+      reason: >-
+        Real OpenAPI 3.1.0, 32 paths, server https://apis.openapi.sk.com/tmap — but owned by TMAP
+        Mobility Co., Ltd. (티맵모빌리티 주식회사), a separate company. Not attributed to SK Telecom.
+    - title: Urbanbase
+      reason: >-
+        Real OpenAPI 3.1.0, 8 paths, server https://apis.openapi.sk.com/urbanbase — but owned by
+        Urbanbase Inc., a third-party partner distributing through SK Telecom's gateway.
+    - title: Puzzle Subway / Travel / Restaurant / Academy, Geovision, QRNG, SUPERNOVA, MULTIMODAL, AI media studio, Passkey
+      reason: >-
+        Documented on the SK open API portal with real base URLs, but no ReadMe-backed OpenAPI
+        definition was published or recoverable for these products at review time.
+  camara:
+    posture: >-
+      CAMARA participant and Open Gateway signatory with three commercial routes to market, but no
+      callable CAMARA endpoint of its own — developers reach SK Telecom network APIs only through
+      aggregators (Bridge Alliance BAEx / Aduna), never from SK Telecom directly.
+    isParticipant: true
+    participantEvidence:
+    - url: https://github.com/camaraproject/Governance/blob/main/PARTICIPANTS.MD
+      note: >-
+        "SK Telecom" listed twice in the CAMARA Governance participant roster (Clark Park; Yoon Sun
+        Jung (Serena)). Verified 2026-07-25 via the GitHub Contents API.
+    - url: https://github.com/camaraproject/camara-landscape/blob/main/landscape.yml
+      note: >-
+        SK Telecom listed in the CAMARA landscape with homepage https://www.sktelecom.com/ under
+        "Operation / Operators".
+    - url: https://github.com/camaraproject/SimSwap
+      note: >-
+        SK Telecom appears in CAMARA SimSwap, NumberVerification and OTPValidation sync-call meeting
+        minutes for 2022 weeks 46/50 and 2023 week 2.
+    apisWithEvidence:
+    - name: Number Verification
+      evidence: >-
+        Named in the Aduna / SK telink MoU (8 Sep 2025) as an initial priority; live on the Bridge
+        Alliance API Exchange as a "Silent Network Authentication" API across endorsing operators
+        including SK Telecom; one of the six network APIs SKT, KT and LG Uplus agreed to standardise
+        through Korea's TTA (MoU 28 Oct 2024).
+      callableFromSKT: false
+    - name: SIM Swap
+      evidence: >-
+        Named in the Aduna / SK telink MoU (8 Sep 2025); offered on Bridge Alliance BAEx; in the
+        Korean three-operator TTA standardisation set; SK Telecom named in CAMARA SimSwap minutes.
+      callableFromSKT: false
+    - name: KYC Match
+      evidence: >-
+        "Know Your Customer / KYC" named in the Aduna / SK telink MoU (8 Sep 2025) alongside Number
+        Verification and SIM Swap.
+      callableFromSKT: false
+    - name: Quality on Demand (QoD)
+      evidence: >-
+        Named in the SKT/KT/LG Uplus TTA standardisation set announced 28 Oct 2024 as the API that
+        raises communication quality at a customer-chosen time.
+      callableFromSKT: false
+    pressReleaseOnly: true
+    pressReleaseNote: >-
+      Every CAMARA API above is a commitment, a standardisation item, or an aggregator listing —
+      not an implementation SK Telecom exposes. A press release is not an implementation, and in
+      SK Telecom's case there are three of them (TTA three-operator MoU October 2024, Bridge
+      Alliance BAEx endorsement August 2024, Aduna/SK telink MoU September 2025) with nothing
+      callable behind any of them from an SK Telecom hostname.
+  openGateway:
+    member: true
+    evidence:
+    - url: https://www.gsma.com/solutions-and-impact/gsma-open-gateway/gsma_orgs/sk-telecom/
+      httpStatus: 403
+      note: >-
+        GSMA maintains a per-organisation Open Gateway page for SK Telecom at this URL. Every
+        gsma.com and open-gateway.gsma.com host returned HTTP 403 to anonymous probes on
+        2026-07-25, so the page body could not be read and the specific APIs GSMA lists for SK
+        Telecom could not be confirmed first-hand.
+    - url: https://www.bridgealliance.com/baex/
+      note: >-
+        SK Telecom is one of 13 endorsing operators of the Bridge Alliance API Exchange (announced
+        27 Aug 2024), an Open Gateway/CAMARA-aligned exchange running on Singtel's Paragon
+        orchestration platform, surfaced to developers through Nokia's Network as Code portal.
+    domesticInitiative:
+      date: '2024-10-28'
+      note: >-
+        SK Telecom, KT and LG Uplus signed an MoU to establish and commercialise six common network
+        open API standards for Korea through TTA (Telecommunications Technology Association) —
+        five identity / mobile-financial-security APIs including Number Verification and SIM Swap,
+        plus Quality on Demand.
+  aduna:
+    reachesMarketViaAduna: true
+    date: '2025-09-08'
+    parties: Aduna and SK telink (SK Telecom subsidiary)
+    status: Memorandum of Understanding / strategic commercial partnership — intent, not live
+    apis: [Number Verification, SIM Swap, KYC]
+    url: https://adunaglobal.com/resources/news-aduna-and-sk-telink-announce-collaboration-to-bring-korea-into-the-global-network-api-ecosystem/
+  tmForum:
+    conformanceCertification: none found
+    note: >-
+      No TM Forum Open API conformance certification (TMF620, TMF622, TMF641 or any other) was found
+      for SK Telecom in TM Forum's published conformance material as of 2026-07-25. SK Telecom does
+      not publish any TM Forum Open API surface publicly.
+  threeGppExposure:
+    nef: none found
+    scef: none found
+    networkSlicing: none found
+    edgeMec: none found
+    note: >-
+      No public NEF/SCEF endpoint, network-slicing API or edge/MEC API is documented on any SK
+      Telecom hostname. SKT's 5GX Edge work is sold through enterprise sales at sktenterprise.com,
+      not exposed as a developer API.
+  auth:
+    scheme: API key
+    detail: >-
+      Every harvested OpenAPI declares `securitySchemes.sec0` as type apiKey, in header, named
+      `appKey` (Puzzle specs use lowercase `appkey`). The gateway at https://apis.openapi.sk.com/
+      returns HTTP 401 `{"error":{"id":"401","category":"gw","code":"UNAUTHORIZED"}}` with an
+      `x-amzn-errortype: UnauthorizedException` header, confirming AWS API Gateway fronting. Portal
+      docs state plainly that every request must carry the issued appKey header over HTTPS.
+    oauth2: >-
+      T ID offers federated login for portal sign-in and for third-party integrations, but no
+      OAuth2/OIDC discovery document is served. https://openapi.sk.com/.well-known/openid-configuration
+      and /.well-known/oauth-authorization-server return HTTP 404; the same paths on
+      developers.t-id.co.kr return HTTP 200 but serve the Nuxt SPA shell, not JSON.
+    ciba: false
+    cibaNote: >-
+      CIBA (Client-Initiated Backchannel Authentication), which CAMARA specifies for network-based
+      authorization, does not appear anywhere in SK Telecom's public developer surface. This
+      follows from the fact that no CAMARA API is exposed.
+  webhooks:
+    published: false
+    asyncapi: false
+    note: >-
+      None of the six harvested OpenAPI documents declares a `webhooks` object or callbacks, and no
+      AsyncAPI document or event catalog is published. The closest thing to an event surface is the
+      OVS API, which pushes road-incident alert messages to registered devices via a request/response
+      endpoint rather than a subscriber webhook.
+  sdks:
+    firstParty: >-
+      No first-party SK Telecom SDK package was found on npm (a registry search for "sktelecom"
+      returned no SK Telecom-published packages). SDKs advertised on the portal (Android, iOS,
+      JavaScript) belong to TMAP, i.e. TMAP Mobility, not SK Telecom.
+    github: >-
+      github.com/sktelecom is an open-source-programme-office org (sktelecom.github.io, oss-guide,
+      onot, bomlens, compliance-artifacts) — SBOM/licence tooling, not API SDKs or API definitions.
+    huggingface: >-
+      SK Telecom publishes its A.X sovereign Korean LLM family and earlier KoBERT/KoGPT2/KoBART
+      models under huggingface.co/skt. A.X models are also offered to enterprises as an API and as
+      on-prem Docker containers, but no public self-serve A.X inference endpoint or OpenAPI was
+      found; the only A.X surface on the public portal is A.X TTS.
+  graphql:
+    found: false
+  grpc:
+    found: false
+  postman:
+    publicWorkspace: none found
+  channelToDevelopers: >-
+    Two separate channels, and neither is a network-API channel from SK Telecom itself. (1) For AI,
+    big-data and mobility product APIs: direct and self-serve at openapi.sk.com, plus a partner
+    track through the Open2U supplier programme ("T Open API"). (2) For network/CAMARA APIs:
+    aggregators only — Bridge Alliance API Exchange on Singtel Paragon (surfaced through Nokia
+    Network as Code), and Aduna via SK telink. This is the central sector finding restated for
+    Korea: the carrier owns the network, and someone else owns the developer relationship.
+  transports:
+  - protocol: REST
+    scheme: https
+    baseURL: https://apis.openapi.sk.com/
+    documented: true
+    note: Fronted by AWS API Gateway; appKey header auth; HTTP 401 without a key.
+  - protocol: GraphQL
+    documented: false
+  - protocol: gRPC
+    documented: false
+  - protocol: WebSocket
+    scheme: wss
+    documented: false
+sources:
+- url: https://openapi.sk.com/
+  type: DeveloperPortal
+  httpStatus: 200
+  note: SK open API. Footer identifies SK Telecom Co., Ltd. Self-serve signup at /user/signUp.
+- url: https://openapi.sk.com/api/ajax/getCategoryList?filterType=category
+  type: API
+  httpStatus: 200
+  note: Anonymous JSON endpoint returning the full 26-product public catalog with provider company per product.
+- url: https://apis.openapi.sk.com/tmap/routes?version=1
+  type: APIGateway
+  httpStatus: 401
+  note: 'Gateway rejects keyless requests: {"error":{"id":"401","category":"gw","code":"UNAUTHORIZED"}}.'
+- url: https://developers.sktelecom.com/
+  type: DeadHost
+  httpStatus: 000
+  note: ECONNREFUSED 211.188.149.18:443 — abandoned "T developers" hostname.
+- url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  type: APIReference
+  httpStatus: 200
+- url: https://dash.readme.com/api/v1/api-registry/jk0chlx8cddoj
+  type: OpenAPI
+  httpStatus: 200
+- url: https://github.com/camaraproject/Governance/blob/main/PARTICIPANTS.MD
+  type: Standards
+  note: SK Telecom listed as a CAMARA participant (two named representatives).
+- url: https://github.com/camaraproject/camara-landscape/blob/main/landscape.yml
+  type: Standards
+  note: SK Telecom in the CAMARA landscape under Operation / Operators.
+- url: https://www.gsma.com/solutions-and-impact/gsma-open-gateway/gsma_orgs/sk-telecom/
+  type: Standards
+  httpStatus: 403
+  note: GSMA Open Gateway organisation page exists for SK Telecom; body not readable anonymously.
+- url: https://www.bridgealliance.com/baex/
+  type: Aggregator
+  note: SK Telecom one of 13 operators endorsing the Bridge Alliance API Exchange (Aug 2024).
+- url: https://adunaglobal.com/resources/news-aduna-and-sk-telink-announce-collaboration-to-bring-korea-into-the-global-network-api-ecosystem/
+  type: Aggregator
+  httpStatus: 200
+  note: Aduna / SK telink MoU, 8 September 2025 — Number Verification, SIM Swap, KYC. Intent only.
+- url: https://developers.t-id.co.kr/
+  type: Documentation
+  httpStatus: 200
+  note: T ID Developers SPA; no OIDC discovery document served.
+- url: https://developers.nugu.co.kr/
+  type: Documentation
+  httpStatus: 200
+- url: https://api.passkey-sktelecom.com/docs/api.html
+  type: Documentation
+  httpStatus: 200
+  note: Serves a 477-byte meta-refresh stub only; the integration guide itself was not retrievable.
+- url: https://open2u.sktelecom.com/web/WWO01N051X01.do
+  type: PartnerProgram
+  httpStatus: 200
+  note: '"T Open API" offered to partners and SMEs through SK Telecom''s Open2U shared-growth programme.'
+- url: https://huggingface.co/skt
+  type: Models
+  note: A.X-K1, A.X-4.0, A.X-4.0-Light, A.X-3.1-Light, KoBERT, KoGPT2, KoBART.
+actions:
+  openapiHarvested: 6
+  openapiDirectory: openapi/
+  apisYmlCreated: true
+  githubRepoCreated: false
+  pushed: false
