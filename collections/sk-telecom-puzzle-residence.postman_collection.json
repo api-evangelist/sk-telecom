@@ -1,0 +1,3063 @@
+{
+  "item": [
+    {
+      "id": "d6e570cd-e1ea-41da-8333-f5510348e83a",
+      "name": "Apartment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6ada9e94-3b97-40c4-b0ff-6daeb05fb2d9",
+          "name": "데이터 제공 가능 아파트",
+          "request": {
+            "name": "데이터 제공 가능 아파트",
+            "description": {
+              "content": "* 주거 생활 데이터를 제공하는 아파트의 코드와 아파트명을 조회합니다.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "meta",
+                "apts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f676427-9277-4ec6-a287-871a4e518716",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meta",
+                    "apts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"status\\\": {\\n    \\\"code\\\": \\\"00\\\",\\n    \\\"message\\\": \\\"success\\\",\\n    \\\"totalCount\\\": 1\\n  },\\n  \\\"contents\\\": [\\n    {\\n      \\\"kaptCode\\\": \\\"A10024502\\\",\\n      \\\"kaptName\\\": \\\"신대증흥S클래스10단지아파트\\\"\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf9a1c46-2672-4118-a093-44c172a3c232",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meta",
+                    "apts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400\",\n    \"message\": \"INVALID_PARAMETER_NAME\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11a82d0d-71b3-402d-82e1-400fd7d206c1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meta",
+                    "apts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"401\",\n    \"category\": \"gw\",\n    \"code\": \"UNAUTHORIZED\",\n    \"message\": \"Unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82c6e58f-c384-4916-a86c-ccf465c47cd0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meta",
+                    "apts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"403\",\n    \"category\": \"gw\",\n    \"code\": \"INVALID_API_KEY\",\n    \"message\": \"Forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ed1c20b-e5b1-4fad-b3b5-6f97b5bedb12",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meta",
+                    "apts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"404\",\n    \"message\": \"NOT_FOUND_DATA\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f832426b-56c5-41a4-b031-0a849d4da94b",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meta",
+                    "apts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"429\",\n    \"category\": \"gw\",\n    \"code\": \"THROTTLED\",\n    \"message\": \"Too Many Requests\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "49f4c4b5-a935-40e8-a4ba-2ed5fa8cb510",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meta",
+                    "apts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"500\",\n    \"category\": \"gw\",\n    \"code\": \"API_CONFIGURATION_ERROR\",\n    \"message\": \"Internal server error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "056ff175-f4ef-4e12-baee-df41f2e7d7dd",
+              "name": "Gateway Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "meta",
+                    "apts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"504\",\n    \"category\": \"gw\",\n    \"code\": \"INTEGRATION_FAILURE\",\n    \"message\": \"Network error communicating with endpoint\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2781d469-3354-46c3-aff2-5fd8b2002297",
+      "name": "Life style",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b537bfcd-8c82-4e15-9b1e-a92dcc72bcff",
+          "name": "주거생활 카테고리별 순위",
+          "request": {
+            "name": "주거생활 카테고리별 순위",
+            "description": {
+              "content": "* 특정 아파트 주민의 교육(학교, 유아교육, 학원), 쇼핑(대형마트, 쇼핑몰), 이사(이사 온 아파트, 이사 간 아파트), 지하철 출발역·도착역, 근무지역 등 다양한 주거생활의 순위 정보를 제공합니다.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "categories",
+                ":category",
+                "stat",
+                "monthly",
+                "apts",
+                ":kaptCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "schoolType",
+                  "value": "e",
+                  "description": "학교 순위를 조회할 때 학교 종류(e:초등학교, m:중학교, h:고등학교)를 선택합니다."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "mart",
+                  "key": "category",
+                  "description": "(Required) 카테고리 목록에서 조회를 원하는 분류값을 영문으로 입력합니다."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "A13805002",
+                  "key": "kaptCode",
+                  "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc68283c-89dd-495a-98ba-2fa0dbec2724",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":category",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "schoolType",
+                      "value": "e"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mart",
+                      "key": "category",
+                      "description": "(Required) 카테고리 목록에서 조회를 원하는 분류값을 영문으로 입력합니다."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"status\\\": {\\n    \\\"code\\\": \\\"00\\\",\\n    \\\"message\\\": \\\"success\\\",\\n    \\\"totalCount\\\": 1\\n  },\\n  \\\"contents\\\": [\\n    {\\n      \\\"kaptCode\\\": \\\"A13805002\\\",\\n      \\\"kaptName\\\": \\\"올림픽선수기자촌아파트\\\",\\n      \\\"stat\\\": [\\n        {\\n          \\\"ypId\\\": \\\"3650775\\\",\\n          \\\"ypName\\\": \\\"시대인재학원 입시R&D센터\\\",\\n          \\\"rate\\\": 3.3185\\n        },\\n        {\\n          \\\"ypId\\\": \\\"1976893\\\",\\n          \\\"ypName\\\": \\\"이은재어학원 본관\\\",\\n          \\\"rate\\\": 2.9408\\n        },\\n        {\\n          \\\"ypId\\\": \\\"3782459\\\",\\n          \\\"ypName\\\": \\\"깊은생각 송파본원\\\",\\n          \\\"rate\\\": 2.7924\\n        },\\n        {\\n          \\\"ypId\\\": \\\"5567783\\\",\\n          \\\"ypName\\\": \\\"새움수학원\\\",\\n          \\\"rate\\\": 2.7789\\n        },\\n        {\\n          \\\"ypId\\\": \\\"2317943\\\",\\n          \\\"ypName\\\": \\\"구주이배수학학원 송파점\\\",\\n          \\\"rate\\\": 2.6305\\n        }\\n      ],\\n      \\\"yearMonth\\\": \\\"202304\\\",\\n      \\\"statStartDate\\\": \\\"20230201\\\",\\n      \\\"statEndDate\\\": \\\"20230430\\\"\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6745b73b-37c3-4c45-98f3-00668145655a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":category",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "schoolType",
+                      "value": "e"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mart",
+                      "key": "category",
+                      "description": "(Required) 카테고리 목록에서 조회를 원하는 분류값을 영문으로 입력합니다."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400\",\n    \"message\": \"INVALID_PARAMETER_NAME\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9f25137-6ffa-4666-a5dc-9a697689f451",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":category",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "schoolType",
+                      "value": "e"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mart",
+                      "key": "category",
+                      "description": "(Required) 카테고리 목록에서 조회를 원하는 분류값을 영문으로 입력합니다."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"401\",\n    \"category\": \"gw\",\n    \"code\": \"UNAUTHORIZED\",\n    \"message\": \"Unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f291b98-91d6-4a03-be4c-efe979fb6769",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":category",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "schoolType",
+                      "value": "e"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mart",
+                      "key": "category",
+                      "description": "(Required) 카테고리 목록에서 조회를 원하는 분류값을 영문으로 입력합니다."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"403\",\n    \"category\": \"gw\",\n    \"code\": \"INVALID_API_KEY\",\n    \"message\": \"Forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "927f18ae-c684-40f3-b111-4d4fce0ae712",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":category",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "schoolType",
+                      "value": "e"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mart",
+                      "key": "category",
+                      "description": "(Required) 카테고리 목록에서 조회를 원하는 분류값을 영문으로 입력합니다."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"404\",\n    \"message\": \"NOT_FOUND_DATA\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02aa7c3c-2905-4827-8f11-93a17506b1b4",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":category",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "schoolType",
+                      "value": "e"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mart",
+                      "key": "category",
+                      "description": "(Required) 카테고리 목록에서 조회를 원하는 분류값을 영문으로 입력합니다."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"429\",\n    \"category\": \"gw\",\n    \"code\": \"THROTTLED\",\n    \"message\": \"Too Many Requests\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc546646-125e-496f-b6de-86794e8f3b8d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":category",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "schoolType",
+                      "value": "e"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mart",
+                      "key": "category",
+                      "description": "(Required) 카테고리 목록에서 조회를 원하는 분류값을 영문으로 입력합니다."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"500\",\n    \"category\": \"gw\",\n    \"code\": \"API_CONFIGURATION_ERROR\",\n    \"message\": \"Internal server error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1819ede5-6a3f-441d-9292-95ae709991d3",
+              "name": "Gateway Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":category",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "schoolType",
+                      "value": "e"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "mart",
+                      "key": "category",
+                      "description": "(Required) 카테고리 목록에서 조회를 원하는 분류값을 영문으로 입력합니다."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"504\",\n    \"category\": \"gw\",\n    \"code\": \"INTEGRATION_FAILURE\",\n    \"message\": \"Network error communicating with endpoint\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1ac36102-3c26-43ab-bbd0-837d841db390",
+      "name": "Resident",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "889b33bd-88f9-4de6-be96-9326879e9e1c",
+          "name": "지하철 이용 비율",
+          "request": {
+            "name": "지하철 이용 비율",
+            "description": {
+              "content": "* 특정 아파트 주민 중 최근 3개월 동안 지하철을 이용한 주민의 비율을 제공합니다.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "resident",
+                "subway-use-rate",
+                "stat",
+                "monthly",
+                "apts",
+                ":kaptCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "A13805002",
+                  "key": "kaptCode",
+                  "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4861139a-f7e7-46d3-9035-d294d7520705",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "subway-use-rate",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"status\\\": {\\n    \\\"code\\\": \\\"00\\\",\\n    \\\"message\\\": \\\"success\\\",\\n    \\\"totalCount\\\": 1\\n  },\\n  \\\"contents\\\": [\\n    {\\n      \\\"kaptCode\\\": \\\"A13805002\\\",\\n      \\\"kaptName\\\": \\\"올림픽선수기자촌아파트\\\",\\n      \\\"stat\\\": {\\n        \\\"rate\\\": 21.523\\n      },\\n      \\\"yearMonth\\\": \\\"202304\\\",\\n      \\\"statStartDate\\\": \\\"20230201\\\",\\n      \\\"statEndDate\\\": \\\"20230430\\\"\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2817a1ae-549a-4e69-901d-442b482385aa",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "subway-use-rate",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400\",\n    \"message\": \"INVALID_PARAMETER_NAME\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e41aaf8-a1f9-4936-b147-ec8616f0ecda",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "subway-use-rate",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"401\",\n    \"category\": \"gw\",\n    \"code\": \"UNAUTHORIZED\",\n    \"message\": \"Unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "979e3206-9a45-4059-8853-d384c9d96171",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "subway-use-rate",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"403\",\n    \"category\": \"gw\",\n    \"code\": \"INVALID_API_KEY\",\n    \"message\": \"Forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a6c0312-b72b-4439-958f-ab4c13fa8294",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "subway-use-rate",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"404\",\n    \"message\": \"NOT_FOUND_DATA\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "873c1c55-c159-4148-948e-e6e6b754042a",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "subway-use-rate",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"429\",\n    \"category\": \"gw\",\n    \"code\": \"THROTTLED\",\n    \"message\": \"Too Many Requests\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02a0ad58-dc9c-4ef5-883d-1af4c17ed8b3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "subway-use-rate",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"500\",\n    \"category\": \"gw\",\n    \"code\": \"API_CONFIGURATION_ERROR\",\n    \"message\": \"Internal server error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90ba61d8-a0ab-4883-b193-ebcc29aa7adb",
+              "name": "Gateway Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "subway-use-rate",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"504\",\n    \"category\": \"gw\",\n    \"code\": \"INTEGRATION_FAILURE\",\n    \"message\": \"Network error communicating with endpoint\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1549cc05-e687-43a9-a2f2-db68a2315990",
+          "name": "거주자 평균 나이",
+          "request": {
+            "name": "거주자 평균 나이",
+            "description": {
+              "content": "* 특정 아파트 주민의 평균 나이를 제공합니다.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "resident",
+                "age",
+                "stat",
+                "monthly",
+                "apts",
+                ":kaptCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "A13805002",
+                  "key": "kaptCode",
+                  "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89726bce-dabf-4060-bdd9-882634892b3b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "age",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"status\\\": {\\n    \\\"code\\\": \\\"00\\\",\\n    \\\"message\\\": \\\"success\\\",\\n    \\\"totalCount\\\": 1\\n  },\\n  \\\"contents\\\": [\\n    {\\n      \\\"kaptCode\\\": \\\"A13805002\\\",\\n      \\\"kaptName\\\": \\\"올림픽선수기자촌아파트\\\",\\n      \\\"stat\\\": [\\n        {\\n          \\\"gender\\\": \\\"male\\\",\\n          \\\"avgAge\\\": 47.10608552631579,\\n          \\\"ctpAvgAge\\\": 46.71051679606173,\\n          \\\"sigAvgAge\\\": 46.36388996628577\\n        },\\n        {\\n          \\\"gender\\\": \\\"female\\\",\\n          \\\"avgAge\\\": 46.66177669111654,\\n          \\\"ctpAvgAge\\\": 47.22532359178899,\\n          \\\"sigAvgAge\\\": 46.16058659909418\\n        }\\n      ],\\n      \\\"yearMonth\\\": \\\"202304\\\",\\n      \\\"statStartDate\\\": \\\"20230201\\\",\\n      \\\"statEndDate\\\": \\\"20230430\\\"\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9548f266-6e58-4334-8e9c-74f74543d412",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "age",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400\",\n    \"message\": \"INVALID_PARAMETER_NAME\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e7ac6bb-daf5-4997-9070-7dcc30faf81e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "age",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"401\",\n    \"category\": \"gw\",\n    \"code\": \"UNAUTHORIZED\",\n    \"message\": \"Unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60250ae6-75a2-49e4-8cb1-d0ac427677cf",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "age",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"403\",\n    \"category\": \"gw\",\n    \"code\": \"INVALID_API_KEY\",\n    \"message\": \"Forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5b580f3-1476-4b7c-9318-7e5b5f500493",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "age",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"404\",\n    \"message\": \"NOT_FOUND_DATA\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8234871-a71b-4dda-a384-097511d6eec9",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "age",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"429\",\n    \"category\": \"gw\",\n    \"code\": \"THROTTLED\",\n    \"message\": \"Too Many Requests\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72bfea56-c3bd-44c6-a176-928472ad5d4b",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "age",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"500\",\n    \"category\": \"gw\",\n    \"code\": \"API_CONFIGURATION_ERROR\",\n    \"message\": \"Internal server error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "301d4b70-74ed-4a1b-93f9-dfea0367f4bd",
+              "name": "Gateway Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "age",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"504\",\n    \"category\": \"gw\",\n    \"code\": \"INTEGRATION_FAILURE\",\n    \"message\": \"Network error communicating with endpoint\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2df2effb-febb-402b-8fad-a46672bd4152",
+          "name": "거주자 특징",
+          "request": {
+            "name": "거주자 특징",
+            "description": {
+              "content": "* 동일 시도 대비 해당 아파트 주민 구성의 비율이 높은 Life stage(영유아, 초등학생, 중학생, 고등학생, 대학생, 1인가구, 신혼부부, 시니어) 값을 제공합니다.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "resident",
+                "demo-feature",
+                "stat",
+                "monthly",
+                "apts",
+                ":kaptCode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "A13805002",
+                  "key": "kaptCode",
+                  "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b124fbf4-5063-404d-b266-d3c15e30a065",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "demo-feature",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"status\\\": {\\n    \\\"code\\\": \\\"00\\\",\\n    \\\"message\\\": \\\"success\\\",\\n    \\\"totalCount\\\": 1\\n  },\\n  \\\"contents\\\": [\\n    {\\n      \\\"kaptCode\\\": \\\"A13805002\\\",\\n      \\\"kaptName\\\": \\\"올림픽선수기자촌아파트\\\",\\n      \\\"stat\\\": [\\n        {\\n          \\\"feature\\\": \\\"대학생\\\",\\n          \\\"lift\\\": 1.44\\n        },\\n        {\\n          \\\"feature\\\": \\\"고등학생\\\",\\n          \\\"lift\\\": 1.31\\n        },\\n        {\\n          \\\"feature\\\": \\\"중학생\\\",\\n          \\\"lift\\\": 1.24\\n        },\\n        {\\n          \\\"feature\\\": \\\"60+\\\",\\n          \\\"lift\\\": 1.06\\n        }\\n      ],\\n      \\\"yearMonth\\\": \\\"202304\\\",\\n      \\\"statStartDate\\\": \\\"20230201\\\",\\n      \\\"statEndDate\\\": \\\"20230430\\\"\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7e04e91-2a24-478c-912f-3b1f4db72119",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "demo-feature",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"400\",\n    \"message\": \"INVALID_PARAMETER_NAME\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8038eb9c-bedd-4825-bdfe-7943c300fc07",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "demo-feature",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"401\",\n    \"category\": \"gw\",\n    \"code\": \"UNAUTHORIZED\",\n    \"message\": \"Unauthorized\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e09f4de-bc54-42c2-94f4-105d6613540a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "demo-feature",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"403\",\n    \"category\": \"gw\",\n    \"code\": \"INVALID_API_KEY\",\n    \"message\": \"Forbidden\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ef8f57d-aa41-4802-a6cf-7ec1f685f603",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "demo-feature",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"404\",\n    \"message\": \"NOT_FOUND_DATA\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4115916e-7fb9-4362-954c-3c5d86057459",
+              "name": "Too Many Requests",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "demo-feature",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"429\",\n    \"category\": \"gw\",\n    \"code\": \"THROTTLED\",\n    \"message\": \"Too Many Requests\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8858c62-6e95-4599-b37b-d77e9b3eedd7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "demo-feature",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"500\",\n    \"category\": \"gw\",\n    \"code\": \"API_CONFIGURATION_ERROR\",\n    \"message\": \"Internal server error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d9f9504-ede4-422c-929f-ef11d654f1b8",
+              "name": "Gateway Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "resident",
+                    "demo-feature",
+                    "stat",
+                    "monthly",
+                    "apts",
+                    ":kaptCode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "A13805002",
+                      "key": "kaptCode",
+                      "description": "(Required) 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appkey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">대시보드>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"id\": \"504\",\n    \"category\": \"gw\",\n    \"code\": \"INTEGRATION_FAILURE\",\n    \"message\": \"Network error communicating with endpoint\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apis.openapi.sk.com/puzzle/residence",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "appkey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b55c30b0-347c-4da0-929f-2878c25b2d88",
+    "name": "주거 생활",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

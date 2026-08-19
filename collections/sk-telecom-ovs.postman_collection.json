@@ -1,0 +1,2546 @@
+{
+  "item": [
+    {
+      "id": "51c79228-e7c1-4cdd-be66-5ff3f38e936e",
+      "name": "내 회사 정보 조회",
+      "request": {
+        "name": "내 회사 정보 조회",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "company",
+            "info",
+            "me"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "8ab9ddfb-da29-4101-aee5-68524fbe386e",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "company",
+                "info",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"id\\\": {\\n    \\\"id\\\": \\\"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\\\"\\n  },\\n    \\\"createdTime\\\": 1590654831577,\\n      \\\"name\\\": \\\"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\\\",\\n        \\\"serviceType\\\": \\\"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\\\",\\n          \\\"master\\\": true,\\n            \\\"masterId\\\": {\\n              \\\"id\\\": \\\"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\\\"\\n            },\\n              \\\"picPasswd\\\": null,\\n                \\\"picName\\\": \\\"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\\\",\\n                  \\\"picPhone\\\": null,\\n                    \\\"picEmail\\\": \\\"l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com\\\",\\n                      \\\"picDivision\\\": null,\\n                        \\\"sktManagerName\\\": null,\\n                          \\\"sktManagerEmail\\\": null,\\n                            \\\"cooperationTask\\\": null,\\n                              \\\"description\\\": null,\\n                                \\\"notifyHost\\\": null,\\n                                  \\\"notifyMsgType\\\": null,\\n                                    \\\"notifyErrIdleMin\\\": 0,\\n                                      \\\"pwAccess\\\": null,\\n                                        \\\"dataAnalytics\\\": null,\\n                                          \\\"bcn\\\": null,\\n                                            \\\"tokenPrefix\\\": \\\"uio35\\\",\\n                                              \\\"ovs\\\": true,\\n                                                \\\"tokenExpr\\\": -1\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "7662e716-2a9e-4a20-a82a-69e31a1f3080",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "company",
+                "info",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "8b13d756-082a-45a1-aabc-6243d156d2f3",
+      "name": "회사 전체 단말 리스트 조회",
+      "request": {
+        "name": "회사 전체 단말 리스트 조회",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "company",
+            "info",
+            "devices",
+            ":companyId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "companyId",
+              "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "91c6df04-0dc6-4342-afa2-c133aff964fd",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "company",
+                "info",
+                "devices",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"data\\\": [\\n    {\\n      \\\"id\\\": {\\n        \\\"id\\\": \\\"ee874290-abba-11ea-b482-911940102f00\\\"\\n      },\\n      \\\"createdTime\\\": 1591862994142,\\n      \\\"companyId\\\": {\\n        \\\"id\\\": \\\"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\\\"\\n      },\\n      \\\"vendor\\\": \\\"SKT1\\\",\\n      \\\"type\\\": \\\"OVC-G\\\",\\n      \\\"additionalInfo\\\": null,\\n      \\\"activationRequired\\\": false,\\n      \\\"serialNo\\\": \\\"uio35123451234512345\\\",\\n      \\\"credentialsId\\\": null\\n    },\\n    {\\n      \\\"id\\\": {\\n        \\\"id\\\": \\\"37c6b060-a0be-11ea-a9b8-ff6a8104c32f\\\"\\n      },\\n      \\\"createdTime\\\": 1590654942693,\\n      \\\"companyId\\\": {\\n        \\\"id\\\": \\\"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\\\"\\n      },\\n      \\\"vendor\\\": \\\"SKT1\\\",\\n      \\\"type\\\": \\\"OVC-G\\\",\\n      \\\"additionalInfo\\\": null,\\n      \\\"activationRequired\\\": false,\\n      \\\"serialNo\\\": \\\"uio35fine1236\\\",\\n      \\\"credentialsId\\\": null\\n    }\\n  ],\\n    \\\"nextPageLink\\\": null,\\n      \\\"hasNext\\\": false\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "a776e315-357f-4f6c-ae2b-9fc169e4dc74",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "company",
+                "info",
+                "devices",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "2a456a12-045b-4403-922a-77e5b26ec9f1",
+      "name": "회사 정보 조회",
+      "request": {
+        "name": "회사 정보 조회",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "company",
+            "info",
+            ":companyId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "companyId",
+              "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token of each company",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "1c519df4-b9e6-4459-b220-477c04cb3737",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "company",
+                "info",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token of each company",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{   \\n  \\\"id\\\": {\\n    \\\"id\\\": \\\"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\\\"\\n  },\\n    \\\"createdTime\\\": 1590654831577,\\n      \\\"name\\\": \\\"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\\\",\\n        \\\"serviceType\\\": \\\"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\\\",\\n          \\\"master\\\": true,\\n            \\\"masterId\\\": {\\n              \\\"id\\\": \\\"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\\\"\\n            },\\n              \\\"picPasswd\\\": null,\\n                \\\"picName\\\": \\\"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\\\",\\n                  \\\"picPhone\\\": null,\\n                    \\\"picEmail\\\": \\\"l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com\\\",\\n                      \\\"picDivision\\\": null,\\n                        \\\"sktManagerName\\\": null,\\n                          \\\"sktManagerEmail\\\": null,\\n                            \\\"cooperationTask\\\": null,\\n                              \\\"description\\\": null,\\n                                \\\"notifyHost\\\": null,\\n                                  \\\"notifyMsgType\\\": null,\\n                                    \\\"notifyErrIdleMin\\\": 0,\\n                                      \\\"pwAccess\\\": null,\\n                                        \\\"dataAnalytics\\\": null,\\n                                          \\\"bcn\\\": null,\\n                                            \\\"tokenPrefix\\\": \\\"uio35\\\",\\n                                              \\\"ovs\\\": true,\\n                                                \\\"tokenExpr\\\": -1\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "ad062339-b2a4-42ba-ac8b-348114b2f6a5",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "company",
+                "info",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token of each company",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "1a3c6d4c-e3ad-4305-b997-428ab98ee2cb",
+      "name": "회사 전체 단말 수 조회",
+      "request": {
+        "name": "회사 전체 단말 수 조회",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "company",
+            "info",
+            "devices",
+            "cnt",
+            ":companyId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "companyId",
+              "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "7d23f0f7-5357-465a-9647-77ca1effcaf6",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "company",
+                "info",
+                "devices",
+                "cnt",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"7000\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "60207be8-1e26-4c85-9f55-3e7097b4df1f",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "company",
+                "info",
+                "devices",
+                "cnt",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7f96470b-ce9b-473b-8c3a-a76d8afa4ffe",
+      "name": "단말 등록",
+      "request": {
+        "name": "단말 등록",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "device"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vendor\": \"<string>\",\n  \"type\": \"<string>\",\n  \"credentialsId\": \"<string>\",\n  \"serialNo\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "a523db19-e324-4442-b720-beea35e6728a",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendor\": \"<string>\",\n  \"type\": \"<string>\",\n  \"credentialsId\": \"<string>\",\n  \"serialNo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"id\\\": {\\n    \\\"id\\\": \\\"128fe3e0-ab98-11ea-b482-911940102f00\\\"\\n  },\\n    \\\"createdTime\\\": 1591848022149,\\n      \\\"companyId\\\": {\\n        \\\"id\\\": \\\"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\\\"\\n      },\\n        \\\"vendor\\\": \\\"SKT\\\",\\n          \\\"type\\\": \\\"OVC-G\\\",\\n            \\\"additionalInfo\\\": null,\\n              \\\"activationRequired\\\": false,\\n                \\\"serialNo\\\": \\\"uio3512345678911234\\\",\\n                  \\\"credentialsId\\\": \\\"uio35123456789012345\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "2b5fd830-6324-4aa3-a2ff-4e343bf37a31",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vendor\": \"<string>\",\n  \"type\": \"<string>\",\n  \"credentialsId\": \"<string>\",\n  \"serialNo\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cbc5796c-8d01-4a97-afe4-75a6514eac26",
+      "name": "단말 정보 조회",
+      "request": {
+        "name": "단말 정보 조회",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "device",
+            ":serialNo"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "serialNo",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "3a786a61-e871-435d-b34d-fa95e35c02af",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "device",
+                ":serialNo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serialNo",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"// response 200 OK only, no data body\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "c2deb6c0-fd92-4f08-ba93-01f2326fef0c",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "device",
+                ":serialNo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serialNo",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cc70f19e-2197-47c8-8155-c81a5e237ecc",
+      "name": "단말 삭제",
+      "request": {
+        "name": "단말 삭제",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "device",
+            ":serialNo"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "serialNo",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "text/plain"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "9be9af2b-1e82-4478-94e8-2ec7267971aa",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "device",
+                ":serialNo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serialNo",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "// response 200 OK only, no data body",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "d845398b-bba9-4043-9532-9494e2708ab2",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "device",
+                ":serialNo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serialNo",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4c519a01-ef90-4bf4-8ca2-b25a431261ab",
+      "name": "단말별 메시지 전달",
+      "request": {
+        "name": "단말별 메시지 전달",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "statistics",
+            "device",
+            "event",
+            ":serialNo"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "serialNo",
+              "description": "(Required) 단말의 serialNo"
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"year\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "adbbccb5-2fdd-46b6-8558-c65d2228e2ca",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "statistics",
+                "device",
+                "event",
+                ":serialNo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serialNo",
+                  "description": "(Required) 단말의 serialNo"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"year\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"message\\\": {\\n    \\\"type\\\": 9999,\\n      \\\"timestamp\\\": 1590654942693,\\n        \\\"message\\\": \\\"test message\\\"\\n  },\\n    \\\"serialNo\\\": \\\"uio35fine1236\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "2a9de876-0b54-4155-809e-3c5fc4a46fa9",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "statistics",
+                "device",
+                "event",
+                ":serialNo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "serialNo",
+                  "description": "(Required) 단말의 serialNo"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"year\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "54b5aaf4-3e4a-43e0-ac90-e80c9b5fb2cd",
+      "name": "단말별 이벤트 통계",
+      "request": {
+        "name": "단말별 이벤트 통계",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "statistics",
+            "device",
+            "event",
+            ":serialNo"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"year\": \"<string>\",\n  \"month\": \"<string>\",\n  \"day\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "be667e61-5b65-4811-8113-690bd72415dc",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "statistics",
+                "device",
+                "event",
+                ":serialNo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"year\": \"<string>\",\n  \"month\": \"<string>\",\n  \"day\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"serialNo\\\":\\\"bjx84_ovs_server1\\\",\\n    \\\"requestDate\\\":{\\n      \\\"year\\\":2020,\\n        \\\"month\\\":7,\\n          \\\"day\\\":1\\n    },\\n      \\\"statistics\\\":{\\n        \\\"event\\\":{\\n          \\\"msgNotification\\\":7\\n        }\\n      }\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "814bb368-120b-4e63-b9d5-d3c9a9079e28",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "statistics",
+                "device",
+                "event",
+                ":serialNo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"year\": \"<string>\",\n  \"month\": \"<string>\",\n  \"day\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d7687782-3e19-4d24-9c15-4762031f16e0",
+      "name": "회사별 이벤트 통계",
+      "request": {
+        "name": "회사별 이벤트 통계",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "statistics",
+            "company",
+            "event",
+            ":companyId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "companyId",
+              "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"year\": \"<string>\",\n  \"month\": \"<string>\",\n  \"day\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "d789fe20-ef42-47ef-86ba-efdfcea1820a",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "statistics",
+                "company",
+                "event",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"year\": \"<string>\",\n  \"month\": \"<string>\",\n  \"day\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"companyId\\\":\\\"52631da0-b5ef-11ea-8f00-6730e8ef1a9e\\\",\\n    \\\"requestDate\\\":{\\n      \\\"year\\\":2020,\\n        \\\"month\\\":7,\\n          \\\"day\\\":1\\n    },\\n      \\\"statistics\\\":{\\n        \\\"event\\\":{\\n          \\\"msgNotification\\\":16\\n        }\\n      }\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "b76b2318-3053-4efb-9d10-6a17cef9438d",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "statistics",
+                "company",
+                "event",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"year\": \"<string>\",\n  \"month\": \"<string>\",\n  \"day\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "48dbb07c-62db-44f6-b0d3-cf6ade2ccb1d",
+      "name": "전체 단말 메시지 전달",
+      "request": {
+        "name": "전체 단말 메시지 전달",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "message",
+            "company",
+            ":companyId"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "companyId",
+              "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"<string>\",\n  \"timestamp\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "cdb3e092-767d-4d9c-9016-2370676e16dd",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "message",
+                "company",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"timestamp\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"message\\\": {\\n    \\\"type\\\": 9999,\\n      \\\"timestamp\\\": 1590654942693,\\n        \\\"message\\\": \\\"test message all\\\"\\n  },\\n    \\\"devices\\\": [\\n      {\\n        \\\"serialNo\\\": \\\"uio35fine1236\\\"\\n      },\\n      {\\n        \\\"serialNo\\\": \\\"uio35123451234512345\\\"\\n      }\\n    ]\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "fe4f2b8a-3baa-4fd2-9af0-52fdf07b51a2",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "message",
+                "company",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "companyId",
+                  "description": "(Required) 회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"timestamp\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "dd2851d1-e073-4d8a-9174-4ec01aa4916b",
+      "name": "이벤트 Raw Data 정보 조회",
+      "request": {
+        "name": "이벤트 Raw Data 정보 조회",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v20",
+            "statistics",
+            "event",
+            "raw"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "auth token",
+            "key": "X-Authorization",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"year\": \"<string>\",\n  \"month\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "30098eb2-07f4-4d07-b96c-12beca270b09",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "statistics",
+                "event",
+                "raw"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"year\": \"<string>\",\n  \"month\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n  \\\"url\\\":\\\"https://ovs.sktelecom.com:8082/repository/wioadlsl.zip\\\",\\n    \\\"zip_password\\\":\\\"abcd1234\\\",\\n      \\\"expiry\\\":\\\"2021-04-31\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "2bcd8843-56cf-48ac-8999-c5fb0e9b0f22",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v20",
+                "statistics",
+                "event",
+                "raw"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "content type",
+                "key": "Content-Type",
+                "value": "string"
+              },
+              {
+                "disabled": false,
+                "description": "auth token",
+                "key": "X-Authorization",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"year\": \"<string>\",\n  \"month\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apis.openapi.sk.com/api/ovs",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "appKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "06805f85-910e-4f9a-acb7-8137f6050d62",
+    "name": "OVS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

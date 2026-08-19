@@ -1,0 +1,606 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "장소 혼잡도",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "appkey",
+      "value": "{{appkey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Place",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "데이터 제공 가능 장소",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/meta/pois",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "* 장소 혼잡도 데이터를 조회할 수 있는 관심 장소(POI)의 ID 및 장소 이름을 제공합니다.\n"
+        },
+        {
+          "info": {
+            "name": "데이터 제공 가능 상권",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/meta/areas",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "* 혼잡도 데이터를 조회할 수 있는 상권(AREA)의 ID 및 상권 이름을 제공합니다.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Congestion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "실시간 장소 혼잡도",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/congestion/rltm/pois/:poiId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "poiId",
+                "value": "",
+                "type": "path",
+                "description": "관심장소(POI) ID"
+              },
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "주변 혼잡도를 구할 중심 위도값"
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "주변 혼잡도를 구할 중심 경도값"
+              }
+            ]
+          },
+          "docs": "특정 장소의 실시간 혼잡도를 제공합니다.\n* 조회 시점으로부터 가장 최근에 집계된 혼잡도 정보를 제공합니다.\n* 조회 시점 기준 1시간 동안의 혼잡도(1㎡ 단위 면적당 추정 방문자 수)와 1~4 단계로 구분된 혼잡도 레벨 정보를 제공합니다.\n* 데이터 제공 가능 장소의 poiId로 요청할 경우 특정 장소의 혼잡도 정보를 조회할 수 있습니다. 위경도 좌표를 요청 정보에 추가하면, 특정 좌표 주변의 혼잡도를 조회할 수 있습니다.\n"
+        },
+        {
+          "info": {
+            "name": "시간대별 장소 혼잡도",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/congestion/stat/raw/hourly/pois/:poiId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "기준 일자(YYYYMMDD) 또는 어제(ystday)를 지정, startDate, endDate 입력이 우선합니다."
+              },
+              {
+                "name": "poiId",
+                "value": "",
+                "type": "path",
+                "description": "관심장소(POI) ID"
+              }
+            ]
+          },
+          "docs": "특정 장소의 시간대별 혼잡도를 제공합니다.\n* 검색 기준 일자의 시간대별 혼잡도(1 ㎡ 단위 면적당 추정 방문자 수)와 4단계로 구분된 혼잡도 레벨 정보를 제공합니다.\n* 기준 일자(date)를 입력하지 않으면 요청 시간을 기준으로 하루 전(D-1일) 일자의 장소 혼잡도 값을 반환합니다.\n* 기준 일자가 오늘(today)이거나 30일 이상 경과된 일자인 경우 응답에 실패하며 400 에러가 발생합니다.\n"
+        },
+        {
+          "info": {
+            "name": "통계성 장소 혼잡도",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/congestion/stat/hourly/pois/:poiId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "dow",
+                "value": "",
+                "type": "query",
+                "description": "요일"
+              },
+              {
+                "name": "poiId",
+                "value": "",
+                "type": "path",
+                "description": "관심장소(POI) ID"
+              }
+            ]
+          },
+          "docs": "특정 장소의 요일 및 시간대별 통계성 혼잡도를 제공합니다.\n* 평일인 공휴일과 해당 장소의 휴무일을 제외한 최근 30일 동안의 요일 및 시간대별 평균 혼잡도(1㎡ 단위 면적당 추정 방문자 수)와 4단계로 구분된 혼잡도 레벨 정보를 제공합니다.\n"
+        },
+        {
+          "info": {
+            "name": "실시간 상권 혼잡도",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/congestion/rltm/areas/:areaId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "areaId",
+                "value": "",
+                "type": "path",
+                "description": "상권(AREA) ID"
+              }
+            ]
+          },
+          "docs": "특정 상권의 실시간 혼잡도를 제공합니다.\n* 조회 시점으로부터 가장 최근에 집계된 혼잡도 정보를 제공합니다.\n* 조회 시점 기준 1시간 동안의 혼잡도(1㎡ 단위 면적당 추정 방문자 수)와 1~4 단계로 구분된 혼잡도 레벨 정보를 제공합니다.\n* 데이터 제공 가능 상권의 areaId로 요청할 경우 특정 상권의 혼잡도 정보를 조회할 수 있습니다.\n"
+        },
+        {
+          "info": {
+            "name": "시간대별 상권 혼잡도",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/congestion/stat/raw/hourly/areas/:areaId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "기준 일자(YYYYMMDD) 또는 어제(ystday)를 지정, startDate, endDate 입력이 우선합니다."
+              },
+              {
+                "name": "areaId",
+                "value": "",
+                "type": "path",
+                "description": "상권(AREA) ID"
+              }
+            ]
+          },
+          "docs": "특정 상권의 시간대별 혼잡도를 제공합니다.\n* 검색 기준 일자의 시간대별 혼잡도(1 ㎡ 단위 면적당 추정 방문자 수)와 4단계로 구분된 혼잡도 레벨 정보를 제공합니다.\n* 기준 일자(date)를 입력하지 않으면 요청 시간을 기준으로 하루 전(D-1일) 일자의 상권 혼잡도 값을 반환합니다.\n* 기준 일자가 오늘(today)이거나 30일 이상 경과된 일자인 경우 응답에 실패하며 400 에러가 발생합니다.\n"
+        },
+        {
+          "info": {
+            "name": "통계성 상권 혼잡도",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/congestion/stat/hourly/areas/:areaId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "dow",
+                "value": "",
+                "type": "query",
+                "description": "요일"
+              },
+              {
+                "name": "areaId",
+                "value": "",
+                "type": "path",
+                "description": "상권(AREA) ID"
+              }
+            ]
+          },
+          "docs": "특정 상권의 요일 및 시간대별 통계성 혼잡도를 제공합니다.\n* 평일인 공휴일과 해당 장소의 휴무일을 제외한 최근 30일 동안의 요일 및 시간대별 평균 혼잡도(1㎡ 단위 면적당 추정 방문자 수)와 4단계로 구분된 혼잡도 레벨 정보를 제공합니다.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Visit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "일자별 장소 방문자 수",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/visit/count/raw/daily/pois/:poiId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "gender",
+                "value": "",
+                "type": "query",
+                "description": "조회 대상 성별"
+              },
+              {
+                "name": "ageGrp",
+                "value": "",
+                "type": "query",
+                "description": "조회 대상 연령대"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "기준 시작 일자(YYYYMMDD)"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "기준 종료 일자(YYYYMMDD)"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "기준 일자(YYYYMMDD) 또는 어제(ystday)를 지정, startDate, endDate 입력이 우선합니다."
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "query",
+                "description": "기준일로부터 조회되는 날짜 범위"
+              },
+              {
+                "name": "poiId",
+                "value": "",
+                "type": "path",
+                "description": "관심장소(POI) ID"
+              }
+            ]
+          },
+          "docs": "특정 장소 주변에 10분 이상 체류한 SK텔레콤 회선 사용자 중 거주 인구 및 직장 인구를 제외한 사용자 수에 보정 계수를 곱해 추정 방문자 수를 산출합니다.\n"
+        },
+        {
+          "info": {
+            "name": "장소 유입력",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/visit/distance/stat/daily/pois/:poiId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "poiId",
+                "value": "",
+                "type": "path",
+                "description": "관심장소(POI) ID"
+              }
+            ]
+          },
+          "docs": "특정 장소 주변에 10분 이상 체류한 SK텔레콤 회선 사용자 중 거주 인구 및 직장 인구를 제외한 방문자가 얼마나 멀리서 오는지 알 수 있는 중위값을 제공합니다.\n"
+        },
+        {
+          "info": {
+            "name": "장소 방문자 연령 분포",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/visit/seg/stat/daily/pois/:poiId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "poiId",
+                "value": "",
+                "type": "path",
+                "description": "관심장소(POI) ID"
+              }
+            ]
+          },
+          "docs": "특정 장소 주변에 10분 이상 체류한 SK텔레콤 회선 사용자 중 거주 인구 및 직장 인구를 제외한 방문자의 연령 분포를 제공합니다.\n"
+        },
+        {
+          "info": {
+            "name": "일자별 상권 방문자 수",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/visit/count/raw/daily/areas/:areaId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "gender",
+                "value": "",
+                "type": "query",
+                "description": "조회 대상 성별"
+              },
+              {
+                "name": "ageGrp",
+                "value": "",
+                "type": "query",
+                "description": "조회 대상 연령대"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "기준 시작 일자(YYYYMMDD)"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "기준 종료 일자(YYYYMMDD)"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "기준 일자(YYYYMMDD) 또는 어제(ystday)를 지정, startDate, endDate 입력이 우선합니다."
+              },
+              {
+                "name": "range",
+                "value": "",
+                "type": "query",
+                "description": "기준일로부터 조회되는 날짜 범위"
+              },
+              {
+                "name": "areaId",
+                "value": "",
+                "type": "path",
+                "description": "상권(AREA) ID"
+              }
+            ]
+          },
+          "docs": "특정 상권에 10분 이상 체류한 SK텔레콤 회선 사용자 중 거주 인구 및 직장 인구를 제외한 사용자 수에 보정 계수를 곱해 추정 방문자 수를 산출합니다.\n"
+        },
+        {
+          "info": {
+            "name": "상권 유입력",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/visit/distance/stat/daily/areas/:areaId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "areaId",
+                "value": "",
+                "type": "path",
+                "description": "상권(AREA) ID"
+              }
+            ]
+          },
+          "docs": "특정 상권에 10분 이상 체류한 SK텔레콤 회선 사용자 중 거주 인구 및 직장 인구를 제외한 방문자가 얼마나 멀리서 오는지 알 수 있는 중위값을 제공합니다.\n"
+        },
+        {
+          "info": {
+            "name": "상권 방문자 연령 분포",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/visit/seg/stat/daily/areas/:areaId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "areaId",
+                "value": "",
+                "type": "path",
+                "description": "상권(AREA) ID"
+              }
+            ]
+          },
+          "docs": "특정 상권에 10분 이상 체류한 SK텔레콤 회선 사용자 중 거주 인구 및 직장 인구를 제외한 방문자의 연령 분포를 제공합니다.\n"
+        },
+        {
+          "info": {
+            "name": "상권 방문자 유형 분포",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/visit/type/stat/daily/areas/:areaId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "areaId",
+                "value": "",
+                "type": "path",
+                "description": "상권(AREA) ID"
+              }
+            ]
+          },
+          "docs": "특정 상권에 10분 이상 체류한 SK텔레콤 회선 사용자의 유형 분포를 제공합니다.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Area Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "상권 업종 분포",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/place/biz-category/stat/monthly/areas/:areaId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "areaId",
+                "value": "",
+                "type": "path",
+                "description": "상권(AREA) ID"
+              }
+            ]
+          },
+          "docs": "특정 상권의 업종 대소분류별 업체 분포를 제공합니다.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

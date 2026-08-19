@@ -1,0 +1,1483 @@
+{
+  "item": [
+    {
+      "id": "8365c96a-861e-4101-831a-9ce9cf0cb2c6",
+      "name": "Golf Swing Analyzer",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5d363040-f733-4079-a1c3-6f8bfc89d6d4",
+          "name": "create_analyzer",
+          "request": {
+            "name": "create_analyzer",
+            "description": {
+              "content": "골프 스윙 준비 자세의 Frame을 추출할 영상을 업로드 할 수 있는 URL과 Job ID를 반환합니다.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "golf",
+                "v1",
+                "create_analyzer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Type\": \"Guideline\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6cdb44e1-8205-4544-9548-c1b3456d5dd0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "golf",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"Guideline\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"JobID\": \"1f887a4f-69c9-477a-b2d1-05ce00252970\",\n  \"State\": \"Success\",\n  \"Status\": \"Created\",\n  \"URL\": \"https://hivevisionprod-golf-data-ap-northeast-2-40524.s3.amazonaws.com/\",\n  \"Form\": {\n    \"key\": \"input/Guideline/Full_Front/2022/9/19/1f887a4f-69c9-477a-b2d1-05ce00252970.mp4\",\n    \"x-amz-algorithm\": \"AWS4-HMAC-SHA256\",\n    \"x-amz-credential\": \"ASIAV4WRSFVPKHZL74EG/20220919/ap-northeast-2/s3/aws4_request\",\n    \"x-amz-date\": \"20220919T062449Z\",\n    \"x-amz-security-token\": \"IQoJb3JpZ2luX2VjEJb//////////wEaDmFwLW5vcnRoZWFzdC0yIkgwRgIhAMznqCC/YdbfbLjE4SeB9iLfw2Vpau50Nqg/wtP02xZyAiEApBzjan+H5E5tbMemUWnAFMYeh2DhCYj84c/VpjfxHegqpAMIQBABGgw0MDUyNDAxNjM2NzgiDKb7iR6sxhIggs/Q+SqBA4WDbqN/NDsWvrjV6dDLa4bZmWqkw9iC9Qo1QnxV646BNAZ4J+m63gP2xckpxsVM5dlU6H3YLGtVmadVyNLjCvgTBjef494/9yw3kbyrwYNmQ7vah0VOLXMwqWBhaHglpb1z/eOjToKO6wy3T+SDI1yqCDZzbXJGj4L4sCvISuPV4kE7ZZQAig6WhEONS60vne76jAZmCk8aykCMbTYrrRHsvcb47xa9gHimBaNq9+IV9qoA6+eGEmXJFvdrp1oiEeLoaCd7vCe2Dek2t4bACkY79UDERf9hElnn5w1tkUxRN1rzEh9d3GyjUdlWYpc0sBN2JCiBUvh53r+AzkgITPuBfPv6G9KhueChKvuI30/W5D8jQ8Be/w2F6ssnRZfK82YFuHZtoLg/uBYPdtux+mN9pcTxR8NTIx4k57h/Vjj/lpT3L+xHF3sI3U6UeKYQ6xLI6Lf1IpHraV/SNWhfWB3aNqBYvkbeGMZsSMIVWylglOHPEub1Y5aZfNrGBzKymrcwsZagmQY6nAEdzaT8tQKP1I+vGC/r/jLG0Cy8zxJp31OJg7gb6cGsat1zhX5I7c5Nfz/o4lpBXDRnBrizvqxPNOVWjap/YD4nfLG0hrMBinLeaD5jTLR/Xd+egJY265d2tjvPCvDPxBZ2hZ4FNd6440Bgy2/B6ONJEaYXtGU10Rc+Ugi0Ykfw28HoTg/UrJYmfvwZw8zBfGDDosOitEan3HM+TtY=\",\n    \"policy\": \"eyJleHBpcmF0aW9uIjogIjIwMjItMDktMTlUMDY6MjY6NDlaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiaGl2ZXZpc2lvbnByb2QtZ29sZi1kYXRhLWFwLW5vcnRoZWFzdC0yLTQwNTI0In0sIHsia2V5IjogImlucHV0L0d1aWRlbGluZS9GdWxsX0Zyb250LzIwMjIvOS8xOS8xZjg4N2E0Zi02OWM5LTQ3N2EtYjJkMS0wNWNlMDAyNTI5NzAubXA0In0sIHsieC1hbXotYWxnb3JpdGhtIjogIkFXUzQtSE1BQy1TSEEyNTYifSwgeyJ4LWFtei1jcmVkZW50aWFsIjogIkFTSUFWNFdSU0ZWUEtIWkw3NEVHLzIwMjIwOTE5L2FwLW5vcnRoZWFzdC0yL3MzL2F3czRfcmVxdWVzdCJ9LCB7IngtYW16LWRhdGUiOiAiMjAyMjA5MTlUMDYyNDQ5WiJ9LCB7IngtYW16LXNlY3VyaXR5LXRva2VuIjogIklRb0piM0pwWjJsdVgyVmpFSmIvLy8vLy8vLy8vd0VhRG1Gd0xXNXZjblJvWldGemRDMHlJa2d3UmdJaEFNem5xQ0MvWWRiZmJMakU0U2VCOWlMZncyVnBhdTUwTnFnL3d0UDAyeFp5QWlFQXBCemphbitINUU1dGJNZW1VV25BRk1ZZWgyRGhDWWo4NGMvVnBqZnhIZWdxcEFNSVFCQUJHZ3cwTURVeU5EQXhOak0yTnpnaURLYjdpUjZzeGhJZ2dzL1ErU3FCQTRXRGJxTi9ORHNXdnJqVjZkRExhNGJabVdxa3c5aUM5UW8xUW54VjY0NkJOQVo0SittNjNnUDJ4Y2tweHNWTTVkbFU2SDNZTEd0Vm1hZFZ5TkxqQ3ZnVEJqZWY0OTQvOXl3M2tieXJ3WU5tUTd2YWgwVk9MWE13cVdCaGFIZ2xwYjF6L2VPalRvS082d3kzVCtTREkxeXFDRFp6YlhKR2o0TDRzQ3ZJU3VQVjRrRTdaWlFBaWc2V2hFT05TNjB2bmU3NmpBWm1DazhheWtDTWJUWXJyUkhzdmNiNDd4YTlnSGltQmFOcTkrSVY5cW9BNitlR0VtWEpGdmRycDFvaUVlTG9hQ2Q3dkNlMkRlazJ0NGJBQ2tZNzlVREVSZjloRWxubjV3MXRrVXhSTjFyekVoOWQzR3lqVWRsV1lwYzBzQk4ySkNpQlV2aDUzcitBemtnSVRQdUJmUHY2RzlLaHVlQ2hLdnVJMzAvVzVEOGpROEJlL3cyRjZzc25SWmZLODJZRnVIWnRvTGcvdUJZUGR0dXgrbU45cGNUeFI4TlRJeDRrNTdoL1Zqai9scFQzTCt4SEYzc0kzVTZVZUtZUTZ4TEk2TGYxSXBIcmFWL1NOV2hmV0IzYU5xQll2a2JlR01ac1NNSVZXeWxnbE9IUEV1YjFZNWFaZk5yR0J6S3ltcmN3c1phZ21RWTZuQUVkemFUOHRRS1AxSSt2R0Mvci9qTEcwQ3k4enhKcDMxT0pnN2diNmNHc2F0MXpoWDVJN2M1TmZ6L280bHBCWERSbkJyaXp2cXhQTk9WV2phcC9ZRDRuZkxHMGhyTUJpbkxlYUQ1alRMUi9YZCtlZ0pZMjY1ZDJ0anZQQ3ZEUHhCWjJoWjRGTmQ2NDQwQmd5Mi9CNk9OSkVhWVh0R1UxMFJjK1VnaTBZa2Z3MjhIb1RnL1VySlltZnZ3Wnc4ekJmR0REb3NPaXRFYW4zSE0rVHRZPSJ9XX0=\",\n    \"x-amz-signature\": \"26abe478cddcc2ecb7592a1fa15a2d81f02f38ed13235a9d7c61cd4dc1a2ef5c\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4254f463-eff3-47bc-9697-76d422229129",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "golf",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"Guideline\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f53b691-7861-428c-bd96-b0ecfa712b77",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "golf",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"Guideline\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"400\",\n  \"category\": \"gw\",\n  \"code\": \"E.GW.METHOD_NOT_ALLOWED\",\n  \"message\": \"${request.http.method} not permited\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "660bc826-7a1d-4ebd-8b13-ca0bc5815d31",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "golf",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"Guideline\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"401\",\n  \"category\": \"gw\",\n  \"code\": \"8001\",\n  \"message\": \"유효하지 않은 API Key입니다.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f5c71a6-85b5-4ae6-962c-4900abbe2879",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "golf",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"Guideline\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"403\",\n  \"category\": \"gw\",\n  \"code\": \"8104\",\n  \"message\": \"접근권한이 없는 IP주소입니다.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45a94cd1-5f54-41a7-b4ff-8849abaaa08d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "golf",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"Guideline\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"404\",\n  \"category\": \"gw\",\n  \"code\": \"404\",\n  \"message\": \"Gateway service not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ccecd3a-f742-4ead-9dae-f73a844f2739",
+              "name": "Method Not Allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "golf",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"Guideline\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"405\",\n  \"category\": \"gw\",\n  \"code\": \"7104\",\n  \"message\": \"허용하지 않는 HTTP Method 입니다.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a00e66a2-a861-4032-ac55-64680b5d7f64",
+              "name": "Request Timeout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "golf",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"Guideline\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Request Timeout",
+              "code": 408,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"408\",\n  \"category\": \"gw\",\n  \"code\": \"-4\",\n  \"message\": \"Read Timeout occured when routing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2dbaec5-8fa2-4969-bb1e-a44e998f3eb9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "golf",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"Guideline\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"500\",\n  \"category\": \"gw\",\n  \"code\": \"000 또는 GW000\",\n  \"message\": \"The request failed due to some unknown reason\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c799ca2a-ae1c-4395-8a80-37f2b8d7df36",
+              "name": "Service Unavailable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "golf",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"Guideline\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"503\",\n  \"category\": \"gw\",\n  \"code\": \"8901\",\n  \"message\": \"라우팅에 실패했습니다.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5e1ab3c-01d8-429e-bfe8-83c0fb42802b",
+          "name": "get_result",
+          "request": {
+            "name": "get_result",
+            "description": {
+              "content": "분석된 결과물을 JSON 객체로 반환합니다.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "golf",
+                "v1",
+                "get_result",
+                ":JobID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "JobID",
+                  "description": "(Required) create_analyzer에서 응답 받은 해당 분석의 Job ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c22f2936-9f36-479e-a5aa-9f3d6a12a30e",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "golf",
+                    "v1",
+                    "get_result",
+                    ":JobID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "JobID",
+                      "description": "(Required) create_analyzer에서 응답 받은 해당 분석의 Job ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"JobID: 요청한 Job ID\\\": \\\"17303806-ce11-456f-bfd1-aa5c4b1a0871\\\",\\n  \\\"State: Success/Fail\\\": \\\"Fail\\\",\\n  \\\"Status: Create/NotCreated/Analyzing/AllDone/Failed\\\": \\\"NotCreated\\\",\\n  \\\"address_frame_num: 추출된 스윙 준비 자세 Frame Number\\\": 10,\\n  \\\"Joints: 25개의 관절 좌표, 추출되지 않았을 경우 -1 로 반환, [nose, neck, right shoulder, right elbow, right wrist, left shoulder, left elbow, left wrist, pelvis, right hip, right knee, right ankle, left hip, left knee, left ankle, right eye, left eye, right ear, left ear, left big toe, left small toe, left heel, right big toe, right small toe, right heel]\\\": [1.2, 2.2, 3.2],\\n  \\\"Guideline: Front 의 Guideline 생성을 위한 Joints 외 10개의 좌표, [body_line_left_bottom_point, body_line_left_top_point, body_line_right_bottom_point, body_line_right_top_point, head_center, head_circle_radius, hip_ankle_line_leftbottom_point, hip_ankle_line_lefttop_point, hip_ankle_line_rightbottom_point, hip_ankle_line_righttop_point, shoulder_line_left_point, shoulder_line_right_point]\\\": [1.2, 2.2, 3.2],\\n  \\\"url: Meta가 저장되어 있는 URL\\\": \\\"http://meta\\\",\\n  \\\"Error: Error 내용\\\": \\\"'Swing'\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e89443b-5512-4b10-b55d-05cd830becb8",
+          "name": "End to End",
+          "request": {
+            "name": "End to End",
+            "description": {
+              "content": "3MB 이하의 영상, 이미지의 업로드와 분석을 한번에 처리하여 JSON 객체로 반환합니다.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "golf",
+                "v1",
+                "e2e"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "Type",
+                  "value": "Guideline",
+                  "type": "text",
+                  "description": "(Required) 분석 유형 (This can only be one of Guideline)"
+                },
+                {
+                  "key": "Swing",
+                  "value": "Full_Front",
+                  "type": "text",
+                  "description": "(Required) 전면(Full_Front), 후면(Full_Back) 영상 선택 (This can only be one of Full_Front,Full_Back)"
+                },
+                {
+                  "key": "File",
+                  "type": "file",
+                  "description": "(Required) 동영상 파일(*.mp4, 지원 Codec : H.264, MPEG), 이미지 파일(*.jpg, *.png, *.bmp)"
+                }
+              ]
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "92a2f4ae-d8a8-4e0c-94b4-d778cf909755",
+      "name": "License Plate Recognizer",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "098521a8-7f76-490e-9c2a-37a4488f2205",
+          "name": "lpr",
+          "request": {
+            "name": "lpr",
+            "description": {
+              "content": "차량의 번호판을 인식하여 번호판 좌표와 차량번호를 JSON 객체로 반환합니다.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "lpr",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "File",
+                  "type": "file",
+                  "description": "(Required) 인식할 이미지 파일, 최대 허용 용량 3MB, 허용 해상도 640 ~ 1024 pixel"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e307d5eb-e6d1-4b90-83d7-66aed1059e77",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "lpr",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) multipart/form-data",
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) 인식할 이미지 파일, 최대 허용 용량 3MB, 허용 해상도 640 ~ 1024 pixel",
+                        "type": "text/plain"
+                      },
+                      "key": "File",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"performance\\\": {\\n    \\\"prepare image\\\": \\\" 132.98ms\\\",\\n    \\\"inference\\\": \\\" 170.43ms\\\",\\n    \\\"all\\\": \\\" 303.51ms\\\"\\n  },\\n  \\\"result\\\": {\\n    \\\"objects\\\": [\\n      {\\n        \\\"lp_string\\\": \\\"12lu1234\\\",\\n        \\\"lp_keypoints\\\": [\\n          [\\n            0.32421875,\\n            0.79140625\\n          ],\\n          [\\n            0.646875,\\n            0.79140625\\n          ],\\n          [\\n            0.6546875,\\n            0.8421875\\n          ],\\n          [\\n            0.3328125,\\n            0.8453125\\n          ]\\n        ]\\n      }\\n    ]\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a6f0e29e-b1ce-4114-9273-97d9cf1e34f4",
+      "name": "Pose Estimation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60db9280-3fed-457f-beab-082b0dcb6968",
+          "name": "create_analyzer",
+          "request": {
+            "name": "create_analyzer",
+            "description": {
+              "content": "영상 업로드 요청 시 영상을 업로드 할 수 있는 URL을 반환합니다",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pose",
+                "v1",
+                "create_analyzer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Type\": \"PoseEstimation\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f66293d7-fd4e-4cb4-b93b-382ca4c16871",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pose",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"PoseEstimation\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"JobID: 부여된 Job ID\\\": \\\"8e42df48-485f-491a-9cc4-1cc6aa833ad4\\\",\\n  \\\"State:“Success” or “Fail”\\\": \\\"Success\\\",\\n  \\\"Status:“Create”, “NotCreated”, “Analyzing”, “AllDone” or “Failed”\\\": \\\"Created\\\",\\n  \\\"URL: 파일 올릴 수 있는 S3 임시 URL\\\": \\\"https://hivevisionprod-golf-data-ap-northeast-2-40524.s3.amazonaws.com/\\\",\\n  \\\"Form: 파일 업로드를 위한 S3 Bucket 정보\\\": {\\n    \\\"key\\\": \\\"input/PoseEstimation/Full_Front/2022/7/8/8e42df48-485f-491a-9cc4-1cc6aa833ad4.mp4\\\",\\n    \\\"x-amz-algorithm\\\": \\\"AWS4-HMAC-SHA256\\\",\\n    \\\"x-amz-credential\\\": \\\"ASIAV4WRSFVPK5BQN7GM/20220708/ap-northeast-2/s3/aws4_request\\\",\\n    \\\"x-amz-date\\\": \\\"20220708T063103Z\\\",\\n    \\\"x-amz-security-token\\\": \\\"IQoJb3JpZ2luX2VjEL///////////wEaDmFwLW5vcnRoZWFzdC0yIkYwRAIgC+oMCjnW1evAG/k+l3dLDbraq7+kjtuhilH3HGjBE0ICIBctd+JhODk2jAIAMqp1FDAMWUtwC08KzIE3JQ+tRYUwKrMCCOj//////////wEQARoMNDA1MjQwMTYzNjc4IgwJUXnqAYCjnudg76UqhwKxpaXbmfMJ2gFDWe6/IVFhbf8l4ej/Sq3hTTSm2jlsnQhgahcKDl7LyqCBby5OaEmCweAePH5OahmWBmCFgEQnAQmPPXhi7kpmQKxU/goVnEr9JjEGuq8ennEOGfBZ5qgwTJFTRyBpToqCbzHCqecahmxCXu1O7DpW+qCxMWAVer5RRo8Hp5q3znyGxagneEKd8PILPA6i8GUg/4NKEFrr1R7oI7FmgWVxkL5YIXD/pGlEdm5ud3tyKJyYdCjb6juba7pu9zk4r/9PIxoJbrydkMWmF+poLOSpCmkUOgwIu0RAkuYNNl55k2zVdwqxqY77poZ7fh7TzMUw9nmzj9wfH6S4EwfPtjCmnp+WBjqbAaUQkqGOzwG9yegAQll4qOSBQYFCKMZGi/bKzQVtb6dHxTrCQuYJ7nvhY4/Go75tFNs6Xoiglw+2stjt2P2lHXLx//YywoRrTYQHexqGgrAUfP4Hq/jE9ESqQbY4MUssXOwX6TyeXoNYRZYvaP23pNX9l0ROpXKs35OWXfafOq//fGOjvhdxtxAZzhwlbsAawZNHOLbGhiZlutMJ\\\",\\n    \\\"policy\\\": \\\"eyJleHBpcmF0aW9uIjogIjIwMjItMDctMDhUMDY6MzM6MDNaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiaGl2ZXZpc2lvbnByb2QtZ29sZi1kYXRhLWFwLW5vcnRoZWFzdC0yLTQwNTI0In0sIHsia2V5IjogImlucHV0L1Bvc2VFc3RpbWF0aW9uL0Z1bGxfRnJvbnQvMjAyMi83LzgvOGU0MmRmNDgtNDg1Zi00OTFhLTljYzQtMWNjNmFhODMzYWQ0Lm1wNCJ9LCB7IngtYW16LWFsZ29yaXRobSI6ICJBV1M0LUhNQUMtU0hBMjU2In0sIHsieC1hbXotY3JlZGVudGlhbCI6ICJBU0lBVjRXUlNGVlBLNUJRTjdHTS8yMDIyMDcwOC9hcC1ub3J0aGVhc3QtMi9zMy9hd3M0X3JlcXVlc3QifSwgeyJ4LWFtei1kYXRlIjogIjIwMjIwNzA4VDA2MzEwM1oifSwgeyJ4LWFtei1zZWN1cml0eS10b2tlbiI6ICJJUW9KYjNKcFoybHVYMlZqRUwvLy8vLy8vLy8vL3dFYURtRndMVzV2Y25Sb1pXRnpkQzB5SWtZd1JBSWdDK29NQ2puVzFldkFHL2srbDNkTERicmFxNytranR1aGlsSDNIR2pCRTBJQ0lCY3RkK0poT0RrMmpBSUFNcXAxRkRBTVdVdHdDMDhLeklFM0pRK3RSWVV3S3JNQ0NPai8vLy8vLy8vLy93RVFBUm9NTkRBMU1qUXdNVFl6TmpjNElnd0pVWG5xQVlDam51ZGc3NlVxaHdLeHBhWGJtZk1KMmdGRFdlNi9JVkZoYmY4bDRlai9TcTNoVFRTbTJqbHNuUWhnYWhjS0RsN0x5cUNCYnk1T2FFbUN3ZUFlUEg1T2FobVdCbUNGZ0VRbkFRbVBQWGhpN2twbVFLeFUvZ29WbkVyOUpqRUd1cThlbm5FT0dmQlo1cWd3VEpGVFJ5QnBUb3FDYnpIQ3FlY2FobXhDWHUxTzdEcFcrcUN4TVdBVmVyNVJSbzhIcDVxM3pueUd4YWduZUVLZDhQSUxQQTZpOEdVZy80TktFRnJyMVI3b0k3Rm1nV1Z4a0w1WUlYRC9wR2xFZG01dWQzdHlLSnlZZENqYjZqdWJhN3B1OXprNHIvOVBJeG9KYnJ5ZGtNV21GK3BvTE9TcENta1VPZ3dJdTBSQWt1WU5ObDU1azJ6VmR3cXhxWTc3cG9aN2ZoN1R6TVV3OW5temo5d2ZINlM0RXdmUHRqQ21ucCtXQmpxYkFhVVFrcUdPendHOXllZ0FRbGw0cU9TQlFZRkNLTVpHaS9iS3pRVnRiNmRIeFRyQ1F1WUo3bnZoWTQvR283NXRGTnM2WG9pZ2x3KzJzdGp0MlAybEhYTHgvL1l5d29SclRZUUhleHFHZ3JBVWZQNEhxL2pFOUVTcVFiWTRNVXNzWE93WDZUeWVYb05ZUlpZdmFQMjNwTlg5bDBST3BYS3MzNU9XWGZhZk9xLy9mR09qdmhkeHR4QVp6aHdsYnNBYXdaTkhPTGJHaGlabHV0TUoifV19\\\",\\n    \\\"x-amz-signature\\\": \\\"5ed9465f60bda6ac1e86eb7d194f722d072a453a36a265466319289dfbbff4e1\\\"\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0631353-e940-427a-b7e7-06aa819e1cab",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pose",
+                    "v1",
+                    "create_analyzer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) application/json",
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"PoseEstimation\",\n  \"Action\": \"CreateAnalyzer\",\n  \"Swing\": \"Full_Front\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66c3fde2-b50d-491a-8d45-2db3be37f3f1",
+          "name": "get_result",
+          "request": {
+            "name": "get_result",
+            "description": {
+              "content": "분석된 결과물을 JSON 객체로 반환합니다.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pose",
+                "v1",
+                "get_result",
+                ":JobID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "JobID",
+                  "description": "(Required) create_analyzer에서 응답 받은 해당 분석의 Job ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57665fee-2015-4f4e-825f-5962166c87bc",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pose",
+                    "v1",
+                    "get_result",
+                    ":JobID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "JobID",
+                      "description": "(Required) create_analyzer에서 응답 받은 해당 분석의 Job ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\\"JobID:해당 분석의 Job ID\\\": \\\"0e1a5745-5b92-485d-a040-718251893bd8\\\",\\n\\\"State: Success/Fail\\\":: \\\"Success\\\",\\n\\\"Status: Create/NotCreated/Analyzing/AllDone/Failed\\\":\\\"AllDone\\\", \\n\\\"PoseEstimation: {…}\\\",\\n\\\"url: Meta가 저장되어 있는 URL\\\": \\\"https://hiveclouddev-golf-data-ap-northeast-2-3282…154e60d162c0f3d1b21716e6ca3000314b444b7f1008502ac\\\"\\n}\\nJobID: \\\"0e1a5745-5b92-485d-a040-718251893bd8\\\"\\nPoseEstimation: \\n\\\"list_of_joints: Frame number별 Joints\\\": (192) [Array(1), Array(1), Array(1), Array(1), Array(1), Array(3), Array(3), Array(4), Array(4), Array(3), Array(2), Array(4), Array(3), Array(3), Array(4), Array(3), Array(2), Array(2), Array(4), Array(2), Array(2), Array(4), Array(3), Array(5), Array(3), Array(4), Array(3), Array(3), Array(3), Array(2), Array(3), Array(5), Array(2), Array(3), Array(3), Array(4), Array(5), Array(4), Array(4), Array(5), Array(4), Array(3), Array(3), Array(3), Array(3), Array(3), Array(3), Array(3), Array(6), Array(4), Array(4), Array(4), Array(3), Array(2), Array(2), Array(3), Array(3), Array(2), Array(2), Array(5), Array(4), Array(4), Array(5), Array(3), Array(2), Array(2), Array(2), Array(3), Array(3), Array(4), Array(2), Array(2), Array(2), Array(2), Array(2), Array(2), Array(2), Array(2), Array(2), Array(3), Array(5), Array(6), Array(4), Array(5), Array(5), Array(4), Array(6), Array(5), Array(4), Array(5), Array(4), Array(4), Array(3), Array(3), Array(3), Array(3), Array(1), Array(1), Array(1), Array(1), …][0 … 99][100 … 191]\\nlength: 192__proto__: Array(0)__proto__: ObjectState: \\\"Success\\\"Status: \\\"AllDone\\\"URL: \\\"https://hiveclouddev-golf-data-ap-northeast-2-32822.s3.amazonaws.com/input/PoseEstimation/Full_Back/2021/7/21/0e1a5745-5b92-485d-a040-718251893bd8.mp4\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62aa84e8-af79-44b9-b760-9429ce68e1b3",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pose",
+                    "v1",
+                    "get_result",
+                    ":JobID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "JobID",
+                      "description": "(Required) create_analyzer에서 응답 받은 해당 분석의 Job ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "appKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                    "key": "appKey",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c4d7eb5-e6d3-4cfb-852f-78790636a00f",
+          "name": "End to End",
+          "request": {
+            "name": "End to End",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pose",
+                "v1",
+                "e2e"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 조회",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Type\": \"PoseEstimation\",\n  \"File\": \"<binary>\",\n  \"Swing\": 9417\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apis.openapi.sk.com/sigmeta",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "appKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "945e6a9f-ece0-432c-b446-6fab6adc08f8",
+    "name": "META",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

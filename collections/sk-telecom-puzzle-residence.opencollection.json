@@ -1,0 +1,191 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "주거 생활",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "appkey",
+      "value": "{{appkey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Apartment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "데이터 제공 가능 아파트",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/residence/meta/apts",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "* 주거 생활 데이터를 제공하는 아파트의 코드와 아파트명을 조회합니다.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Life style",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "주거생활 카테고리별 순위",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/residence/categories/:category/stat/monthly/apts/:kaptCode",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "path",
+                "description": "카테고리 목록에서 조회를 원하는 분류값을 영문으로 입력합니다."
+              },
+              {
+                "name": "kaptCode",
+                "value": "",
+                "type": "path",
+                "description": "아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+              },
+              {
+                "name": "schoolType",
+                "value": "",
+                "type": "query",
+                "description": "학교 순위를 조회할 때 학교 종류(e:초등학교, m:중학교, h:고등학교)를 선택합니다."
+              }
+            ]
+          },
+          "docs": "* 특정 아파트 주민의 교육(학교, 유아교육, 학원), 쇼핑(대형마트, 쇼핑몰), 이사(이사 온 아파트, 이사 간 아파트), 지하철 출발역·도착역, 근무지역 등 다양한 주거생활의 순위 정보를 제공합니다.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Resident",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "지하철 이용 비율",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/residence/resident/subway-use-rate/stat/monthly/apts/:kaptCode",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "kaptCode",
+                "value": "",
+                "type": "path",
+                "description": "아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+              }
+            ]
+          },
+          "docs": "* 특정 아파트 주민 중 최근 3개월 동안 지하철을 이용한 주민의 비율을 제공합니다.\n"
+        },
+        {
+          "info": {
+            "name": "거주자 평균 나이",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/residence/resident/age/stat/monthly/apts/:kaptCode",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "kaptCode",
+                "value": "",
+                "type": "path",
+                "description": "아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+              }
+            ]
+          },
+          "docs": "* 특정 아파트 주민의 평균 나이를 제공합니다.\n"
+        },
+        {
+          "info": {
+            "name": "거주자 특징",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/puzzle/residence/resident/demo-feature/stat/monthly/apts/:kaptCode",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "kaptCode",
+                "value": "",
+                "type": "path",
+                "description": "아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다."
+              }
+            ]
+          },
+          "docs": "* 동일 시도 대비 해당 아파트 주민 구성의 비율이 높은 Life stage(영유아, 초등학생, 중학생, 고등학생, 대학생, 1인가구, 신혼부부, 시니어) 값을 제공합니다.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

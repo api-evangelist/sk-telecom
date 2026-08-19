@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "A.X tts",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "appKey",
+      "value": "{{appKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get Voices",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/axtts/voice",
+        "headers": [
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "model",
+            "value": "",
+            "type": "query",
+            "description": "음성합성 Model"
+          }
+        ]
+      },
+      "docs": "해당 모델에서 지원하고 있는 화자 정보를 확인할 수 있고, 모델 Name은 <a href=\"https://ax-tts-skopenapi.readme.io/reference/tts-model-list-1\">모델 List</a>에서 확인 가능합니다."
+    },
+    {
+      "info": {
+        "name": "Text-to-Speech (TTS)",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://apis.openapi.sk.com/axtts/tts",
+        "headers": [
+          {
+            "name": "accept",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Text-to-Speech (TTS)"
+    },
+    {
+      "info": {
+        "name": "Text-to-Speech with Timestamp",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://apis.openapi.sk.com/axtts/segmentation",
+        "headers": [
+          {
+            "name": "accept",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "음성합성 + Timestamp API"
+    }
+  ],
+  "bundled": true
+}

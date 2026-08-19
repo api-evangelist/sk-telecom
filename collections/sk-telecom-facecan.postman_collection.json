@@ -1,0 +1,2569 @@
+{
+  "item": [
+    {
+      "id": "eeed3b39-0936-4b47-9541-48ab3cb71ea3",
+      "name": "Subject Create",
+      "request": {
+        "name": "Subject Create",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "subject"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "AWA57KSRXT"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 추가 대상 group-id",
+            "key": "group-id",
+            "value": "4NG7RZZNTG"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 영문, 숫자 혼용 가능<br>사람의 이름, 사번 등 ID 를 확인할 수 있도록 기입<br>가급적 Unique ID 권장, 동일한 app, group 내에서 중복되는 subject-name 사용 불가",
+            "key": "subject-name",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "60c4d4bf-9537-420e-b876-555505b6b118",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "subject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 추가 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 영문, 숫자 혼용 가능<br>사람의 이름, 사번 등 ID 를 확인할 수 있도록 기입<br>가급적 Unique ID 권장, 동일한 app, group 내에서 중복되는 subject-name 사용 불가",
+                "key": "subject-name",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n\\t\\\"subject_name\\\": \\\"1110001_kim_yeonah\\\",\\n\\t\\\"subject_id\\\": \\\"ABCDE01234\\\",\\n\\t\\\"group_name\\\": \\\"happy_mart\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "a7140453-ee6a-45b3-99fe-3afa27ae47e2",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "subject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 추가 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 영문, 숫자 혼용 가능<br>사람의 이름, 사번 등 ID 를 확인할 수 있도록 기입<br>가급적 Unique ID 권장, 동일한 app, group 내에서 중복되는 subject-name 사용 불가",
+                "key": "subject-name",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a6893415-0d9b-412a-a614-26a4becd2856",
+      "name": "Subject List",
+      "request": {
+        "name": "Subject List",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "subject"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "AWA57KSRXT"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 조회 대상 group-id",
+            "key": "group-id",
+            "value": "4NG7RZZNTG"
+          },
+          {
+            "disabled": false,
+            "description": "전체 subject 데이터가 아닌 subject-name 에 해당하는 값만 조회하조 싶을 때 사용함<br>만약 subject-name 에 해당하는 subject 가 없으면 empty list 리턴",
+            "key": "subject-name",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "492f8b05-8f65-47e3-991d-2c3003664152",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "subject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 조회 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "전체 subject 데이터가 아닌 subject-name 에 해당하는 값만 조회하조 싶을 때 사용함<br>만약 subject-name 에 해당하는 subject 가 없으면 empty list 리턴",
+                "key": "subject-name",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n\\t{\\n\\t\\t\\\"subject_id\\\": \\\"ABCDE01234\\\",\\n\\t\\t\\\"group_name\\\": \\\"happy_mart\\\",\\n\\t\\t\\\"subject_name\\\": \\\"1110001_kim_yeonah\\\"\\n\\t},\\n\\t{\\n\\t\\t\\\"subject_id\\\": \\\"ABCDE01235\\\",\\n\\t\\t\\\"group_name\\\": \\\"happy_mart\\\",\\n\\t\\t\\\"subject_name\\\": \\\"1110000_faker\\\"\\n\\t}\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "cf2dce01-7eb1-4db2-8d74-ebb7a97018ec",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "subject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 조회 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "전체 subject 데이터가 아닌 subject-name 에 해당하는 값만 조회하조 싶을 때 사용함<br>만약 subject-name 에 해당하는 subject 가 없으면 empty list 리턴",
+                "key": "subject-name",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "af4f1107-3a86-4e69-aaf2-13a19e9512f7",
+      "name": "Subject Delete",
+      "request": {
+        "name": "Subject Delete",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "subject",
+            ":subject_id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "subject_id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "AWA57KSRXT"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 삭제 대상의 subject-id 가 속한 group-id삭제 대상의 subject-id 가 속한 group-id",
+            "key": "group-id",
+            "value": "4NG7RZZNTG"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b0602c6d-2004-4ade-9247-5da0fdc4fb28",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "subject",
+                ":subject_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subject_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 삭제 대상의 subject-id 가 속한 group-id삭제 대상의 subject-id 가 속한 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "26a4a2e2-e8dd-4b3f-ad22-748c2d7ba905",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "subject",
+                ":subject_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subject_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 삭제 대상의 subject-id 가 속한 group-id삭제 대상의 subject-id 가 속한 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "01845f9c-5052-42be-a6a5-42f43526383c",
+      "name": "Group List",
+      "request": {
+        "name": "Group List",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "group"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "OTAXE3CES1"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a9f79487-1454-4817-91c0-314ea1be6562",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "OTAXE3CES1"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"[\\n     {\\n       \\\"group_id\\\": \\\"ABCDE01234\\\",\\n       \\\"group_name\\\": \\\"cu_sunae1dong\\\"\\n     },\\n     {\\n      \\\"group_id\\\": \\\"ABCDE01234\\\",\\n      \\\"group_name\\\": \\\"happy_mart\\\"\\n     }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "25539736-ecc1-4d67-b816-265a0e3a7800",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "OTAXE3CES1"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "2b91bd72-0bbf-4f2a-9f30-bd69e929f45d",
+      "name": "Group Create",
+      "request": {
+        "name": "Group Create",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "group"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "AWA57KSRXT"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 생성할 Group의 이름(한글 미지원)",
+            "key": "group-name",
+            "value": "cu_sunae3dong"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "93b38485-1cf7-493f-9637-4db0a5b24664",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 생성할 Group의 이름(한글 미지원)",
+                "key": "group-name",
+                "value": "cu_sunae3dong"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{\\n    \\\"group_id\\\": \\\"ABCDE01234\\\",\\n    \\\"group_name\\\": \\\"cu_sunae3dong\\\"\\n}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "d4838b32-a38b-46d4-87c0-fcaedde73859",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 생성할 Group의 이름(한글 미지원)",
+                "key": "group-name",
+                "value": "cu_sunae3dong"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "23698487-e3be-4a67-969e-bdae7c0774eb",
+      "name": "Group Delete",
+      "request": {
+        "name": "Group Delete",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "group",
+            ":group_id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "group_id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "AWA57KSRXT"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a2d8f67d-f8b5-4616-a576-895b7c31e7ea",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "group",
+                ":group_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "group_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "c17ee20d-5017-43d9-8bdf-ddce5fd8c192",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "group",
+                ":group_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "group_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4eb0c16e-299a-4565-8748-21b422d2342a",
+      "name": "Face List",
+      "request": {
+        "name": "Face List",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "face"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "AWA57KSRXT"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 조회 대상 group-id",
+            "key": "group-id",
+            "value": "4NG7RZZNTG"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 조회 대상 subject-id",
+            "key": "subject-id",
+            "value": "L4WKYJR7LU"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "46d603b2-1689-4b86-acbf-b516355b2c14",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "face"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 조회 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 조회 대상 subject-id",
+                "key": "subject-id",
+                "value": "L4WKYJR7LU"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"\\n[\\n  {\\n    \\\"face_id\\\": \\\"AABCD12345\\\",\\n    \\\"face_name\\\": \\\"front\\\",\\n    \\\"box\\\": {\\n      \\\"topLeftX\\\": 135,\\n      \\\"faceHeight\\\": 301,\\n      \\\"topLeftY\\\": 94,\\n      \\\"landmark\\\": [\\n        197,\\n        206,\\n        296,\\n        207,\\n        249,\\n        258,\\n        210,\\n        320,\\n        285,\\n        321\\n      ],\\n      \\\"faceWidth\\\": 216\\n    },\\n    \\\"face_score\\\": 0.999999344348907,\\n    \\\"expression\\\": \\\"neutral\\\",\\n    \\\"expression_score\\\": 0.9936171174049376,\\n    \\\"age\\\": 31,\\n    \\\"gender\\\": \\\"male\\\",\\n    \\\"attribute\\\": \\\"glasses\\\",\\n    \\\"image_width\\\": 480,\\n    \\\"image_height\\\": 640,\\n    \\\"engine_version\\\": 340\\n  },\\n  {\\n    \\\"face_id\\\": \\\"AABCD12346\\\",\\n    \\\"face_name\\\": \\\"front\\\",\\n    \\\"box\\\": {\\n      \\\"topLeftX\\\": 155,\\n      \\\"faceHeight\\\": 221,\\n      \\\"topLeftY\\\": 148,\\n      \\\"landmark\\\": [\\n        205,\\n        230,\\n        280,\\n        229,\\n        248,\\n        260,\\n        216,\\n        310,\\n        277,\\n        309\\n      ],\\n      \\\"faceWidth\\\": 167\\n    },\\n    \\\"face_score\\\": 0.999875545501709,\\n    \\\"expression\\\": \\\"neutral\\\",\\n    \\\"expression_score\\\": 0.902240514755249,\\n    \\\"age\\\": 33,\\n    \\\"gender\\\": \\\"male\\\",\\n    \\\"attribute\\\": \\\"glasses\\\",\\n    \\\"image_width\\\": 480,\\n    \\\"image_height\\\": 640,\\n    \\\"engine_version\\\": 340\\n  },\\n  {\\n    \\\"face_id\\\": \\\"AABCD12347\\\",\\n    \\\"face_name\\\": \\\"faker\\\",\\n    \\\"box\\\": {\\n      \\\"topLeftX\\\": 135,\\n      \\\"faceHeight\\\": 301,\\n      \\\"topLeftY\\\": 95,\\n      \\\"landmark\\\": [\\n        197,\\n        206,\\n        296,\\n        207,\\n        249,\\n        258,\\n        210,\\n        320,\\n        285,\\n        321\\n      ],\\n      \\\"faceWidth\\\": 216\\n    },\\n    \\\"face_score\\\": 0.999999463558197,\\n    \\\"expression\\\": \\\"neutral\\\",\\n    \\\"expression_score\\\": 0.993864119052887,\\n    \\\"age\\\": 31,\\n    \\\"gender\\\": \\\"male\\\",\\n    \\\"attribute\\\": \\\"glasses\\\",\\n    \\\"image_width\\\": 480,\\n    \\\"image_height\\\": 640,\\n    \\\"engine_version\\\": 340\\n  },\\n  {\\n    \\\"face_id\\\": \\\"AABCD12349\\\",\\n    \\\"face_name\\\": \\\"front_mask\\\",\\n    \\\"box\\\": {\\n      \\\"topLeftX\\\": 135,\\n      \\\"faceHeight\\\": 301,\\n      \\\"topLeftY\\\": 94,\\n      \\\"landmark\\\": [\\n        197,\\n        206,\\n        296,\\n        207,\\n        249,\\n        258,\\n        210,\\n        320,\\n        285,\\n        321\\n      ],\\n      \\\"faceWidth\\\": 216\\n    },\\n    \\\"face_score\\\": 0.0143468026071787,\\n    \\\"expression\\\": \\\"etc\\\",\\n    \\\"expression_score\\\": 0.5063475370407104,\\n    \\\"age\\\": 31,\\n    \\\"gender\\\": \\\"male\\\",\\n    \\\"attribute\\\": \\\"mask\\\",\\n    \\\"image_width\\\": 480,\\n    \\\"image_height\\\": 640,\\n    \\\"engine_version\\\": 340\\n  }\\n]\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "73b3ff25-8898-4ac1-9897-7a8adbfc7476",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "face"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 조회 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 조회 대상 subject-id",
+                "key": "subject-id",
+                "value": "L4WKYJR7LU"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "40ae7975-774d-49cd-85ee-d5c1bec67990",
+      "name": "Face Create",
+      "request": {
+        "name": "Face Create",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "face"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "AWA57KSRXT"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 추가 대상 group-id",
+            "key": "group-id",
+            "value": "4NG7RZZNTG"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 추가 대상 subject-id",
+            "key": "subject-id",
+            "value": "L4WKYJR7LU"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 각 등록할 얼굴에 이름 부여 가능 (한글 미지원)<br><br> - front, left, right 등 pose로 구분하여 등록 가능<br><br> - false_negative 등 시스템 오류 발생(미인식) 영상을 등록하여 인식 성능 향상 가능",
+            "key": "face-name",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "해당 헤더가 존재할 경우(값은 관계 없음) 마스크나 face score 가 기준 이하인 얼굴도 등록이 가능해짐",
+            "key": "allow-mask",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /nugufacecan/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+            "key": "key",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"image\": \"<binary>\",\n  \"ir\": \"<binary>\",\n  \"depth\": \"<binary>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "6d0ecebd-03a0-4dc2-b0b1-6d47d519a374",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "face"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 추가 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 추가 대상 subject-id",
+                "key": "subject-id",
+                "value": "L4WKYJR7LU"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 각 등록할 얼굴에 이름 부여 가능 (한글 미지원)<br><br> - front, left, right 등 pose로 구분하여 등록 가능<br><br> - false_negative 등 시스템 오류 발생(미인식) 영상을 등록하여 인식 성능 향상 가능",
+                "key": "face-name",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "해당 헤더가 존재할 경우(값은 관계 없음) 마스크나 face score 가 기준 이하인 얼굴도 등록이 가능해짐",
+                "key": "allow-mask",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /nugufacecan/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+                "key": "key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": \"<binary>\",\n  \"ir\": \"<binary>\",\n  \"depth\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "b83fc88c-99a9-493d-a8cf-9c59ff764189",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "face"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 추가 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 추가 대상 subject-id",
+                "key": "subject-id",
+                "value": "L4WKYJR7LU"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 각 등록할 얼굴에 이름 부여 가능 (한글 미지원)<br><br> - front, left, right 등 pose로 구분하여 등록 가능<br><br> - false_negative 등 시스템 오류 발생(미인식) 영상을 등록하여 인식 성능 향상 가능",
+                "key": "face-name",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "해당 헤더가 존재할 경우(값은 관계 없음) 마스크나 face score 가 기준 이하인 얼굴도 등록이 가능해짐",
+                "key": "allow-mask",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /nugufacecan/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+                "key": "key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": \"<binary>\",\n  \"ir\": \"<binary>\",\n  \"depth\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "bdab27f5-f67c-4f22-9d5e-08584146ef52",
+      "name": "Face Delete",
+      "request": {
+        "name": "Face Delete",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "face",
+            ":face_id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "face_id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "AWA57KSRXT"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 삭제 대상 group-id",
+            "key": "group-id",
+            "value": "4NG7RZZNTG"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 삭제 대상 subject-id",
+            "key": "subject-id",
+            "value": "L4WKYJR7LU"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "89824943-33cc-46d0-afe8-1f7f2de4eeee",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "face",
+                ":face_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "face_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 삭제 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 삭제 대상 subject-id",
+                "key": "subject-id",
+                "value": "L4WKYJR7LU"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "d6fac00e-2853-4819-beef-52a7e00ba64d",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "face",
+                ":face_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "face_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 삭제 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 삭제 대상 subject-id",
+                "key": "subject-id",
+                "value": "L4WKYJR7LU"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "cba68cc1-df5b-4beb-b417-8f33f48c6c94",
+      "name": "Face Recognize",
+      "request": {
+        "name": "Face Recognize",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "recognize"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "AWA57KSRXT"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) 조회 대상 group-id",
+            "key": "group-id",
+            "value": "4NG7RZZNTG"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "0: Default, 가장 대표적인 하나의 결과를 return<br>1: 사진 속 모든 얼굴에 대한 얼굴인식 결과를 return",
+            "key": "multi",
+            "value": "<integer>"
+          },
+          {
+            "disabled": false,
+            "description": "threshold : 0 인 경우 동일인물, 1 인 경우 다른 인물에 가까움<br>Default : 0.32<br>특정 Site 마다 threshold 를 조절하여 precision, recall tuning 가능<br>threshold 가 작은 값일수록 precision이 높아지지만, recall 이 낮아짐<br>threshold 가 높은 값일수록 precision이 낮아지지만, recall 이 높아짐(다양한 얼굴의 variation 인식이 필요한 경우 조절)",
+            "key": "threshold",
+            "value": "<float>"
+          },
+          {
+            "disabled": false,
+            "description": "호출하는 쪽에서 현재 요청하는 transaction id 를 설정하면, 결과 리턴 시에 request-id 값이 포함되어 리턴됨",
+            "key": "request-id",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /api/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+            "key": "key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "헤당 헤더가 존재할 경우, Face Anti Spoofing 엔진이 얼굴 등록 시 동작함(값은 관계 없음)<br>위변조 영상이 입력으로 들어오면 에러 코드를 리턴",
+            "key": "use-spoof",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"image\": \"<binary>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "e7f5aaba-eb1a-4a6d-aa08-0775c4ad30d1",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "recognize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 조회 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "0: Default, 가장 대표적인 하나의 결과를 return<br>1: 사진 속 모든 얼굴에 대한 얼굴인식 결과를 return",
+                "key": "multi",
+                "value": "<integer>"
+              },
+              {
+                "disabled": false,
+                "description": "threshold : 0 인 경우 동일인물, 1 인 경우 다른 인물에 가까움<br>Default : 0.32<br>특정 Site 마다 threshold 를 조절하여 precision, recall tuning 가능<br>threshold 가 작은 값일수록 precision이 높아지지만, recall 이 낮아짐<br>threshold 가 높은 값일수록 precision이 낮아지지만, recall 이 높아짐(다양한 얼굴의 variation 인식이 필요한 경우 조절)",
+                "key": "threshold",
+                "value": "<float>"
+              },
+              {
+                "disabled": false,
+                "description": "호출하는 쪽에서 현재 요청하는 transaction id 를 설정하면, 결과 리턴 시에 request-id 값이 포함되어 리턴됨",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /api/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+                "key": "key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "헤당 헤더가 존재할 경우, Face Anti Spoofing 엔진이 얼굴 등록 시 동작함(값은 관계 없음)<br>위변조 영상이 입력으로 들어오면 에러 코드를 리턴",
+                "key": "use-spoof",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "c84639ea-4004-4822-85a1-86f3357371e3",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "recognize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) 조회 대상 group-id",
+                "key": "group-id",
+                "value": "4NG7RZZNTG"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "0: Default, 가장 대표적인 하나의 결과를 return<br>1: 사진 속 모든 얼굴에 대한 얼굴인식 결과를 return",
+                "key": "multi",
+                "value": "<integer>"
+              },
+              {
+                "disabled": false,
+                "description": "threshold : 0 인 경우 동일인물, 1 인 경우 다른 인물에 가까움<br>Default : 0.32<br>특정 Site 마다 threshold 를 조절하여 precision, recall tuning 가능<br>threshold 가 작은 값일수록 precision이 높아지지만, recall 이 낮아짐<br>threshold 가 높은 값일수록 precision이 낮아지지만, recall 이 높아짐(다양한 얼굴의 variation 인식이 필요한 경우 조절)",
+                "key": "threshold",
+                "value": "<float>"
+              },
+              {
+                "disabled": false,
+                "description": "호출하는 쪽에서 현재 요청하는 transaction id 를 설정하면, 결과 리턴 시에 request-id 값이 포함되어 리턴됨",
+                "key": "request-id",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /api/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+                "key": "key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "헤당 헤더가 존재할 경우, Face Anti Spoofing 엔진이 얼굴 등록 시 동작함(값은 관계 없음)<br>위변조 영상이 입력으로 들어오면 에러 코드를 리턴",
+                "key": "use-spoof",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5c7e972a-6bba-4b3b-b5b1-1797e99e16b1",
+      "name": "Face Detect",
+      "request": {
+        "name": "Face Detect",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "detect"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "AWA57KSRXT"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /api/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+            "key": "key",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"image\": \"<binary>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "90222567-1282-4110-b910-d95ac5b3587c",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "detect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /api/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+                "key": "key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "524d1bb9-06ba-4399-a143-c2314228b651",
+          "name": "404",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "detect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /api/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+                "key": "key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "b04b82f5-331c-4680-95d1-152db1e7f54a",
+      "name": "Face Landmark",
+      "request": {
+        "name": "Face Landmark",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "landmark"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "app-id",
+            "value": "AWA57KSRXT"
+          },
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함.<br>키 값은 호출하는 쪽에서 AES-128 로 생성하고<br>이 키를 /api/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+            "key": "Key",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"image\": \"<binary>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "2d2388fa-7917-4674-bf7d-ca2f09e11524",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "landmark"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함.<br>키 값은 호출하는 쪽에서 AES-128 로 생성하고<br>이 키를 /api/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+                "key": "Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "37136e88-1599-4ca3-a32d-f34e8982938f",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "landmark"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "app-id",
+                "value": "AWA57KSRXT"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함.<br>키 값은 호출하는 쪽에서 AES-128 로 생성하고<br>이 키를 /api/v1/key 에서 얻어온 Public key 로 암호화 하여 전송",
+                "key": "Key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"image\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apis.openapi.sk.com/nugufacecan",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "appKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "538d38e9-8a22-47a8-a3cb-aba8fd70f19d",
+    "name": "NUGU facecan",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

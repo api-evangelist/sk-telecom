@@ -1,0 +1,239 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "META",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "appKey",
+      "value": "{{appKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Golf Swing Analyzer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "create_analyzer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://apis.openapi.sk.com/sigmeta/golf/v1/create_analyzer",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "골프 스윙 준비 자세의 Frame을 추출할 영상을 업로드 할 수 있는 URL과 Job ID를 반환합니다."
+        },
+        {
+          "info": {
+            "name": "get_result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/sigmeta/golf/v1/get_result/:JobID",
+            "headers": [
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "JobID",
+                "value": "",
+                "type": "path",
+                "description": "create_analyzer에서 응답 받은 해당 분석의 Job ID"
+              }
+            ]
+          },
+          "docs": "분석된 결과물을 JSON 객체로 반환합니다."
+        },
+        {
+          "info": {
+            "name": "End to End",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://apis.openapi.sk.com/sigmeta/golf/v1/e2e",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "Type",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "Swing",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "File",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "3MB 이하의 영상, 이미지의 업로드와 분석을 한번에 처리하여 JSON 객체로 반환합니다."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "License Plate Recognizer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "lpr",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://apis.openapi.sk.com/sigmeta/lpr/v1",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "File",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "차량의 번호판을 인식하여 번호판 좌표와 차량번호를 JSON 객체로 반환합니다."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pose Estimation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "create_analyzer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://apis.openapi.sk.com/sigmeta/pose/v1/create_analyzer",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "영상 업로드 요청 시 영상을 업로드 할 수 있는 URL을 반환합니다"
+        },
+        {
+          "info": {
+            "name": "get_result",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://apis.openapi.sk.com/sigmeta/pose/v1/get_result/:JobID",
+            "headers": [
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "JobID",
+                "value": "",
+                "type": "path",
+                "description": "create_analyzer에서 응답 받은 해당 분석의 Job ID"
+              }
+            ]
+          },
+          "docs": "분석된 결과물을 JSON 객체로 반환합니다."
+        },
+        {
+          "info": {
+            "name": "End to End",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://apis.openapi.sk.com/sigmeta/pose/v1/e2e",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "appKey",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "End to End"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

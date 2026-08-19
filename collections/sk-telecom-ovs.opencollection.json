@@ -1,0 +1,404 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OVS",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "appKey",
+      "value": "{{appKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "내 회사 정보 조회",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/company/info/me",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ]
+      },
+      "docs": "내 회사 정보 조회"
+    },
+    {
+      "info": {
+        "name": "회사 전체 단말 리스트 조회",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/company/info/devices/:companyId",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "companyId",
+            "value": "",
+            "type": "path",
+            "description": "회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+          }
+        ]
+      },
+      "docs": "회사 전체 단말 리스트 조회"
+    },
+    {
+      "info": {
+        "name": "회사 정보 조회",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/company/info/:companyId",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "companyId",
+            "value": "",
+            "type": "path",
+            "description": "회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+          }
+        ]
+      },
+      "docs": "회사 정보 조회"
+    },
+    {
+      "info": {
+        "name": "회사 전체 단말 수 조회",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/company/info/devices/cnt/:companyId",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "companyId",
+            "value": "",
+            "type": "path",
+            "description": "회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+          }
+        ]
+      },
+      "docs": "회사 전체 단말 수 조회"
+    },
+    {
+      "info": {
+        "name": "단말 등록",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/device",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "단말 등록"
+    },
+    {
+      "info": {
+        "name": "단말 정보 조회",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/device/:serialNo",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "serialNo",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "단말 정보 조회"
+    },
+    {
+      "info": {
+        "name": "단말 삭제",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/device/:serialNo",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "serialNo",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "단말 삭제"
+    },
+    {
+      "info": {
+        "name": "단말별 이벤트 통계",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/statistics/device/event/:serialNo",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "단말별 이벤트 통계"
+    },
+    {
+      "info": {
+        "name": "단말별 메시지 전달",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/statistics/device/event/:serialNo",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "serialNo",
+            "value": "",
+            "type": "path",
+            "description": "단말의 serialNo"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "단말별 메시지 전달"
+    },
+    {
+      "info": {
+        "name": "회사별 이벤트 통계",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/statistics/company/event/:companyId",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "companyId",
+            "value": "",
+            "type": "path",
+            "description": "회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "회사별 이벤트 통계"
+    },
+    {
+      "info": {
+        "name": "전체 단말 메시지 전달",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/message/company/:companyId",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "companyId",
+            "value": "",
+            "type": "path",
+            "description": "회사ID(companyId)는 “내 회사 정보 조회” API로 확인"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "전체 단말 메시지 전달"
+    },
+    {
+      "info": {
+        "name": "이벤트 Raw Data 정보 조회",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/api/ovs/v20/statistics/event/raw",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": ""
+          },
+          {
+            "name": "X-Authorization",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "이벤트 Raw Data 정보 조회"
+    }
+  ],
+  "bundled": true
+}

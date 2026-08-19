@@ -1,0 +1,554 @@
+{
+  "item": [
+    {
+      "id": "091043f8-822a-42d9-a1d0-ee3ae494c7ea",
+      "name": "Get Voices",
+      "request": {
+        "name": "Get Voices",
+        "description": {
+          "content": "해당 모델에서 지원하고 있는 화자 정보를 확인할 수 있고, 모델 Name은 <a href=\"https://ax-tts-skopenapi.readme.io/reference/tts-model-list-1\">모델 List</a>에서 확인 가능합니다.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "voice"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "model",
+              "value": "axtts-2-6",
+              "description": "(Required) 음성합성 Model"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "text/plain"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "2bf0ab87-309f-41d0-8bdb-1d8a87723e4f",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "voice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "model",
+                  "value": "axtts-2-6"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "e6c40445-f50a-4c42-9594-d410081a9a5f",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "voice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "model",
+                  "value": "axtts-2-6"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "db03e53e-294d-4982-8886-378c592920f6",
+      "name": "Text-to-Speech (TTS)",
+      "request": {
+        "name": "Text-to-Speech (TTS)",
+        "description": {
+          "content": "",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "tts"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"<string>\",\n  \"voice\": \"aria\",\n  \"text\": \"음성합성 테스트입니다.\",\n  \"speed\": \"1\",\n  \"sr\": 22050,\n  \"sformat\": \"wav\",\n  \"clientId\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "a4761cab-73da-4f29-b9f5-fe90c43f3817",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "tts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "sformat에 따른 설정 필요 - wav: audio/wav, pcm: application/octet-stream, opus: audio/ogg, mp3: audio/mpeg",
+                "key": "accept",
+                "value": "audio/wav"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"voice\": \"aria\",\n  \"text\": \"음성합성 테스트입니다.\",\n  \"speed\": \"1\",\n  \"sr\": 22050,\n  \"sformat\": \"wav\",\n  \"clientId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "7e06a7a8-56d0-493b-9173-b6d21f53be8e",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "tts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "description": "sformat에 따른 설정 필요 - wav: audio/wav, pcm: application/octet-stream, opus: audio/ogg, mp3: audio/mpeg",
+                "key": "accept",
+                "value": "audio/wav"
+              },
+              {
+                "disabled": false,
+                "description": "(Required) <a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"voice\": \"aria\",\n  \"text\": \"음성합성 테스트입니다.\",\n  \"speed\": \"1\",\n  \"sr\": 22050,\n  \"sformat\": \"wav\",\n  \"clientId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "9b516ff7-7a86-4247-a738-ea25fa54fe70",
+      "name": "Text-to-Speech with Timestamp",
+      "request": {
+        "name": "Text-to-Speech with Timestamp",
+        "description": {
+          "content": "음성합성 + Timestamp API",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "segmentation"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+            "key": "appKey",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"axtts-2-6\",\n  \"voice\": \"aria\",\n  \"text\": \"음성합성 테스트입니다.\",\n  \"speed\": \"1\",\n  \"sr\": 22050,\n  \"sformat\": \"wav\",\n  \"clientId\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "3f838e3b-455e-48b9-ab63-563de89b148c",
+          "name": "200",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "segmentation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "key": "accept",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"axtts-2-6\",\n  \"voice\": \"aria\",\n  \"text\": \"음성합성 테스트입니다.\",\n  \"speed\": \"1\",\n  \"sr\": 22050,\n  \"sformat\": \"wav\",\n  \"clientId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "\"{}\"",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "a85bdd17-327b-4df3-98ae-097e0c739e03",
+          "name": "400",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "segmentation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "appKey",
+                "value": "<API Key>"
+              },
+              {
+                "disabled": false,
+                "key": "accept",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "disabled": false,
+                "description": "<a href=\"https://openapi.sk.com/mypage/project/\" target=\"_blank\">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능",
+                "key": "appKey",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"axtts-2-6\",\n  \"voice\": \"aria\",\n  \"text\": \"음성합성 테스트입니다.\",\n  \"speed\": \"1\",\n  \"sr\": 22050,\n  \"sformat\": \"wav\",\n  \"clientId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://apis.openapi.sk.com/axtts",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "appKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5c1ac2d4-4cf3-4dd1-b796-1e1157877dd3",
+    "name": "A.X tts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

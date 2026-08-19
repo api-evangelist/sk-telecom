@@ -1,0 +1,399 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NUGU facecan",
+    "version": "unknown"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "appKey",
+      "value": "{{appKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subject List",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/subject",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "group-id",
+            "value": ""
+          },
+          {
+            "name": "subject-name",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ]
+      },
+      "docs": "Subject List"
+    },
+    {
+      "info": {
+        "name": "Subject Create",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/subject",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "group-id",
+            "value": ""
+          },
+          {
+            "name": "subject-name",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ]
+      },
+      "docs": "Subject Create"
+    },
+    {
+      "info": {
+        "name": "Subject Delete",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/subject/:subject_id",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "group-id",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "subject_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Subject Delete"
+    },
+    {
+      "info": {
+        "name": "Group List",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/group",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ]
+      },
+      "docs": "Group List"
+    },
+    {
+      "info": {
+        "name": "Group Create",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/group",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          },
+          {
+            "name": "group-name",
+            "value": ""
+          }
+        ]
+      },
+      "docs": "Group Create"
+    },
+    {
+      "info": {
+        "name": "Group Delete",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/group/:group_id",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "group_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Group Delete"
+    },
+    {
+      "info": {
+        "name": "Face List",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/face",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "group-id",
+            "value": ""
+          },
+          {
+            "name": "subject-id",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ]
+      },
+      "docs": "Face List"
+    },
+    {
+      "info": {
+        "name": "Face Create",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/face",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "group-id",
+            "value": ""
+          },
+          {
+            "name": "subject-id",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          },
+          {
+            "name": "face-name",
+            "value": ""
+          },
+          {
+            "name": "allow-mask",
+            "value": ""
+          },
+          {
+            "name": "key",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Face Create"
+    },
+    {
+      "info": {
+        "name": "Face Delete",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/face/:face_id",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "group-id",
+            "value": ""
+          },
+          {
+            "name": "subject-id",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "face_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Face Delete"
+    },
+    {
+      "info": {
+        "name": "Face Recognize",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/recognize",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "group-id",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          },
+          {
+            "name": "multi",
+            "value": ""
+          },
+          {
+            "name": "threshold",
+            "value": ""
+          },
+          {
+            "name": "request-id",
+            "value": ""
+          },
+          {
+            "name": "key",
+            "value": ""
+          },
+          {
+            "name": "use-spoof",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Face Recognize"
+    },
+    {
+      "info": {
+        "name": "Face Detect",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/detect",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          },
+          {
+            "name": "key",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Face Detect"
+    },
+    {
+      "info": {
+        "name": "Face Landmark",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://apis.openapi.sk.com/nugufacecan/v1/landmark",
+        "headers": [
+          {
+            "name": "app-id",
+            "value": ""
+          },
+          {
+            "name": "appKey",
+            "value": ""
+          },
+          {
+            "name": "Key",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Face Landmark"
+    }
+  ],
+  "bundled": true
+}
