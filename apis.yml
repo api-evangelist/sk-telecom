@@ -55,6 +55,11 @@ apis:
   tags:
   - Artificial Intelligence
   - Speech
+  - Text-to-Speech
+  - Korean
+  tags_raw:
+  - Artificial Intelligence
+  - Speech
   - Text to Speech
   - Korean
   properties:
@@ -85,6 +90,11 @@ apis:
   humanURL: https://openapi.sk.com/products/detail?svcSeq=50
   baseURL: https://apis.openapi.sk.com/nugufacecan
   tags:
+  - Artificial Intelligence
+  - Computer-Vision
+  - Face Recognition
+  - Biometrics
+  tags_raw:
   - Artificial Intelligence
   - Computer Vision
   - Face Recognition
@@ -172,6 +182,10 @@ apis:
   humanURL: https://openapi.sk.com/
   baseURL: https://apis.openapi.sk.com/sigmeta
   tags:
+  - Artificial Intelligence
+  - Computer-Vision
+  - Video Analysis
+  tags_raw:
   - Artificial Intelligence
   - Computer Vision
   - Video Analysis
@@ -287,6 +301,10 @@ apis:
   baseURL: https://apis.openapi.sk.com/puzzle/restaurant
   tags:
   - Big Data
+  - Restaurant
+  - Analytics
+  tags_raw:
+  - Big Data
   - Restaurants
   - Analytics
   properties:
@@ -334,6 +352,10 @@ apis:
     .well-known/oauth-authorization-server document is served — those paths return the SPA shell.
   humanURL: https://developers.t-id.co.kr/
   tags:
+  - Identity
+  - Authentication
+  - Single Sign-On
+  tags_raw:
   - Identity
   - Authentication
   - Single Sign On
