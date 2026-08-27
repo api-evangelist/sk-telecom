@@ -43,208 +43,12 @@ created: '2026-07-25'
 modified: '2026-07-25'
 specificationVersion: '0.23'
 apis:
-- aid: sk-telecom:sk-telecom-ax-tts-api
-  name: SK Telecom A.X TTS API
-  description: >-
-    Korean text-to-speech built on SK Telecom's own DNN speech-synthesis models and voice database,
-    operated by SKT's speech synthesis technology team. Three documented operations — list TTS
-    models, list the voices a model supports, and synthesize speech (with an optional timestamped
-    variant). Authenticated with an appKey header issued from the SK open API dashboard.
-  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
-  baseURL: https://apis.openapi.sk.com/axtts
-  tags:
-  - Artificial Intelligence
-  - Speech
-  - Text-to-Speech
-  - Korean
-  tags_raw:
-  - Artificial Intelligence
-  - Speech
-  - Text to Speech
-  - Korean
-  properties:
-  - type: Documentation
-    url: https://openapi.sk.com/products/detail?svcSeq=67
-  - type: APIReference
-    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
-  - type: OpenAPI
-    url: openapi/sk-telecom-ax-tts-openapi.json
-  - type: GettingStarted
-    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
-    name: Getting Started With A.X TTS API
-  - type: Overlay
-    url: overlays/sk-telecom-ax-tts-overlay.yaml
-  - type: LLMsTxt
-    url: llms/sk-telecom-ax-tts-llms.txt
-    name: llms.txt published at https://ax-tts-skopenapi.readme.io/llms.txt
-  - type: AgentSkill
-    url: skills/sk-telecom-synthesize-korean-speech.md
-    name: Synthesize Korean speech with SK Telecom A.X TTS
-- aid: sk-telecom:sk-telecom-facecan-api
-  name: SK Telecom A. facecan API
-  description: >-
-    Face recognition and analysis API (published as "NUGU facecan"). Build a per-group, per-subject
-    face database and then detect, recognize and extract landmarks from submitted JPEG images.
-    Nine documented operations covering group, subject and face CRUD plus detect, recognize and
-    landmark inference. Supported input 320x240 to 3840x2160, JPG/JPEG under 2 MB.
-  humanURL: https://openapi.sk.com/products/detail?svcSeq=50
-  baseURL: https://apis.openapi.sk.com/nugufacecan
-  tags:
-  - Artificial Intelligence
-  - Computer-Vision
-  - Face Recognition
-  - Biometrics
-  tags_raw:
-  - Artificial Intelligence
-  - Computer Vision
-  - Face Recognition
-  - Biometrics
-  properties:
-  - type: Documentation
-    url: https://openapi.sk.com/products/detail?svcSeq=50
-  - type: APIReference
-    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
-  - type: OpenAPI
-    url: openapi/sk-telecom-facecan-openapi.json
-  - type: Overlay
-    url: overlays/sk-telecom-facecan-overlay.yaml
-  - type: LLMsTxt
-    url: llms/sk-telecom-nugufacecan-llms.txt
-    name: llms.txt published at https://nugufacecan-skopenapi.readme.io/llms.txt
-  - type: ErrorCatalog
-    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
-    name: A. facecan Error Codes (41 codes, captured in errors/sk-telecom-error-codes.yml)
-  - type: AgentSkill
-    url: skills/sk-telecom-enroll-and-recognize-a-face.md
-    name: Enroll and recognize a face with SK Telecom A. facecan
-- aid: sk-telecom:sk-telecom-puzzle-place-congestion-api
-  name: SK Telecom Puzzle Place Congestion API
-  description: >-
-    Place congestion and visitor analytics derived from SK Telecom mobile network data, keyed to
-    TMAP points of interest and to commercial AREA identifiers. Sixteen documented operations
-    covering POI/area metadata, real-time congestion, hourly congestion statistics, and daily
-    visitor counts, travel distance and segment statistics.
-  humanURL: https://openapi.sk.com/products/detail?svcSeq=56
-  baseURL: https://apis.openapi.sk.com/puzzle/place
-  tags:
-  - Big Data
-  - Location
-  - Congestion
-  - Analytics
-  properties:
-  - type: Documentation
-    url: https://openapi.sk.com/products/detail?svcSeq=56
-  - type: APIReference
-    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
-  - type: OpenAPI
-    url: openapi/sk-telecom-puzzle-place-congestion-openapi.json
-  - type: Overlay
-    url: overlays/sk-telecom-puzzle-place-congestion-overlay.yaml
-  - type: LLMsTxt
-    url: llms/sk-telecom-puzzle-llms.txt
-    name: llms.txt published at https://puzzle-skopenapi.readme.io/llms.txt
-  - type: RateLimits
-    url: rate-limits/sk-telecom-rate-limits.yml
-    name: Published Free-plan daily quotas (100/day and 1,000/day by API group)
-  - type: AgentSkill
-    url: skills/sk-telecom-read-place-congestion.md
-    name: Read place and commercial-area congestion from SK Telecom Geovision Puzzle
-- aid: sk-telecom:sk-telecom-puzzle-residence-api
-  name: SK Telecom Puzzle Residence API
-  description: >-
-    Apartment-complex resident profile analytics derived from SK Telecom network data. Five
-    documented operations returning the apartment complex list plus monthly statistics on resident
-    age distribution, demographic features, category behaviour and subway usage rate, keyed on the
-    Korean kaptCode apartment identifier.
-  humanURL: https://openapi.sk.com/products/detail?svcSeq=66
-  baseURL: https://apis.openapi.sk.com/puzzle/residence
-  tags:
-  - Big Data
-  - Demographics
-  - Housing
-  - Analytics
-  properties:
-  - type: Documentation
-    url: https://openapi.sk.com/products/detail?svcSeq=66
-  - type: APIReference
-    url: https://puzzle-skopenapi.readme.io/reference/apts
-  - type: OpenAPI
-    url: openapi/sk-telecom-puzzle-residence-openapi.json
-  - type: Overlay
-    url: overlays/sk-telecom-puzzle-residence-overlay.yaml
-- aid: sk-telecom:sk-telecom-meta-api
-  name: SK Telecom META API
-  description: >-
-    Video and image analysis AI served from SK Telecom's sigmeta service. Seven documented
-    operations covering an asynchronous analyzer lifecycle (create analyzer, upload file, start
-    analyzer, get result) for golf swing analysis and pose estimation, plus licence plate
-    recognition. Uploads go to a temporary presigned S3 URL returned by the create call.
-  humanURL: https://openapi.sk.com/
-  baseURL: https://apis.openapi.sk.com/sigmeta
-  tags:
-  - Artificial Intelligence
-  - Computer-Vision
-  - Video Analysis
-  tags_raw:
-  - Artificial Intelligence
-  - Computer Vision
-  - Video Analysis
-  properties:
-  - type: Documentation
-    url: https://openapi.sk.com/
-  - type: APIReference
-    url: https://meta-skopenapi.readme.io/reference/lpr-1
-  - type: OpenAPI
-    url: openapi/sk-telecom-meta-openapi.json
-  - type: Overlay
-    url: overlays/sk-telecom-meta-overlay.yaml
-  - type: LLMsTxt
-    url: llms/sk-telecom-meta-llms.txt
-    name: llms.txt published at https://meta-skopenapi.readme.io/llms.txt
-  - type: ErrorCatalog
-    url: https://meta-skopenapi.readme.io/reference/error-code-2
-    name: META Error Code reference
-  - type: AgentSkill
-    url: skills/sk-telecom-analyze-video-with-meta.md
-    name: Analyze video and images with SK Telecom META
-- aid: sk-telecom:sk-telecom-ovs-api
-  name: SK Telecom OVS API
-  description: >-
-    OVS is SK Telecom's road-event alerting service. Twelve documented operations covering
-    customer company lookup, registration/lookup/deletion of target devices, broadcast of alert
-    messages to devices when a road incident occurs, and per-company event statistics and raw
-    event data retrieval. TERMINATED: SK open API announced end of service on 2026-04-06 with
-    effect from 2026-04-07 13:00 KST — roughly one day of notice — deleting the plans of every
-    consuming app. The OpenAPI was never marked deprecated and the documentation hub is still
-    online; the definition is retained here as a record of a sunset contract.
-  humanURL: https://openapi.sk.com/
-  baseURL: https://apis.openapi.sk.com/api/ovs
-  tags:
-  - Mobility
-  - Safety
-  - Messaging
-  - Internet of Things
-  properties:
-  - type: Documentation
-    url: https://openapi.sk.com/
-  - type: APIReference
-    url: https://ovs-skopenapi.readme.io/
-  - type: OpenAPI
-    url: openapi/sk-telecom-ovs-openapi.json
-  - type: Overlay
-    url: overlays/sk-telecom-ovs-overlay.yaml
-  - type: LLMsTxt
-    url: llms/sk-telecom-ovs-llms.txt
-    name: llms.txt published at https://ovs-skopenapi.readme.io/llms.txt
-  - type: Deprecation
-    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
-    name: OVS API 서비스 종료 안내 — end of service 2026-04-07 13:00 KST
 - aid: sk-telecom:sk-telecom-geovision-api
   name: SK Telecom Geovision Floating Population API
   description: >-
-    Geovision is SK Telecom's flagship big-data API service, estimating floating population
-    (footfall) from mobile network signalling. Documented on the SK open API portal; no downloadable
-    OpenAPI was published for this product at the time of review.
+    Geovision is SK Telecom's flagship big-data API service, estimating floating population (footfall)
+    from mobile network signalling. Documented on the SK open API portal; no downloadable OpenAPI was
+    published for this product at the time of review.
   humanURL: https://openapi.sk.com/products/detail?svcSeq=2
   baseURL: https://apis.openapi.sk.com/tmap/puzzle
   tags:
@@ -258,9 +62,9 @@ apis:
 - aid: sk-telecom:sk-telecom-puzzle-subway-congestion-api
   name: SK Telecom Puzzle Subway Congestion API
   description: >-
-    Congestion data for every station and train on Seoul metropolitan subway lines 1 through 9 and
-    the Shinbundang Line, including a station metadata/search operation. Documented on the SK open
-    API portal; no downloadable OpenAPI was published for this product at the time of review.
+    Congestion data for every station and train on Seoul metropolitan subway lines 1 through 9 and the
+    Shinbundang Line, including a station metadata/search operation. Documented on the SK open API portal;
+    no downloadable OpenAPI was published for this product at the time of review.
   humanURL: https://openapi.sk.com/products/detail?svcSeq=54
   baseURL: https://apis.openapi.sk.com/puzzle/subway
   tags:
@@ -276,9 +80,9 @@ apis:
 - aid: sk-telecom:sk-telecom-puzzle-travel-api
   name: SK Telecom Puzzle Domestic Travel API
   description: >-
-    Domestic travel analytics — traveller volume by destination, in-region dwell time, and traveller
-    characteristics (gender, age band, companion type). Documented on the SK open API portal; no
-    downloadable OpenAPI was published for this product at the time of review.
+    Domestic travel analytics — traveller volume by destination, in-region dwell time, and traveller characteristics
+    (gender, age band, companion type). Documented on the SK open API portal; no downloadable OpenAPI
+    was published for this product at the time of review.
   humanURL: https://openapi.sk.com/products/detail?svcSeq=57
   baseURL: https://apis.openapi.sk.com/puzzle/travel
   tags:
@@ -294,9 +98,8 @@ apis:
 - aid: sk-telecom:sk-telecom-puzzle-restaurant-api
   name: SK Telecom Puzzle Restaurant API
   description: >-
-    Restaurant rankings and analysis derived from call-volume statistics on SK Telecom's network.
-    Documented on the SK open API portal; no downloadable OpenAPI was published for this product at
-    the time of review.
+    Restaurant rankings and analysis derived from call-volume statistics on SK Telecom's network. Documented
+    on the SK open API portal; no downloadable OpenAPI was published for this product at the time of review.
   humanURL: https://openapi.sk.com/products/detail?svcSeq=69
   baseURL: https://apis.openapi.sk.com/puzzle/restaurant
   tags:
@@ -313,9 +116,9 @@ apis:
 - aid: sk-telecom:sk-telecom-puzzle-academy-api
   name: SK Telecom Puzzle Academy API
   description: >-
-    Private academy (hagwon) rankings and analysis derived from call-volume statistics on SK
-    Telecom's network. Documented on the SK open API portal; no downloadable OpenAPI was published
-    for this product at the time of review.
+    Private academy (hagwon) rankings and analysis derived from call-volume statistics on SK Telecom's
+    network. Documented on the SK open API portal; no downloadable OpenAPI was published for this product
+    at the time of review.
   humanURL: https://openapi.sk.com/products/detail?svcSeq=70
   baseURL: https://apis.openapi.sk.com/puzzle/academy
   tags:
@@ -328,10 +131,10 @@ apis:
 - aid: sk-telecom:sk-telecom-passkey-api
   name: Passkey by SK Telecom API
   description: >-
-    SK Telecom's passwordless passkey authentication system for third-party services. The product
-    page links an integration guide at api.passkey-sktelecom.com/docs/api.html; from outside Korea
-    that host answered HTTP 200 but served only a meta-refresh stub, so the guide content itself
-    could not be retrieved and no OpenAPI was recoverable.
+    SK Telecom's passwordless passkey authentication system for third-party services. The product page
+    links an integration guide at api.passkey-sktelecom.com/docs/api.html; from outside Korea that host
+    answered HTTP 200 but served only a meta-refresh stub, so the guide content itself could not be retrieved
+    and no OpenAPI was recoverable.
   humanURL: https://openapi.sk.com/products/detail?svcSeq=73
   tags:
   - Identity
@@ -346,10 +149,10 @@ apis:
 - aid: sk-telecom:sk-telecom-t-id-api
   name: SK Telecom T ID Login API
   description: >-
-    T ID is SK Telecom's federated identity service, the single sign-on used across SK Telecom and
-    SK affiliate services with roughly 15 million registered users. Third parties integrate T ID
-    login through the T ID Developers channel portal. No .well-known/openid-configuration or
-    .well-known/oauth-authorization-server document is served — those paths return the SPA shell.
+    T ID is SK Telecom's federated identity service, the single sign-on used across SK Telecom and SK
+    affiliate services with roughly 15 million registered users. Third parties integrate T ID login through
+    the T ID Developers channel portal. No .well-known/openid-configuration or .well-known/oauth-authorization-server
+    document is served — those paths return the SPA shell.
   humanURL: https://developers.t-id.co.kr/
   tags:
   - Identity
@@ -367,9 +170,9 @@ apis:
 - aid: sk-telecom:sk-telecom-nugu-developers
   name: NUGU Developers
   description: >-
-    Developer centre for NUGU, SK Telecom's Korean-language voice assistant platform, where third
-    parties build and publish NUGU "plays". The portal is a single-page application; no OpenAPI or
-    machine-readable descriptor was retrievable anonymously.
+    Developer centre for NUGU, SK Telecom's Korean-language voice assistant platform, where third parties
+    build and publish NUGU "plays". The portal is a single-page application; no OpenAPI or machine-readable
+    descriptor was retrievable anonymously.
   humanURL: https://developers.nugu.co.kr/
   tags:
   - Artificial Intelligence
@@ -383,9 +186,9 @@ apis:
 - aid: sk-telecom:sk-telecom-qrng-api
   name: SK Telecom QRNG
   description: >-
-    Quantum random number generation security chip and solution from SK Telecom, listed in the
-    Authentication/Security category of the SK open API portal. Listed as a product rather than a
-    documented REST API — no endpoints, base URL or OpenAPI were published at the time of review.
+    Quantum random number generation security chip and solution from SK Telecom, listed in the Authentication/Security
+    category of the SK open API portal. Listed as a product rather than a documented REST API — no endpoints,
+    base URL or OpenAPI were published at the time of review.
   humanURL: https://openapi.sk.com/products/detail?svcSeq=29
   tags:
   - Security
@@ -394,7 +197,1224 @@ apis:
   properties:
   - type: Documentation
     url: https://openapi.sk.com/products/detail?svcSeq=29
+- aid: sk-telecom:sk-telecom-apartment-api
+  name: SK Telecom Apartment API
+  description: The Apartment API from SK Telecom — 1 operation(s) for apartment.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Apartment
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-apartment-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-area-info-api
+  name: SK Telecom Area Info API
+  description: The Area Info API from SK Telecom — 1 operation(s) for area info.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Area Info
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-area-info-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-company-api
+  name: SK Telecom Company API
+  description: The Company API from SK Telecom — 4 operation(s) for company.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Company
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-company-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-congestion-api
+  name: SK Telecom Congestion API
+  description: The Congestion API from SK Telecom — 6 operation(s) for congestion.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Congestion
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-congestion-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-detect-api
+  name: SK Telecom Detect API
+  description: The Detect API from SK Telecom — 1 operation(s) for detect.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Detect
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-detect-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-device-api
+  name: SK Telecom Device API
+  description: The Device API from SK Telecom — 2 operation(s) for device.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Device
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-device-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-face-api
+  name: SK Telecom Face API
+  description: The Face API from SK Telecom — 2 operation(s) for face.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Face
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-face-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-golf-swing-analyzer-api
+  name: SK Telecom Golf Swing Analyzer API
+  description: The Golf Swing Analyzer API from SK Telecom — 3 operation(s) for golf swing analyzer.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Golf Swing Analyzer
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-golf-swing-analyzer-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-group-api
+  name: SK Telecom Group API
+  description: The Group API from SK Telecom — 2 operation(s) for group.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Group
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-group-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-landmark-api
+  name: SK Telecom Landmark API
+  description: The Landmark API from SK Telecom — 1 operation(s) for landmark.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Landmark
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-landmark-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-license-plate-recognizer-api
+  name: SK Telecom License Plate Recognizer API
+  description: >-
+    The License Plate Recognizer API from SK Telecom — 1 operation(s) for license plate recognizer.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - License Plate Recognizer
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-license-plate-recognizer-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-life-style-api
+  name: SK Telecom Life style API
+  description: The Life style API from SK Telecom — 1 operation(s) for life style.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Life style
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-life-style-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-message-api
+  name: SK Telecom Message API
+  description: The Message API from SK Telecom — 1 operation(s) for message.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Message
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-message-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-place-api
+  name: SK Telecom Place API
+  description: The Place API from SK Telecom — 2 operation(s) for place.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Place
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-place-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-pose-estimation-api
+  name: SK Telecom Pose Estimation API
+  description: The Pose Estimation API from SK Telecom — 3 operation(s) for pose estimation.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Pose Estimation
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-pose-estimation-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-recognize-api
+  name: SK Telecom Recognize API
+  description: The Recognize API from SK Telecom — 1 operation(s) for recognize.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Recognize
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-recognize-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-resident-api
+  name: SK Telecom Resident API
+  description: The Resident API from SK Telecom — 3 operation(s) for resident.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Resident
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-resident-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-segmentation-api
+  name: SK Telecom Segmentation API
+  description: The Segmentation API from SK Telecom — 1 operation(s) for segmentation.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Segmentation
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-segmentation-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-statistics-api
+  name: SK Telecom Statistics API
+  description: The Statistics API from SK Telecom — 3 operation(s) for statistics.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Statistics
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-statistics-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-subject-api
+  name: SK Telecom Subject API
+  description: The Subject API from SK Telecom — 2 operation(s) for subject.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Subject
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-subject-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-tts-api
+  name: SK Telecom Tts API
+  description: The Tts API from SK Telecom — 1 operation(s) for tts.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Tts
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-tts-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-visit-api
+  name: SK Telecom Visit API
+  description: The Visit API from SK Telecom — 7 operation(s) for visit.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Visit
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-visit-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
+- aid: sk-telecom:sk-telecom-voice-api
+  name: SK Telecom Voice API
+  description: The Voice API from SK Telecom — 1 operation(s) for voice.
+  humanURL: https://openapi.sk.com/products/detail?svcSeq=67
+  baseURL: https://apis.openapi.sk.com/axtts
+  tags:
+  - Voice
+  properties:
+  - type: OpenAPI
+    url: openapi/sk-telecom-voice-api-openapi.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=67
+  - type: APIReference
+    url: https://ax-tts-skopenapi.readme.io/reference/text-to-speech-tts
+  - type: GettingStarted
+    url: https://ax-tts-skopenapi.readme.io/reference/getting-started-with-ax-tts-api
+  - type: LLMsTxt
+    url: llms/sk-telecom-ax-tts-llms.txt
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=50
+  - type: APIReference
+    url: https://nugufacecan-skopenapi.readme.io/reference/face-detect-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-nugufacecan-llms.txt
+  - type: ErrorCatalog
+    url: https://nugufacecan-skopenapi.readme.io/reference/error-codes
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=56
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/poicongestionrltm
+  - type: LLMsTxt
+    url: llms/sk-telecom-puzzle-llms.txt
+  - type: RateLimits
+    url: rate-limits/sk-telecom-rate-limits.yml
+  - type: Documentation
+    url: https://openapi.sk.com/products/detail?svcSeq=66
+  - type: APIReference
+    url: https://puzzle-skopenapi.readme.io/reference/apts
+  - type: Documentation
+    url: https://openapi.sk.com/
+  - type: APIReference
+    url: https://meta-skopenapi.readme.io/reference/lpr-1
+  - type: LLMsTxt
+    url: llms/sk-telecom-meta-llms.txt
+  - type: ErrorCatalog
+    url: https://meta-skopenapi.readme.io/reference/error-code-2
+  - type: APIReference
+    url: https://ovs-skopenapi.readme.io/
+  - type: LLMsTxt
+    url: llms/sk-telecom-ovs-llms.txt
+  - type: Deprecation
+    url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
 common:
+- type: Overlay
+  url: overlays/sk-telecom-ax-tts-overlay.yaml
+- type: AgentSkill
+  url: skills/sk-telecom-synthesize-korean-speech.md
+- type: Overlay
+  url: overlays/sk-telecom-facecan-overlay.yaml
+- type: AgentSkill
+  url: skills/sk-telecom-enroll-and-recognize-a-face.md
+- type: Overlay
+  url: overlays/sk-telecom-puzzle-place-congestion-overlay.yaml
+- type: AgentSkill
+  url: skills/sk-telecom-read-place-congestion.md
+- type: Overlay
+  url: overlays/sk-telecom-puzzle-residence-overlay.yaml
+- type: Overlay
+  url: overlays/sk-telecom-meta-overlay.yaml
+- type: AgentSkill
+  url: skills/sk-telecom-analyze-video-with-meta.md
+- type: Overlay
+  url: overlays/sk-telecom-ovs-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/sk-telecom-agentic-access.yml
 - type: DomainSecurity
