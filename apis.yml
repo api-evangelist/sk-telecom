@@ -25,6 +25,17 @@ description: >-
   SK Telecom network capability reach it through aggregators — Bridge Alliance BAEx on Singtel's
   Paragon platform, surfaced through Nokia's Network as Code developer portal, or Aduna — not from
   SK Telecom directly.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Telecommunications
