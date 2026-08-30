@@ -1,0 +1,112 @@
+openapi: 3.2.0
+info:
+  title: A.X Tts API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/axtts
+security:
+- sec0: []
+tags:
+- name: Tts
+paths:
+  /tts:
+    post:
+      summary: Text-to-Speech (TTS)
+      description: ''
+      operationId: text-to-speech-tts
+      parameters:
+      - name: accept
+        in: header
+        description: 'sformat에 따른 설정 필요 - wav: audio/wav, pcm: application/octet-stream, opus: audio/ogg, mp3: audio/mpeg'
+        schema:
+          type: string
+          default: audio/wav
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - model
+              - voice
+              - text
+              properties:
+                model:
+                  type: string
+                  description: 음성합성 Model Name
+                  enum:
+                  - axtts-2-6
+                  - axtts-2-6-ainews
+                  - axtts-2-1
+                  - axtts-2-1-dialect
+                voice:
+                  type: string
+                  description: 합성 보이스 설정 - 음성합성 지원 보이스 참조
+                  default: aria
+                text:
+                  type: string
+                  description: 음성 생성을 위한 입력 문장 - 300자 미만 지원
+                  default: 음성합성 테스트입니다.
+                speed:
+                  type: string
+                  description: '음성 발화 속도 조정 - Range: [0.5, 2.0]'
+                  default: '1'
+                sr:
+                  type: integer
+                  description: 샘플링 레이트(Hz) 조정 - [8000, 16000, 22050]
+                  default: 22050
+                  format: int32
+                sformat:
+                  type: string
+                  description: 음성 출력 포맷 지정 - [wav, pcm, opus, mp3]
+                  default: wav
+                  enum:
+                  - wav
+                  - pcm
+                  - opus
+                  - mp3
+                clientId:
+                  type: string
+                  description: API 사용 서비스명
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Tts
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: YEWVxfrK4j8xTNQZURJ4z1Te4JTZs26v45fgmfn7
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+x-readme-fauxas: true

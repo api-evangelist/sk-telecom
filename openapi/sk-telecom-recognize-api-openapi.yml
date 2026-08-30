@@ -1,0 +1,110 @@
+openapi: 3.2.0
+info:
+  title: NUGU facecan Recognize API
+  version: unknown
+servers:
+- url: https://apis.openapi.sk.com/nugufacecan
+security:
+- sec0: []
+tags:
+- name: Recognize
+paths:
+  /v1/recognize:
+    post:
+      summary: Face Recognize
+      description: ''
+      operationId: face-recognize-1
+      parameters:
+      - name: app-id
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+          default: AWA57KSRXT
+      - name: group-id
+        in: header
+        description: 조회 대상 group-id
+        required: true
+        schema:
+          type: string
+          default: 4NG7RZZNTG
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+      - name: multi
+        in: header
+        description: '0: Default, 가장 대표적인 하나의 결과를 return<br>1: 사진 속 모든 얼굴에 대한 얼굴인식 결과를 return'
+        schema:
+          type: integer
+          format: int32
+      - name: threshold
+        in: header
+        description: 'threshold : 0 인 경우 동일인물, 1 인 경우 다른 인물에 가까움<br>Default : 0.32<br>특정 Site 마다 threshold 를 조절하여 precision, recall tuning 가능<br>threshold 가 작은 값일수록 precision이 높아지지만, recall 이 낮아짐<br>threshold 가 높은 값일수록 precision이 낮아지지만, recall 이 높아짐(다양한 얼굴의 variation 인식이 필요한 경우 조절)'
+        schema:
+          type: number
+          format: float
+      - name: request-id
+        in: header
+        description: 호출하는 쪽에서 현재 요청하는 transaction id 를 설정하면, 결과 리턴 시에 request-id 값이 포함되어 리턴됨
+        schema:
+          type: string
+      - name: key
+        in: header
+        description: 이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /api/v1/key 에서 얻어온 Public key 로 암호화 하여 전송
+        schema:
+          type: string
+      - name: use-spoof
+        in: header
+        description: 헤당 헤더가 존재할 경우, Face Anti Spoofing 엔진이 얼굴 등록 시 동작함(값은 관계 없음)<br>위변조 영상이 입력으로 들어오면 에러 코드를 리턴
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - image
+              properties:
+                image:
+                  type: string
+                  description: Multipart form 메시지, 이름 image 로 파일 형태로 전달(자바의 경우 MulipartFile)
+                  format: binary
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Recognize
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: YEWVxfrK4j8xTNQZURJ4z1Te4JTZs26v45fgmfn7
+x-readme:
+  headers: []
+x-readme-fauxas: true

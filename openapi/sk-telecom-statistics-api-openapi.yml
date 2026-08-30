@@ -1,0 +1,345 @@
+openapi: 3.2.0
+info:
+  title: OVS Statistics API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/api/ovs
+security:
+- sec0: []
+tags:
+- name: Statistics
+paths:
+  /v20/statistics/device/event/{serialNo}:
+    post:
+      summary: 단말별 메시지 전달
+      description: ''
+      operationId: 단말별-메시지-전달
+      parameters:
+      - name: serialNo
+        in: path
+        description: 단말의 serialNo
+        schema:
+          type: string
+        required: true
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                year:
+                  type: string
+                  description: 요청하고자 하는 특정 연도
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": {\n    \"type\": 9999,\n      \"timestamp\": 1590654942693,\n        \"message\": \"test message\"\n  },\n    \"serialNo\": \"uio35fine1236\"\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      type:
+                        type: integer
+                        example: 9999
+                        default: 0
+                      timestamp:
+                        type: integer
+                        example: 1590654942693
+                        default: 0
+                      message:
+                        type: string
+                        example: test message
+                  serialNo:
+                    type: string
+                    example: uio35fine1236
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Statistics
+    get:
+      summary: 단말별 이벤트 통계
+      description: ''
+      operationId: 단말별-이벤트-통계
+      parameters:
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                year:
+                  type: string
+                  description: 요청하고자 하는 특정 연도
+                month:
+                  type: string
+                  description: 요청하고자 하는 특정월
+                day:
+                  type: string
+                  description: 요청하고자 하는 특정일
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"serialNo\":\"bjx84_ovs_server1\",\n    \"requestDate\":{\n      \"year\":2020,\n        \"month\":7,\n          \"day\":1\n    },\n      \"statistics\":{\n        \"event\":{\n          \"msgNotification\":7\n        }\n      }\n}"
+              schema:
+                type: object
+                properties:
+                  serialNo:
+                    type: string
+                    example: bjx84_ovs_server1
+                  requestDate:
+                    type: object
+                    properties:
+                      year:
+                        type: integer
+                        example: 2020
+                        default: 0
+                      month:
+                        type: integer
+                        example: 7
+                        default: 0
+                      day:
+                        type: integer
+                        example: 1
+                        default: 0
+                  statistics:
+                    type: object
+                    properties:
+                      event:
+                        type: object
+                        properties:
+                          msgNotification:
+                            type: integer
+                            example: 7
+                            default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Statistics
+  /v20/statistics/company/event/{companyId}:
+    get:
+      summary: 회사별 이벤트 통계
+      description: ''
+      operationId: 회사별-이벤트-통계
+      parameters:
+      - name: companyId
+        in: path
+        description: 회사ID(companyId)는 “내 회사 정보 조회” API로 확인
+        schema:
+          type: string
+        required: true
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                year:
+                  type: string
+                  description: 요청하고자 하는 특정 연도
+                month:
+                  type: string
+                  description: 요청하고자 하는 특정월
+                day:
+                  type: string
+                  description: 요청하고자 하는 특정일
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"companyId\":\"52631da0-b5ef-11ea-8f00-6730e8ef1a9e\",\n    \"requestDate\":{\n      \"year\":2020,\n        \"month\":7,\n          \"day\":1\n    },\n      \"statistics\":{\n        \"event\":{\n          \"msgNotification\":16\n        }\n      }\n}"
+              schema:
+                type: object
+                properties:
+                  companyId:
+                    type: string
+                    example: 52631da0-b5ef-11ea-8f00-6730e8ef1a9e
+                  requestDate:
+                    type: object
+                    properties:
+                      year:
+                        type: integer
+                        example: 2020
+                        default: 0
+                      month:
+                        type: integer
+                        example: 7
+                        default: 0
+                      day:
+                        type: integer
+                        example: 1
+                        default: 0
+                  statistics:
+                    type: object
+                    properties:
+                      event:
+                        type: object
+                        properties:
+                          msgNotification:
+                            type: integer
+                            example: 16
+                            default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Statistics
+  /v20/statistics/event/raw:
+    get:
+      summary: 이벤트 Raw Data 정보 조회
+      description: ''
+      operationId: 이벤트-raw-data-정보-조회
+      parameters:
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                year:
+                  type: string
+                  description: 요청하고자 하는 특정 연도
+                month:
+                  type: string
+                  description: 요청하고자 하는 특정월
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"url\":\"https://ovs.sktelecom.com:8082/repository/wioadlsl.zip\",\n    \"zip_password\":\"abcd1234\",\n      \"expiry\":\"2021-04-31\"\n}"
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    example: https://ovs.sktelecom.com:8082/repository/wioadlsl.zip
+                  zip_password:
+                    type: string
+                    example: abcd1234
+                  expiry:
+                    type: string
+                    example: '2021-04-31'
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Statistics
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: YEWVxfrK4j8xTNQZURJ4z1Te4JTZs26v45fgmfn7
+x-readme:
+  headers: []
+x-readme-fauxas: true

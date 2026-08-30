@@ -1,0 +1,298 @@
+openapi: 3.2.0
+info:
+  title: NUGU facecan Face API
+  version: unknown
+servers:
+- url: https://apis.openapi.sk.com/nugufacecan
+security:
+- sec0: []
+tags:
+- name: Face
+paths:
+  /v1/face:
+    get:
+      summary: Face List
+      description: ''
+      operationId: subject-list-1
+      parameters:
+      - name: app-id
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+          default: AWA57KSRXT
+      - name: group-id
+        in: header
+        description: 조회 대상 group-id
+        required: true
+        schema:
+          type: string
+          default: 4NG7RZZNTG
+      - name: subject-id
+        in: header
+        description: 조회 대상 subject-id
+        required: true
+        schema:
+          type: string
+          default: L4WKYJR7LU
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "\n[\n  {\n    \"face_id\": \"AABCD12345\",\n    \"face_name\": \"front\",\n    \"box\": {\n      \"topLeftX\": 135,\n      \"faceHeight\": 301,\n      \"topLeftY\": 94,\n      \"landmark\": [\n        197,\n        206,\n        296,\n        207,\n        249,\n        258,\n        210,\n        320,\n        285,\n        321\n      ],\n      \"faceWidth\": 216\n    },\n    \"face_score\": 0.999999344348907,\n    \"expression\": \"neutral\",\n    \"expression_score\": 0.9936171174049376,\n    \"age\": 31,\n    \"gender\": \"male\",\n    \"attribute\": \"glasses\",\n    \"image_width\": 480,\n    \"image_height\": 640,\n    \"engine_version\": 340\n  },\n  {\n    \"face_id\": \"AABCD12346\",\n    \"face_name\": \"front\",\n    \"box\": {\n      \"topLeftX\": 155,\n      \"faceHeight\": 221,\n      \"topLeftY\": 148,\n      \"landmark\": [\n        205,\n        230,\n        280,\n        229,\n        248,\n        260,\n        216,\n        310,\n        277,\n        309\n      ],\n      \"faceWidth\": 167\n    },\n    \"face_score\": 0.999875545501709,\n    \"expression\": \"neutral\",\n    \"expression_score\": 0.902240514755249,\n    \"age\": 33,\n    \"gender\": \"male\",\n    \"attribute\": \"glasses\",\n    \"image_width\": 480,\n    \"image_height\": 640,\n    \"engine_version\": 340\n  },\n  {\n    \"face_id\": \"AABCD12347\",\n    \"face_name\": \"faker\",\n    \"box\": {\n      \"topLeftX\": 135,\n      \"faceHeight\": 301,\n      \"topLeftY\": 95,\n      \"landmark\": [\n        197,\n        206,\n        296,\n        207,\n        249,\n        258,\n        210,\n        320,\n        285,\n        321\n      ],\n      \"faceWidth\": 216\n    },\n    \"face_score\": 0.999999463558197,\n    \"expression\": \"neutral\",\n    \"expression_score\": 0.993864119052887,\n    \"age\": 31,\n    \"gender\": \"male\",\n    \"attribute\": \"glasses\",\n    \"image_width\": 480,\n    \"image_height\": 640,\n    \"engine_version\": 340\n  },\n  {\n    \"face_id\": \"AABCD12349\",\n    \"face_name\": \"front_mask\",\n    \"box\": {\n      \"topLeftX\": 135,\n      \"faceHeight\": 301,\n      \"topLeftY\": 94,\n      \"landmark\": [\n        197,\n        206,\n        296,\n        207,\n        249,\n        258,\n        210,\n        320,\n        285,\n        321\n      ],\n      \"faceWidth\": 216\n    },\n    \"face_score\": 0.0143468026071787,\n    \"expression\": \"etc\",\n    \"expression_score\": 0.5063475370407104,\n    \"age\": 31,\n    \"gender\": \"male\",\n    \"attribute\": \"mask\",\n    \"image_width\": 480,\n    \"image_height\": 640,\n    \"engine_version\": 340\n  }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    face_id:
+                      type: string
+                      example: AABCD12345
+                    face_name:
+                      type: string
+                      example: front
+                    box:
+                      type: object
+                      properties:
+                        topLeftX:
+                          type: integer
+                          example: 135
+                          default: 0
+                        faceHeight:
+                          type: integer
+                          example: 301
+                          default: 0
+                        topLeftY:
+                          type: integer
+                          example: 94
+                          default: 0
+                        landmark:
+                          type: array
+                          items:
+                            type: integer
+                            example: 197
+                            default: 0
+                        faceWidth:
+                          type: integer
+                          example: 216
+                          default: 0
+                    face_score:
+                      type: number
+                      example: 0.999999344348907
+                      default: 0
+                    expression:
+                      type: string
+                      example: neutral
+                    expression_score:
+                      type: number
+                      example: 0.9936171174049376
+                      default: 0
+                    age:
+                      type: integer
+                      example: 31
+                      default: 0
+                    gender:
+                      type: string
+                      example: male
+                    attribute:
+                      type: string
+                      example: glasses
+                    image_width:
+                      type: integer
+                      example: 480
+                      default: 0
+                    image_height:
+                      type: integer
+                      example: 640
+                      default: 0
+                    engine_version:
+                      type: integer
+                      example: 340
+                      default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Face
+    post:
+      summary: Face Create
+      description: ''
+      operationId: face-create
+      parameters:
+      - name: app-id
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+          default: AWA57KSRXT
+      - name: group-id
+        in: header
+        description: 추가 대상 group-id
+        required: true
+        schema:
+          type: string
+          default: 4NG7RZZNTG
+      - name: subject-id
+        in: header
+        description: 추가 대상 subject-id
+        required: true
+        schema:
+          type: string
+          default: L4WKYJR7LU
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+      - name: face-name
+        in: header
+        description: 각 등록할 얼굴에 이름 부여 가능 (한글 미지원)<br><br> - front, left, right 등 pose로 구분하여 등록 가능<br><br> - false_negative 등 시스템 오류 발생(미인식) 영상을 등록하여 인식 성능 향상 가능
+        required: true
+        schema:
+          type: string
+      - name: allow-mask
+        in: header
+        description: 해당 헤더가 존재할 경우(값은 관계 없음) 마스크나 face score 가 기준 이하인 얼굴도 등록이 가능해짐
+        schema:
+          type: string
+      - name: key
+        in: header
+        description: 이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /nugufacecan/v1/key 에서 얻어온 Public key 로 암호화 하여 전송
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - image
+              properties:
+                image:
+                  type: string
+                  description: Multipart form 메시지, 이름 image 로 파일 형태로 전달(자바의 경우 MulipartFile)
+                  format: binary
+                ir:
+                  type: string
+                  description: Multipart form 메시지, 이름 ir 로 파일 형태로 전달(자바의 경우 MulipartFile)
+                  format: binary
+                depth:
+                  type: string
+                  description: Multipart form 메시지, 이름 depth 로 파일 형태로 전달(자바의 경우 MulipartFile)
+                  format: binary
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Face
+  /v1/face/{face_id}:
+    delete:
+      summary: Face Delete
+      description: ''
+      operationId: face-delete
+      parameters:
+      - name: face_id
+        in: path
+        schema:
+          type: string
+        required: true
+      - name: app-id
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+          default: AWA57KSRXT
+      - name: group-id
+        in: header
+        description: 삭제 대상 group-id
+        required: true
+        schema:
+          type: string
+          default: 4NG7RZZNTG
+      - name: subject-id
+        in: header
+        description: 삭제 대상 subject-id
+        required: true
+        schema:
+          type: string
+          default: L4WKYJR7LU
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Face
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: YEWVxfrK4j8xTNQZURJ4z1Te4JTZs26v45fgmfn7
+x-readme:
+  headers: []
+x-readme-fauxas: true

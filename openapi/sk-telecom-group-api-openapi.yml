@@ -1,0 +1,175 @@
+openapi: 3.2.0
+info:
+  title: NUGU facecan Group API
+  version: unknown
+servers:
+- url: https://apis.openapi.sk.com/nugufacecan
+security:
+- sec0: []
+tags:
+- name: Group
+paths:
+  /v1/group:
+    get:
+      summary: Group List
+      description: ''
+      operationId: group-list
+      parameters:
+      - name: app-id
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+          default: OTAXE3CES1
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n     {\n       \"group_id\": \"ABCDE01234\",\n       \"group_name\": \"cu_sunae1dong\"\n     },\n     {\n      \"group_id\": \"ABCDE01234\",\n      \"group_name\": \"happy_mart\"\n     }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    group_id:
+                      type: string
+                      example: ABCDE01234
+                    group_name:
+                      type: string
+                      example: cu_sunae1dong
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Group
+    post:
+      summary: Group Create
+      description: ''
+      operationId: group-create
+      parameters:
+      - name: app-id
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+          default: AWA57KSRXT
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+      - name: group-name
+        in: header
+        description: 생성할 Group의 이름(한글 미지원)
+        required: true
+        schema:
+          type: string
+          default: cu_sunae3dong
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"group_id\": \"ABCDE01234\",\n    \"group_name\": \"cu_sunae3dong\"\n}"
+              schema:
+                type: object
+                properties:
+                  group_id:
+                    type: string
+                    example: ABCDE01234
+                  group_name:
+                    type: string
+                    example: cu_sunae3dong
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Group
+  /v1/group/{group_id}:
+    delete:
+      summary: Group Delete
+      description: ''
+      operationId: group-delete
+      parameters:
+      - name: group_id
+        in: path
+        schema:
+          type: string
+        required: true
+      - name: app-id
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+          default: AWA57KSRXT
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Group
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: YEWVxfrK4j8xTNQZURJ4z1Te4JTZs26v45fgmfn7
+x-readme:
+  headers: []
+x-readme-fauxas: true

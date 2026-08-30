@@ -1,0 +1,475 @@
+openapi: 3.2.0
+info:
+  title: 주거 생활 Life style API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/puzzle/residence
+security:
+- sec0: []
+tags:
+- name: Life style
+paths:
+  /categories/{category}/stat/monthly/apts/{kaptCode}:
+    get:
+      tags:
+      - Life style
+      summary: 주거생활 카테고리별 순위
+      description: '* 특정 아파트 주민의 교육(학교, 유아교육, 학원), 쇼핑(대형마트, 쇼핑몰), 이사(이사 온 아파트, 이사 간 아파트), 지하철 출발역·도착역, 근무지역 등 다양한 주거생활의 순위 정보를 제공합니다.
+
+        '
+      operationId: aptcategories
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeJson'
+      - $ref: '#/components/parameters/AppKey'
+      - $ref: '#/components/parameters/Category'
+      - $ref: '#/components/parameters/KaptCode'
+      - $ref: '#/components/parameters/SchoolType'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  contents:
+                    oneOf:
+                    - $ref: '#/components/schemas/AptYpRateStatMonthly'
+                    - $ref: '#/components/schemas/AptPoiRateStatMonthly'
+                    - $ref: '#/components/schemas/AptSimilarAptRawMonthly'
+                    - $ref: '#/components/schemas/AptSubwayStationStatMonthly'
+                    - $ref: '#/components/schemas/AptWorkplaceStatMonthly'
+                    - $ref: '#/components/schemas/AptMoveStatMonthly'
+                    - $ref: '#/components/schemas/AptSchoolStatMonthly'
+              examples:
+                Result:
+                  value: "{\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"success\",\n    \"totalCount\": 1\n  },\n  \"contents\": [\n    {\n      \"kaptCode\": \"A13805002\",\n      \"kaptName\": \"올림픽선수기자촌아파트\",\n      \"stat\": [\n        {\n          \"ypId\": \"3650775\",\n          \"ypName\": \"시대인재학원 입시R&D센터\",\n          \"rate\": 3.3185\n        },\n        {\n          \"ypId\": \"1976893\",\n          \"ypName\": \"이은재어학원 본관\",\n          \"rate\": 2.9408\n        },\n        {\n          \"ypId\": \"3782459\",\n          \"ypName\": \"깊은생각 송파본원\",\n          \"rate\": 2.7924\n        },\n        {\n          \"ypId\": \"5567783\",\n          \"ypName\": \"새움수학원\",\n          \"rate\": 2.7789\n        },\n        {\n          \"ypId\": \"2317943\",\n          \"ypName\": \"구주이배수학학원 송파점\",\n          \"rate\": 2.6305\n        }\n      ],\n      \"yearMonth\": \"202304\",\n      \"statStartDate\": \"20230201\",\n      \"statEndDate\": \"20230430\"\n    }\n  ]\n}"
+        '400':
+          $ref: '#/paths/~1meta~1apts/get/responses/400'
+        '401':
+          $ref: '#/paths/~1meta~1apts/get/responses/401'
+        '403':
+          $ref: '#/paths/~1meta~1apts/get/responses/403'
+        '404':
+          $ref: '#/paths/~1meta~1apts/get/responses/404'
+        '429':
+          $ref: '#/paths/~1meta~1apts/get/responses/429'
+        '500':
+          $ref: '#/paths/~1meta~1apts/get/responses/500'
+        '504':
+          $ref: '#/paths/~1meta~1apts/get/responses/504'
+      deprecated: false
+components:
+  schemas:
+    AptSubwayStationStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/SubwayStationRate'
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+        gender:
+          type: string
+          description: 성별 (male:남성, female:여성, all:전체)
+          enum:
+          - male
+          - female
+          - all
+        ageGrp:
+          type: string
+          description: 연령대 (10:10대, 20:20대, 30:30대, 40:40대, 50:50대, 60_over:60대이상, all:전체)
+          enum:
+          - '10'
+          - '20'
+          - '30'
+          - '40'
+          - '50'
+          - 60_over
+          - all
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
+      - gender
+      - ageGrp
+    PoiRate:
+      type: object
+      description: 장소 ID와 장소명, 이용 비율입니다.
+      properties:
+        poiId:
+          type: string
+          description: poi id
+        poiName:
+          type: string
+          description: poi 이름
+        rate:
+          type: number
+          description: rate
+      required:
+      - poiId
+      - poiName
+      - rate
+    SubwayStationRate:
+      type: object
+      properties:
+        stationCode:
+          type: string
+          description: station code
+        stationName:
+          type: string
+          description: station 이름
+        rate:
+          type: number
+          description: rate
+      required:
+      - stationCode
+      - stationName
+      - rate
+    YpRate:
+      type: object
+      properties:
+        ypId:
+          type: string
+          description: yp id
+        ypName:
+          type: string
+          description: yp 이름
+        rate:
+          type: number
+          description: rate
+      required:
+      - ypId
+      - ypName
+      - rate
+    ResponseStatus:
+      type: object
+      description: 응답 상태입니다.
+      properties:
+        code:
+          type: string
+          description: '응답 코드입니다.
+
+            00: 성공
+
+            '
+        message:
+          type: string
+          description: '요청(request) 성공 여부 메시지입니다.
+
+            success: 성공.
+
+            '
+        totalCount:
+          type: integer
+          description: 검색 결과 데이터 건수입니다.
+    SimilarAptRawMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: apt code
+        kaptName:
+          type: string
+          description: apt 이름
+        similarity:
+          type: number
+          description: rate
+      required:
+      - kaptCode
+      - kaptName
+      - similarity
+    AptMoveStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/Apt'
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
+    AptYpRateStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/YpRate'
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
+    AptSimilarAptRawMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        raw:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/SimilarAptRawMonthly'
+        yearMonth:
+          type: string
+          description: 기준 월
+      required:
+      - kaptCode
+      - kaptName
+      - raw
+      - yearMonth
+    AptPoiRateStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/PoiRate'
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
+    Apt:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+      required:
+      - kaptCode
+      - kaptName
+    DistrictRate:
+      type: object
+      properties:
+        districtCode:
+          type: string
+          description: 법정동 코드
+        districtName:
+          type: string
+          description: 법정동 이름
+        rate:
+          type: number
+          description: rate
+        avgDuration:
+          type: number
+          description: 평균 머무른 시간(초)
+      required:
+      - districtCode
+      - districtName
+      - rate
+      - avgDuration
+    AptSchoolStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/PoiRate'
+        schoolType:
+          type: string
+          description: 학교 종류
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - schoolType
+      - yearMonth
+      - statStartDate
+      - statEndDate
+    AptWorkplaceStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/DistrictRate'
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
+  parameters:
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+    SchoolType:
+      name: schoolType
+      in: query
+      description: 학교 순위를 조회할 때 학교 종류(e:초등학교, m:중학교, h:고등학교)를 선택합니다.
+      schema:
+        type: string
+        default: e
+        enum:
+        - e
+        - m
+        - h
+    KaptCode:
+      name: kaptCode
+      in: path
+      description: 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다.
+      schema:
+        type: string
+        default: A13805002
+      required: true
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    Category:
+      name: category
+      in: path
+      description: 카테고리 목록에서 조회를 원하는 분류값을 영문으로 입력합니다.
+      schema:
+        type: string
+        default: mart
+        enum:
+        - school
+        - kindergarden
+        - academy
+        - mart
+        - shoppingmall
+        - move-from
+        - move-to
+        - start-subway-station
+        - destination-subway-station
+        - workplace
+      required: true
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      x-default: e8wHh2tya84M88aReEpXCa5XTQf3xgo01aZG39k5
+      name: appkey
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true
+x-readme-fauxas: true

@@ -1,0 +1,430 @@
+openapi: 3.2.0
+info:
+  title: META Golf Swing Analyzer API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/sigmeta
+security:
+- sec0: []
+tags:
+- name: Golf Swing Analyzer
+paths:
+  /golf/v1/create_analyzer:
+    post:
+      tags:
+      - Golf Swing Analyzer
+      summary: create_analyzer
+      description: 골프 스윙 준비 자세의 Frame을 추출할 영상을 업로드 할 수 있는 URL과 Job ID를 반환합니다.
+      operationId: create_analyzer
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeJson'
+      - $ref: '#/components/parameters/AppKey'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Type
+              - Action
+              - Swing
+              properties:
+                Type:
+                  type: string
+                  description: 분석 유형
+                  default: Guideline
+                  enum:
+                  - Guideline
+                Action:
+                  type: string
+                  description: 분석 활동
+                  default: CreateAnalyzer
+                  enum:
+                  - CreateAnalyzer
+                Swing:
+                  type: string
+                  description: 전면(Full_Front), 후면(Full_Back) 영상 선택
+                  default: Full_Front
+                  enum:
+                  - Full_Front
+                  - Full_Back
+      responses:
+        '200':
+          $ref: '#/components/responses/CreateAnalyzer'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  category:
+                    type: string
+                  code:
+                    type: string
+                  message:
+                    type: string
+              examples:
+                MethodNotAllowed:
+                  value:
+                    id: '400'
+                    category: gw
+                    code: E.GW.METHOD_NOT_ALLOWED
+                    message: ${request.http.method} not permited
+                Unauthorized:
+                  value:
+                    id: '400'
+                    category: gw
+                    code: E.GW.INVALID_APIKEY
+                    message: Invalid API Key
+                BackendServiceUnavailable1:
+                  value:
+                    id: '400'
+                    category: gw
+                    code: '-1'
+                    message: The host doew not exist or the host is down when routing
+                BackendServiceUnavailable2:
+                  value:
+                    id: '400'
+                    category: gw
+                    code: '-2'
+                    message: The Routing URL is incorrect
+                BackendServiceUnavailable3:
+                  value:
+                    id: '400'
+                    category: gw
+                    code: '-3'
+                    message: Connection Timeout occured when routing
+                BackendServiceUnavailable5:
+                  value:
+                    id: '400'
+                    category: gw
+                    code: '-5'
+                    message: An unknown type of error has occurred when routing
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1golf~1v1~1create_analyzer/post/responses/400/content/application~1json/schema'
+              examples:
+                Unauthorized:
+                  value:
+                    id: '401'
+                    category: gw
+                    code: '8001'
+                    message: 유효하지 않은 API Key입니다.
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1golf~1v1~1create_analyzer/post/responses/400/content/application~1json/schema'
+              examples:
+                ForbiddenIP:
+                  value:
+                    id: '403'
+                    category: gw
+                    code: '8104'
+                    message: 접근권한이 없는 IP주소입니다.
+                ForbiddenTime:
+                  value:
+                    id: '403'
+                    category: gw
+                    code: '8105'
+                    message: 서비스 제한 시간입니다.
+                ExceedRatelimit:
+                  value:
+                    id: '403'
+                    category: gw
+                    code: '8101'
+                    message: 초(분/시간)당 처리 건수를 초과했습니다.
+                ExceedQuarter:
+                  value:
+                    id: '403'
+                    category: gw
+                    code: '8102'
+                    message: 최대 호출 허용 건수를 초과했습니다.
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1golf~1v1~1create_analyzer/post/responses/400/content/application~1json/schema'
+              examples:
+                NotFound:
+                  value:
+                    id: '404'
+                    category: gw
+                    code: '404'
+                    message: Gateway service not found
+        '405':
+          description: Method Not Allowed
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1golf~1v1~1create_analyzer/post/responses/400/content/application~1json/schema'
+              examples:
+                MethodNotAllowed:
+                  value:
+                    id: '405'
+                    category: gw
+                    code: '7104'
+                    message: 허용하지 않는 HTTP Method 입니다.
+        '408':
+          description: Request Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1golf~1v1~1create_analyzer/post/responses/400/content/application~1json/schema'
+              examples:
+                RequestTimeout:
+                  value:
+                    id: '408'
+                    category: gw
+                    code: '-4'
+                    message: Read Timeout occured when routing
+                BackendServiceShutDown:
+                  value:
+                    id: '408'
+                    category: gw
+                    code: '408'
+                    message: The server would like to shut down this unused connection
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1golf~1v1~1create_analyzer/post/responses/400/content/application~1json/schema'
+              examples:
+                Default:
+                  value:
+                    id: '500'
+                    category: gw
+                    code: 000 또는 GW000
+                    message: The request failed due to some unknown reason
+                SLANotFound:
+                  value:
+                    id: '500'
+                    category: gw
+                    code: '9999'
+                    message: Gateway 내부 오류가 발생하였습니다.
+        '503':
+          description: Service Unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1golf~1v1~1create_analyzer/post/responses/400/content/application~1json/schema'
+              examples:
+                ServiceUnavailable:
+                  value:
+                    id: '503'
+                    category: gw
+                    code: '8901'
+                    message: 라우팅에 실패했습니다.
+  /golf/v1/get_result/{JobID}:
+    get:
+      tags:
+      - Golf Swing Analyzer
+      summary: get_result
+      description: 분석된 결과물을 JSON 객체로 반환합니다.
+      operationId: get_result
+      parameters:
+      - $ref: '#/components/parameters/AppKey'
+      - $ref: '#/components/parameters/JobID'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"JobID: 요청한 Job ID\": \"17303806-ce11-456f-bfd1-aa5c4b1a0871\",\n  \"State: Success/Fail\": \"Fail\",\n  \"Status: Create/NotCreated/Analyzing/AllDone/Failed\": \"NotCreated\",\n  \"address_frame_num: 추출된 스윙 준비 자세 Frame Number\": 10,\n  \"Joints: 25개의 관절 좌표, 추출되지 않았을 경우 -1 로 반환, [nose, neck, right shoulder, right elbow, right wrist, left shoulder, left elbow, left wrist, pelvis, right hip, right knee, right ankle, left hip, left knee, left ankle, right eye, left eye, right ear, left ear, left big toe, left small toe, left heel, right big toe, right small toe, right heel]\": [1.2, 2.2, 3.2],\n  \"Guideline: Front 의 Guideline 생성을 위한 Joints 외 10개의 좌표, [body_line_left_bottom_point, body_line_left_top_point, body_line_right_bottom_point, body_line_right_top_point, head_center, head_circle_radius, hip_ankle_line_leftbottom_point, hip_ankle_line_lefttop_point, hip_ankle_line_rightbottom_point, hip_ankle_line_righttop_point, shoulder_line_left_point, shoulder_line_right_point]\": [1.2, 2.2, 3.2],\n  \"url: Meta가 저장되어 있는 URL\": \"http://meta\",\n  \"Error: Error 내용\": \"'Swing'\"\n}"
+              schema:
+                type: object
+                properties:
+                  'JobID: 요청한 Job ID':
+                    type: string
+                    example: 17303806-ce11-456f-bfd1-aa5c4b1a0871
+                  'State: Success/Fail':
+                    type: string
+                    example: Fail
+                  'Status: Create/NotCreated/Analyzing/AllDone/Failed':
+                    type: string
+                    example: NotCreated
+                  'address_frame_num: 추출된 스윙 준비 자세 Frame Number':
+                    type: integer
+                    example: 10
+                    default: 0
+                  ? 'Joints: 25개의 관절 좌표, 추출되지 않았을 경우 -1 로 반환, [nose, neck, right shoulder, right elbow, right wrist, left shoulder, left elbow, left wrist, pelvis, right hip, right knee, right ankle, left hip, left knee, left ankle, right eye, left eye, right ear, left ear, left big toe, left small toe, left heel, right big toe, right small toe, right heel]'
+                  : type: array
+                    items:
+                      type: number
+                      example: 1.2
+                      default: 0
+                  ? 'Guideline: Front 의 Guideline 생성을 위한 Joints 외 10개의 좌표, [body_line_left_bottom_point, body_line_left_top_point, body_line_right_bottom_point, body_line_right_top_point, head_center, head_circle_radius, hip_ankle_line_leftbottom_point, hip_ankle_line_lefttop_point, hip_ankle_line_rightbottom_point, hip_ankle_line_righttop_point, shoulder_line_left_point, shoulder_line_right_point]'
+                  : type: array
+                    items:
+                      type: number
+                      example: 1.2
+                      default: 0
+                  'url: Meta가 저장되어 있는 URL':
+                    type: string
+                    example: http://meta
+                  'Error: Error 내용':
+                    type: string
+                    example: '''Swing'''
+  /golf/v1/e2e:
+    post:
+      tags:
+      - Golf Swing Analyzer
+      summary: End to End
+      description: 3MB 이하의 영상, 이미지의 업로드와 분석을 한번에 처리하여 JSON 객체로 반환합니다.
+      operationId: e2e
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeMultipart'
+      - $ref: '#/components/parameters/AppKey'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - Type
+              - Swing
+              - File
+              properties:
+                Type:
+                  type: string
+                  description: 분석 유형
+                  default: Guideline
+                  enum:
+                  - Guideline
+                Swing:
+                  type: string
+                  description: 전면(Full_Front), 후면(Full_Back) 영상 선택
+                  default: Full_Front
+                  enum:
+                  - Full_Front
+                  - Full_Back
+                File:
+                  type: string
+                  description: '동영상 파일(*.mp4, 지원 Codec : H.264, MPEG), 이미지 파일(*.jpg, *.png, *.bmp)'
+                  format: binary
+      deprecated: false
+components:
+  parameters:
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    ContentTypeMultipart:
+      name: Content-Type
+      description: multipart/form-data
+      in: header
+      required: true
+      schema:
+        type: string
+        default: multipart/form-data
+    JobID:
+      name: JobID
+      in: path
+      description: create_analyzer에서 응답 받은 해당 분석의 Job ID
+      required: true
+      schema:
+        type: string
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+  responses:
+    CreateAnalyzer:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              JobID:
+                type: string
+                description: 부여된 Job ID입니다.
+              State:
+                type: string
+                description: 실행 성공 여부입니다. Success/Fail
+              Status:
+                type: string
+                description: 실행 상태입니다. Create/NotCreated/Analyzing/AllDone/Failed
+              URL:
+                type: string
+                description: 파일을 업로드할 수 있는 AWS S3 임시 URL입니다.
+              Form:
+                type: object
+                description: 파일 업로드를 위한 S3 Bucket 정보입니다.
+                properties:
+                  key:
+                    type: string
+                    description: 버킷 내 객체에 대한 고유한 식별자입니다.
+                  x-amz-algorithm:
+                    type: string
+                    description: 요청 서명을 만드는 데 사용한 버전과 HMAC 암호화 알고리즘입니다.
+                  x-amz-credential:
+                    type: string
+                    description: 자격 증명 범위 값입니다. 액세스 키, 날짜, 대상 지역, 요청하는 서비스 및 종료 문자열(aws4_request)을 포함하는 문자열입니다.
+                  x-amz-date:
+                    type: string
+                    description: 서명이 생성된 날짜입니다.
+                  x-amz-security-token:
+                    type: string
+                    description: 요청 시 사용할 임시 보안 토큰입니다.
+                  policy:
+                    type: string
+                    description: S3 버킷 정책 키입니다.
+                  x-amz-signature:
+                    type: string
+                    description: 요청을 인증하기 위한 암호화된 서명입니다.
+              Error:
+                type: string
+                description: 실행 상태가 실패(Status=Failed)일 때 응답되는 에러 정보입니다.
+          examples:
+            Success:
+              value:
+                JobID: 1f887a4f-69c9-477a-b2d1-05ce00252970
+                State: Success
+                Status: Created
+                URL: https://hivevisionprod-golf-data-ap-northeast-2-40524.s3.amazonaws.com/
+                Form:
+                  key: input/Guideline/Full_Front/2022/9/19/1f887a4f-69c9-477a-b2d1-05ce00252970.mp4
+                  x-amz-algorithm: AWS4-HMAC-SHA256
+                  x-amz-credential: ASIAV4WRSFVPKHZL74EG/20220919/ap-northeast-2/s3/aws4_request
+                  x-amz-date: 20220919T062449Z
+                  x-amz-security-token: IQoJb3JpZ2luX2VjEJb//////////wEaDmFwLW5vcnRoZWFzdC0yIkgwRgIhAMznqCC/YdbfbLjE4SeB9iLfw2Vpau50Nqg/wtP02xZyAiEApBzjan+H5E5tbMemUWnAFMYeh2DhCYj84c/VpjfxHegqpAMIQBABGgw0MDUyNDAxNjM2NzgiDKb7iR6sxhIggs/Q+SqBA4WDbqN/NDsWvrjV6dDLa4bZmWqkw9iC9Qo1QnxV646BNAZ4J+m63gP2xckpxsVM5dlU6H3YLGtVmadVyNLjCvgTBjef494/9yw3kbyrwYNmQ7vah0VOLXMwqWBhaHglpb1z/eOjToKO6wy3T+SDI1yqCDZzbXJGj4L4sCvISuPV4kE7ZZQAig6WhEONS60vne76jAZmCk8aykCMbTYrrRHsvcb47xa9gHimBaNq9+IV9qoA6+eGEmXJFvdrp1oiEeLoaCd7vCe2Dek2t4bACkY79UDERf9hElnn5w1tkUxRN1rzEh9d3GyjUdlWYpc0sBN2JCiBUvh53r+AzkgITPuBfPv6G9KhueChKvuI30/W5D8jQ8Be/w2F6ssnRZfK82YFuHZtoLg/uBYPdtux+mN9pcTxR8NTIx4k57h/Vjj/lpT3L+xHF3sI3U6UeKYQ6xLI6Lf1IpHraV/SNWhfWB3aNqBYvkbeGMZsSMIVWylglOHPEub1Y5aZfNrGBzKymrcwsZagmQY6nAEdzaT8tQKP1I+vGC/r/jLG0Cy8zxJp31OJg7gb6cGsat1zhX5I7c5Nfz/o4lpBXDRnBrizvqxPNOVWjap/YD4nfLG0hrMBinLeaD5jTLR/Xd+egJY265d2tjvPCvDPxBZ2hZ4FNd6440Bgy2/B6ONJEaYXtGU10Rc+Ugi0Ykfw28HoTg/UrJYmfvwZw8zBfGDDosOitEan3HM+TtY=
+                  policy: eyJleHBpcmF0aW9uIjogIjIwMjItMDktMTlUMDY6MjY6NDlaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiaGl2ZXZpc2lvbnByb2QtZ29sZi1kYXRhLWFwLW5vcnRoZWFzdC0yLTQwNTI0In0sIHsia2V5IjogImlucHV0L0d1aWRlbGluZS9GdWxsX0Zyb250LzIwMjIvOS8xOS8xZjg4N2E0Zi02OWM5LTQ3N2EtYjJkMS0wNWNlMDAyNTI5NzAubXA0In0sIHsieC1hbXotYWxnb3JpdGhtIjogIkFXUzQtSE1BQy1TSEEyNTYifSwgeyJ4LWFtei1jcmVkZW50aWFsIjogIkFTSUFWNFdSU0ZWUEtIWkw3NEVHLzIwMjIwOTE5L2FwLW5vcnRoZWFzdC0yL3MzL2F3czRfcmVxdWVzdCJ9LCB7IngtYW16LWRhdGUiOiAiMjAyMjA5MTlUMDYyNDQ5WiJ9LCB7IngtYW16LXNlY3VyaXR5LXRva2VuIjogIklRb0piM0pwWjJsdVgyVmpFSmIvLy8vLy8vLy8vd0VhRG1Gd0xXNXZjblJvWldGemRDMHlJa2d3UmdJaEFNem5xQ0MvWWRiZmJMakU0U2VCOWlMZncyVnBhdTUwTnFnL3d0UDAyeFp5QWlFQXBCemphbitINUU1dGJNZW1VV25BRk1ZZWgyRGhDWWo4NGMvVnBqZnhIZWdxcEFNSVFCQUJHZ3cwTURVeU5EQXhOak0yTnpnaURLYjdpUjZzeGhJZ2dzL1ErU3FCQTRXRGJxTi9ORHNXdnJqVjZkRExhNGJabVdxa3c5aUM5UW8xUW54VjY0NkJOQVo0SittNjNnUDJ4Y2tweHNWTTVkbFU2SDNZTEd0Vm1hZFZ5TkxqQ3ZnVEJqZWY0OTQvOXl3M2tieXJ3WU5tUTd2YWgwVk9MWE13cVdCaGFIZ2xwYjF6L2VPalRvS082d3kzVCtTREkxeXFDRFp6YlhKR2o0TDRzQ3ZJU3VQVjRrRTdaWlFBaWc2V2hFT05TNjB2bmU3NmpBWm1DazhheWtDTWJUWXJyUkhzdmNiNDd4YTlnSGltQmFOcTkrSVY5cW9BNitlR0VtWEpGdmRycDFvaUVlTG9hQ2Q3dkNlMkRlazJ0NGJBQ2tZNzlVREVSZjloRWxubjV3MXRrVXhSTjFyekVoOWQzR3lqVWRsV1lwYzBzQk4ySkNpQlV2aDUzcitBemtnSVRQdUJmUHY2RzlLaHVlQ2hLdnVJMzAvVzVEOGpROEJlL3cyRjZzc25SWmZLODJZRnVIWnRvTGcvdUJZUGR0dXgrbU45cGNUeFI4TlRJeDRrNTdoL1Zqai9scFQzTCt4SEYzc0kzVTZVZUtZUTZ4TEk2TGYxSXBIcmFWL1NOV2hmV0IzYU5xQll2a2JlR01ac1NNSVZXeWxnbE9IUEV1YjFZNWFaZk5yR0J6S3ltcmN3c1phZ21RWTZuQUVkemFUOHRRS1AxSSt2R0Mvci9qTEcwQ3k4enhKcDMxT0pnN2diNmNHc2F0MXpoWDVJN2M1TmZ6L280bHBCWERSbkJyaXp2cXhQTk9WV2phcC9ZRDRuZkxHMGhyTUJpbkxlYUQ1alRMUi9YZCtlZ0pZMjY1ZDJ0anZQQ3ZEUHhCWjJoWjRGTmQ2NDQwQmd5Mi9CNk9OSkVhWVh0R1UxMFJjK1VnaTBZa2Z3MjhIb1RnL1VySlltZnZ3Wnc4ekJmR0REb3NPaXRFYW4zSE0rVHRZPSJ9XX0=
+                  x-amz-signature: 26abe478cddcc2ecb7592a1fa15a2d81f02f38ed13235a9d7c61cd4dc1a2ef5c
+            Fail:
+              value:
+                JobID: 1f887a4f-69c9-477a-b2d1-05ce00252970
+                State: Fail
+                Status: NotCreated
+                Error: 'Fail in CreateAnalyzer: Wrong Properties'
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: l7xx1317e6cad24d4f0d8048aa7336e5623b
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

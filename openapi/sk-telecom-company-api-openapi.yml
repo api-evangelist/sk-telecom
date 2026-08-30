@@ -1,0 +1,376 @@
+openapi: 3.2.0
+info:
+  title: OVS Company API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/api/ovs
+security:
+- sec0: []
+tags:
+- name: Company
+paths:
+  /v20/company/info/me:
+    get:
+      summary: 내 회사 정보 조회
+      description: ''
+      operationId: 내-회사-정보-조회
+      parameters:
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\": {\n    \"id\": \"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\"\n  },\n    \"createdTime\": 1590654831577,\n      \"name\": \"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\",\n        \"serviceType\": \"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\",\n          \"master\": true,\n            \"masterId\": {\n              \"id\": \"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\"\n            },\n              \"picPasswd\": null,\n                \"picName\": \"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\",\n                  \"picPhone\": null,\n                    \"picEmail\": \"l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com\",\n                      \"picDivision\": null,\n                        \"sktManagerName\": null,\n                          \"sktManagerEmail\": null,\n                            \"cooperationTask\": null,\n                              \"description\": null,\n                                \"notifyHost\": null,\n                                  \"notifyMsgType\": null,\n                                    \"notifyErrIdleMin\": 0,\n                                      \"pwAccess\": null,\n                                        \"dataAnalytics\": null,\n                                          \"bcn\": null,\n                                            \"tokenPrefix\": \"uio35\",\n                                              \"ovs\": true,\n                                                \"tokenExpr\": -1\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f
+                  createdTime:
+                    type: integer
+                    example: 1590654831577
+                    default: 0
+                  name:
+                    type: string
+                    example: skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8
+                  serviceType:
+                    type: string
+                    example: skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8
+                  master:
+                    type: boolean
+                    example: true
+                    default: true
+                  masterId:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f
+                  picPasswd: {}
+                  picName:
+                    type: string
+                    example: skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8
+                  picPhone: {}
+                  picEmail:
+                    type: string
+                    example: l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com
+                  picDivision: {}
+                  sktManagerName: {}
+                  sktManagerEmail: {}
+                  cooperationTask: {}
+                  description: {}
+                  notifyHost: {}
+                  notifyMsgType: {}
+                  notifyErrIdleMin:
+                    type: integer
+                    example: 0
+                    default: 0
+                  pwAccess: {}
+                  dataAnalytics: {}
+                  bcn: {}
+                  tokenPrefix:
+                    type: string
+                    example: uio35
+                  ovs:
+                    type: boolean
+                    example: true
+                    default: true
+                  tokenExpr:
+                    type: integer
+                    example: -1
+                    default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ''
+      deprecated: false
+      tags:
+      - Company
+  /v20/company/info/devices/{companyId}:
+    get:
+      summary: 회사 전체 단말 리스트 조회
+      description: ''
+      operationId: 회사-전체-단말-리스트-조회
+      parameters:
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      - name: companyId
+        in: path
+        description: 회사ID(companyId)는 “내 회사 정보 조회” API로 확인
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": [\n    {\n      \"id\": {\n        \"id\": \"ee874290-abba-11ea-b482-911940102f00\"\n      },\n      \"createdTime\": 1591862994142,\n      \"companyId\": {\n        \"id\": \"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\"\n      },\n      \"vendor\": \"SKT1\",\n      \"type\": \"OVC-G\",\n      \"additionalInfo\": null,\n      \"activationRequired\": false,\n      \"serialNo\": \"uio35123451234512345\",\n      \"credentialsId\": null\n    },\n    {\n      \"id\": {\n        \"id\": \"37c6b060-a0be-11ea-a9b8-ff6a8104c32f\"\n      },\n      \"createdTime\": 1590654942693,\n      \"companyId\": {\n        \"id\": \"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\"\n      },\n      \"vendor\": \"SKT1\",\n      \"type\": \"OVC-G\",\n      \"additionalInfo\": null,\n      \"activationRequired\": false,\n      \"serialNo\": \"uio35fine1236\",\n      \"credentialsId\": null\n    }\n  ],\n    \"nextPageLink\": null,\n      \"hasNext\": false\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: ee874290-abba-11ea-b482-911940102f00
+                        createdTime:
+                          type: integer
+                          example: 1591862994142
+                          default: 0
+                        companyId:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f
+                        vendor:
+                          type: string
+                          example: SKT1
+                        type:
+                          type: string
+                          example: OVC-G
+                        additionalInfo: {}
+                        activationRequired:
+                          type: boolean
+                          example: false
+                          default: true
+                        serialNo:
+                          type: string
+                          example: uio35123451234512345
+                        credentialsId: {}
+                  nextPageLink: {}
+                  hasNext:
+                    type: boolean
+                    example: false
+                    default: true
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Company
+  /v20/company/info/{companyId}:
+    get:
+      summary: 회사 정보 조회
+      description: ''
+      operationId: 회사-정보-조회
+      parameters:
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token of each company
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      - name: companyId
+        in: path
+        description: 회사ID(companyId)는 “내 회사 정보 조회” API로 확인
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{   \n  \"id\": {\n    \"id\": \"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\"\n  },\n    \"createdTime\": 1590654831577,\n      \"name\": \"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\",\n        \"serviceType\": \"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\",\n          \"master\": true,\n            \"masterId\": {\n              \"id\": \"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\"\n            },\n              \"picPasswd\": null,\n                \"picName\": \"skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8\",\n                  \"picPhone\": null,\n                    \"picEmail\": \"l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com\",\n                      \"picDivision\": null,\n                        \"sktManagerName\": null,\n                          \"sktManagerEmail\": null,\n                            \"cooperationTask\": null,\n                              \"description\": null,\n                                \"notifyHost\": null,\n                                  \"notifyMsgType\": null,\n                                    \"notifyErrIdleMin\": 0,\n                                      \"pwAccess\": null,\n                                        \"dataAnalytics\": null,\n                                          \"bcn\": null,\n                                            \"tokenPrefix\": \"uio35\",\n                                              \"ovs\": true,\n                                                \"tokenExpr\": -1\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f
+                  createdTime:
+                    type: integer
+                    example: 1590654831577
+                    default: 0
+                  name:
+                    type: string
+                    example: skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8
+                  serviceType:
+                    type: string
+                    example: skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8
+                  master:
+                    type: boolean
+                    example: true
+                    default: true
+                  masterId:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f
+                  picPasswd: {}
+                  picName:
+                    type: string
+                    example: skoa_l7xx73e3323ea2124bd89d5ce708bcb26fd8
+                  picPhone: {}
+                  picEmail:
+                    type: string
+                    example: l7xx73e3323ea2124bd89d5ce708bcb26fd8@skopenapi.com
+                  picDivision: {}
+                  sktManagerName: {}
+                  sktManagerEmail: {}
+                  cooperationTask: {}
+                  description: {}
+                  notifyHost: {}
+                  notifyMsgType: {}
+                  notifyErrIdleMin:
+                    type: integer
+                    example: 0
+                    default: 0
+                  pwAccess: {}
+                  dataAnalytics: {}
+                  bcn: {}
+                  tokenPrefix:
+                    type: string
+                    example: uio35
+                  ovs:
+                    type: boolean
+                    example: true
+                    default: true
+                  tokenExpr:
+                    type: integer
+                    example: -1
+                    default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Company
+  /v20/company/info/devices/cnt/{companyId}:
+    get:
+      summary: 회사 전체 단말 수 조회
+      description: ''
+      operationId: 회사-전체-단말-수-조회
+      parameters:
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      - name: companyId
+        in: path
+        description: 회사ID(companyId)는 “내 회사 정보 조회” API로 확인
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '7000'
+              schema:
+                type: integer
+                example: 7000
+                default: 0
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Company
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: YEWVxfrK4j8xTNQZURJ4z1Te4JTZs26v45fgmfn7
+x-readme:
+  headers: []
+x-readme-fauxas: true

@@ -1,0 +1,109 @@
+openapi: 3.2.0
+info:
+  title: OVS Message API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/api/ovs
+security:
+- sec0: []
+tags:
+- name: Message
+paths:
+  /v20/message/company/{companyId}:
+    post:
+      summary: 전체 단말 메시지 전달
+      description: ''
+      operationId: 전체-단말-메시지-전달
+      parameters:
+      - name: companyId
+        in: path
+        description: 회사ID(companyId)는 “내 회사 정보 조회” API로 확인
+        schema:
+          type: string
+        required: true
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  description: type of message (OTA, event ID et al.)
+                timestamp:
+                  type: string
+                  description: linux epoch time in miliseconds
+                message:
+                  type: string
+                  description: message contents
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"message\": {\n    \"type\": 9999,\n      \"timestamp\": 1590654942693,\n        \"message\": \"test message all\"\n  },\n    \"devices\": [\n      {\n        \"serialNo\": \"uio35fine1236\"\n      },\n      {\n        \"serialNo\": \"uio35123451234512345\"\n      }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      type:
+                        type: integer
+                        example: 9999
+                        default: 0
+                      timestamp:
+                        type: integer
+                        example: 1590654942693
+                        default: 0
+                      message:
+                        type: string
+                        example: test message all
+                  devices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        serialNo:
+                          type: string
+                          example: uio35fine1236
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Message
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: YEWVxfrK4j8xTNQZURJ4z1Te4JTZs26v45fgmfn7
+x-readme:
+  headers: []
+x-readme-fauxas: true

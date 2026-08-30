@@ -1,0 +1,201 @@
+openapi: 3.2.0
+info:
+  title: META Pose Estimation API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/sigmeta
+security:
+- sec0: []
+tags:
+- name: Pose Estimation
+paths:
+  /pose/v1/create_analyzer:
+    post:
+      tags:
+      - Pose Estimation
+      summary: create_analyzer
+      description: 영상 업로드 요청 시 영상을 업로드 할 수 있는 URL을 반환합니다
+      operationId: create-analyzer
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeJson'
+      - $ref: '#/components/parameters/AppKey'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Type
+              - Action
+              - Swing
+              properties:
+                Type:
+                  type: string
+                  description: PoseEstimation
+                  default: PoseEstimation
+                Action:
+                  type: string
+                  description: CreateAnalyzer
+                  default: CreateAnalyzer
+                Swing:
+                  type: string
+                  description: Full_Front
+                  default: Full_Front
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"JobID: 부여된 Job ID\": \"8e42df48-485f-491a-9cc4-1cc6aa833ad4\",\n  \"State:“Success” or “Fail”\": \"Success\",\n  \"Status:“Create”, “NotCreated”, “Analyzing”, “AllDone” or “Failed”\": \"Created\",\n  \"URL: 파일 올릴 수 있는 S3 임시 URL\": \"https://hivevisionprod-golf-data-ap-northeast-2-40524.s3.amazonaws.com/\",\n  \"Form: 파일 업로드를 위한 S3 Bucket 정보\": {\n    \"key\": \"input/PoseEstimation/Full_Front/2022/7/8/8e42df48-485f-491a-9cc4-1cc6aa833ad4.mp4\",\n    \"x-amz-algorithm\": \"AWS4-HMAC-SHA256\",\n    \"x-amz-credential\": \"ASIAV4WRSFVPK5BQN7GM/20220708/ap-northeast-2/s3/aws4_request\",\n    \"x-amz-date\": \"20220708T063103Z\",\n    \"x-amz-security-token\": \"IQoJb3JpZ2luX2VjEL///////////wEaDmFwLW5vcnRoZWFzdC0yIkYwRAIgC+oMCjnW1evAG/k+l3dLDbraq7+kjtuhilH3HGjBE0ICIBctd+JhODk2jAIAMqp1FDAMWUtwC08KzIE3JQ+tRYUwKrMCCOj//////////wEQARoMNDA1MjQwMTYzNjc4IgwJUXnqAYCjnudg76UqhwKxpaXbmfMJ2gFDWe6/IVFhbf8l4ej/Sq3hTTSm2jlsnQhgahcKDl7LyqCBby5OaEmCweAePH5OahmWBmCFgEQnAQmPPXhi7kpmQKxU/goVnEr9JjEGuq8ennEOGfBZ5qgwTJFTRyBpToqCbzHCqecahmxCXu1O7DpW+qCxMWAVer5RRo8Hp5q3znyGxagneEKd8PILPA6i8GUg/4NKEFrr1R7oI7FmgWVxkL5YIXD/pGlEdm5ud3tyKJyYdCjb6juba7pu9zk4r/9PIxoJbrydkMWmF+poLOSpCmkUOgwIu0RAkuYNNl55k2zVdwqxqY77poZ7fh7TzMUw9nmzj9wfH6S4EwfPtjCmnp+WBjqbAaUQkqGOzwG9yegAQll4qOSBQYFCKMZGi/bKzQVtb6dHxTrCQuYJ7nvhY4/Go75tFNs6Xoiglw+2stjt2P2lHXLx//YywoRrTYQHexqGgrAUfP4Hq/jE9ESqQbY4MUssXOwX6TyeXoNYRZYvaP23pNX9l0ROpXKs35OWXfafOq//fGOjvhdxtxAZzhwlbsAawZNHOLbGhiZlutMJ\",\n    \"policy\": \"eyJleHBpcmF0aW9uIjogIjIwMjItMDctMDhUMDY6MzM6MDNaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiaGl2ZXZpc2lvbnByb2QtZ29sZi1kYXRhLWFwLW5vcnRoZWFzdC0yLTQwNTI0In0sIHsia2V5IjogImlucHV0L1Bvc2VFc3RpbWF0aW9uL0Z1bGxfRnJvbnQvMjAyMi83LzgvOGU0MmRmNDgtNDg1Zi00OTFhLTljYzQtMWNjNmFhODMzYWQ0Lm1wNCJ9LCB7IngtYW16LWFsZ29yaXRobSI6ICJBV1M0LUhNQUMtU0hBMjU2In0sIHsieC1hbXotY3JlZGVudGlhbCI6ICJBU0lBVjRXUlNGVlBLNUJRTjdHTS8yMDIyMDcwOC9hcC1ub3J0aGVhc3QtMi9zMy9hd3M0X3JlcXVlc3QifSwgeyJ4LWFtei1kYXRlIjogIjIwMjIwNzA4VDA2MzEwM1oifSwgeyJ4LWFtei1zZWN1cml0eS10b2tlbiI6ICJJUW9KYjNKcFoybHVYMlZqRUwvLy8vLy8vLy8vL3dFYURtRndMVzV2Y25Sb1pXRnpkQzB5SWtZd1JBSWdDK29NQ2puVzFldkFHL2srbDNkTERicmFxNytranR1aGlsSDNIR2pCRTBJQ0lCY3RkK0poT0RrMmpBSUFNcXAxRkRBTVdVdHdDMDhLeklFM0pRK3RSWVV3S3JNQ0NPai8vLy8vLy8vLy93RVFBUm9NTkRBMU1qUXdNVFl6TmpjNElnd0pVWG5xQVlDam51ZGc3NlVxaHdLeHBhWGJtZk1KMmdGRFdlNi9JVkZoYmY4bDRlai9TcTNoVFRTbTJqbHNuUWhnYWhjS0RsN0x5cUNCYnk1T2FFbUN3ZUFlUEg1T2FobVdCbUNGZ0VRbkFRbVBQWGhpN2twbVFLeFUvZ29WbkVyOUpqRUd1cThlbm5FT0dmQlo1cWd3VEpGVFJ5QnBUb3FDYnpIQ3FlY2FobXhDWHUxTzdEcFcrcUN4TVdBVmVyNVJSbzhIcDVxM3pueUd4YWduZUVLZDhQSUxQQTZpOEdVZy80TktFRnJyMVI3b0k3Rm1nV1Z4a0w1WUlYRC9wR2xFZG01dWQzdHlLSnlZZENqYjZqdWJhN3B1OXprNHIvOVBJeG9KYnJ5ZGtNV21GK3BvTE9TcENta1VPZ3dJdTBSQWt1WU5ObDU1azJ6VmR3cXhxWTc3cG9aN2ZoN1R6TVV3OW5temo5d2ZINlM0RXdmUHRqQ21ucCtXQmpxYkFhVVFrcUdPendHOXllZ0FRbGw0cU9TQlFZRkNLTVpHaS9iS3pRVnRiNmRIeFRyQ1F1WUo3bnZoWTQvR283NXRGTnM2WG9pZ2x3KzJzdGp0MlAybEhYTHgvL1l5d29SclRZUUhleHFHZ3JBVWZQNEhxL2pFOUVTcVFiWTRNVXNzWE93WDZUeWVYb05ZUlpZdmFQMjNwTlg5bDBST3BYS3MzNU9XWGZhZk9xLy9mR09qdmhkeHR4QVp6aHdsYnNBYXdaTkhPTGJHaGlabHV0TUoifV19\",\n    \"x-amz-signature\": \"5ed9465f60bda6ac1e86eb7d194f722d072a453a36a265466319289dfbbff4e1\"\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  'JobID: 부여된 Job ID':
+                    type: string
+                    example: 8e42df48-485f-491a-9cc4-1cc6aa833ad4
+                  State:“Success” or “Fail”:
+                    type: string
+                    example: Success
+                  Status:“Create”, “NotCreated”, “Analyzing”, “AllDone” or “Failed”:
+                    type: string
+                    example: Created
+                  'URL: 파일 올릴 수 있는 S3 임시 URL':
+                    type: string
+                    example: https://hivevisionprod-golf-data-ap-northeast-2-40524.s3.amazonaws.com/
+                  'Form: 파일 업로드를 위한 S3 Bucket 정보':
+                    type: object
+                    properties:
+                      key:
+                        type: string
+                        example: input/PoseEstimation/Full_Front/2022/7/8/8e42df48-485f-491a-9cc4-1cc6aa833ad4.mp4
+                      x-amz-algorithm:
+                        type: string
+                        example: AWS4-HMAC-SHA256
+                      x-amz-credential:
+                        type: string
+                        example: ASIAV4WRSFVPK5BQN7GM/20220708/ap-northeast-2/s3/aws4_request
+                      x-amz-date:
+                        type: string
+                        example: 20220708T063103Z
+                      x-amz-security-token:
+                        type: string
+                        example: IQoJb3JpZ2luX2VjEL///////////wEaDmFwLW5vcnRoZWFzdC0yIkYwRAIgC+oMCjnW1evAG/k+l3dLDbraq7+kjtuhilH3HGjBE0ICIBctd+JhODk2jAIAMqp1FDAMWUtwC08KzIE3JQ+tRYUwKrMCCOj//////////wEQARoMNDA1MjQwMTYzNjc4IgwJUXnqAYCjnudg76UqhwKxpaXbmfMJ2gFDWe6/IVFhbf8l4ej/Sq3hTTSm2jlsnQhgahcKDl7LyqCBby5OaEmCweAePH5OahmWBmCFgEQnAQmPPXhi7kpmQKxU/goVnEr9JjEGuq8ennEOGfBZ5qgwTJFTRyBpToqCbzHCqecahmxCXu1O7DpW+qCxMWAVer5RRo8Hp5q3znyGxagneEKd8PILPA6i8GUg/4NKEFrr1R7oI7FmgWVxkL5YIXD/pGlEdm5ud3tyKJyYdCjb6juba7pu9zk4r/9PIxoJbrydkMWmF+poLOSpCmkUOgwIu0RAkuYNNl55k2zVdwqxqY77poZ7fh7TzMUw9nmzj9wfH6S4EwfPtjCmnp+WBjqbAaUQkqGOzwG9yegAQll4qOSBQYFCKMZGi/bKzQVtb6dHxTrCQuYJ7nvhY4/Go75tFNs6Xoiglw+2stjt2P2lHXLx//YywoRrTYQHexqGgrAUfP4Hq/jE9ESqQbY4MUssXOwX6TyeXoNYRZYvaP23pNX9l0ROpXKs35OWXfafOq//fGOjvhdxtxAZzhwlbsAawZNHOLbGhiZlutMJ
+                      policy:
+                        type: string
+                        example: eyJleHBpcmF0aW9uIjogIjIwMjItMDctMDhUMDY6MzM6MDNaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiaGl2ZXZpc2lvbnByb2QtZ29sZi1kYXRhLWFwLW5vcnRoZWFzdC0yLTQwNTI0In0sIHsia2V5IjogImlucHV0L1Bvc2VFc3RpbWF0aW9uL0Z1bGxfRnJvbnQvMjAyMi83LzgvOGU0MmRmNDgtNDg1Zi00OTFhLTljYzQtMWNjNmFhODMzYWQ0Lm1wNCJ9LCB7IngtYW16LWFsZ29yaXRobSI6ICJBV1M0LUhNQUMtU0hBMjU2In0sIHsieC1hbXotY3JlZGVudGlhbCI6ICJBU0lBVjRXUlNGVlBLNUJRTjdHTS8yMDIyMDcwOC9hcC1ub3J0aGVhc3QtMi9zMy9hd3M0X3JlcXVlc3QifSwgeyJ4LWFtei1kYXRlIjogIjIwMjIwNzA4VDA2MzEwM1oifSwgeyJ4LWFtei1zZWN1cml0eS10b2tlbiI6ICJJUW9KYjNKcFoybHVYMlZqRUwvLy8vLy8vLy8vL3dFYURtRndMVzV2Y25Sb1pXRnpkQzB5SWtZd1JBSWdDK29NQ2puVzFldkFHL2srbDNkTERicmFxNytranR1aGlsSDNIR2pCRTBJQ0lCY3RkK0poT0RrMmpBSUFNcXAxRkRBTVdVdHdDMDhLeklFM0pRK3RSWVV3S3JNQ0NPai8vLy8vLy8vLy93RVFBUm9NTkRBMU1qUXdNVFl6TmpjNElnd0pVWG5xQVlDam51ZGc3NlVxaHdLeHBhWGJtZk1KMmdGRFdlNi9JVkZoYmY4bDRlai9TcTNoVFRTbTJqbHNuUWhnYWhjS0RsN0x5cUNCYnk1T2FFbUN3ZUFlUEg1T2FobVdCbUNGZ0VRbkFRbVBQWGhpN2twbVFLeFUvZ29WbkVyOUpqRUd1cThlbm5FT0dmQlo1cWd3VEpGVFJ5QnBUb3FDYnpIQ3FlY2FobXhDWHUxTzdEcFcrcUN4TVdBVmVyNVJSbzhIcDVxM3pueUd4YWduZUVLZDhQSUxQQTZpOEdVZy80TktFRnJyMVI3b0k3Rm1nV1Z4a0w1WUlYRC9wR2xFZG01dWQzdHlLSnlZZENqYjZqdWJhN3B1OXprNHIvOVBJeG9KYnJ5ZGtNV21GK3BvTE9TcENta1VPZ3dJdTBSQWt1WU5ObDU1azJ6VmR3cXhxWTc3cG9aN2ZoN1R6TVV3OW5temo5d2ZINlM0RXdmUHRqQ21ucCtXQmpxYkFhVVFrcUdPendHOXllZ0FRbGw0cU9TQlFZRkNLTVpHaS9iS3pRVnRiNmRIeFRyQ1F1WUo3bnZoWTQvR283NXRGTnM2WG9pZ2x3KzJzdGp0MlAybEhYTHgvL1l5d29SclRZUUhleHFHZ3JBVWZQNEhxL2pFOUVTcVFiWTRNVXNzWE93WDZUeWVYb05ZUlpZdmFQMjNwTlg5bDBST3BYS3MzNU9XWGZhZk9xLy9mR09qdmhkeHR4QVp6aHdsYnNBYXdaTkhPTGJHaGlabHV0TUoifV19
+                      x-amz-signature:
+                        type: string
+                        example: 5ed9465f60bda6ac1e86eb7d194f722d072a453a36a265466319289dfbbff4e1
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+  /pose/v1/get_result/{JobID}:
+    get:
+      tags:
+      - Pose Estimation
+      summary: get_result
+      description: 분석된 결과물을 JSON 객체로 반환합니다.
+      operationId: start_analyzer
+      parameters:
+      - $ref: '#/components/parameters/AppKey'
+      - $ref: '#/components/parameters/JobID'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\"JobID:해당 분석의 Job ID\": \"0e1a5745-5b92-485d-a040-718251893bd8\",\n\"State: Success/Fail\":: \"Success\",\n\"Status: Create/NotCreated/Analyzing/AllDone/Failed\":\"AllDone\", \n\"PoseEstimation: {…}\",\n\"url: Meta가 저장되어 있는 URL\": \"https://hiveclouddev-golf-data-ap-northeast-2-3282…154e60d162c0f3d1b21716e6ca3000314b444b7f1008502ac\"\n}\nJobID: \"0e1a5745-5b92-485d-a040-718251893bd8\"\nPoseEstimation: \n\"list_of_joints: Frame number별 Joints\": (192) [Array(1), Array(1), Array(1), Array(1), Array(1), Array(3), Array(3), Array(4), Array(4), Array(3), Array(2), Array(4), Array(3), Array(3), Array(4), Array(3), Array(2), Array(2), Array(4), Array(2), Array(2), Array(4), Array(3), Array(5), Array(3), Array(4), Array(3), Array(3), Array(3), Array(2), Array(3), Array(5), Array(2), Array(3), Array(3), Array(4), Array(5), Array(4), Array(4), Array(5), Array(4), Array(3), Array(3), Array(3), Array(3), Array(3), Array(3), Array(3), Array(6), Array(4), Array(4), Array(4), Array(3), Array(2), Array(2), Array(3), Array(3), Array(2), Array(2), Array(5), Array(4), Array(4), Array(5), Array(3), Array(2), Array(2), Array(2), Array(3), Array(3), Array(4), Array(2), Array(2), Array(2), Array(2), Array(2), Array(2), Array(2), Array(2), Array(2), Array(3), Array(5), Array(6), Array(4), Array(5), Array(5), Array(4), Array(6), Array(5), Array(4), Array(5), Array(4), Array(4), Array(3), Array(3), Array(3), Array(3), Array(1), Array(1), Array(1), Array(1), …][0 … 99][100 … 191]\nlength: 192__proto__: Array(0)__proto__: ObjectState: \"Success\"Status: \"AllDone\"URL: \"https://hiveclouddev-golf-data-ap-northeast-2-32822.s3.amazonaws.com/input/PoseEstimation/Full_Back/2021/7/21/0e1a5745-5b92-485d-a040-718251893bd8.mp4"
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+  /pose/v1/e2e:
+    post:
+      tags:
+      - Pose Estimation
+      summary: End to End
+      description: ''
+      operationId: e2e-1
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeMultipart'
+      - $ref: '#/components/parameters/AppKey'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Type
+              - Swing
+              - File
+              properties:
+                Type:
+                  type: string
+                  description: PoseEstimation
+                  default: PoseEstimation
+                  enum:
+                  - PoseEstimation
+                File:
+                  type: string
+                  description: '동영상 파일<br>지원 Codec : H.264, MPEG<br>지원 확장자 : mp4, mov, avi, flv, mkv, ts, psd<br>*3MB 이하의 파일만 분석 가능합니다'
+                  format: binary
+components:
+  parameters:
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    ContentTypeMultipart:
+      name: Content-Type
+      description: multipart/form-data
+      in: header
+      required: true
+      schema:
+        type: string
+        default: multipart/form-data
+    JobID:
+      name: JobID
+      in: path
+      description: create_analyzer에서 응답 받은 해당 분석의 Job ID
+      required: true
+      schema:
+        type: string
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: l7xx1317e6cad24d4f0d8048aa7336e5623b
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

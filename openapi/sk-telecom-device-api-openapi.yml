@@ -1,0 +1,210 @@
+openapi: 3.2.0
+info:
+  title: OVS Device API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/api/ovs
+security:
+- sec0: []
+tags:
+- name: Device
+paths:
+  /v20/device:
+    post:
+      summary: 단말 등록
+      description: ''
+      operationId: 단말-등록
+      parameters:
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                vendor:
+                  type: string
+                  description: company name
+                type:
+                  type: string
+                  description: device type(OVC-G or OVC-M)
+                credentialsId:
+                  type: string
+                  description: device credentails (5 digit company prefix + 15 digit credentails)
+                serialNo:
+                  type: string
+                  description: device serialNo (5 digit company prefix + unique serial number)
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"id\": {\n    \"id\": \"128fe3e0-ab98-11ea-b482-911940102f00\"\n  },\n    \"createdTime\": 1591848022149,\n      \"companyId\": {\n        \"id\": \"f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f\"\n      },\n        \"vendor\": \"SKT\",\n          \"type\": \"OVC-G\",\n            \"additionalInfo\": null,\n              \"activationRequired\": false,\n                \"serialNo\": \"uio3512345678911234\",\n                  \"credentialsId\": \"uio35123456789012345\"\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 128fe3e0-ab98-11ea-b482-911940102f00
+                  createdTime:
+                    type: integer
+                    example: 1591848022149
+                    default: 0
+                  companyId:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: f58ccd10-a0bd-11ea-a9b8-ff6a8104c32f
+                  vendor:
+                    type: string
+                    example: SKT
+                  type:
+                    type: string
+                    example: OVC-G
+                  additionalInfo: {}
+                  activationRequired:
+                    type: boolean
+                    example: false
+                    default: true
+                  serialNo:
+                    type: string
+                    example: uio3512345678911234
+                  credentialsId:
+                    type: string
+                    example: uio35123456789012345
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Device
+  /v20/device/{serialNo}:
+    get:
+      summary: 단말 정보 조회
+      description: ''
+      operationId: 단말-정보-조회
+      parameters:
+      - name: serialNo
+        in: path
+        schema:
+          type: string
+        required: true
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: // response 200 OK only, no data body
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Device
+    delete:
+      summary: 단말 삭제
+      description: ''
+      operationId: 단말-삭제
+      parameters:
+      - name: serialNo
+        in: path
+        schema:
+          type: string
+        required: true
+      - name: Content-Type
+        in: header
+        description: content type
+        schema:
+          type: string
+      - name: X-Authorization
+        in: header
+        description: auth token
+        schema:
+          type: string
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: // response 200 OK only, no data body
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Device
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: YEWVxfrK4j8xTNQZURJ4z1Te4JTZs26v45fgmfn7
+x-readme:
+  headers: []
+x-readme-fauxas: true

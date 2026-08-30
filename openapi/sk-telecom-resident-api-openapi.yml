@@ -1,0 +1,328 @@
+openapi: 3.2.0
+info:
+  title: 주거 생활 Resident API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/puzzle/residence
+security:
+- sec0: []
+tags:
+- name: Resident
+paths:
+  /resident/subway-use-rate/stat/monthly/apts/{kaptCode}:
+    get:
+      tags:
+      - Resident
+      summary: 지하철 이용 비율
+      description: '* 특정 아파트 주민 중 최근 3개월 동안 지하철을 이용한 주민의 비율을 제공합니다.
+
+        '
+      operationId: aptsubwayuserate
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeJson'
+      - $ref: '#/components/parameters/AppKey'
+      - $ref: '#/components/parameters/KaptCode'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  contents:
+                    $ref: '#/components/schemas/AptSubwayUseRateStatMonthly'
+              examples:
+                Result:
+                  value: "{\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"success\",\n    \"totalCount\": 1\n  },\n  \"contents\": [\n    {\n      \"kaptCode\": \"A13805002\",\n      \"kaptName\": \"올림픽선수기자촌아파트\",\n      \"stat\": {\n        \"rate\": 21.523\n      },\n      \"yearMonth\": \"202304\",\n      \"statStartDate\": \"20230201\",\n      \"statEndDate\": \"20230430\"\n    }\n  ]\n}"
+        '400':
+          $ref: '#/paths/~1meta~1apts/get/responses/400'
+        '401':
+          $ref: '#/paths/~1meta~1apts/get/responses/401'
+        '403':
+          $ref: '#/paths/~1meta~1apts/get/responses/403'
+        '404':
+          $ref: '#/paths/~1meta~1apts/get/responses/404'
+        '429':
+          $ref: '#/paths/~1meta~1apts/get/responses/429'
+        '500':
+          $ref: '#/paths/~1meta~1apts/get/responses/500'
+        '504':
+          $ref: '#/paths/~1meta~1apts/get/responses/504'
+      deprecated: false
+  /resident/age/stat/monthly/apts/{kaptCode}:
+    get:
+      tags:
+      - Resident
+      summary: 거주자 평균 나이
+      description: '* 특정 아파트 주민의 평균 나이를 제공합니다.
+
+        '
+      operationId: aptresidentage
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeJson'
+      - $ref: '#/components/parameters/AppKey'
+      - $ref: '#/components/parameters/KaptCode'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  contents:
+                    $ref: '#/components/schemas/AptResidentDemoStatMonthly'
+              examples:
+                Result:
+                  value: "{\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"success\",\n    \"totalCount\": 1\n  },\n  \"contents\": [\n    {\n      \"kaptCode\": \"A13805002\",\n      \"kaptName\": \"올림픽선수기자촌아파트\",\n      \"stat\": [\n        {\n          \"gender\": \"male\",\n          \"avgAge\": 47.10608552631579,\n          \"ctpAvgAge\": 46.71051679606173,\n          \"sigAvgAge\": 46.36388996628577\n        },\n        {\n          \"gender\": \"female\",\n          \"avgAge\": 46.66177669111654,\n          \"ctpAvgAge\": 47.22532359178899,\n          \"sigAvgAge\": 46.16058659909418\n        }\n      ],\n      \"yearMonth\": \"202304\",\n      \"statStartDate\": \"20230201\",\n      \"statEndDate\": \"20230430\"\n    }\n  ]\n}"
+        '400':
+          $ref: '#/paths/~1meta~1apts/get/responses/400'
+        '401':
+          $ref: '#/paths/~1meta~1apts/get/responses/401'
+        '403':
+          $ref: '#/paths/~1meta~1apts/get/responses/403'
+        '404':
+          $ref: '#/paths/~1meta~1apts/get/responses/404'
+        '429':
+          $ref: '#/paths/~1meta~1apts/get/responses/429'
+        '500':
+          $ref: '#/paths/~1meta~1apts/get/responses/500'
+        '504':
+          $ref: '#/paths/~1meta~1apts/get/responses/504'
+      deprecated: false
+  /resident/demo-feature/stat/monthly/apts/{kaptCode}:
+    get:
+      tags:
+      - Resident
+      summary: 거주자 특징
+      description: '* 동일 시도 대비 해당 아파트 주민 구성의 비율이 높은 Life stage(영유아, 초등학생, 중학생, 고등학생, 대학생, 1인가구, 신혼부부, 시니어) 값을 제공합니다.
+
+        '
+      operationId: aptresidentdemo
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeJson'
+      - $ref: '#/components/parameters/AppKey'
+      - $ref: '#/components/parameters/KaptCode'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  contents:
+                    $ref: '#/components/schemas/AptResidentFeatureStatMonthly'
+              examples:
+                Result:
+                  value: "{\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"success\",\n    \"totalCount\": 1\n  },\n  \"contents\": [\n    {\n      \"kaptCode\": \"A13805002\",\n      \"kaptName\": \"올림픽선수기자촌아파트\",\n      \"stat\": [\n        {\n          \"feature\": \"대학생\",\n          \"lift\": 1.44\n        },\n        {\n          \"feature\": \"고등학생\",\n          \"lift\": 1.31\n        },\n        {\n          \"feature\": \"중학생\",\n          \"lift\": 1.24\n        },\n        {\n          \"feature\": \"60+\",\n          \"lift\": 1.06\n        }\n      ],\n      \"yearMonth\": \"202304\",\n      \"statStartDate\": \"20230201\",\n      \"statEndDate\": \"20230430\"\n    }\n  ]\n}"
+        '400':
+          $ref: '#/paths/~1meta~1apts/get/responses/400'
+        '401':
+          $ref: '#/paths/~1meta~1apts/get/responses/401'
+        '403':
+          $ref: '#/paths/~1meta~1apts/get/responses/403'
+        '404':
+          $ref: '#/paths/~1meta~1apts/get/responses/404'
+        '429':
+          $ref: '#/paths/~1meta~1apts/get/responses/429'
+        '500':
+          $ref: '#/paths/~1meta~1apts/get/responses/500'
+        '504':
+          $ref: '#/paths/~1meta~1apts/get/responses/504'
+      deprecated: false
+components:
+  schemas:
+    FeatureLift:
+      type: object
+      properties:
+        feature:
+          type: string
+          description: demo feature
+        lift:
+          type: number
+          description: lift
+      required:
+      - feature
+      - lift
+    ResponseStatus:
+      type: object
+      description: 응답 상태입니다.
+      properties:
+        code:
+          type: string
+          description: '응답 코드입니다.
+
+            00: 성공
+
+            '
+        message:
+          type: string
+          description: '요청(request) 성공 여부 메시지입니다.
+
+            success: 성공.
+
+            '
+        totalCount:
+          type: integer
+          description: 검색 결과 데이터 건수입니다.
+    AptResidentDemoStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/DemoStat'
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
+    DemoStat:
+      type: object
+      properties:
+        gender:
+          type: string
+          description: 성별
+        avgAge:
+          type: number
+          description: 평균연령
+        ctpAvgAge:
+          type: number
+          description: 시도 평균연령
+        sigAvgAge:
+          type: number
+          description: 시군구 평균연령
+      required:
+      - gender
+      - avgAge
+      - ctpAvgAge
+      - sigAvgAge
+    AptResidentFeatureStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureLift'
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
+    AptSubwayUseRateStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          allOf:
+          - $ref: '#/components/schemas/Rate'
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
+    Rate:
+      type: object
+      properties:
+        rate:
+          type: number
+          description: rate
+      required:
+      - rate
+  parameters:
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+    KaptCode:
+      name: kaptCode
+      in: path
+      description: 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다.
+      schema:
+        type: string
+        default: A13805002
+      required: true
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      x-default: e8wHh2tya84M88aReEpXCa5XTQf3xgo01aZG39k5
+      name: appkey
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true
+x-readme-fauxas: true

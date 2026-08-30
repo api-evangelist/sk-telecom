@@ -1,0 +1,299 @@
+openapi: 3.2.0
+info:
+  title: 장소 혼잡도 Place API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/puzzle/place
+security:
+- sec0: []
+tags:
+- name: Place
+paths:
+  /meta/pois:
+    get:
+      tags:
+      - Place
+      summary: 데이터 제공 가능 장소
+      description: '* 장소 혼잡도 데이터를 조회할 수 있는 관심 장소(POI)의 ID 및 장소 이름을 제공합니다.
+
+        '
+      operationId: pois
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeJson'
+      - $ref: '#/components/parameters/AppKey'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  contents:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Poi'
+              examples:
+                Result:
+                  value: "{\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"success\",\n    \"totalCount\": 1\n  },\n  \"contents\": [\n    {\n      \"poiId\": \"7493463\",\n      \"poiName\": \"신세계백화점스타필드하남점\"\n    }\n  ]\n}"
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      message:
+                        type: string
+              examples:
+                InvalidParameter:
+                  value:
+                    error:
+                      code: '400'
+                      message: INVALID_PARAMETER_NAME
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      category:
+                        type: string
+                      code:
+                        type: string
+                      message:
+                        type: string
+              examples:
+                Unauthorized:
+                  value:
+                    error:
+                      id: '401'
+                      category: gw
+                      code: UNAUTHORIZED
+                      message: Unauthorized
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1meta~1pois/get/responses/401/content/application~1json/schema'
+              examples:
+                ForbiddenAppKey:
+                  value:
+                    error:
+                      id: '403'
+                      category: gw
+                      code: INVALID_API_KEY
+                      message: Forbidden
+                ForbiddenIP:
+                  value:
+                    error:
+                      id: '403'
+                      category: gw
+                      code: ACCESS_DENIED
+                      message: Authorized IP Address only
+                ForbiddenURL:
+                  value:
+                    error:
+                      id: '403'
+                      category: gw
+                      code: MISSING_AUTHENTICATION_TOKEN
+                      message: Missing Authentication Token
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1meta~1pois/get/responses/400/content/application~1json/schema'
+              examples:
+                NotFound:
+                  value:
+                    error:
+                      code: '404'
+                      message: NOT_FOUND_DATA
+        '429':
+          description: Too Many Requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1meta~1pois/get/responses/401/content/application~1json/schema'
+              examples:
+                Throttled:
+                  value:
+                    error:
+                      id: '429'
+                      category: gw
+                      code: THROTTLED
+                      message: Too Many Requests
+                QuataExceeded:
+                  value:
+                    error:
+                      id: '429'
+                      category: gw
+                      code: QUOTA_EXCEEDED
+                      message: Limit Exceeded
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1meta~1pois/get/responses/401/content/application~1json/schema'
+              examples:
+                InternalServerError:
+                  value:
+                    error:
+                      id: '500'
+                      category: gw
+                      code: API_CONFIGURATION_ERROR
+                      message: Internal server error
+        '504':
+          description: Gateway Timeout
+          content:
+            application/json:
+              schema:
+                $ref: '#/paths/~1meta~1pois/get/responses/401/content/application~1json/schema'
+              examples:
+                GatewayTimeout:
+                  value:
+                    error:
+                      id: '504'
+                      category: gw
+                      code: INTEGRATION_FAILURE
+                      message: Network error communicating with endpoint
+      deprecated: false
+  /meta/areas:
+    get:
+      tags:
+      - Place
+      summary: 데이터 제공 가능 상권
+      description: '* 혼잡도 데이터를 조회할 수 있는 상권(AREA)의 ID 및 상권 이름을 제공합니다.
+
+        '
+      operationId: areas
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeJson'
+      - $ref: '#/components/parameters/AppKey'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  contents:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Area'
+              examples:
+                Result:
+                  value: "{\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"success\",\n    \"totalCount\": 1\n  },\n  \"contents\": [\n    {\n      \"areaId\": \"10098\",\n      \"areaName\": \"초지동주민센터\"\n    }\n  ]\n}"
+        '400':
+          $ref: '#/paths/~1meta~1pois/get/responses/400'
+        '401':
+          $ref: '#/paths/~1meta~1pois/get/responses/401'
+        '403':
+          $ref: '#/paths/~1meta~1pois/get/responses/403'
+        '404':
+          $ref: '#/paths/~1meta~1pois/get/responses/404'
+        '429':
+          $ref: '#/paths/~1meta~1pois/get/responses/429'
+        '500':
+          $ref: '#/paths/~1meta~1pois/get/responses/500'
+        '504':
+          $ref: '#/paths/~1meta~1pois/get/responses/504'
+      deprecated: false
+components:
+  parameters:
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+  schemas:
+    Area:
+      type: object
+      properties:
+        areaId:
+          type: string
+          description: 상권 id
+        areaName:
+          type: string
+          description: 상권 이름
+      required:
+      - areaId
+      - areaName
+    ResponseStatus:
+      type: object
+      description: 응답 상태입니다.
+      properties:
+        code:
+          type: string
+          description: '응답 코드입니다.
+
+            00: 성공
+
+            '
+        message:
+          type: string
+          description: '요청(request) 성공 여부 메시지입니다.
+
+            success: 성공.
+
+            '
+        totalCount:
+          type: integer
+          description: 검색 결과 데이터 건수입니다.
+      required:
+      - code
+      - message
+      - totalCount
+    Poi:
+      type: object
+      properties:
+        poiId:
+          type: string
+          description: 장소 id
+        poiName:
+          type: string
+          description: 장소 이름
+      required:
+      - poiId
+      - poiName
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      x-default: e8wHh2tya84M88aReEpXCa5XTQf3xgo01aZG39k5
+      name: appkey
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true
+x-readme-fauxas: true

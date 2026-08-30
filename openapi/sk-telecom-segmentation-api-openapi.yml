@@ -1,0 +1,106 @@
+openapi: 3.2.0
+info:
+  title: A.X tts Segmentation API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/axtts
+security:
+- sec0: []
+tags:
+- name: Segmentation
+paths:
+  /segmentation:
+    post:
+      summary: Text-to-Speech with Timestamp
+      description: 음성합성 + Timestamp API
+      operationId: text-to-speech-with-timestamp
+      parameters:
+      - name: accept
+        in: header
+        schema:
+          type: string
+          default: application/json
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - model
+              - voice
+              - text
+              properties:
+                model:
+                  type: string
+                  description: 음성합성 Model Name
+                  default: axtts-2-6
+                voice:
+                  type: string
+                  description: 합성 보이스 설정 - 음성합성 지원 보이스 참조
+                  default: aria
+                text:
+                  type: string
+                  description: 음성 생성을 위한 입력 문장 - 300자 미만 지원
+                  default: 음성합성 테스트입니다.
+                speed:
+                  type: string
+                  description: '음성 발화 속도 조정 - Range: [0.5, 2.0]'
+                  default: '1'
+                sr:
+                  type: integer
+                  description: 샘플링 레이트(Hz) 조정 - [8000, 16000, 22050]
+                  default: 22050
+                  format: int32
+                sformat:
+                  type: string
+                  description: 음성 출력 포맷 지정 - [wav, pcm, opus, mp3]
+                  default: wav
+                  enum:
+                  - wav
+                  - pcm
+                  - opus
+                  - mp3
+                clientId:
+                  type: string
+                  description: API 사용 서비스명
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Segmentation
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: YEWVxfrK4j8xTNQZURJ4z1Te4JTZs26v45fgmfn7
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+x-readme-fauxas: true

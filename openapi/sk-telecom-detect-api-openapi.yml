@@ -1,0 +1,79 @@
+openapi: 3.2.0
+info:
+  title: NUGU facecan Detect API
+  version: unknown
+servers:
+- url: https://apis.openapi.sk.com/nugufacecan
+security:
+- sec0: []
+tags:
+- name: Detect
+paths:
+  /v1/detect:
+    post:
+      summary: Face Detect
+      description: ''
+      operationId: face-detect-1
+      parameters:
+      - name: app-id
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+          default: AWA57KSRXT
+      - name: appKey
+        in: header
+        description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 확인 가능
+        required: true
+        schema:
+          type: string
+      - name: key
+        in: header
+        description: 이미지를 암호화하여 전달할 경우 해당 키 값을 전달해야 함. 키 값은 호출하는 쪽에서 AES-128 로 생성하고 이 키를 /api/v1/key 에서 얻어온 Public key 로 암호화 하여 전송
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  description: Multipart form 메시지, 이름 image 로 파일 형태로 전달(자바의 경우 MulipartFile)
+                  format: binary
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Detect
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: YEWVxfrK4j8xTNQZURJ4z1Te4JTZs26v45fgmfn7
+x-readme:
+  headers: []
+x-readme-fauxas: true

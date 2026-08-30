@@ -1,0 +1,95 @@
+openapi: 3.2.0
+info:
+  title: META License Plate Recognizer API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/sigmeta
+security:
+- sec0: []
+tags:
+- name: License Plate Recognizer
+paths:
+  /lpr/v1:
+    post:
+      tags:
+      - License Plate Recognizer
+      summary: lpr
+      description: 차량의 번호판을 인식하여 번호판 좌표와 차량번호를 JSON 객체로 반환합니다.
+      operationId: lpr
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeMultipart'
+      - $ref: '#/components/parameters/AppKey'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - File
+              properties:
+                File:
+                  type: string
+                  format: binary
+                  description: 인식할 이미지 파일, 최대 허용 용량 3MB, 허용 해상도 640 ~ 1024 pixel
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"performance\": {\n    \"prepare image\": \" 132.98ms\",\n    \"inference\": \" 170.43ms\",\n    \"all\": \" 303.51ms\"\n  },\n  \"result\": {\n    \"objects\": [\n      {\n        \"lp_string\": \"12lu1234\",\n        \"lp_keypoints\": [\n          [\n            0.32421875,\n            0.79140625\n          ],\n          [\n            0.646875,\n            0.79140625\n          ],\n          [\n            0.6546875,\n            0.8421875\n          ],\n          [\n            0.3328125,\n            0.8453125\n          ]\n        ]\n      }\n    ]\n  }\n}"
+              schema:
+                type: object
+                properties:
+                  performance:
+                    description: 인식 성능
+                    type: object
+                    properties:
+                      prepare image:
+                        description: 이미지 준비 시간
+                        type: string
+                      inference:
+                        description: 추론 소요시간
+                        type: string
+                      all:
+                        description: 총 소요시간
+                        type: string
+                  result:
+                    description: 번호판 인식 결과
+                    type: object
+                    properties:
+                      lp_string:
+                        description: 차량 번호
+                        type: string
+                      lp_keypoints:
+                        description: 번호판 좌표
+                        type: array
+components:
+  parameters:
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    ContentTypeMultipart:
+      name: Content-Type
+      description: multipart/form-data
+      in: header
+      required: true
+      schema:
+        type: string
+        default: multipart/form-data
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: appKey
+      x-default: l7xx1317e6cad24d4f0d8048aa7336e5623b
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true

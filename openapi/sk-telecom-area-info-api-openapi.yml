@@ -1,0 +1,163 @@
+openapi: 3.2.0
+info:
+  title: 장소 혼잡도 Area Info API
+  version: '1.0'
+servers:
+- url: https://apis.openapi.sk.com/puzzle/place
+security:
+- sec0: []
+tags:
+- name: Area Info
+paths:
+  /biz-category/stat/monthly/areas/{areaId}:
+    get:
+      tags:
+      - Area Info
+      summary: 상권 업종 분포
+      description: '특정 상권의 업종 대소분류별 업체 분포를 제공합니다.
+
+        '
+      operationId: areabizcategory
+      parameters:
+      - $ref: '#/components/parameters/ContentTypeJson'
+      - $ref: '#/components/parameters/AppKey'
+      - $ref: '#/components/parameters/AreaId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  contents:
+                    $ref: '#/components/schemas/AreaBizCategory'
+              examples:
+                Result:
+                  value: "{\n  \"status\": {\n    \"code\": \"00\",\n    \"message\": \"success\",\n    \"totalCount\": 1\n  },\n  \"contents\": {\n    \"areaId\": \"9195\",\n    \"areaName\": \"명동\",\n    \"stat\": [\n      {\n        \"cat1\": \"소매\",\n        \"cat2\": \"음/식료품소매\",\n        \"count\": 6\n      },\n      {\n        \"cat1\": \"소매\",\n        \"cat2\": \"선물/팬시/기념품\",\n        \"count\": 4\n      }\n    ],\n    \"yearMonth\": \"202212\",\n    \"statStartDate\": \"20221201\",\n    \"statEndDate\": \"20221231\"\n  }\n}"
+        '400':
+          $ref: '#/paths/~1meta~1pois/get/responses/400'
+        '401':
+          $ref: '#/paths/~1meta~1pois/get/responses/401'
+        '403':
+          $ref: '#/paths/~1meta~1pois/get/responses/403'
+        '404':
+          $ref: '#/paths/~1meta~1pois/get/responses/404'
+        '429':
+          $ref: '#/paths/~1meta~1pois/get/responses/429'
+        '500':
+          $ref: '#/paths/~1meta~1pois/get/responses/500'
+        '504':
+          $ref: '#/paths/~1meta~1pois/get/responses/504'
+      deprecated: false
+components:
+  parameters:
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    AreaId:
+      name: areaId
+      in: path
+      description: 상권(AREA) ID
+      schema:
+        type: string
+        default: '9195'
+      required: true
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+  schemas:
+    BizCategory:
+      type: object
+      properties:
+        cat1:
+          type: string
+          description: 업종 대분류
+        cat2:
+          type: string
+          description: 업종 소분류
+        count:
+          type: number
+          description: 업체수
+      required:
+      - cat1
+      - cat2
+      - count
+    ResponseStatus:
+      type: object
+      description: 응답 상태입니다.
+      properties:
+        code:
+          type: string
+          description: '응답 코드입니다.
+
+            00: 성공
+
+            '
+        message:
+          type: string
+          description: '요청(request) 성공 여부 메시지입니다.
+
+            success: 성공.
+
+            '
+        totalCount:
+          type: integer
+          description: 검색 결과 데이터 건수입니다.
+      required:
+      - code
+      - message
+      - totalCount
+    AreaBizCategory:
+      type: object
+      properties:
+        areaId:
+          type: string
+          description: 상권 id
+        areaName:
+          type: string
+          description: 상권 이름
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/BizCategory'
+        yearMonth:
+          type: string
+          description: 통계 대상 연월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - areaId
+      - areaName
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      x-default: e8wHh2tya84M88aReEpXCa5XTQf3xgo01aZG39k5
+      name: appkey
+x-readme:
+  headers: []
+  explorer-enabled: true
+  proxy-enabled: true
+  samples-enabled: true
+x-readme-fauxas: true
