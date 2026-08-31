@@ -787,6 +787,8 @@ apis:
   humanURL: https://openapi.sk.com/products/detail?svcSeq=67
   baseURL: https://apis.openapi.sk.com/axtts
   tags:
+  - Lifestyle
+  tags_raw:
   - Life style
   properties:
   - type: OpenAPI
@@ -1255,6 +1257,8 @@ apis:
   humanURL: https://openapi.sk.com/products/detail?svcSeq=67
   baseURL: https://apis.openapi.sk.com/axtts
   tags:
+  - TTS
+  tags_raw:
   - Tts
   properties:
   - type: OpenAPI
