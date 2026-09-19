@@ -165,6 +165,11 @@ apis:
   tags:
   - Identity
   - Authentication
+  - Passkeys
+  - FIDO
+  tags_raw:
+  - Identity
+  - Authentication
   - Passkey
   - FIDO
   properties:
@@ -183,7 +188,7 @@ apis:
   tags:
   - Identity
   - Authentication
-  - Single Sign-On
+  - SSO
   tags_raw:
   - Identity
   - Authentication
@@ -229,6 +234,8 @@ apis:
   humanURL: https://openapi.sk.com/products/detail?svcSeq=67
   baseURL: https://apis.openapi.sk.com/axtts
   tags:
+  - Apartments
+  tags_raw:
   - Apartment
   properties:
   - type: OpenAPI
