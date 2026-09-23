@@ -14,9 +14,7 @@ paths:
       tags:
       - Place
       summary: 데이터 제공 가능 장소
-      description: '* 장소 혼잡도 데이터를 조회할 수 있는 관심 장소(POI)의 ID 및 장소 이름을 제공합니다.
-
-        '
+      description: '* 장소 혼잡도 데이터를 조회할 수 있는 관심 장소(POI)의 ID 및 장소 이름을 제공합니다.'
       operationId: pois
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -179,9 +177,7 @@ paths:
       tags:
       - Place
       summary: 데이터 제공 가능 상권
-      description: '* 혼잡도 데이터를 조회할 수 있는 상권(AREA)의 ID 및 상권 이름을 제공합니다.
-
-        '
+      description: '* 혼잡도 데이터를 조회할 수 있는 상권(AREA)의 ID 및 상권 이름을 제공합니다.'
       operationId: areas
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -236,18 +232,6 @@ components:
         type: string
         default: application/json
   schemas:
-    Area:
-      type: object
-      properties:
-        areaId:
-          type: string
-          description: 상권 id
-        areaName:
-          type: string
-          description: 상권 이름
-      required:
-      - areaId
-      - areaName
     ResponseStatus:
       type: object
       description: 응답 상태입니다.
@@ -285,6 +269,18 @@ components:
       required:
       - poiId
       - poiName
+    Area:
+      type: object
+      properties:
+        areaId:
+          type: string
+          description: 상권 id
+        areaName:
+          type: string
+          description: 상권 이름
+      required:
+      - areaId
+      - areaName
   securitySchemes:
     sec0:
       type: apiKey

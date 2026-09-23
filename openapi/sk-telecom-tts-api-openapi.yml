@@ -7,7 +7,7 @@ servers:
 security:
 - sec0: []
 tags:
-- name: Tts
+- name: TTS
 paths:
   /tts:
     post:
@@ -97,7 +97,7 @@ paths:
                 properties: {}
       deprecated: false
       tags:
-      - Tts
+      - TTS
 components:
   securitySchemes:
     sec0:

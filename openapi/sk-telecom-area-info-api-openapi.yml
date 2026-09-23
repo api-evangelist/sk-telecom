@@ -14,9 +14,7 @@ paths:
       tags:
       - Area Info
       summary: 상권 업종 분포
-      description: '특정 상권의 업종 대소분류별 업체 분포를 제공합니다.
-
-        '
+      description: 특정 상권의 업종 대소분류별 업체 분포를 제공합니다.
       operationId: areabizcategory
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -54,13 +52,6 @@ paths:
       deprecated: false
 components:
   parameters:
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
     AreaId:
       name: areaId
       in: path
@@ -69,6 +60,13 @@ components:
         type: string
         default: '9195'
       required: true
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
     ContentTypeJson:
       name: Content-Type
       description: application/json
@@ -94,31 +92,6 @@ components:
       - cat1
       - cat2
       - count
-    ResponseStatus:
-      type: object
-      description: 응답 상태입니다.
-      properties:
-        code:
-          type: string
-          description: '응답 코드입니다.
-
-            00: 성공
-
-            '
-        message:
-          type: string
-          description: '요청(request) 성공 여부 메시지입니다.
-
-            success: 성공.
-
-            '
-        totalCount:
-          type: integer
-          description: 검색 결과 데이터 건수입니다.
-      required:
-      - code
-      - message
-      - totalCount
     AreaBizCategory:
       type: object
       properties:
@@ -149,6 +122,31 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
+    ResponseStatus:
+      type: object
+      description: 응답 상태입니다.
+      properties:
+        code:
+          type: string
+          description: '응답 코드입니다.
+
+            00: 성공
+
+            '
+        message:
+          type: string
+          description: '요청(request) 성공 여부 메시지입니다.
+
+            success: 성공.
+
+            '
+        totalCount:
+          type: integer
+          description: 검색 결과 데이터 건수입니다.
+      required:
+      - code
+      - message
+      - totalCount
   securitySchemes:
     sec0:
       type: apiKey

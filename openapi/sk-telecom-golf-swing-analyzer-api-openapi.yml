@@ -317,37 +317,6 @@ paths:
                   format: binary
       deprecated: false
 components:
-  parameters:
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
-    ContentTypeMultipart:
-      name: Content-Type
-      description: multipart/form-data
-      in: header
-      required: true
-      schema:
-        type: string
-        default: multipart/form-data
-    JobID:
-      name: JobID
-      in: path
-      description: create_analyzer에서 응답 받은 해당 분석의 Job ID
-      required: true
-      schema:
-        type: string
-    ContentTypeJson:
-      name: Content-Type
-      description: application/json
-      in: header
-      required: true
-      schema:
-        type: string
-        default: application/json
   responses:
     CreateAnalyzer:
       description: OK
@@ -417,6 +386,37 @@ components:
                 State: Fail
                 Status: NotCreated
                 Error: 'Fail in CreateAnalyzer: Wrong Properties'
+  parameters:
+    ContentTypeMultipart:
+      name: Content-Type
+      description: multipart/form-data
+      in: header
+      required: true
+      schema:
+        type: string
+        default: multipart/form-data
+    JobID:
+      name: JobID
+      in: path
+      description: create_analyzer에서 응답 받은 해당 분석의 Job ID
+      required: true
+      schema:
+        type: string
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">마이페이지>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
   securitySchemes:
     sec0:
       type: apiKey

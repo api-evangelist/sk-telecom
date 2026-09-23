@@ -20,9 +20,7 @@ paths:
 
         * 조회 시점 기준 1시간 동안의 혼잡도(1㎡ 단위 면적당 추정 방문자 수)와 1~4 단계로 구분된 혼잡도 레벨 정보를 제공합니다.
 
-        * 데이터 제공 가능 장소의 poiId로 요청할 경우 특정 장소의 혼잡도 정보를 조회할 수 있습니다. 위경도 좌표를 요청 정보에 추가하면, 특정 좌표 주변의 혼잡도를 조회할 수 있습니다.
-
-        '
+        * 데이터 제공 가능 장소의 poiId로 요청할 경우 특정 장소의 혼잡도 정보를 조회할 수 있습니다. 위경도 좌표를 요청 정보에 추가하면, 특정 좌표 주변의 혼잡도를 조회할 수 있습니다.'
       operationId: poicongestionrltm
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -80,9 +78,7 @@ paths:
 
         * 기준 일자(date)를 입력하지 않으면 요청 시간을 기준으로 하루 전(D-1일) 일자의 장소 혼잡도 값을 반환합니다.
 
-        * 기준 일자가 오늘(today)이거나 30일 이상 경과된 일자인 경우 응답에 실패하며 400 에러가 발생합니다.
-
-        '
+        * 기준 일자가 오늘(today)이거나 30일 이상 경과된 일자인 경우 응답에 실패하며 400 에러가 발생합니다.'
       operationId: poicongestionraw
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -126,9 +122,7 @@ paths:
       summary: 통계성 장소 혼잡도
       description: '특정 장소의 요일 및 시간대별 통계성 혼잡도를 제공합니다.
 
-        * 평일인 공휴일과 해당 장소의 휴무일을 제외한 최근 30일 동안의 요일 및 시간대별 평균 혼잡도(1㎡ 단위 면적당 추정 방문자 수)와 4단계로 구분된 혼잡도 레벨 정보를 제공합니다.
-
-        '
+        * 평일인 공휴일과 해당 장소의 휴무일을 제외한 최근 30일 동안의 요일 및 시간대별 평균 혼잡도(1㎡ 단위 면적당 추정 방문자 수)와 4단계로 구분된 혼잡도 레벨 정보를 제공합니다.'
       operationId: poicongestionstat
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -176,9 +170,7 @@ paths:
 
         * 조회 시점 기준 1시간 동안의 혼잡도(1㎡ 단위 면적당 추정 방문자 수)와 1~4 단계로 구분된 혼잡도 레벨 정보를 제공합니다.
 
-        * 데이터 제공 가능 상권의 areaId로 요청할 경우 특정 상권의 혼잡도 정보를 조회할 수 있습니다.
-
-        '
+        * 데이터 제공 가능 상권의 areaId로 요청할 경우 특정 상권의 혼잡도 정보를 조회할 수 있습니다.'
       operationId: areacongestionrltm
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -234,9 +226,7 @@ paths:
 
         * 기준 일자(date)를 입력하지 않으면 요청 시간을 기준으로 하루 전(D-1일) 일자의 상권 혼잡도 값을 반환합니다.
 
-        * 기준 일자가 오늘(today)이거나 30일 이상 경과된 일자인 경우 응답에 실패하며 400 에러가 발생합니다.
-
-        '
+        * 기준 일자가 오늘(today)이거나 30일 이상 경과된 일자인 경우 응답에 실패하며 400 에러가 발생합니다.'
       operationId: areacongestionraw
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -280,9 +270,7 @@ paths:
       summary: 통계성 상권 혼잡도
       description: '특정 상권의 요일 및 시간대별 통계성 혼잡도를 제공합니다.
 
-        * 평일인 공휴일과 해당 장소의 휴무일을 제외한 최근 30일 동안의 요일 및 시간대별 평균 혼잡도(1㎡ 단위 면적당 추정 방문자 수)와 4단계로 구분된 혼잡도 레벨 정보를 제공합니다.
-
-        '
+        * 평일인 공휴일과 해당 장소의 휴무일을 제외한 최근 30일 동안의 요일 및 시간대별 평균 혼잡도(1㎡ 단위 면적당 추정 방문자 수)와 4단계로 구분된 혼잡도 레벨 정보를 제공합니다.'
       operationId: areacongestionstat
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -321,7 +309,7 @@ paths:
       deprecated: false
 components:
   schemas:
-    AreaCongestionRltm:
+    AreaCongestionRawHourly:
       type: object
       properties:
         areaId:
@@ -330,39 +318,41 @@ components:
         areaName:
           type: string
           description: 상권 이름
-        rltm:
-          description: 실시간 데이터
-          allOf:
-          - $ref: '#/components/schemas/CongestionDatetime'
+        raw:
+          description: raw 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/CongestionDatetime'
       required:
       - areaId
       - areaName
-      - rltm
-    ResponseStatus:
+      - raw
+    PoiCongestionStatHourly:
       type: object
-      description: 응답 상태입니다.
       properties:
-        code:
+        poiId:
           type: string
-          description: '응답 코드입니다.
-
-            00: 성공
-
-            '
-        message:
+          description: 장소 id
+        poiName:
           type: string
-          description: '요청(request) 성공 여부 메시지입니다.
-
-            success: 성공.
-
-            '
-        totalCount:
-          type: integer
-          description: 검색 결과 데이터 건수입니다.
+          description: 장소 이름
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/CongestionStatHourly'
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
       required:
-      - code
-      - message
-      - totalCount
+      - poiId
+      - poiName
+      - stat
+      - statStartDate
+      - statEndDate
     CongestionStatHourly:
       type: object
       properties:
@@ -417,24 +407,48 @@ components:
       - stat
       - statStartDate
       - statEndDate
-    AreaCongestionRawHourly:
+    ResponseStatus:
+      type: object
+      description: 응답 상태입니다.
+      properties:
+        code:
+          type: string
+          description: '응답 코드입니다.
+
+            00: 성공
+
+            '
+        message:
+          type: string
+          description: '요청(request) 성공 여부 메시지입니다.
+
+            success: 성공.
+
+            '
+        totalCount:
+          type: integer
+          description: 검색 결과 데이터 건수입니다.
+      required:
+      - code
+      - message
+      - totalCount
+    PoiCongestionRltm:
       type: object
       properties:
-        areaId:
+        poiId:
           type: string
-          description: 상권 id
-        areaName:
+          description: 장소 id
+        poiName:
           type: string
-          description: 상권 이름
-        raw:
-          description: raw 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/CongestionDatetime'
+          description: 장소 이름
+        rltm:
+          description: 실시간 데이터
+          allOf:
+          - $ref: '#/components/schemas/CongestionDatetime'
       required:
-      - areaId
-      - areaName
-      - raw
+      - poiId
+      - poiName
+      - rltm
     PoiCongestionRawHourly:
       type: object
       properties:
@@ -453,32 +467,23 @@ components:
       - poiId
       - poiName
       - raw
-    PoiCongestionStatHourly:
+    AreaCongestionRltm:
       type: object
       properties:
-        poiId:
+        areaId:
           type: string
-          description: 장소 id
-        poiName:
+          description: 상권 id
+        areaName:
           type: string
-          description: 장소 이름
-        stat:
-          description: 통계 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/CongestionStatHourly'
-        statStartDate:
-          type: string
-          description: 통계 시작일
-        statEndDate:
-          type: string
-          description: 통계 종료일
+          description: 상권 이름
+        rltm:
+          description: 실시간 데이터
+          allOf:
+          - $ref: '#/components/schemas/CongestionDatetime'
       required:
-      - poiId
-      - poiName
-      - stat
-      - statStartDate
-      - statEndDate
+      - areaId
+      - areaName
+      - rltm
     CongestionDatetime:
       type: object
       properties:
@@ -495,76 +500,7 @@ components:
       - congestion
       - congestionLevel
       - datetime
-    PoiCongestionRltm:
-      type: object
-      properties:
-        poiId:
-          type: string
-          description: 장소 id
-        poiName:
-          type: string
-          description: 장소 이름
-        rltm:
-          description: 실시간 데이터
-          allOf:
-          - $ref: '#/components/schemas/CongestionDatetime'
-      required:
-      - poiId
-      - poiName
-      - rltm
   parameters:
-    ContentTypeJson:
-      name: Content-Type
-      description: application/json
-      in: header
-      required: true
-      schema:
-        type: string
-        default: application/json
-    Lng:
-      name: lng
-      in: query
-      description: 주변 혼잡도를 구할 중심 경도값
-      schema:
-        type: number
-        default: 126.98605733268329
-    Lat:
-      name: lat
-      in: query
-      description: 주변 혼잡도를 구할 중심 위도값
-      schema:
-        type: number
-        default: 37.568085523663385
-    Date:
-      name: date
-      in: query
-      description: 기준 일자(YYYYMMDD) 또는 어제(ystday)를 지정, startDate, endDate 입력이 우선합니다.
-      schema:
-        type: string
-        default: ystday
-    AreaId:
-      name: areaId
-      in: path
-      description: 상권(AREA) ID
-      schema:
-        type: string
-        default: '9195'
-      required: true
-    PoiId:
-      name: poiId
-      in: path
-      description: 관심장소(POI) ID
-      schema:
-        type: string
-        default: '10067845'
-      required: true
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
     Dow:
       name: dow
       in: query
@@ -580,6 +516,58 @@ components:
         - FRI
         - SAT
         - SUN
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    AreaId:
+      name: areaId
+      in: path
+      description: 상권(AREA) ID
+      schema:
+        type: string
+        default: '9195'
+      required: true
+    Date:
+      name: date
+      in: query
+      description: 기준 일자(YYYYMMDD) 또는 어제(ystday)를 지정, startDate, endDate 입력이 우선합니다.
+      schema:
+        type: string
+        default: ystday
+    PoiId:
+      name: poiId
+      in: path
+      description: 관심장소(POI) ID
+      schema:
+        type: string
+        default: '10067845'
+      required: true
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+    Lat:
+      name: lat
+      in: query
+      description: 주변 혼잡도를 구할 중심 위도값
+      schema:
+        type: number
+        default: 37.568085523663385
+    Lng:
+      name: lng
+      in: query
+      description: 주변 혼잡도를 구할 중심 경도값
+      schema:
+        type: number
+        default: 126.98605733268329
   securitySchemes:
     sec0:
       type: apiKey

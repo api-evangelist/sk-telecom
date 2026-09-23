@@ -12,7 +12,7 @@ paths:
   /voice:
     get:
       summary: Get Voices
-      description: 해당 모델에서 지원하고 있는 화자 정보를 확인할 수 있고, 모델 Name은 <a href="https://ax-tts-skopenapi.readme.io/reference/tts-model-list-1">모델 List</a>에서 확인 가능합니다.
+      description: 해당 모델에서 지원하고 있는 화자 정보를 확인할 수 있고, 모델 Name은 모델 List에서 확인 가능합니다.
       operationId: get-voices
       parameters:
       - name: model

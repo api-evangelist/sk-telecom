@@ -3,9 +3,9 @@ info:
   title: API Evangelist enhancements for SK Telecom Puzzle Residence API
   version: 1.0.0
 extends: openapi/sk-telecom-puzzle-residence-openapi.json
-generated: '2026-07-25'
-method: generated
-source: >-
+x-generated: '2026-07-25'
+x-method: generated
+x-source: >-
   API Evangelist enrichment round 2026-07-25 — annotations derived from the SK open API
   portal notices, the *-skopenapi.readme.io reference hubs and this repository's artifacts.
 actions:

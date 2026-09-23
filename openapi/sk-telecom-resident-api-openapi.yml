@@ -14,9 +14,7 @@ paths:
       tags:
       - Resident
       summary: 지하철 이용 비율
-      description: '* 특정 아파트 주민 중 최근 3개월 동안 지하철을 이용한 주민의 비율을 제공합니다.
-
-        '
+      description: '* 특정 아파트 주민 중 최근 3개월 동안 지하철을 이용한 주민의 비율을 제공합니다.'
       operationId: aptsubwayuserate
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -57,9 +55,7 @@ paths:
       tags:
       - Resident
       summary: 거주자 평균 나이
-      description: '* 특정 아파트 주민의 평균 나이를 제공합니다.
-
-        '
+      description: '* 특정 아파트 주민의 평균 나이를 제공합니다.'
       operationId: aptresidentage
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -100,9 +96,7 @@ paths:
       tags:
       - Resident
       summary: 거주자 특징
-      description: '* 동일 시도 대비 해당 아파트 주민 구성의 비율이 높은 Life stage(영유아, 초등학생, 중학생, 고등학생, 대학생, 1인가구, 신혼부부, 시니어) 값을 제공합니다.
-
-        '
+      description: '* 동일 시도 대비 해당 아파트 주민 구성의 비율이 높은 Life stage(영유아, 초등학생, 중학생, 고등학생, 대학생, 1인가구, 신혼부부, 시니어) 값을 제공합니다.'
       operationId: aptresidentdemo
       parameters:
       - $ref: '#/components/parameters/ContentTypeJson'
@@ -140,6 +134,26 @@ paths:
       deprecated: false
 components:
   schemas:
+    DemoStat:
+      type: object
+      properties:
+        gender:
+          type: string
+          description: 성별
+        avgAge:
+          type: number
+          description: 평균연령
+        ctpAvgAge:
+          type: number
+          description: 시도 평균연령
+        sigAvgAge:
+          type: number
+          description: 시군구 평균연령
+      required:
+      - gender
+      - avgAge
+      - ctpAvgAge
+      - sigAvgAge
     FeatureLift:
       type: object
       properties:
@@ -173,7 +187,15 @@ components:
         totalCount:
           type: integer
           description: 검색 결과 데이터 건수입니다.
-    AptResidentDemoStatMonthly:
+    Rate:
+      type: object
+      properties:
+        rate:
+          type: number
+          description: rate
+      required:
+      - rate
+    AptSubwayUseRateStatMonthly:
       type: object
       properties:
         kaptCode:
@@ -184,9 +206,8 @@ components:
           description: 아파트 이름(국토부 기준)
         stat:
           description: 통계 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/DemoStat'
+          allOf:
+          - $ref: '#/components/schemas/Rate'
         yearMonth:
           type: string
           description: 기준 월
@@ -203,26 +224,6 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
-    DemoStat:
-      type: object
-      properties:
-        gender:
-          type: string
-          description: 성별
-        avgAge:
-          type: number
-          description: 평균연령
-        ctpAvgAge:
-          type: number
-          description: 시도 평균연령
-        sigAvgAge:
-          type: number
-          description: 시군구 평균연령
-      required:
-      - gender
-      - avgAge
-      - ctpAvgAge
-      - sigAvgAge
     AptResidentFeatureStatMonthly:
       type: object
       properties:
@@ -253,7 +254,7 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
-    AptSubwayUseRateStatMonthly:
+    AptResidentDemoStatMonthly:
       type: object
       properties:
         kaptCode:
@@ -264,8 +265,9 @@ components:
           description: 아파트 이름(국토부 기준)
         stat:
           description: 통계 데이터
-          allOf:
-          - $ref: '#/components/schemas/Rate'
+          type: array
+          items:
+            $ref: '#/components/schemas/DemoStat'
         yearMonth:
           type: string
           description: 기준 월
@@ -282,23 +284,14 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
-    Rate:
-      type: object
-      properties:
-        rate:
-          type: number
-          description: rate
-      required:
-      - rate
   parameters:
-    ContentTypeJson:
-      name: Content-Type
-      description: application/json
+    AppKey:
+      name: appKey
       in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
       required: true
       schema:
         type: string
-        default: application/json
     KaptCode:
       name: kaptCode
       in: path
@@ -307,13 +300,14 @@ components:
         type: string
         default: A13805002
       required: true
-    AppKey:
-      name: appKey
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
       in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
       required: true
       schema:
         type: string
+        default: application/json
   securitySchemes:
     sec0:
       type: apiKey
