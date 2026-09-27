@@ -216,13 +216,6 @@ paths:
       deprecated: false
 components:
   parameters:
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
     ContentTypeJson:
       name: Content-Type
       description: application/json
@@ -231,7 +224,38 @@ components:
       schema:
         type: string
         default: application/json
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
   schemas:
+    Area:
+      type: object
+      properties:
+        areaId:
+          type: string
+          description: 상권 id
+        areaName:
+          type: string
+          description: 상권 이름
+      required:
+      - areaId
+      - areaName
+    Poi:
+      type: object
+      properties:
+        poiId:
+          type: string
+          description: 장소 id
+        poiName:
+          type: string
+          description: 장소 이름
+      required:
+      - poiId
+      - poiName
     ResponseStatus:
       type: object
       description: 응답 상태입니다.
@@ -257,30 +281,6 @@ components:
       - code
       - message
       - totalCount
-    Poi:
-      type: object
-      properties:
-        poiId:
-          type: string
-          description: 장소 id
-        poiName:
-          type: string
-          description: 장소 이름
-      required:
-      - poiId
-      - poiName
-    Area:
-      type: object
-      properties:
-        areaId:
-          type: string
-          description: 상권 id
-        areaName:
-          type: string
-          description: 상권 이름
-      required:
-      - areaId
-      - areaName
   securitySchemes:
     sec0:
       type: apiKey

@@ -52,6 +52,14 @@ paths:
       deprecated: false
 components:
   parameters:
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
     AreaId:
       name: areaId
       in: path
@@ -67,31 +75,7 @@ components:
       required: true
       schema:
         type: string
-    ContentTypeJson:
-      name: Content-Type
-      description: application/json
-      in: header
-      required: true
-      schema:
-        type: string
-        default: application/json
   schemas:
-    BizCategory:
-      type: object
-      properties:
-        cat1:
-          type: string
-          description: 업종 대분류
-        cat2:
-          type: string
-          description: 업종 소분류
-        count:
-          type: number
-          description: 업체수
-      required:
-      - cat1
-      - cat2
-      - count
     AreaBizCategory:
       type: object
       properties:
@@ -122,6 +106,22 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
+    BizCategory:
+      type: object
+      properties:
+        cat1:
+          type: string
+          description: 업종 대분류
+        cat2:
+          type: string
+          description: 업종 소분류
+        count:
+          type: number
+          description: 업체수
+      required:
+      - cat1
+      - cat2
+      - count
     ResponseStatus:
       type: object
       description: 응답 상태입니다.

@@ -190,6 +190,18 @@ components:
       schema:
         type: string
   schemas:
+    Apt:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+      required:
+      - kaptCode
+      - kaptName
     ResponseStatus:
       type: object
       description: 응답 상태입니다.
@@ -211,18 +223,6 @@ components:
         totalCount:
           type: integer
           description: 검색 결과 데이터 건수입니다.
-    Apt:
-      type: object
-      properties:
-        kaptCode:
-          type: string
-          description: 아파트 코드(국토부 기준)
-        kaptName:
-          type: string
-          description: 아파트 이름(국토부 기준)
-      required:
-      - kaptCode
-      - kaptName
   securitySchemes:
     sec0:
       type: apiKey

@@ -61,6 +61,23 @@ paths:
       deprecated: false
 components:
   schemas:
+    PoiRate:
+      type: object
+      description: 장소 ID와 장소명, 이용 비율입니다.
+      properties:
+        poiId:
+          type: string
+          description: poi id
+        poiName:
+          type: string
+          description: poi 이름
+        rate:
+          type: number
+          description: rate
+      required:
+      - poiId
+      - poiName
+      - rate
     Apt:
       type: object
       properties:
@@ -73,28 +90,6 @@ components:
       required:
       - kaptCode
       - kaptName
-    AptSimilarAptRawMonthly:
-      type: object
-      properties:
-        kaptCode:
-          type: string
-          description: 아파트 코드(국토부 기준)
-        kaptName:
-          type: string
-          description: 아파트 이름(국토부 기준)
-        raw:
-          description: 통계 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/SimilarAptRawMonthly'
-        yearMonth:
-          type: string
-          description: 기준 월
-      required:
-      - kaptCode
-      - kaptName
-      - raw
-      - yearMonth
     YpRate:
       type: object
       properties:
@@ -111,22 +106,120 @@ components:
       - ypId
       - ypName
       - rate
-    SimilarAptRawMonthly:
+    AptMoveStatMonthly:
       type: object
       properties:
         kaptCode:
           type: string
-          description: apt code
+          description: 아파트 코드(국토부 기준)
         kaptName:
           type: string
-          description: apt 이름
-        similarity:
-          type: number
-          description: rate
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/Apt'
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
       required:
       - kaptCode
       - kaptName
-      - similarity
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
+    DistrictRate:
+      type: object
+      properties:
+        districtCode:
+          type: string
+          description: 법정동 코드
+        districtName:
+          type: string
+          description: 법정동 이름
+        rate:
+          type: number
+          description: rate
+        avgDuration:
+          type: number
+          description: 평균 머무른 시간(초)
+      required:
+      - districtCode
+      - districtName
+      - rate
+      - avgDuration
+    AptSchoolStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/PoiRate'
+        schoolType:
+          type: string
+          description: 학교 종류
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - schoolType
+      - yearMonth
+      - statStartDate
+      - statEndDate
+    AptPoiRateStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/PoiRate'
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
     AptYpRateStatMonthly:
       type: object
       properties:
@@ -157,6 +250,44 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
+    SimilarAptRawMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: apt code
+        kaptName:
+          type: string
+          description: apt 이름
+        similarity:
+          type: number
+          description: rate
+      required:
+      - kaptCode
+      - kaptName
+      - similarity
+    AptSimilarAptRawMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        raw:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/SimilarAptRawMonthly'
+        yearMonth:
+          type: string
+          description: 기준 월
+      required:
+      - kaptCode
+      - kaptName
+      - raw
+      - yearMonth
     ResponseStatus:
       type: object
       description: 응답 상태입니다.
@@ -178,43 +309,6 @@ components:
         totalCount:
           type: integer
           description: 검색 결과 데이터 건수입니다.
-    DistrictRate:
-      type: object
-      properties:
-        districtCode:
-          type: string
-          description: 법정동 코드
-        districtName:
-          type: string
-          description: 법정동 이름
-        rate:
-          type: number
-          description: rate
-        avgDuration:
-          type: number
-          description: 평균 머무른 시간(초)
-      required:
-      - districtCode
-      - districtName
-      - rate
-      - avgDuration
-    PoiRate:
-      type: object
-      description: 장소 ID와 장소명, 이용 비율입니다.
-      properties:
-        poiId:
-          type: string
-          description: poi id
-        poiName:
-          type: string
-          description: poi 이름
-        rate:
-          type: number
-          description: rate
-      required:
-      - poiId
-      - poiName
-      - rate
     SubwayStationRate:
       type: object
       properties:
@@ -281,36 +375,6 @@ components:
       - statEndDate
       - gender
       - ageGrp
-    AptMoveStatMonthly:
-      type: object
-      properties:
-        kaptCode:
-          type: string
-          description: 아파트 코드(국토부 기준)
-        kaptName:
-          type: string
-          description: 아파트 이름(국토부 기준)
-        stat:
-          description: 통계 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/Apt'
-        yearMonth:
-          type: string
-          description: 기준 월
-        statStartDate:
-          type: string
-          description: 통계 시작일
-        statEndDate:
-          type: string
-          description: 통계 종료일
-      required:
-      - kaptCode
-      - kaptName
-      - stat
-      - yearMonth
-      - statStartDate
-      - statEndDate
     AptWorkplaceStatMonthly:
       type: object
       properties:
@@ -341,86 +405,7 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
-    AptSchoolStatMonthly:
-      type: object
-      properties:
-        kaptCode:
-          type: string
-          description: 아파트 코드(국토부 기준)
-        kaptName:
-          type: string
-          description: 아파트 이름(국토부 기준)
-        stat:
-          description: 통계 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/PoiRate'
-        schoolType:
-          type: string
-          description: 학교 종류
-        yearMonth:
-          type: string
-          description: 기준 월
-        statStartDate:
-          type: string
-          description: 통계 시작일
-        statEndDate:
-          type: string
-          description: 통계 종료일
-      required:
-      - kaptCode
-      - kaptName
-      - stat
-      - schoolType
-      - yearMonth
-      - statStartDate
-      - statEndDate
-    AptPoiRateStatMonthly:
-      type: object
-      properties:
-        kaptCode:
-          type: string
-          description: 아파트 코드(국토부 기준)
-        kaptName:
-          type: string
-          description: 아파트 이름(국토부 기준)
-        stat:
-          description: 통계 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/PoiRate'
-        yearMonth:
-          type: string
-          description: 기준 월
-        statStartDate:
-          type: string
-          description: 통계 시작일
-        statEndDate:
-          type: string
-          description: 통계 종료일
-      required:
-      - kaptCode
-      - kaptName
-      - stat
-      - yearMonth
-      - statStartDate
-      - statEndDate
   parameters:
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
-    KaptCode:
-      name: kaptCode
-      in: path
-      description: 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다.
-      schema:
-        type: string
-        default: A13805002
-      required: true
     Category:
       name: category
       in: path
@@ -440,14 +425,21 @@ components:
         - destination-subway-station
         - workplace
       required: true
-    ContentTypeJson:
-      name: Content-Type
-      description: application/json
+    KaptCode:
+      name: kaptCode
+      in: path
+      description: 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다.
+      schema:
+        type: string
+        default: A13805002
+      required: true
+    AppKey:
+      name: appKey
       in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
       required: true
       schema:
         type: string
-        default: application/json
     SchoolType:
       name: schoolType
       in: query
@@ -459,6 +451,14 @@ components:
         - e
         - m
         - h
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
   securitySchemes:
     sec0:
       type: apiKey

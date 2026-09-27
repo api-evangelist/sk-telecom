@@ -154,47 +154,6 @@ components:
       - avgAge
       - ctpAvgAge
       - sigAvgAge
-    FeatureLift:
-      type: object
-      properties:
-        feature:
-          type: string
-          description: demo feature
-        lift:
-          type: number
-          description: lift
-      required:
-      - feature
-      - lift
-    ResponseStatus:
-      type: object
-      description: 응답 상태입니다.
-      properties:
-        code:
-          type: string
-          description: '응답 코드입니다.
-
-            00: 성공
-
-            '
-        message:
-          type: string
-          description: '요청(request) 성공 여부 메시지입니다.
-
-            success: 성공.
-
-            '
-        totalCount:
-          type: integer
-          description: 검색 결과 데이터 건수입니다.
-    Rate:
-      type: object
-      properties:
-        rate:
-          type: number
-          description: rate
-      required:
-      - rate
     AptSubwayUseRateStatMonthly:
       type: object
       properties:
@@ -254,6 +213,35 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
+    Rate:
+      type: object
+      properties:
+        rate:
+          type: number
+          description: rate
+      required:
+      - rate
+    ResponseStatus:
+      type: object
+      description: 응답 상태입니다.
+      properties:
+        code:
+          type: string
+          description: '응답 코드입니다.
+
+            00: 성공
+
+            '
+        message:
+          type: string
+          description: '요청(request) 성공 여부 메시지입니다.
+
+            success: 성공.
+
+            '
+        totalCount:
+          type: integer
+          description: 검색 결과 데이터 건수입니다.
     AptResidentDemoStatMonthly:
       type: object
       properties:
@@ -284,14 +272,19 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
+    FeatureLift:
+      type: object
+      properties:
+        feature:
+          type: string
+          description: demo feature
+        lift:
+          type: number
+          description: lift
+      required:
+      - feature
+      - lift
   parameters:
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
     KaptCode:
       name: kaptCode
       in: path
@@ -300,6 +293,13 @@ components:
         type: string
         default: A13805002
       required: true
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
     ContentTypeJson:
       name: Content-Type
       description: application/json

@@ -308,25 +308,75 @@ paths:
           $ref: '#/paths/~1meta~1pois/get/responses/504'
       deprecated: false
 components:
+  parameters:
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    Lng:
+      name: lng
+      in: query
+      description: 주변 혼잡도를 구할 중심 경도값
+      schema:
+        type: number
+        default: 126.98605733268329
+    Date:
+      name: date
+      in: query
+      description: 기준 일자(YYYYMMDD) 또는 어제(ystday)를 지정, startDate, endDate 입력이 우선합니다.
+      schema:
+        type: string
+        default: ystday
+    AreaId:
+      name: areaId
+      in: path
+      description: 상권(AREA) ID
+      schema:
+        type: string
+        default: '9195'
+      required: true
+    Lat:
+      name: lat
+      in: query
+      description: 주변 혼잡도를 구할 중심 위도값
+      schema:
+        type: number
+        default: 37.568085523663385
+    Dow:
+      name: dow
+      in: query
+      description: 요일
+      schema:
+        type: string
+        default: MON
+        enum:
+        - MON
+        - TUE
+        - WED
+        - THU
+        - FRI
+        - SAT
+        - SUN
+    PoiId:
+      name: poiId
+      in: path
+      description: 관심장소(POI) ID
+      schema:
+        type: string
+        default: '10067845'
+      required: true
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
   schemas:
-    AreaCongestionRawHourly:
-      type: object
-      properties:
-        areaId:
-          type: string
-          description: 상권 id
-        areaName:
-          type: string
-          description: 상권 이름
-        raw:
-          description: raw 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/CongestionDatetime'
-      required:
-      - areaId
-      - areaName
-      - raw
     PoiCongestionStatHourly:
       type: object
       properties:
@@ -353,6 +403,22 @@ components:
       - stat
       - statStartDate
       - statEndDate
+    CongestionDatetime:
+      type: object
+      properties:
+        congestion:
+          type: number
+          description: 혼잡도
+        congestionLevel:
+          type: number
+          description: 혼잡도 레벨 (1~4)
+        datetime:
+          type: string
+          description: 날짜 (YYYYMMDDHHmmss)
+      required:
+      - congestion
+      - congestionLevel
+      - datetime
     CongestionStatHourly:
       type: object
       properties:
@@ -407,6 +473,24 @@ components:
       - stat
       - statStartDate
       - statEndDate
+    AreaCongestionRawHourly:
+      type: object
+      properties:
+        areaId:
+          type: string
+          description: 상권 id
+        areaName:
+          type: string
+          description: 상권 이름
+        raw:
+          description: raw 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/CongestionDatetime'
+      required:
+      - areaId
+      - areaName
+      - raw
     ResponseStatus:
       type: object
       description: 응답 상태입니다.
@@ -449,6 +533,23 @@ components:
       - poiId
       - poiName
       - rltm
+    AreaCongestionRltm:
+      type: object
+      properties:
+        areaId:
+          type: string
+          description: 상권 id
+        areaName:
+          type: string
+          description: 상권 이름
+        rltm:
+          description: 실시간 데이터
+          allOf:
+          - $ref: '#/components/schemas/CongestionDatetime'
+      required:
+      - areaId
+      - areaName
+      - rltm
     PoiCongestionRawHourly:
       type: object
       properties:
@@ -467,107 +568,6 @@ components:
       - poiId
       - poiName
       - raw
-    AreaCongestionRltm:
-      type: object
-      properties:
-        areaId:
-          type: string
-          description: 상권 id
-        areaName:
-          type: string
-          description: 상권 이름
-        rltm:
-          description: 실시간 데이터
-          allOf:
-          - $ref: '#/components/schemas/CongestionDatetime'
-      required:
-      - areaId
-      - areaName
-      - rltm
-    CongestionDatetime:
-      type: object
-      properties:
-        congestion:
-          type: number
-          description: 혼잡도
-        congestionLevel:
-          type: number
-          description: 혼잡도 레벨 (1~4)
-        datetime:
-          type: string
-          description: 날짜 (YYYYMMDDHHmmss)
-      required:
-      - congestion
-      - congestionLevel
-      - datetime
-  parameters:
-    Dow:
-      name: dow
-      in: query
-      description: 요일
-      schema:
-        type: string
-        default: MON
-        enum:
-        - MON
-        - TUE
-        - WED
-        - THU
-        - FRI
-        - SAT
-        - SUN
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
-    AreaId:
-      name: areaId
-      in: path
-      description: 상권(AREA) ID
-      schema:
-        type: string
-        default: '9195'
-      required: true
-    Date:
-      name: date
-      in: query
-      description: 기준 일자(YYYYMMDD) 또는 어제(ystday)를 지정, startDate, endDate 입력이 우선합니다.
-      schema:
-        type: string
-        default: ystday
-    PoiId:
-      name: poiId
-      in: path
-      description: 관심장소(POI) ID
-      schema:
-        type: string
-        default: '10067845'
-      required: true
-    ContentTypeJson:
-      name: Content-Type
-      description: application/json
-      in: header
-      required: true
-      schema:
-        type: string
-        default: application/json
-    Lat:
-      name: lat
-      in: query
-      description: 주변 혼잡도를 구할 중심 위도값
-      schema:
-        type: number
-        default: 37.568085523663385
-    Lng:
-      name: lng
-      in: query
-      description: 주변 혼잡도를 구할 중심 경도값
-      schema:
-        type: number
-        default: 126.98605733268329
   securitySchemes:
     sec0:
       type: apiKey
