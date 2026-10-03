@@ -244,18 +244,6 @@ components:
       required:
       - areaId
       - areaName
-    Poi:
-      type: object
-      properties:
-        poiId:
-          type: string
-          description: 장소 id
-        poiName:
-          type: string
-          description: 장소 이름
-      required:
-      - poiId
-      - poiName
     ResponseStatus:
       type: object
       description: 응답 상태입니다.
@@ -281,6 +269,18 @@ components:
       - code
       - message
       - totalCount
+    Poi:
+      type: object
+      properties:
+        poiId:
+          type: string
+          description: 장소 id
+        poiName:
+          type: string
+          description: 장소 이름
+      required:
+      - poiId
+      - poiName
   securitySchemes:
     sec0:
       type: apiKey

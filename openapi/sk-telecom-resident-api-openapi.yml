@@ -133,7 +133,52 @@ paths:
           $ref: '#/paths/~1meta~1apts/get/responses/504'
       deprecated: false
 components:
+  parameters:
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    KaptCode:
+      name: kaptCode
+      in: path
+      description: 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다.
+      schema:
+        type: string
+        default: A13805002
+      required: true
   schemas:
+    ResponseStatus:
+      type: object
+      description: 응답 상태입니다.
+      properties:
+        code:
+          type: string
+          description: '응답 코드입니다.
+
+            00: 성공
+
+            '
+        message:
+          type: string
+          description: '요청(request) 성공 여부 메시지입니다.
+
+            success: 성공.
+
+            '
+        totalCount:
+          type: integer
+          description: 검색 결과 데이터 건수입니다.
     DemoStat:
       type: object
       properties:
@@ -154,7 +199,7 @@ components:
       - avgAge
       - ctpAvgAge
       - sigAvgAge
-    AptSubwayUseRateStatMonthly:
+    AptResidentDemoStatMonthly:
       type: object
       properties:
         kaptCode:
@@ -165,8 +210,9 @@ components:
           description: 아파트 이름(국토부 기준)
         stat:
           description: 통계 데이터
-          allOf:
-          - $ref: '#/components/schemas/Rate'
+          type: array
+          items:
+            $ref: '#/components/schemas/DemoStat'
         yearMonth:
           type: string
           description: 기준 월
@@ -213,36 +259,7 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
-    Rate:
-      type: object
-      properties:
-        rate:
-          type: number
-          description: rate
-      required:
-      - rate
-    ResponseStatus:
-      type: object
-      description: 응답 상태입니다.
-      properties:
-        code:
-          type: string
-          description: '응답 코드입니다.
-
-            00: 성공
-
-            '
-        message:
-          type: string
-          description: '요청(request) 성공 여부 메시지입니다.
-
-            success: 성공.
-
-            '
-        totalCount:
-          type: integer
-          description: 검색 결과 데이터 건수입니다.
-    AptResidentDemoStatMonthly:
+    AptSubwayUseRateStatMonthly:
       type: object
       properties:
         kaptCode:
@@ -253,9 +270,8 @@ components:
           description: 아파트 이름(국토부 기준)
         stat:
           description: 통계 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/DemoStat'
+          allOf:
+          - $ref: '#/components/schemas/Rate'
         yearMonth:
           type: string
           description: 기준 월
@@ -284,30 +300,14 @@ components:
       required:
       - feature
       - lift
-  parameters:
-    KaptCode:
-      name: kaptCode
-      in: path
-      description: 아파트 코드입니다. 국토교통부 공동주택관리정보시스템 기준입니다.
-      schema:
-        type: string
-        default: A13805002
-      required: true
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
-    ContentTypeJson:
-      name: Content-Type
-      description: application/json
-      in: header
-      required: true
-      schema:
-        type: string
-        default: application/json
+    Rate:
+      type: object
+      properties:
+        rate:
+          type: number
+          description: rate
+      required:
+      - rate
   securitySchemes:
     sec0:
       type: apiKey

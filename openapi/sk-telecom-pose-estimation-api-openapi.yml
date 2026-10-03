@@ -158,22 +158,6 @@ paths:
                   format: binary
 components:
   parameters:
-    ContentTypeJson:
-      name: Content-Type
-      description: application/json
-      in: header
-      required: true
-      schema:
-        type: string
-        default: application/json
-    ContentTypeMultipart:
-      name: Content-Type
-      description: multipart/form-data
-      in: header
-      required: true
-      schema:
-        type: string
-        default: multipart/form-data
     JobID:
       name: JobID
       in: path
@@ -188,6 +172,22 @@ components:
       required: true
       schema:
         type: string
+    ContentTypeMultipart:
+      name: Content-Type
+      description: multipart/form-data
+      in: header
+      required: true
+      schema:
+        type: string
+        default: multipart/form-data
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
   securitySchemes:
     sec0:
       type: apiKey
