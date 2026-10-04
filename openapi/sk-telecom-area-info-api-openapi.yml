@@ -51,23 +51,31 @@ paths:
           $ref: '#/paths/~1meta~1pois/get/responses/504'
       deprecated: false
 components:
+  parameters:
+    AreaId:
+      name: areaId
+      in: path
+      description: 상권(AREA) ID
+      schema:
+        type: string
+        default: '9195'
+      required: true
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
   schemas:
-    BizCategory:
-      type: object
-      properties:
-        cat1:
-          type: string
-          description: 업종 대분류
-        cat2:
-          type: string
-          description: 업종 소분류
-        count:
-          type: number
-          description: 업체수
-      required:
-      - cat1
-      - cat2
-      - count
     ResponseStatus:
       type: object
       description: 응답 상태입니다.
@@ -123,30 +131,22 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
-  parameters:
-    ContentTypeJson:
-      name: Content-Type
-      description: application/json
-      in: header
-      required: true
-      schema:
-        type: string
-        default: application/json
-    AreaId:
-      name: areaId
-      in: path
-      description: 상권(AREA) ID
-      schema:
-        type: string
-        default: '9195'
-      required: true
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
+    BizCategory:
+      type: object
+      properties:
+        cat1:
+          type: string
+          description: 업종 대분류
+        cat2:
+          type: string
+          description: 업종 소분류
+        count:
+          type: number
+          description: 업체수
+      required:
+      - cat1
+      - cat2
+      - count
   securitySchemes:
     sec0:
       type: apiKey

@@ -310,6 +310,13 @@ paths:
       deprecated: false
 components:
   parameters:
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
     ContentTypeJson:
       name: Content-Type
       description: application/json
@@ -318,18 +325,27 @@ components:
       schema:
         type: string
         default: application/json
+    AreaId:
+      name: areaId
+      in: path
+      description: 상권(AREA) ID
+      schema:
+        type: string
+        default: '9195'
+      required: true
     StartDate:
       name: startDate
       in: query
       description: 기준 시작 일자(YYYYMMDD)
       schema:
         type: string
-    EndDate:
-      name: endDate
+    Date:
+      name: date
       in: query
-      description: 기준 종료 일자(YYYYMMDD)
+      description: 기준 일자(YYYYMMDD) 또는 어제(ystday)를 지정, startDate, endDate 입력이 우선합니다.
       schema:
         type: string
+        default: ystday
     Range:
       name: range
       in: query
@@ -341,21 +357,23 @@ components:
         - 0days
         - 7days
         - 30days
-    AreaId:
-      name: areaId
-      in: path
-      description: 상권(AREA) ID
-      schema:
-        type: string
-        default: '9195'
-      required: true
-    Date:
-      name: date
+    Gender:
+      name: gender
       in: query
-      description: 기준 일자(YYYYMMDD) 또는 어제(ystday)를 지정, startDate, endDate 입력이 우선합니다.
+      description: 조회 대상 성별
       schema:
         type: string
-        default: ystday
+        default: male
+        enum:
+        - male
+        - female
+        - all
+    EndDate:
+      name: endDate
+      in: query
+      description: 기준 종료 일자(YYYYMMDD)
+      schema:
+        type: string
     AgeGrp:
       name: ageGrp
       in: query
@@ -375,24 +393,6 @@ components:
         - '80'
         - '90'
         - 100_over
-        - all
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
-    Gender:
-      name: gender
-      in: query
-      description: 조회 대상 성별
-      schema:
-        type: string
-        default: male
-        enum:
-        - male
-        - female
         - all
     PoiId:
       name: poiId
@@ -428,32 +428,6 @@ components:
       - code
       - message
       - totalCount
-    PoiVisitorCountRawDaily:
-      type: object
-      properties:
-        poiId:
-          type: string
-          description: 장소 id
-        poiName:
-          type: string
-          description: 장소 이름
-        gender:
-          type: string
-          description: 성별 (male:남성, female:여성, all:전체)
-        ageGrp:
-          type: string
-          description: 연령대 (0:10대 미만, 10:10대, 20:20대, 30:30대, 40:40대, 50:50대, 60:60대, 70:70대, 80:80대, 90:90대, 100:100대이상, all:전체)
-        raw:
-          description: raw 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/VisitorCountDate'
-      required:
-      - poiId
-      - poiName
-      - gender
-      - ageGrp
-      - raw
     PoiVisitorDistance:
       type: object
       properties:
@@ -479,151 +453,6 @@ components:
       required:
       - poiId
       - poiName
-      - stat
-      - statStartDate
-      - statEndDate
-    AreaVisitorCountRawDaily:
-      type: object
-      properties:
-        areaId:
-          type: string
-          description: 상권 id
-        areaName:
-          type: string
-          description: 상권 이름
-        gender:
-          type: string
-          description: 성별 (male:남성, female:여성, all:전체)
-        ageGrp:
-          type: string
-          description: 연령대 (0:10대 미만, 10:10대, 20:20대, 30:30대, 40:40대, 50:50대, 60:60대, 70:70대, 80:80대, 90:90대, 100:100대이상, all:전체)
-        raw:
-          description: raw 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/VisitorCountDate'
-      required:
-      - areaId
-      - areaName
-      - gender
-      - ageGrp
-      - raw
-    AreaVisitorSeg:
-      type: object
-      properties:
-        areaId:
-          type: string
-          description: 상권 id
-        areaName:
-          type: string
-          description: 상권 이름
-        stat:
-          description: 통계 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/VisitorSeg'
-        statStartDate:
-          type: string
-          description: 통계 시작일
-        statEndDate:
-          type: string
-          description: 통계 종료일
-      required:
-      - areaId
-      - areaName
-      - stat
-      - statStartDate
-      - statEndDate
-    VisitorType:
-      type: object
-      properties:
-        visitorType:
-          type: string
-          description: 방문자 유형(home, work, visitor)
-        rate:
-          type: number
-          description: 방문자 유형이 전체에서 차지하는 비율입니다.
-      required:
-      - gender
-      - ageGrp
-      - rate
-    VisitorSeg:
-      type: object
-      properties:
-        gender:
-          type: string
-          description: 성별
-        ageGrp:
-          type: string
-          description: 연령대
-        rate:
-          type: number
-          description: 방문자 성별, 연령대가 전체에서 차지하는 비율입니다.
-      required:
-      - gender
-      - ageGrp
-      - rate
-    PoiVisitorSeg:
-      type: object
-      properties:
-        poiId:
-          type: string
-          description: 장소 id
-        poiName:
-          type: string
-          description: 장소 이름
-        stat:
-          description: 통계 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/VisitorSeg'
-        statStartDate:
-          type: string
-          description: 통계 시작일
-        statEndDate:
-          type: string
-          description: 통계 종료일
-      required:
-      - poiId
-      - poiName
-      - stat
-      - statStartDate
-      - statEndDate
-    VisitorCountDate:
-      type: object
-      properties:
-        approxVisitorCount:
-          type: number
-          description: 추정 방문자수
-        date:
-          type: string
-          description: 날짜 (YYYYMMDD)
-      required:
-      - approxVisitorCount
-      - date
-    AreaVisitorType:
-      type: object
-      properties:
-        areaId:
-          type: string
-          description: 상권 id
-        areaName:
-          type: string
-          description: 상권 이름
-        stat:
-          description: 통계 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/VisitorType'
-        statStartDate:
-          type: string
-          description: 통계 시작일
-        statEndDate:
-          type: string
-          description: 통계 종료일
-      required:
-      - areaId
-      - areaName
       - stat
       - statStartDate
       - statEndDate
@@ -655,6 +484,177 @@ components:
       - stat
       - statStartDate
       - statEndDate
+    VisitorSeg:
+      type: object
+      properties:
+        gender:
+          type: string
+          description: 성별
+        ageGrp:
+          type: string
+          description: 연령대
+        rate:
+          type: number
+          description: 방문자 성별, 연령대가 전체에서 차지하는 비율입니다.
+      required:
+      - gender
+      - ageGrp
+      - rate
+    AreaVisitorSeg:
+      type: object
+      properties:
+        areaId:
+          type: string
+          description: 상권 id
+        areaName:
+          type: string
+          description: 상권 이름
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/VisitorSeg'
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - areaId
+      - areaName
+      - stat
+      - statStartDate
+      - statEndDate
+    AreaVisitorCountRawDaily:
+      type: object
+      properties:
+        areaId:
+          type: string
+          description: 상권 id
+        areaName:
+          type: string
+          description: 상권 이름
+        gender:
+          type: string
+          description: 성별 (male:남성, female:여성, all:전체)
+        ageGrp:
+          type: string
+          description: 연령대 (0:10대 미만, 10:10대, 20:20대, 30:30대, 40:40대, 50:50대, 60:60대, 70:70대, 80:80대, 90:90대, 100:100대이상, all:전체)
+        raw:
+          description: raw 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/VisitorCountDate'
+      required:
+      - areaId
+      - areaName
+      - gender
+      - ageGrp
+      - raw
+    VisitorCountDate:
+      type: object
+      properties:
+        approxVisitorCount:
+          type: number
+          description: 추정 방문자수
+        date:
+          type: string
+          description: 날짜 (YYYYMMDD)
+      required:
+      - approxVisitorCount
+      - date
+    PoiVisitorCountRawDaily:
+      type: object
+      properties:
+        poiId:
+          type: string
+          description: 장소 id
+        poiName:
+          type: string
+          description: 장소 이름
+        gender:
+          type: string
+          description: 성별 (male:남성, female:여성, all:전체)
+        ageGrp:
+          type: string
+          description: 연령대 (0:10대 미만, 10:10대, 20:20대, 30:30대, 40:40대, 50:50대, 60:60대, 70:70대, 80:80대, 90:90대, 100:100대이상, all:전체)
+        raw:
+          description: raw 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/VisitorCountDate'
+      required:
+      - poiId
+      - poiName
+      - gender
+      - ageGrp
+      - raw
+    AreaVisitorType:
+      type: object
+      properties:
+        areaId:
+          type: string
+          description: 상권 id
+        areaName:
+          type: string
+          description: 상권 이름
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/VisitorType'
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - areaId
+      - areaName
+      - stat
+      - statStartDate
+      - statEndDate
+    PoiVisitorSeg:
+      type: object
+      properties:
+        poiId:
+          type: string
+          description: 장소 id
+        poiName:
+          type: string
+          description: 장소 이름
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/VisitorSeg'
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - poiId
+      - poiName
+      - stat
+      - statStartDate
+      - statEndDate
+    VisitorType:
+      type: object
+      properties:
+        visitorType:
+          type: string
+          description: 방문자 유형(home, work, visitor)
+        rate:
+          type: number
+          description: 방문자 유형이 전체에서 차지하는 비율입니다.
+      required:
+      - gender
+      - ageGrp
+      - rate
   securitySchemes:
     sec0:
       type: apiKey

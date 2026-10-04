@@ -173,23 +173,19 @@ paths:
                       message: Network error communicating with endpoint
       deprecated: false
 components:
-  parameters:
-    ContentTypeJson:
-      name: Content-Type
-      description: application/json
-      in: header
-      required: true
-      schema:
-        type: string
-        default: application/json
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
   schemas:
+    Apt:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+      required:
+      - kaptCode
+      - kaptName
     ResponseStatus:
       type: object
       description: 응답 상태입니다.
@@ -211,18 +207,22 @@ components:
         totalCount:
           type: integer
           description: 검색 결과 데이터 건수입니다.
-    Apt:
-      type: object
-      properties:
-        kaptCode:
-          type: string
-          description: 아파트 코드(국토부 기준)
-        kaptName:
-          type: string
-          description: 아파트 이름(국토부 기준)
-      required:
-      - kaptCode
-      - kaptName
+  parameters:
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
+    ContentTypeJson:
+      name: Content-Type
+      description: application/json
+      in: header
+      required: true
+      schema:
+        type: string
+        default: application/json
   securitySchemes:
     sec0:
       type: apiKey
