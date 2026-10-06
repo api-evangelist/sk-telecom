@@ -66,7 +66,7 @@ tags:
 - Location
 - Big Data
 created: '2026-07-25'
-modified: '2026-07-25'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: sk-telecom:sk-telecom-geovision-api
@@ -1432,6 +1432,8 @@ apis:
   - type: Deprecation
     url: https://openapi.sk.com/support/notice/detailView?ntiSeq=357
 common:
+- url: https://news.sktelecom.com/feed
+  type: BlogRSS
 - type: Overlay
   url: overlays/sk-telecom-ax-tts-overlay.yaml
 - type: AgentSkill
