@@ -134,6 +134,48 @@ paths:
       deprecated: false
 components:
   schemas:
+    AptResidentFeatureStatMonthly:
+      type: object
+      properties:
+        kaptCode:
+          type: string
+          description: 아파트 코드(국토부 기준)
+        kaptName:
+          type: string
+          description: 아파트 이름(국토부 기준)
+        stat:
+          description: 통계 데이터
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureLift'
+        yearMonth:
+          type: string
+          description: 기준 월
+        statStartDate:
+          type: string
+          description: 통계 시작일
+        statEndDate:
+          type: string
+          description: 통계 종료일
+      required:
+      - kaptCode
+      - kaptName
+      - stat
+      - yearMonth
+      - statStartDate
+      - statEndDate
+    FeatureLift:
+      type: object
+      properties:
+        feature:
+          type: string
+          description: demo feature
+        lift:
+          type: number
+          description: lift
+      required:
+      - feature
+      - lift
     AptSubwayUseRateStatMonthly:
       type: object
       properties:
@@ -163,6 +205,34 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
+    DemoStat:
+      type: object
+      properties:
+        gender:
+          type: string
+          description: 성별
+        avgAge:
+          type: number
+          description: 평균연령
+        ctpAvgAge:
+          type: number
+          description: 시도 평균연령
+        sigAvgAge:
+          type: number
+          description: 시군구 평균연령
+      required:
+      - gender
+      - avgAge
+      - ctpAvgAge
+      - sigAvgAge
+    Rate:
+      type: object
+      properties:
+        rate:
+          type: number
+          description: rate
+      required:
+      - rate
     ResponseStatus:
       type: object
       description: 응답 상태입니다.
@@ -214,84 +284,7 @@ components:
       - yearMonth
       - statStartDate
       - statEndDate
-    DemoStat:
-      type: object
-      properties:
-        gender:
-          type: string
-          description: 성별
-        avgAge:
-          type: number
-          description: 평균연령
-        ctpAvgAge:
-          type: number
-          description: 시도 평균연령
-        sigAvgAge:
-          type: number
-          description: 시군구 평균연령
-      required:
-      - gender
-      - avgAge
-      - ctpAvgAge
-      - sigAvgAge
-    Rate:
-      type: object
-      properties:
-        rate:
-          type: number
-          description: rate
-      required:
-      - rate
-    FeatureLift:
-      type: object
-      properties:
-        feature:
-          type: string
-          description: demo feature
-        lift:
-          type: number
-          description: lift
-      required:
-      - feature
-      - lift
-    AptResidentFeatureStatMonthly:
-      type: object
-      properties:
-        kaptCode:
-          type: string
-          description: 아파트 코드(국토부 기준)
-        kaptName:
-          type: string
-          description: 아파트 이름(국토부 기준)
-        stat:
-          description: 통계 데이터
-          type: array
-          items:
-            $ref: '#/components/schemas/FeatureLift'
-        yearMonth:
-          type: string
-          description: 기준 월
-        statStartDate:
-          type: string
-          description: 통계 시작일
-        statEndDate:
-          type: string
-          description: 통계 종료일
-      required:
-      - kaptCode
-      - kaptName
-      - stat
-      - yearMonth
-      - statStartDate
-      - statEndDate
   parameters:
-    AppKey:
-      name: appKey
-      in: header
-      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
-      required: true
-      schema:
-        type: string
     ContentTypeJson:
       name: Content-Type
       description: application/json
@@ -300,6 +293,13 @@ components:
       schema:
         type: string
         default: application/json
+    AppKey:
+      name: appKey
+      in: header
+      description: <a href="https://openapi.sk.com/mypage/project/" target="_blank">대시보드>앱</a>>앱키(appKey) 탭에서 조회
+      required: true
+      schema:
+        type: string
     KaptCode:
       name: kaptCode
       in: path
