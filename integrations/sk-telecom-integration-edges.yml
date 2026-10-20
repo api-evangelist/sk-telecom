@@ -19,7 +19,46 @@ edges:
     api_families_basis: null
     detected_by: sweep-telco-network-apis.py
     detected: '2026-10-12'
+- partner_name: PeeringDB (interconnection register)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.peeringdb.com/net/37571
+  category: network interconnection register
+  contract_reference:
+    register: PeeringDB (peeringdb.com/api net, ix, fac, org)
+    standard: null
+    spec_file: null
+    role: peeringdb-network
+    registered_name: SK Telecom
+    register_id: https://www.peeringdb.com/net/37571
+    matched_domain: sktelecom.com
+    matched_by: domain
+    asns:
+    - 9644
+    info_types: []
+    ix_presence: 0
+    exchanges_operated: []
+    facilities_operated: 0
+    signal_note: 'participation only: PeeringDB is self-registered by network operators; ASNs, IX presence and facility
+      counts are context, never counted'
+    detected_by: sweep-network-edge.py
+    detected: '2026-10-20'
+  detected_by: sweep-network-edge.py
+  first_seen: '2026-10-20'
 generated: '2026-10-12'
 method: searched
 checked:
 - https://raw.githubusercontent.com/camaraproject/camara-landscape/main/landscape.yml
+- https://manrs.org/netops/participants/
+- https://www.peeringdb.com/api/fac
+- https://www.peeringdb.com/api/ix
+- https://www.peeringdb.com/api/net
+source:
+- https://www.peeringdb.com/api/net
+- https://www.peeringdb.com/api/ix
+- https://www.peeringdb.com/api/fac
+- https://manrs.org/netops/participants/
