@@ -49,6 +49,39 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-network-edge.py
   first_seen: '2026-10-20'
+- partner_name: Korea MyData integrated authentication bodies (MyData Support Center participants)
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.mydatacenter.or.kr:3441/myd/intro/sub3.do
+  category: Korean MyData integrated authentication body (identity verification / e-signature)
+  contract_reference:
+    register: Korea MyData integrated authentication bodies (MyData Support Center participants)
+    spec_file: null
+    standard: null
+    role: authentication-provider
+    registrations:
+    - registered_name: SKT
+      register_country: KR
+      matched_domain: sktelecom.com
+      matched_by: domain
+      register_website: https://www.sktelecom.com
+      register_sector: electronic-signature authentication provider
+    signal_note: 'participation only: listed by the MyData Support Center (Korea Credit Information Services, for
+      the FSC); no conformance certification is published'
+    detected_by: sweep-korea-mydata-operators.py
+    detected: '2026-10-22'
+    signals:
+    - signal: mydata-operator-licence-closed
+      source: https://www.fsc.go.kr/po040200/87330
+      as_of: '2026-07-15'
+      note: 'FSC notice: SK Telecom closed its MyData operator business; still listed as an integrated-authentication
+        body'
+  detected_by: sweep-korea-mydata-operators.py
+  first_seen: '2026-10-22'
 generated: '2026-10-12'
 method: searched
 checked:
@@ -57,6 +90,10 @@ checked:
 - https://www.peeringdb.com/api/fac
 - https://www.peeringdb.com/api/ix
 - https://www.peeringdb.com/api/net
+- https://www.mydatacenter.or.kr:3441/myd/bbsctt/notice1/notice/076e7a70-9d5c-4bad-9ee5-2bcb5153b6ed/35/bbsctt.do
+- https://www.mydatacenter.or.kr:3441/myd/bbsctt/notice1/notice/37ebe6f6-b9ae-4692-9db2-44e5f434bbd3/36/bbsctt.do
+- https://www.mydatacenter.or.kr:3441/myd/index/index.do
+- https://www.mydatacenter.or.kr:3441/myd/intro/sub3.do
 source:
 - https://www.peeringdb.com/api/net
 - https://www.peeringdb.com/api/ix

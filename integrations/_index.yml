@@ -57,3 +57,36 @@
     detected: '2026-10-20'
   status: not-a-workflow
   arazzo: null
+- slug: sk-telecom-korea-mydata-integrated-authentication-bodies-mydata-support-center-participants
+  label: Korea MyData integrated authentication bodies (MyData Support Center participants)
+  partner_name: Korea MyData integrated authentication bodies (MyData Support Center participants)
+  category: Korean MyData integrated authentication body (identity verification / e-signature)
+  type: register
+  channel: regulator-register
+  evidence: https://www.mydatacenter.or.kr:3441/myd/intro/sub3.do
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Korea MyData integrated authentication bodies (MyData Support Center participants)
+    spec_file: null
+    standard: null
+    role: authentication-provider
+    registrations:
+    - registered_name: SKT
+      register_country: KR
+      matched_domain: sktelecom.com
+      matched_by: domain
+      register_website: https://www.sktelecom.com
+      register_sector: electronic-signature authentication provider
+    signal_note: 'participation only: listed by the MyData Support Center (Korea Credit Information Services, for
+      the FSC); no conformance certification is published'
+    detected_by: sweep-korea-mydata-operators.py
+    detected: '2026-10-22'
+    signals:
+    - signal: mydata-operator-licence-closed
+      source: https://www.fsc.go.kr/po040200/87330
+      as_of: '2026-07-15'
+      note: 'FSC notice: SK Telecom closed its MyData operator business; still listed as an integrated-authentication
+        body'
+  status: not-a-workflow
+  arazzo: null
